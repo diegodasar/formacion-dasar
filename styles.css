@@ -475,3 +475,30 @@ strong{font-weight:600}
   .calc .calc-grid{grid-template-columns:1fr}
   .calc-result .money{grid-template-columns:1fr}
 }
+
+/* ============================================================
+   v3 · Biblioteca normativa (descargables BOE) y utilidades M1
+   ============================================================ */
+.lib{display:grid;grid-template-columns:1fr 1fr;gap:.7rem;margin:1.3rem 0}
+.libitem{display:flex;gap:.8rem;align-items:flex-start;border:1px solid var(--line);border-radius:var(--radius);
+  padding:.85rem 1rem;background:#fff;transition:.18s;color:var(--ink)}
+.libitem:hover{border-color:var(--ink);box-shadow:var(--shadow-sm);transform:translateY(-1px)}
+.libitem .pdf{flex:0 0 auto;width:34px;height:34px;border-radius:8px;background:var(--wine);color:#fff;
+  display:grid;place-items:center;font-size:.62rem;font-weight:700;letter-spacing:.02em}
+.libitem .lt{flex:1;min-width:0}
+.libitem .lt b{display:block;font-size:.95rem;color:var(--ink);line-height:1.25}
+.libitem .lt span{font-size:.8rem;color:var(--muted-2)}
+.libitem .go{color:var(--wine);font-weight:600;font-size:.8rem;white-space:nowrap;align-self:center}
+.libnote{font-size:.85rem;color:var(--muted);font-style:italic;margin-top:.2rem}
+
+/* etiqueta de artículo/norma inline */
+.ref-tag{display:inline-block;background:var(--wine-soft);color:var(--wine-dark);border-radius:6px;
+  padding:.05rem .45rem;font-size:.82rem;font-weight:600;white-space:nowrap}
+
+/* aviso de vigencia */
+.warnbox{display:flex;gap:.8rem;align-items:flex-start;border:1px solid var(--line-strong);
+  border-radius:var(--radius);padding:1rem 1.2rem;margin:1.3rem 0;background:var(--paper-2)}
+.warnbox .ic{flex:0 0 auto;width:30px;height:30px;border-radius:8px;background:var(--ink);color:#fff;display:grid;place-items:center;font-weight:700}
+.warnbox p{margin:0;font-size:.92rem;color:var(--muted)}
+
+@media (max-width:720px){ .lib{grid-template-columns:1fr} }

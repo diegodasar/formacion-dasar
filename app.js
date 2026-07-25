@@ -11,7 +11,7 @@
 
   var MODULES = [
     { id: "mod0", num: "0", title: "Presentación e introducción", file: "modulo-0.html", ready: true, core: false },
-    { id: "mod1", num: "1", title: "Marco legislativo e institucional", file: "modulo-1.html", ready: false, core: false },
+    { id: "mod1", num: "1", title: "Marco legislativo e institucional", file: "modulo-1.html", ready: true, core: false },
     { id: "mod2", num: "2", title: "Diagnóstico patrimonial 360º", file: "modulo-2.html", ready: false, core: true },
     { id: "mod3", num: "3", title: "Los tributos y su interconexión", file: "modulo-3.html", ready: false, core: false },
     { id: "mod4", num: "4", title: "Estructuras y operaciones complejas", file: "modulo-4.html", ready: false, core: false },
