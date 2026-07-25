@@ -4,12 +4,12 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Módulo 2 · Diagnóstico patrimonial 360º · DASAR</title>
-<meta name="description" content="Módulo 2 de la formación DASAR: El núcleo metodológico de DASAR. Aquí aprenderéis a levantar el diagnóstico patrimonial 360º: las cuatro fotografías del cliente y, sobre todo, cómo s">
+<meta name="description" content="Módulo 2 DASAR: el diagnóstico patrimonial 360º. Clasificación de activos, comportamiento tributario, detección del desorden y herramienta rellenable para generar el mapa de dolor del cliente.">
 <link rel="icon" href="dasar-color.svg">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Jost:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="styles.css?v=5">
+<link rel="stylesheet" href="styles.css?v=6">
 </head>
 <body data-current="mod2">
 
@@ -26,6 +26,7 @@
   </div>
   <a class="home-link" href="index.html">Inicio</a>
 </header>
+<div class="readprogress" aria-hidden="true"><i></i></div>
 
 <div class="layout">
   <aside class="sidebar">
@@ -34,93 +35,388 @@
   </aside>
 
   <main class="content prose">
+
     <div class="mod-head">
       <div class="eyebrow">
         <span class="mod-badge">Módulo 2</span>
-        <span class="mod-meta">Diagnóstico patrimonial 360º</span> <span class="wip" style="background:var(--ink);color:#fff">Núcleo del método</span>
+        <span class="mod-meta">Diagnóstico patrimonial 360º · núcleo del método</span>
       </div>
-      <h1>Diagnóstico patrimonial 360º</h1>
-      <p class="lead">El núcleo metodológico de DASAR. Aquí aprenderéis a levantar el diagnóstico patrimonial 360º: las cuatro fotografías del cliente y, sobre todo, cómo se conectan para construir el mapa de dolor que dispara todo el plan.</p>
-      <p style="margin-top:1rem"><span class="wip"><span class="tri"></span> Contenido en desarrollo</span></p>
-      <p style="color:var(--muted)">Este módulo forma parte del programa y se desarrollará en profundidad próximamente. A continuación tienes sus <strong>objetivos de aprendizaje</strong> y el <strong>índice de contenidos previsto</strong>.</p>
+      <h1>El diagnóstico 360º y el mapa de dolor</h1>
+      <p class="lead">Este es el corazón de DASAR. Aquí aprendes a <strong>revisarlo todo</strong>: clasificar cada activo del cliente, ver cómo se comporta tributariamente, detectar qué está desordenado y priorizar. El resultado es el <strong>mapa de dolor</strong>, del que cuelga toda la propuesta. Al final tienes una <strong>herramienta rellenable</strong> que lo genera.</p>
+      <p style="color:var(--muted-2);font-size:.9rem">Nivel: máster / especialización · Incluye herramienta interactiva · Lectura estimada: 60–75 min</p>
     </div>
 
-    <section class="reveal">
-      <span class="kicker">Objetivos de aprendizaje</span>
-      <h2>Qué sabrás hacer al terminar</h2>
-      <div class="grid grid-2" style="margin-top:1rem">
-        <div class="card"><div style="display:flex;gap:.9rem"><span class="badge-num">1</span><div><p class="mt0" style="margin:0;color:var(--muted)">Ejecutar un inventario patrimonial completo y fiable (activos, pasivos y titularidades).</p></div></div></div>
-        <div class="card"><div style="display:flex;gap:.9rem"><span class="badge-num">2</span><div><p class="mt0" style="margin:0;color:var(--muted)">Levantar la fotografía fiscal del cliente y detectar riesgos abiertos.</p></div></div></div>
-        <div class="card"><div style="display:flex;gap:.9rem"><span class="badge-num">3</span><div><p class="mt0" style="margin:0;color:var(--muted)">Analizar los activos por naturaleza, liquidez, afectación y plusvalías latentes.</p></div></div></div>
-        <div class="card"><div style="display:flex;gap:.9rem"><span class="badge-num">4</span><div><p class="mt0" style="margin:0;color:var(--muted)">Integrar las cuatro dimensiones en un mapa de dolor priorizado.</p></div></div></div>
+    <div class="gate"><span class="tri"></span><div>Módulo interactivo: el progreso se marca solo. La actividad estrella es la <strong>herramienta de diagnóstico</strong> del final: introduce los datos de un cliente y genera su mapa de dolor (puedes imprimirlo o descargarlo).</div></div>
+
+    <div class="toc">
+      <h4>En este módulo</h4>
+      <a href="#s1"><span class="tri"></span>2.1 · Por qué el diagnóstico es el núcleo</a>
+      <a href="#s2"><span class="tri"></span>2.2 · Las cuatro fotografías</a>
+      <a href="#s3"><span class="tri"></span>2.3 · Clasificar todos los activos</a>
+      <a href="#s4"><span class="tri"></span>2.4 · Cómo se comporta cada activo</a>
+      <a href="#s5"><span class="tri"></span>2.5 · Detectar el desorden</a>
+      <a href="#s6"><span class="tri"></span>2.6 · Construir y priorizar el mapa de dolor</a>
+      <a href="#s7"><span class="tri"></span>2.7 · Las preguntas que hacemos</a>
+      <a href="#tool"><span class="tri"></span>Herramienta: genera el mapa de dolor</a>
+      <a href="#casos"><span class="tri"></span>Casos prácticos</a>
+      <a href="#quiz"><span class="tri"></span>Autoevaluación</a>
+    </div>
+
+    <!-- 2.1 -->
+    <section id="s1" class="reveal">
+      <span class="kicker">2.1 · Núcleo</span>
+      <h2>Por qué el diagnóstico es el núcleo</h2>
+      <p>Un cliente casi nunca sabe cuál es su verdadero problema. Nos pide "pagar menos impuestos", pero detrás suele haber titularidades mal ordenadas, ausencia de plan sucesorio, estructuras que generan sobrecoste o falta de liquidez para el futuro. <strong>Si nos saltamos el diagnóstico, damos una respuesta brillante a la pregunta equivocada.</strong></p>
+      <div class="pullquote">Antes de proponer, hay que diagnosticar. El mapa de dolor es lo que convierte una intuición en una recomendación defendible.</div>
+      <p>El diagnóstico 360º es un método: mirar el patrimonio como un <strong>sistema</strong>, no como una suma de activos sueltos. Se apoya en cuatro fotografías que se cruzan entre sí y desembocan en una lista priorizada de cuestiones a mejorar.</p>
+      <div class="flow" style="grid-template-columns:repeat(4,1fr)">
+        <div class="step"><div class="n">01</div><h4>Revisar</h4><p>Reunir información y clasificar cada activo.</p></div>
+        <div class="step"><div class="n">02</div><h4>Analizar</h4><p>Ver cómo se comporta y qué está desordenado.</p></div>
+        <div class="step"><div class="n">03</div><h4>Priorizar</h4><p>Ordenar por riesgo, coste, urgencia y objetivos.</p></div>
+        <div class="step"><div class="n">04</div><h4>Mapa de dolor</h4><p>La base de la propuesta y la ejecución.</p></div>
       </div>
     </section>
 
     <hr class="divider">
 
-    <section class="reveal">
-      <span class="kicker">Contenido previsto</span>
-      <h2>Índice del módulo</h2>
-      <div class="toc">
-        <h4>Secciones</h4>
-      <a href="#sec0"><span class="tri"></span>2.1 · Situación patrimonial</a>
-      <a href="#sec1"><span class="tri"></span>2.2 · Situación fiscal</a>
-      <a href="#sec2"><span class="tri"></span>2.3 · Activos</a>
-      <a href="#sec3"><span class="tri"></span>2.4 · Actividades</a>
-      <a href="#sec4"><span class="tri"></span>2.5 · El mapa de dolor</a>
+    <!-- 2.2 -->
+    <section id="s2" class="reveal">
+      <span class="kicker">2.2 · Las cuatro fotografías</span>
+      <h2>Lo que revisamos, de un vistazo</h2>
+      <div class="grid grid-2" style="margin-top:1rem">
+        <div class="card"><div style="display:flex;gap:.9rem"><span class="badge-num">1</span><div><h4 class="mt0">Situación patrimonial</h4><p style="color:var(--muted)">Inventario de activos y pasivos, <strong>titularidades</strong>, régimen económico matrimonial y estructura familiar.</p></div></div></div>
+        <div class="card"><div style="display:flex;gap:.9rem"><span class="badge-num">2</span><div><h4 class="mt0">Situación fiscal</h4><p style="color:var(--muted)">Residencia, obligaciones declaradas, <strong>riesgos abiertos</strong> e historial tributario.</p></div></div></div>
+        <div class="card"><div style="display:flex;gap:.9rem"><span class="badge-num">3</span><div><h4 class="mt0">Activos</h4><p style="color:var(--muted)">Naturaleza, <strong>liquidez</strong>, afectación a la actividad y plusvalías latentes.</p></div></div></div>
+        <div class="card"><div style="display:flex;gap:.9rem"><span class="badge-num">4</span><div><h4 class="mt0">Actividades</h4><p style="color:var(--muted)">Fuentes de renta, <strong>vehículos empresariales</strong> y necesidades de financiación.</p></div></div></div>
       </div>
 
-      <section id="sec0" class="reveal card" style="margin:1rem 0">
-        <h3 class="mt0">2.1 · Situación patrimonial</h3>
-        <ul>
-            <li>Inventario de activos y pasivos; valoración y criterios.</li>
-            <li>Titularidades y régimen económico matrimonial (gananciales, separación, participación).</li>
-            <li>Estructura familiar y su impacto patrimonial y sucesorio.</li>
-        </ul>
-      </section>
-      <section id="sec1" class="reveal card" style="margin:1rem 0">
-        <h3 class="mt0">2.2 · Situación fiscal</h3>
-        <ul>
-            <li>Residencia fiscal y obligaciones declarativas (incluida información sobre bienes en el extranjero).</li>
-            <li>Historial: declaraciones presentadas, comprobaciones, riesgos abiertos.</li>
-            <li>Calendario y obligaciones formales del cliente.</li>
-        </ul>
-      </section>
-      <section id="sec2" class="reveal card" style="margin:1rem 0">
-        <h3 class="mt0">2.3 · Activos</h3>
-        <ul>
-            <li>Clasificación por naturaleza y liquidez.</li>
-            <li>Afectación a la actividad económica (clave para exenciones y beneficios).</li>
-            <li>Plusvalías latentes y su relevancia para futuras transmisiones.</li>
-        </ul>
-      </section>
-      <section id="sec3" class="reveal card" style="margin:1rem 0">
-        <h3 class="mt0">2.4 · Actividades</h3>
-        <ul>
-            <li>Fuentes de renta del cliente y su tratamiento.</li>
-            <li>Vehículos empresariales (sociedades operativas, holding, patrimoniales).</li>
-            <li>Necesidades y estructura de financiación.</li>
-        </ul>
-      </section>
-      <section id="sec4" class="reveal card" style="margin:1rem 0">
-        <h3 class="mt0">2.5 · El mapa de dolor</h3>
-        <ul>
-            <li>Cómo transformar el diagnóstico en una lista priorizada de cuestiones a mejorar.</li>
-            <li>Riesgo, coste, urgencia y objetivos familiares como criterios de priorización.</li>
-            <li>Plantilla de diagnóstico DASAR (se entregará en el módulo).</li>
-        </ul>
-      </section>
+      <div class="caso svc" data-act="fotos">
+        <div class="caso-h"><div class="ci">+</div><div class="cti"><div class="cl">Ampliar · qué miramos en cada una</div><h4>Las cuatro fotografías a fondo</h4><p>El detalle de lo que revisamos, foto a foto.</p></div><div class="chev">▾</div></div>
+        <div class="caso-body"><div class="caso-inner">
+          <div class="plano"><h5>1 · Situación patrimonial</h5><p>Inventario completo (activos y pasivos) con su <strong>valor</strong> y su <strong>titularidad</strong> real; régimen económico del matrimonio (¿ganancial o privativo?); estructura familiar (edades, hijos, personas dependientes); vecindad civil. Aquí se descubren la mayoría de "sorpresas": un inmueble a nombre de uno que era ganancial, una cuenta compartida, un aval olvidado.</p></div>
+          <div class="plano"><h5>2 · Situación fiscal</h5><p>Residencia fiscal y CCAA; impuestos que presenta (IRPF, IP, IS, IVA) y cuáles no; <strong>riesgos abiertos</strong> (comprobaciones, aplazamientos, sanciones); bienes en el extranjero; declaraciones informativas. Nos dice el nivel de exposición y qué hay que regularizar antes de optimizar.</p></div>
+          <div class="plano"><h5>3 · Activos</h5><p>Clasificación por naturaleza y por <strong>liquidez</strong>; <strong>afectación</strong> a actividad económica (clave para exenciones); <strong>plusvalías latentes</strong> (diferencia entre valor de mercado y de adquisición, que anticipa el coste de una futura venta o herencia); concentración de riesgo.</p></div>
+          <div class="plano"><h5>4 · Actividades</h5><p>Fuentes de renta (trabajo, capital, actividad); <strong>vehículos empresariales</strong> (sociedad operativa, holding, patrimonial) y su encaje; nivel de <strong>financiación</strong> y garantías. Conecta la vertiente personal con la empresarial.</p></div>
+        </div></div>
+      </div>
     </section>
 
-    <div class="complete-bar">
-      <div class="cb-t"><strong>Seguimiento</strong><span>Podrás marcar este módulo como completado cuando esté publicado y superes su autoevaluación.</span></div>
-      <button class="btn btn-outline" data-complete-toggle="mod2">Marcar como completado</button>
+    <hr class="divider">
+
+    <!-- 2.3 -->
+    <section id="s3" class="reveal">
+      <span class="kicker">2.3 · Clasificar</span>
+      <h2>Clasificar todos los activos</h2>
+      <p>Todo lo que tenemos en gestión se clasifica por varios ejes a la vez. La misma vivienda es, según el eje, "inmobiliario", "ilíquido", "no afecto" y "ganancial". Esta doble lectura es la que revela el desorden.</p>
+      <table class="tbl">
+        <thead><tr><th>Eje</th><th>Categorías</th><th>Por qué importa</th></tr></thead>
+        <tbody>
+          <tr><td><strong>Naturaleza</strong></td><td>Inmobiliario · Financiero · Empresarial (participaciones) · Liquidez · Previsión (pensiones) · Otros (arte, vehículos)</td><td>Determina qué impuesto le aplica y su régimen.</td></tr>
+          <tr><td><strong>Afectación</strong></td><td>Afecto a actividad económica · No afecto</td><td>Decide la <strong>exención de empresa familiar</strong> en IP e ISD.</td></tr>
+          <tr><td><strong>Liquidez</strong></td><td>Líquido · Semilíquido · Ilíquido</td><td>Anticipa si habrá dinero para pagar el ISD o afrontar imprevistos.</td></tr>
+          <tr><td><strong>Titularidad</strong></td><td>Privativo · Ganancial · Compartido / proindiviso</td><td>Determina qué entra en la herencia de cada cónyuge.</td></tr>
+          <tr><td><strong>Plusvalía latente</strong></td><td>Con / sin ganancia acumulada</td><td>Anticipa el coste fiscal de una venta o transmisión futura.</td></tr>
+        </tbody>
+      </table>
+    </section>
+
+    <hr class="divider">
+
+    <!-- 2.4 -->
+    <section id="s4" class="reveal">
+      <span class="kicker">2.4 · Comportamiento tributario</span>
+      <h2>Cómo se comporta cada activo</h2>
+      <p>Para cada activo hay que saber qué paga <strong>al tenerlo</strong>, <strong>al venderlo</strong> y <strong>en la sucesión</strong>. Esta tabla es el puente con el Módulo 1 y la base para valorar el impacto de cada decisión.</p>
+      <table class="tbl">
+        <thead><tr><th>Activo</th><th>Al tenerlo</th><th>Al venderlo</th><th>En la sucesión</th></tr></thead>
+        <tbody>
+          <tr><td><strong>Vivienda habitual</strong></td><td>IP: exenta hasta 300.000 € · no imputa en IRPF · IBI</td><td>IRPF: exenta si &gt;65 años o por reinversión · plusvalía municipal</td><td>ISD: reducción 95% (con límite) · plusvalía (heredero)</td></tr>
+          <tr><td><strong>2.ª residencia / a disposición</strong></td><td>IP · IRPF: imputación 1,1–2% · IBI</td><td>IRPF: ganancia · plusvalía municipal</td><td>ISD · plusvalía</td></tr>
+          <tr><td><strong>Inmueble en alquiler</strong></td><td>IRPF: rendimiento (con reducción) · IP · IBI</td><td>IRPF: ganancia · plusvalía</td><td>ISD</td></tr>
+          <tr><td><strong>Participaciones (empresa familiar)</strong></td><td>IP: <strong>exención</strong> si cumple requisitos · IRPF: dividendos</td><td>IRPF: ganancia (o neutralidad si se reestructura)</td><td>ISD: <strong>reducción 95%</strong> si cumple requisitos</td></tr>
+          <tr><td><strong>Cartera financiera</strong></td><td>IP · IRPF: rendimientos y ganancias</td><td>IRPF: ganancia (base del ahorro)</td><td>ISD</td></tr>
+          <tr><td><strong>Liquidez / depósitos</strong></td><td>IP · IRPF: intereses</td><td>—</td><td>ISD · aporta liquidez para pagar el propio impuesto</td></tr>
+          <tr><td><strong>Plan de pensiones</strong></td><td><strong>Exento de IP</strong> · no imputa</td><td>Al rescatar: rendimiento del trabajo en IRPF</td><td>No ISD: el beneficiario tributa como trabajo en su IRPF</td></tr>
+        </tbody>
+      </table>
+      <p class="libnote">Leerla en horizontal para valorar una operación (¿qué pasa si vende?) y en vertical para comparar activos (¿qué conviene mantener, vender o donar?).</p>
+    </section>
+
+    <hr class="divider">
+
+    <!-- 2.5 -->
+    <section id="s5" class="reveal">
+      <span class="kicker">2.5 · El desorden</span>
+      <h2>Detectar lo que está desordenado</h2>
+      <p>El "dolor" casi siempre aparece en las mismas familias de problemas. Estas son las <strong>señales de alerta</strong> que buscamos activamente en cada diagnóstico.</p>
+      <div class="caso svc" data-act="desorden">
+        <div class="caso-h"><div class="ci">!</div><div class="cti"><div class="cl">Ampliar · señales de alerta</div><h4>El catálogo del desorden patrimonial</h4><p>Riesgo jurídico, fiscal, de liquidez y de estructura.</p></div><div class="chev">▾</div></div>
+        <div class="caso-body"><div class="caso-inner">
+          <div class="plano"><h5>Riesgo jurídico-sucesorio</h5><p>Ausencia de testamento; titularidades que no reflejan la realidad (bien "ganancial" a nombre de uno); no hay plan de sucesión de la empresa; parejas de hecho sin ordenar; menores o personas dependientes sin previsión.</p></div>
+          <div class="plano"><h5>Riesgo fiscal</h5><p>Comprobaciones o contingencias abiertas; obligaciones no atendidas (IP, informativas de bienes en el extranjero); estructuras que no aguantan un motivo económico válido (art. 15 LGT); residencia poco eficiente para el nivel de patrimonio.</p></div>
+          <div class="plano"><h5>Riesgo de liquidez</h5><p>Patrimonio ilíquido (muy inmobiliario o concentrado en la empresa) sin tesorería ni seguro para afrontar un futuro ISD: la familia puede verse obligada a vender con prisa y mal precio.</p></div>
+          <div class="plano"><h5>Ineficiencia / estructura</h5><p>Concentración de riesgo en un solo activo; sociedad patrimonial que hace perder la exención de empresa familiar; inmuebles con coste recurrente no rentabilizados; empresa familiar sin blindar los requisitos de exención.</p></div>
+          <div class="plano"><h5>Oportunidades desaprovechadas</h5><p>Vecindad civil foral con pactos sucesorios no usados; reducciones de ISD no planificadas; seguros de vida sin designar; abatimientos o exenciones por edad no aprovechados.</p></div>
+        </div></div>
+      </div>
+    </section>
+
+    <hr class="divider">
+
+    <!-- 2.6 -->
+    <section id="s6" class="reveal">
+      <span class="kicker">2.6 · Priorizar</span>
+      <h2>Construir y priorizar el mapa de dolor</h2>
+      <p>No todo lo detectado tiene el mismo peso. Priorizamos cada cuestión cruzando cuatro criterios:</p>
+      <div class="grid grid-4" style="margin-top:1rem">
+        <div class="card dark"><h4 class="mt0">Riesgo</h4><p>¿Qué se pierde si no se actúa? (una contingencia fiscal o una sucesión sin ordenar pesan mucho).</p></div>
+        <div class="card"><h4 class="mt0">Coste</h4><p>¿Cuánto dinero está en juego, hoy y a futuro?</p></div>
+        <div class="card"><h4 class="mt0">Urgencia</h4><p>¿Hay plazos (edad, salud, operación en marcha, prescripción)?</p></div>
+        <div class="card"><h4 class="mt0">Objetivos</h4><p>¿Qué le importa de verdad a la familia? La técnica sirve a sus metas, no al revés.</p></div>
+      </div>
+      <p style="margin-top:1.2rem">El resultado es una lista ordenada de <strong>prioridad alta / media / baja</strong>, clasificada por tipo (riesgo fiscal, riesgo jurídico, ineficiencia, oportunidad). Ese es el entregable que abre la conversación con el cliente y dispara la propuesta.</p>
+    </section>
+
+    <hr class="divider">
+
+    <!-- 2.7 -->
+    <section id="s7" class="reveal">
+      <span class="kicker">2.7 · La entrevista</span>
+      <h2>Las preguntas que hacemos</h2>
+      <p>El diagnóstico se alimenta de una conversación estructurada. Estas son las preguntas que no pueden faltar, agrupadas por fotografía. La herramienta de abajo las convierte en un formulario que genera el mapa de dolor.</p>
+      <div class="grid grid-2">
+        <div class="card"><h4 class="mt0">Cliente y familia</h4><p style="color:var(--muted)">Edad, estado civil, régimen económico, vecindad civil, hijos/dependientes, CCAA de residencia, ¿hay testamento?, ¿seguros designados?</p></div>
+        <div class="card"><h4 class="mt0">Activos</h4><p style="color:var(--muted)">¿Qué tiene y cuánto vale? ¿A nombre de quién? ¿Inmuebles (uso, hipoteca)? ¿Empresa y participación? ¿Cartera y liquidez? ¿Planes de pensiones?</p></div>
+        <div class="card"><h4 class="mt0">Empresa y actividad</h4><p style="color:var(--muted)">¿Facturación? ¿% de participación? ¿Estructura (holding)? ¿Hay actividad económica real (personas, medios)? ¿Retribución y dividendos?</p></div>
+        <div class="card"><h4 class="mt0">Fiscal y objetivos</h4><p style="color:var(--muted)">¿Qué impuestos presenta? ¿Riesgos abiertos? ¿Bienes en el extranjero? Y la más importante: <strong>¿qué le preocupa y qué quiere conseguir?</strong></p></div>
+      </div>
+    </section>
+
+    <hr class="divider">
+
+    <!-- HERRAMIENTA RELLENABLE -->
+    <section id="tool" class="reveal">
+      <span class="kicker">Herramienta interactiva</span>
+      <h2>Genera el mapa de dolor</h2>
+      <p>Rellena las preguntas del diagnóstico para un cliente (real anonimizado o de práctica). Al generar, la herramienta clasifica los activos, calcula el encaje de servicio y devuelve un <strong>mapa de dolor priorizado</strong> que puedes <strong>imprimir o descargar</strong>.</p>
+
+      <div class="dform">
+        <div class="df-head"><span class="tri"></span><h3>Diagnóstico 360º · DASAR</h3><span class="df-meta">Los datos no salen de tu navegador</span></div>
+        <div class="df-body">
+
+          <div class="dsec">
+            <h4><span class="n">A</span> Cliente y familia</h4>
+            <div class="frow three">
+              <div class="field"><label>Referencia del cliente</label><input type="text" data-d-ref placeholder="p. ej. Familia R."></div>
+              <div class="field"><label>Edad</label><input type="number" data-d-edad min="0" placeholder="p. ej. 58"></div>
+              <div class="field"><label>CCAA de residencia fiscal</label>
+                <select data-d-ccaa>
+                  <option value="">Selecciona…</option>
+                  <option value="andalucia">Andalucía</option><option value="aragon">Aragón</option>
+                  <option value="asturias">Asturias</option><option value="baleares">Baleares</option>
+                  <option value="canarias">Canarias</option><option value="cantabria">Cantabria</option>
+                  <option value="cyl">Castilla y León</option><option value="clm">Castilla-La Mancha</option>
+                  <option value="cataluna">Cataluña</option><option value="cvalenciana">C. Valenciana</option>
+                  <option value="extremadura">Extremadura</option><option value="galicia">Galicia</option>
+                  <option value="larioja">La Rioja</option><option value="madrid">Madrid</option>
+                  <option value="murcia">Murcia</option><option value="navarra">Navarra (foral)</option>
+                  <option value="paisvasco">País Vasco (foral)</option>
+                </select>
+              </div>
+            </div>
+            <div class="frow three" style="margin-top:.9rem">
+              <div class="field"><label>Vecindad civil</label>
+                <select data-d-vecindad>
+                  <option value="comun">Común</option><option value="cataluna">Cataluña</option>
+                  <option value="aragon">Aragón</option><option value="galicia">Galicia</option>
+                  <option value="paisvasco">País Vasco</option><option value="navarra">Navarra</option>
+                  <option value="baleares">Baleares</option>
+                </select>
+              </div>
+              <div class="field"><label>Estado civil</label>
+                <select data-d-civil>
+                  <option value="soltero">Soltero/a</option><option value="casado">Casado/a</option>
+                  <option value="pareja">Pareja de hecho</option><option value="viudo">Viudo/a</option>
+                  <option value="divorciado">Divorciado/a</option>
+                </select>
+              </div>
+              <div class="field"><label>Régimen económico</label>
+                <select data-d-regimen>
+                  <option value="gananciales">Gananciales</option><option value="separacion">Separación de bienes</option>
+                  <option value="participacion">Participación</option><option value="na">No aplica</option>
+                </select>
+              </div>
+            </div>
+            <div class="toggle-row" style="margin-top:.9rem">
+              <label class="toggle"><input type="checkbox" data-d-testamento> Tiene testamento</label>
+              <label class="toggle"><input type="checkbox" data-d-seguros> Seguros de vida con beneficiario designado</label>
+            </div>
+          </div>
+
+          <div class="dsec">
+            <h4><span class="n">B</span> Activos en gestión</h4>
+            <table class="assets">
+              <thead><tr><th style="width:34%">Tipo</th><th>Descripción</th><th style="width:18%">Valor €</th><th style="width:20%">Titularidad</th><th></th></tr></thead>
+              <tbody data-rows></tbody>
+            </table>
+            <div class="df-actions"><button type="button" class="btn-mini" data-d-addrow>+ Añadir activo</button></div>
+          </div>
+
+          <div class="dsec">
+            <h4><span class="n">C</span> Empresa y actividad</h4>
+            <div class="toggle-row"><label class="toggle"><input type="checkbox" data-d-empresa> Intervenimos en su empresa</label>
+              <label class="toggle"><input type="checkbox" data-d-holding> Estructura holding</label>
+              <label class="toggle"><input type="checkbox" data-d-empleado> Actividad económica real (persona empleada / medios)</label>
+            </div>
+            <div class="frow" style="margin-top:.9rem">
+              <div class="field"><label>Facturación anual de la empresa (€)</label><input type="number" data-d-fact min="0" step="10000" placeholder="0"></div>
+              <div class="field"><label>% de participación del cliente</label><input type="number" data-d-part min="0" max="100" placeholder="0"></div>
+            </div>
+          </div>
+
+          <div class="dsec">
+            <h4><span class="n">D</span> Fiscal y objetivos</h4>
+            <div class="toggle-row"><label class="toggle"><input type="checkbox" data-d-ippres> Presenta Impuesto sobre el Patrimonio</label>
+              <label class="toggle"><input type="checkbox" data-d-riesgos> Riesgos / comprobaciones abiertas</label>
+            </div>
+            <div class="field" style="margin-top:.9rem"><label>¿Qué preocupa al cliente y qué quiere conseguir?</label><textarea data-d-obj placeholder="Objetivos y preocupaciones declarados…"></textarea></div>
+          </div>
+
+          <div class="df-actions">
+            <button type="button" class="btn btn-primary" data-d-run>Generar mapa de dolor</button>
+            <button type="button" class="btn-mini" data-d-print>Imprimir / Guardar PDF</button>
+            <button type="button" class="btn-mini" data-d-download>Descargar resumen</button>
+            <button type="button" class="btn-mini" data-d-reset>Limpiar</button>
+          </div>
+        </div>
+
+        <div class="painmap"></div>
+      </div>
+    </section>
+
+    <hr class="divider">
+
+    <!-- CASOS -->
+    <section id="casos" class="reveal">
+      <span class="kicker">Práctica</span>
+      <h2>Casos prácticos</h2>
+      <p>Aplica el diagnóstico. Piensa qué señalarías en el mapa de dolor antes de abrir la solución (puedes comprobarlo en la herramienta).</p>
+
+      <div class="caso" data-act="caso1">
+        <div class="caso-h"><div class="ci">1</div><div class="cti"><div class="cl">Empresario · liquidez y empresa familiar</div><h4>Todo el patrimonio en la empresa</h4><p>Cliente de 62 años, en Asturias, sin testamento. Patrimonio: participaciones en su empresa (4 M€, sin persona empleada dedicada a su gestión patrimonial) y 150.000 € en cuentas. ¿Qué destacarías?</p></div><div class="chev">▾</div></div>
+        <div class="caso-body"><div class="caso-inner">
+          <div class="sol"><div class="sol-l">Mapa de dolor</div><p><strong>Prioridad alta:</strong> (1) <em>sin testamento</em> con empresa de por medio → riesgo de bloqueo sucesorio; (2) <em>exención de empresa familiar en riesgo</em> si no se acredita actividad y funciones de dirección → sin ella, el ISD sería enorme; (3) <em>falta de liquidez</em> (solo 150.000 € frente a 4 M€) → ¿con qué se paga el ISD? Prever seguro. <strong>Media:</strong> Asturias es de las comunidades menos favorables → valorar planificación. <em>Encaje: Multi/Advance según alcance.</em></p></div>
+        </div></div>
+      </div>
+
+      <div class="caso" data-act="caso2">
+        <div class="caso-h"><div class="ci">2</div><div class="cti"><div class="cl">Patrimonio inmobiliario · titularidades</div><h4>Ladrillo y poca caja</h4><p>Matrimonio en gananciales (Madrid), 3 inmuebles (2,4 M€, uno de ellos a nombre solo del marido) y 80.000 € líquidos. Vivienda habitual incluida. ¿Qué revisarías?</p></div><div class="chev">▾</div></div>
+        <div class="caso-body"><div class="caso-inner">
+          <div class="sol"><div class="sol-l">Mapa de dolor</div><p><strong>Alta/Media:</strong> (1) <em>concentración inmobiliaria &gt;90%</em> con muy poca liquidez → riesgo para afrontar el ISD y para imprevistos; (2) <em>titularidad</em>: confirmar si el inmueble a nombre del marido es realmente privativo o ganancial (cambia la herencia); (3) patrimonio &gt;2 M€ → <em>no encaja en Smart</em>, y &gt;700.000 € → revisar IP. <strong>Baja:</strong> coste silencioso de segundas residencias (imputación, IBI). <em>Encaje: Advance.</em></p></div>
+        </div></div>
+      </div>
+    </section>
+
+    <hr class="divider">
+
+    <!-- QUIZ -->
+    <section id="quiz" class="reveal">
+      <div class="quiz" data-quiz-mod="mod2">
+        <div class="q-head"><span class="tri"></span><h3>Autoevaluación · Módulo 2</h3><span class="q-meta">Necesitas ≥ 70% para completar</span></div>
+        <div class="q-body">
+
+          <div class="q-item" data-correct="1">
+            <div class="q-txt"><span class="qn">1.</span>¿Cuál es el primer paso del método, antes de proponer nada?</div>
+            <label class="q-opt"><input type="radio" name="q1" value="0">Diseñar la estructura societaria.</label>
+            <label class="q-opt"><input type="radio" name="q1" value="1">Diagnosticar en 360º y levantar el mapa de dolor.</label>
+            <label class="q-opt"><input type="radio" name="q1" value="2">Presentar la factura de honorarios.</label>
+            <label class="q-opt"><input type="radio" name="q1" value="3">Vender un producto financiero.</label>
+            <div class="q-feedback">Sin diagnóstico se responde a la pregunta equivocada; primero se levanta el mapa de dolor.</div>
+          </div>
+
+          <div class="q-item" data-correct="2">
+            <div class="q-txt"><span class="qn">2.</span>¿Cuáles son las cuatro fotografías del diagnóstico?</div>
+            <label class="q-opt"><input type="radio" name="q2" value="0">Ingresos, gastos, ahorro y deuda.</label>
+            <label class="q-opt"><input type="radio" name="q2" value="1">Renta, IVA, Sociedades y Sucesiones.</label>
+            <label class="q-opt"><input type="radio" name="q2" value="2">Situación patrimonial, situación fiscal, activos y actividades.</label>
+            <label class="q-opt"><input type="radio" name="q2" value="3">Banca, seguros, bolsa e inmuebles.</label>
+            <div class="q-feedback">Patrimonial, fiscal, activos y actividades, cruzadas entre sí.</div>
+          </div>
+
+          <div class="q-item" data-correct="0">
+            <div class="q-txt"><span class="qn">3.</span>¿Por qué es tan importante el eje de "afectación" al clasificar activos?</div>
+            <label class="q-opt"><input type="radio" name="q3" value="0">Porque decide la exención de empresa familiar en IP e ISD.</label>
+            <label class="q-opt"><input type="radio" name="q3" value="1">Porque fija el IBI.</label>
+            <label class="q-opt"><input type="radio" name="q3" value="2">Porque determina el IVA de la compra.</label>
+            <label class="q-opt"><input type="radio" name="q3" value="3">No tiene relevancia fiscal.</label>
+            <div class="q-feedback">Que un activo esté afecto a actividad económica real es requisito de la exención de empresa familiar.</div>
+          </div>
+
+          <div class="q-item" data-correct="1">
+            <div class="q-txt"><span class="qn">4.</span>Cliente con casi todo el patrimonio en un inmueble y muy poca liquidez. ¿Qué riesgo destaca?</div>
+            <label class="q-opt"><input type="radio" name="q4" value="0">Ninguno; el inmueble es seguro.</label>
+            <label class="q-opt"><input type="radio" name="q4" value="1">Falta de liquidez para afrontar el ISD y concentración de riesgo.</label>
+            <label class="q-opt"><input type="radio" name="q4" value="2">Exceso de diversificación.</label>
+            <label class="q-opt"><input type="radio" name="q4" value="3">Que no paga IBI.</label>
+            <div class="q-feedback">Patrimonio ilíquido y concentrado: la familia podría verse obligada a vender con prisa para pagar el impuesto.</div>
+          </div>
+
+          <div class="q-item" data-correct="2">
+            <div class="q-txt"><span class="qn">5.</span>¿Con qué cuatro criterios priorizamos el mapa de dolor?</div>
+            <label class="q-opt"><input type="radio" name="q5" value="0">Color, tamaño, forma y peso.</label>
+            <label class="q-opt"><input type="radio" name="q5" value="1">Solo el ahorro fiscal.</label>
+            <label class="q-opt"><input type="radio" name="q5" value="2">Riesgo, coste, urgencia y objetivos del cliente.</label>
+            <label class="q-opt"><input type="radio" name="q5" value="3">Antigüedad del cliente.</label>
+            <div class="q-feedback">Riesgo, coste, urgencia y, sobre todo, los objetivos de la familia.</div>
+          </div>
+
+          <div class="q-item" data-correct="0">
+            <div class="q-txt"><span class="qn">6.</span>Un plan de pensiones, ¿cómo se comporta?</div>
+            <label class="q-opt"><input type="radio" name="q6" value="0">Exento de IP; al rescatarlo tributa como rendimiento del trabajo en IRPF; no va por ISD.</label>
+            <label class="q-opt"><input type="radio" name="q6" value="1">Tributa en el IP y en el ISD como el resto.</label>
+            <label class="q-opt"><input type="radio" name="q6" value="2">No tributa nunca.</label>
+            <label class="q-opt"><input type="radio" name="q6" value="3">Solo paga IBI.</label>
+            <div class="q-feedback">Está exento de IP y su rescate tributa como trabajo; el beneficiario no lo recibe por ISD.</div>
+          </div>
+
+          <div class="q-item" data-correct="1">
+            <div class="q-txt"><span class="qn">7.</span>El cliente pide "pagar menos impuestos". ¿Cómo lo tratamos?</div>
+            <label class="q-opt"><input type="radio" name="q7" value="0">Le montamos una estructura sin más para bajar la factura.</label>
+            <label class="q-opt"><input type="radio" name="q7" value="1">Como un síntoma: diagnosticamos para hallar el problema real (que puede ser jurídico, de liquidez o de estructura).</label>
+            <label class="q-opt"><input type="radio" name="q7" value="2">Le decimos que no se puede hacer nada.</label>
+            <label class="q-opt"><input type="radio" name="q7" value="3">Le vendemos un producto financiero.</label>
+            <div class="q-feedback">La petición explícita rara vez es el problema real; por eso diagnosticamos antes de proponer.</div>
+          </div>
+
+        </div>
+        <div class="q-foot">
+          <button class="btn btn-primary" data-quiz-check>Corregir test</button>
+          <button class="btn btn-outline" data-quiz-reset>Reintentar</button>
+          <span class="q-score" data-quiz-score></span>
+        </div>
+      </div>
+    </section>
+
+    <!-- TRACKER -->
+    <div class="tracker" data-mod="mod2">
+      <div class="tk-head"><span class="tri"></span><h3>Actividades para completar el módulo</h3><span class="tk-count" data-tk-count>0/7</span></div>
+      <div class="tk-body">
+        <div class="act" data-act="leer"><span class="box"></span><span class="lbl">Leer el módulo completo</span></div>
+        <div class="act" data-act="fotos"><span class="box"></span><span class="lbl">Desplegar las cuatro fotografías a fondo</span></div>
+        <div class="act" data-act="desorden"><span class="box"></span><span class="lbl">Desplegar el catálogo del desorden</span></div>
+        <div class="act" data-act="diagnostico"><span class="box"></span><span class="lbl">Generar un mapa de dolor con la herramienta</span></div>
+        <div class="act" data-act="caso1"><span class="box"></span><span class="lbl">Abrir el caso práctico 1</span></div>
+        <div class="act" data-act="caso2"><span class="box"></span><span class="lbl">Abrir el caso práctico 2</span></div>
+        <div class="act" data-act="quiz"><span class="box"></span><span class="lbl">Superar la autoevaluación (≥ 70%)</span></div>
+        <div data-tk-done style="display:none;align-items:center;gap:.6rem;margin-top:.9rem;padding:.8rem 1rem;background:var(--wine-soft);border-radius:9px;color:var(--wine-dark);font-weight:600"><span class="tri"></span> ¡Módulo completado! Tu progreso se ha guardado en este navegador.</div>
+      </div>
     </div>
 
     <nav class="modnav">
-      <a href="modulo-1.html"><div class="d">← Anterior</div><div class="t">Módulo 1 · Marco legislativo e institucional</div></a>
+      <a href="modulo-1.html"><div class="d">← Anterior</div><div class="t">Módulo 1 · Marco legislativo</div></a>
       <a class="next" href="modulo-3.html"><div class="d">Siguiente →</div><div class="t">Módulo 3 · Los tributos y su interconexión</div></a>
     </nav>
+
   </main>
 </div>
 
@@ -129,12 +425,13 @@
     <img src="dasar-blanco.svg" alt="DASAR Gestión Patrimonial">
     <nav class="fnav">
       <a href="index.html">Inicio</a>
-      <a href="modulo-0.html">Módulo 0</a>
+      <a href="#tool">Herramienta de diagnóstico</a>
+      <a href="#quiz">Autoevaluación</a>
     </nav>
     <div class="fcopy">© <span data-year>2026</span> DASAR Gestión Patrimonial · Formación interna. Documento de uso formativo; no constituye asesoramiento fiscal ni legal.</div>
   </div>
 </footer>
 
-<script src="app.js?v=5"></script>
+<script src="app.js?v=6"></script>
 </body>
 </html>

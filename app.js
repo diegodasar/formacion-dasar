@@ -12,7 +12,7 @@
   var MODULES = [
     { id: "mod0", num: "0", title: "Presentación e introducción", file: "modulo-0.html", ready: true, core: false },
     { id: "mod1", num: "1", title: "Marco legislativo e institucional", file: "modulo-1.html", ready: true, core: false },
-    { id: "mod2", num: "2", title: "Diagnóstico patrimonial 360º", file: "modulo-2.html", ready: false, core: true },
+    { id: "mod2", num: "2", title: "Diagnóstico patrimonial 360º", file: "modulo-2.html", ready: true, core: true },
     { id: "mod3", num: "3", title: "Los tributos y su interconexión", file: "modulo-3.html", ready: false, core: false },
     { id: "mod4", num: "4", title: "Estructuras y operaciones complejas", file: "modulo-4.html", ready: false, core: false },
     { id: "mod5", num: "5", title: "Planificación patrimonial y sucesoria", file: "modulo-5.html", ready: false, core: false },
@@ -364,6 +364,193 @@
     if (btn) btn.addEventListener("click", run);
   }
 
+  /* =========================================================
+     HERRAMIENTA DE DIAGNÓSTICO 360º · genera el mapa de dolor
+     ========================================================= */
+  var CCAA_GRAVOSA = ["asturias", "cataluna"]; // ISD/IP menos favorables (orientativo)
+  var ASSET_INMUEBLE = ["inm_habitual", "inm_2a", "inm_alquiler", "inm_afecto"];
+
+  function wireDiagnostico() {
+    var form = document.querySelector(".dform");
+    if (!form) return;
+    var rows = form.querySelector("[data-rows]");
+    var addBtn = form.querySelector("[data-d-addrow]");
+    var runBtn = form.querySelector("[data-d-run]");
+    var printBtn = form.querySelector("[data-d-print]");
+    var dlBtn = form.querySelector("[data-d-download]");
+    var resetBtn = form.querySelector("[data-d-reset]");
+    var pm = form.querySelector(".painmap");
+
+    function rowTemplate() {
+      var tr = document.createElement("tr");
+      tr.innerHTML =
+        '<td><select data-a-tipo>' +
+          '<option value="inm_habitual">Inmueble · vivienda habitual</option>' +
+          '<option value="inm_2a">Inmueble · 2ª residencia</option>' +
+          '<option value="inm_alquiler">Inmueble · en alquiler</option>' +
+          '<option value="inm_afecto">Inmueble · afecto a actividad</option>' +
+          '<option value="participaciones">Participaciones / empresa</option>' +
+          '<option value="cartera">Cartera financiera</option>' +
+          '<option value="liquidez">Liquidez / depósitos</option>' +
+          '<option value="pension">Plan de pensiones</option>' +
+          '<option value="otros">Otros activos</option>' +
+        '</select></td>' +
+        '<td><input type="text" data-a-desc placeholder="Descripción"></td>' +
+        '<td><input type="number" data-a-valor min="0" step="1000" placeholder="0"></td>' +
+        '<td><select data-a-tit>' +
+          '<option value="cliente">Cliente 100%</option>' +
+          '<option value="conyuge">Cónyuge</option>' +
+          '<option value="ganancial">Ganancial</option>' +
+          '<option value="compartido">Compartido</option>' +
+        '</select></td>' +
+        '<td><button type="button" class="rm" title="Quitar">×</button></td>';
+      tr.querySelector(".rm").addEventListener("click", function () { tr.remove(); });
+      return tr;
+    }
+    if (addBtn) addBtn.addEventListener("click", function () { rows.appendChild(rowTemplate()); });
+    // filas iniciales
+    if (rows && rows.children.length === 0) { rows.appendChild(rowTemplate()); rows.appendChild(rowTemplate()); }
+
+    function val(sel) { var e = form.querySelector(sel); return e ? e.value : ""; }
+    function num(sel) { var e = form.querySelector(sel); var v = parseFloat((e && e.value || "").toString().replace(/[^0-9.]/g, "")); return isNaN(v) ? 0 : v; }
+    function chk(sel) { var e = form.querySelector(sel); return e ? e.checked : false; }
+
+    function collect() {
+      var assets = [];
+      form.querySelectorAll("[data-rows] tr").forEach(function (tr) {
+        var v = parseFloat((tr.querySelector("[data-a-valor]").value || "0").replace(/[^0-9.]/g, "")) || 0;
+        assets.push({
+          tipo: tr.querySelector("[data-a-tipo]").value,
+          desc: tr.querySelector("[data-a-desc]").value,
+          valor: v,
+          tit: tr.querySelector("[data-a-tit]").value
+        });
+      });
+      return {
+        edad: num("[data-d-edad]"),
+        ccaa: val("[data-d-ccaa]"),
+        vecindad: val("[data-d-vecindad]"),
+        civil: val("[data-d-civil]"),
+        regimen: val("[data-d-regimen]"),
+        testamento: chk("[data-d-testamento]"),
+        seguros: chk("[data-d-seguros]"),
+        empresa: chk("[data-d-empresa]"),
+        fact: num("[data-d-fact]"),
+        part: num("[data-d-part]"),
+        holding: chk("[data-d-holding]"),
+        empleado: chk("[data-d-empleado]"),
+        ippres: chk("[data-d-ippres]"),
+        riesgos: chk("[data-d-riesgos]"),
+        obj: val("[data-d-obj]"),
+        assets: assets
+      };
+    }
+
+    function analyze(d) {
+      var total = d.assets.reduce(function (s, a) { return s + a.valor; }, 0);
+      var inmob = d.assets.filter(function (a) { return ASSET_INMUEBLE.indexOf(a.tipo) >= 0; }).reduce(function (s, a) { return s + a.valor; }, 0);
+      var liquidez = d.assets.filter(function (a) { return a.tipo === "liquidez" || a.tipo === "cartera"; }).reduce(function (s, a) { return s + a.valor; }, 0);
+      var empresaVal = d.assets.filter(function (a) { return a.tipo === "participaciones"; }).reduce(function (s, a) { return s + a.valor; }, 0);
+      var maxAsset = d.assets.reduce(function (m, a) { return Math.max(m, a.valor); }, 0);
+      var seg = classify(total, d.empresa ? d.fact : 0, d.empresa);
+      var F = [];
+      function add(prio, cat, t, dd) { F.push({ prio: prio, cat: cat, t: t, d: dd }); }
+
+      if (d.riesgos) add("alta", "fiscal", "Contingencias fiscales abiertas", "Hay comprobaciones o riesgos declarados. Priorizar su análisis y, en su caso, regularización antes que cualquier optimización.");
+      if (!d.testamento) add("alta", "juridico", "Sin testamento otorgado", "Riesgo de sucesión intestada y reparto no deseado. Ordenar la sucesión es prioritario, sobre todo con empresa o menores.");
+      if (total > 3000000) add("alta", "fiscal", "Exposición al Impuesto de Grandes Fortunas", "El patrimonio supera 3 M€: analizar ITSGF y su interacción con el IP (las bonificaciones autonómicas del IP dejan de ahorrar).");
+      if (empresaVal > 0 && d.empresa && !d.empleado) add("alta", "fiscal", "Riesgo en la exención de empresa familiar", "Participaciones relevantes sin acreditar actividad económica (persona empleada / medios). Peligra la exención en IP y la reducción del 95% en ISD.");
+      else if (empresaVal > 0) add("media", "oport", "Empresa familiar: blindar la exención", "Confirmar de forma continuada los requisitos (funciones de dirección, remuneración >50%, porcentaje de participación) para asegurar la exención en IP e ISD.");
+      if (total > 1000000 && liquidez < total * 0.1) add("alta", "juridico", "Posible falta de liquidez para el ISD", "La liquidez disponible (" + pct(liquidez, total) + "% del patrimonio) puede no cubrir el coste sucesorio. Prever seguro de vida o tesorería.");
+      if (total > 0 && maxAsset > total * 0.6) add("media", "inef", "Concentración de riesgo", "Un único activo supone más del 60% del patrimonio. Revisar diversificación y su impacto en liquidez y sucesión.");
+      if (total > 0 && inmob > total * 0.7) add("media", "inef", "Alta exposición inmobiliaria", "Más del 70% en inmuebles: iliquidez y coste recurrente (IBI, IP, imputación de rentas). Valorar reordenación o rentabilización.");
+      if (total > 1000000 && CCAA_GRAVOSA.indexOf(d.ccaa) >= 0) add("media", "oport", "Residencia poco eficiente en ISD/IP", "La comunidad de residencia es de las menos favorables. Valorar planificación de residencia (real y sostenida) o instrumentos alternativos.");
+      if (d.vecindad && d.vecindad !== "comun") add("baja", "oport", "Herramientas forales disponibles", "Vecindad civil foral: se pueden usar pactos sucesorios para transmitir en vida con efectos sucesorios y, a menudo, ventaja fiscal (Módulo 1).");
+      if (d.civil === "pareja") add("media", "fiscal", "Pareja de hecho: equiparación dispar en ISD", "Verificar si la CCAA equipara la pareja de hecho al cónyuge para las bonificaciones del ISD y confirmar la inscripción registral.");
+      if (d.regimen === "gananciales" && d.assets.some(function (a) { return a.tit === "cliente" && a.valor > 200000; })) add("baja", "juridico", "Revisar titularidades frente al régimen", "En gananciales, confirmar el carácter privativo o ganancial de los activos declarados a nombre de uno solo (afecta a la herencia).");
+      if (total > 700000 && !d.ippres) add("media", "fiscal", "Posible Impuesto sobre el Patrimonio no atendido", "El patrimonio podría superar el mínimo del IP en su comunidad. Verificar la obligación de declarar (y el ITSGF).");
+      if (!d.seguros && total > 500000) add("baja", "inef", "Sin seguros de vida designados", "Un seguro de vida bien diseñado aporta liquidez para el ISD y disfruta de reducción propia. Revisar coberturas y beneficiarios.");
+      if (d.assets.some(function (a) { return a.tipo === "inm_alquiler"; })) add("baja", "inef", "Optimizar el alquiler", "Revisar la reducción del rendimiento (Ley de vivienda), gastos deducibles y amortización; valorar si es actividad económica.");
+      if (d.assets.some(function (a) { return a.tipo === "inm_2a"; })) add("baja", "inef", "Coste silencioso de la 2ª residencia", "Imputación de renta en IRPF + IBI + IP. Valorar uso, rentabilización o reordenación.");
+
+      var order = { alta: 0, media: 1, baja: 2 };
+      F.sort(function (a, b) { return order[a.prio] - order[b.prio]; });
+      return { total: total, inmob: inmob, liquidez: liquidez, seg: seg, findings: F };
+    }
+
+    function pct(a, b) { return b > 0 ? Math.round((a / b) * 100) : 0; }
+    function eur2(n) { return new Intl.NumberFormat("es-ES", { style: "currency", currency: "EUR", maximumFractionDigits: 0 }).format(Math.round(n)); }
+
+    function render(d, r) {
+      var segName = r.seg === "inter" ? "Zona intermedia" : NAME[r.seg];
+      var html = '<h3><span class="tri"></span> Mapa de dolor — ' + (val("[data-d-ref]") ? escapeHtml(val("[data-d-ref]")) : "cliente") + '</h3>';
+      html += '<div class="pm-summary">' +
+        '<div class="m"><div class="k">Patrimonio en gestión</div><div class="v wine">' + eur2(r.total) + '</div></div>' +
+        '<div class="m"><div class="k">% inmobiliario</div><div class="v">' + pct(r.inmob, r.total) + '%</div></div>' +
+        '<div class="m"><div class="k">% líquido</div><div class="v">' + pct(r.liquidez, r.total) + '%</div></div>' +
+        '<div class="m"><div class="k">Encaje de servicio</div><div class="v">' + segName + '</div></div>' +
+        '</div>';
+      if (!r.findings.length) {
+        html += '<p class="pm-empty">No se han detectado cuestiones con los datos introducidos. Añade activos y detalles para un diagnóstico más completo.</p>';
+      } else {
+        var cats = { fiscal: "Riesgo fiscal", juridico: "Riesgo jurídico-sucesorio", inef: "Ineficiencia", oport: "Oportunidad" };
+        var prios = { alta: "Prioridad alta", media: "Prioridad media", baja: "Prioridad baja" };
+        r.findings.forEach(function (f) {
+          html += '<div class="finding ' + f.prio + '"><div class="fi-c"><div class="fi-t">' + f.t + '</div><div class="fi-d">' + f.d + '</div></div>' +
+            '<div class="fi-badges"><span class="pill-cat ' + f.cat + '">' + cats[f.cat] + '</span><span class="pill-prio">' + prios[f.prio] + '</span></div></div>';
+        });
+      }
+      if (d.obj) html += '<div class="finding media"><div class="fi-c"><div class="fi-t">Objetivos declarados por el cliente</div><div class="fi-d">' + escapeHtml(d.obj) + '</div></div><div class="fi-badges"><span class="pill-cat oport">Contexto</span></div></div>';
+      html += '<p class="pm-note">Diagnóstico orientativo generado a partir de las respuestas. No sustituye el análisis del consultor ni la verificación de la normativa vigente.</p>';
+      pm.innerHTML = html;
+      pm.classList.add("show");
+      window._dasarLastReport = buildText(d, r, segName);
+      actDone("diagnostico");
+    }
+
+    function escapeHtml(s) { return (s || "").replace(/[&<>"]/g, function (c) { return { "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]; }); }
+
+    function buildText(d, r, segName) {
+      var L = [];
+      L.push("DASAR · MAPA DE DOLOR — " + (val("[data-d-ref]") || "cliente"));
+      L.push("Fecha: " + new Date().toLocaleDateString("es-ES"));
+      L.push("");
+      L.push("RESUMEN");
+      L.push("- Patrimonio en gestión: " + eur2(r.total));
+      L.push("- % inmobiliario: " + pct(r.inmob, r.total) + "%  |  % líquido: " + pct(r.liquidez, r.total) + "%");
+      L.push("- Encaje de servicio sugerido: " + segName);
+      L.push("- CCAA residencia: " + (val("[data-d-ccaa]") || "-") + "  |  Vecindad civil: " + (val("[data-d-vecindad]") || "-"));
+      L.push("");
+      L.push("CUESTIONES DETECTADAS (mapa de dolor)");
+      if (!r.findings.length) L.push("- (ninguna con los datos introducidos)");
+      r.findings.forEach(function (f, i) { L.push((i + 1) + ". [" + f.prio.toUpperCase() + " · " + f.cat + "] " + f.t + " — " + f.d); });
+      if (d.obj) { L.push(""); L.push("OBJETIVOS DEL CLIENTE: " + d.obj); }
+      L.push("");
+      L.push("Documento orientativo de uso formativo. Verificar normativa vigente.");
+      return L.join("\n");
+    }
+
+    if (runBtn) runBtn.addEventListener("click", function () {
+      var d = collect(); var r = analyze(d); render(d, r);
+      pm.scrollIntoView({ behavior: "smooth", block: "start" });
+    });
+    if (printBtn) printBtn.addEventListener("click", function () { if (pm.classList.contains("show")) window.print(); });
+    if (dlBtn) dlBtn.addEventListener("click", function () {
+      if (!window._dasarLastReport) return;
+      var blob = new Blob([window._dasarLastReport], { type: "text/plain;charset=utf-8" });
+      var a = document.createElement("a");
+      a.href = URL.createObjectURL(blob);
+      a.download = "mapa-de-dolor-" + (val("[data-d-ref]") || "cliente").replace(/[^a-z0-9]+/gi, "-").toLowerCase() + ".txt";
+      document.body.appendChild(a); a.click(); document.body.removeChild(a);
+    });
+    if (resetBtn) resetBtn.addEventListener("click", function () {
+      form.querySelectorAll("input").forEach(function (i) { if (i.type === "checkbox") i.checked = false; else i.value = ""; });
+      form.querySelectorAll("select").forEach(function (s) { s.selectedIndex = 0; });
+      rows.innerHTML = ""; rows.appendChild(rowTemplate()); rows.appendChild(rowTemplate());
+      pm.classList.remove("show"); pm.innerHTML = "";
+    });
+  }
+
   document.addEventListener("DOMContentLoaded", function () {
     buildSidebar();
     wireMenu();
@@ -374,6 +561,7 @@
     wireYear();
     wireReading();
     wireCalc();
+    wireDiagnostico();
     refreshTracker();
     refreshProgressUI();
   });

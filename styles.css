@@ -502,3 +502,87 @@ strong{font-weight:600}
 .warnbox p{margin:0;font-size:.92rem;color:var(--muted)}
 
 @media (max-width:720px){ .lib{grid-template-columns:1fr} }
+
+/* ============================================================
+   v6 · Herramienta de diagnóstico 360º y mapa de dolor
+   ============================================================ */
+.dform{border:1.5px solid var(--ink);border-radius:var(--radius);overflow:hidden;margin:1.8rem 0}
+.dform .df-head{background:var(--ink);color:#fff;padding:1.1rem 1.3rem;display:flex;align-items:center;gap:.8rem;flex-wrap:wrap}
+.dform .df-head .tri{border-bottom-color:var(--wine)}
+.dform .df-head h3{color:#fff;margin:0;font-size:1.15rem}
+.dform .df-head .df-meta{margin-left:auto;font-size:.8rem;color:rgba(255,255,255,.7)}
+.dform .df-body{padding:1.3rem}
+.dsec{margin-bottom:1.6rem}
+.dsec > h4{font-size:.8rem;letter-spacing:.14em;text-transform:uppercase;color:var(--wine);margin:0 0 .8rem;
+  display:flex;align-items:center;gap:.5rem}
+.dsec > h4 .n{width:22px;height:22px;border-radius:6px;background:var(--wine);color:#fff;display:grid;place-items:center;font-size:.8rem;font-weight:700}
+.frow{display:grid;grid-template-columns:repeat(2,1fr);gap:.9rem}
+.frow.three{grid-template-columns:repeat(3,1fr)}
+.field{display:flex;flex-direction:column;gap:.3rem}
+.field label{font-size:.86rem;font-weight:500;color:var(--ink)}
+.field small{font-size:.76rem;color:var(--muted-2)}
+.dform input[type=text],.dform input[type=number],.dform select,.dform textarea{
+  font-family:var(--ff);font-size:.96rem;padding:.55rem .65rem;border:1px solid var(--line-strong);
+  border-radius:var(--radius-sm);background:#fff;color:var(--ink);width:100%}
+.dform textarea{min-height:70px;resize:vertical}
+.dform input:focus,.dform select:focus,.dform textarea:focus{outline:2px solid var(--wine);border-color:var(--wine)}
+.dform .toggle{display:flex;gap:.5rem;align-items:center;font-size:.92rem;color:var(--ink);cursor:pointer;
+  border:1px solid var(--line);border-radius:999px;padding:.35rem .8rem;user-select:none}
+.dform .toggle input{width:16px;height:16px;accent-color:var(--wine)}
+.toggle-row{display:flex;flex-wrap:wrap;gap:.6rem}
+
+/* tabla de activos dinámica */
+.assets{width:100%;border-collapse:collapse;font-size:.9rem;margin-top:.4rem}
+.assets th{text-align:left;font-size:.72rem;letter-spacing:.06em;text-transform:uppercase;color:var(--muted-2);padding:.3rem .4rem;font-weight:600}
+.assets td{padding:.25rem .25rem;vertical-align:middle}
+.assets td input,.assets td select{padding:.45rem .5rem;font-size:.9rem}
+.assets .rm{background:none;border:1px solid var(--line-strong);border-radius:8px;cursor:pointer;color:var(--wine);
+  width:32px;height:34px;font-size:1rem;line-height:1}
+.assets .rm:hover{border-color:var(--wine);background:var(--wine-soft)}
+.btn-mini{display:inline-flex;align-items:center;gap:.4rem;font-family:var(--ff);font-weight:500;font-size:.88rem;
+  cursor:pointer;padding:.5rem .9rem;border-radius:999px;border:1.5px solid var(--line-strong);background:#fff;color:var(--ink)}
+.btn-mini:hover{border-color:var(--ink)}
+.df-actions{display:flex;gap:.7rem;flex-wrap:wrap;align-items:center;margin-top:.4rem}
+
+/* Resultado: mapa de dolor */
+.painmap{border-top:1px solid var(--line);padding:1.3rem;display:none;background:var(--paper-2)}
+.painmap.show{display:block}
+.painmap h3{margin:.1rem 0 1rem}
+.pm-summary{display:grid;grid-template-columns:repeat(4,1fr);gap:.7rem;margin-bottom:1.3rem}
+.pm-summary .m{background:#fff;border:1px solid var(--line);border-radius:var(--radius-sm);padding:.8rem .9rem}
+.pm-summary .m .k{font-size:.72rem;color:var(--muted-2);text-transform:uppercase;letter-spacing:.06em}
+.pm-summary .m .v{font-size:1.25rem;font-weight:600;color:var(--ink);margin-top:.2rem;line-height:1.1}
+.pm-summary .m .v.wine{color:var(--wine)}
+.finding{display:flex;gap:.8rem;background:#fff;border:1px solid var(--line);border-left-width:4px;border-radius:var(--radius-sm);
+  padding:.8rem 1rem;margin-bottom:.6rem}
+.finding.alta{border-left-color:var(--wine)}
+.finding.media{border-left-color:var(--ink)}
+.finding.baja{border-left-color:var(--line-strong)}
+.finding .fi-c{flex:1}
+.finding .fi-c .fi-t{font-weight:600;color:var(--ink);margin-bottom:.15rem}
+.finding .fi-c .fi-d{font-size:.9rem;color:var(--muted)}
+.finding .fi-badges{display:flex;flex-direction:column;gap:.3rem;align-items:flex-end;flex:0 0 auto}
+.pill-cat{font-size:.68rem;letter-spacing:.06em;text-transform:uppercase;font-weight:600;padding:.15rem .5rem;border-radius:999px;white-space:nowrap}
+.pill-cat.fiscal{background:var(--wine-soft);color:var(--wine-dark)}
+.pill-cat.juridico{background:rgba(1,1,1,.08);color:var(--ink)}
+.pill-cat.inef{background:rgba(1,1,1,.08);color:var(--ink)}
+.pill-cat.oport{background:var(--wine);color:#fff}
+.pill-prio{font-size:.68rem;font-weight:700;letter-spacing:.06em;color:var(--muted-2)}
+.pm-empty{color:var(--muted);font-style:italic}
+.pm-note{font-size:.82rem;color:var(--muted-2);margin-top:1rem;font-style:italic}
+
+@media (max-width:720px){
+  .frow,.frow.three{grid-template-columns:1fr}
+  .pm-summary{grid-template-columns:1fr 1fr}
+  .assets{display:block;overflow-x:auto}
+}
+
+/* Impresión: solo el mapa de dolor */
+@media print{
+  .topbar,.readprogress,.sidebar,.footer,.modnav,.tracker,.toc,.gate,.df-body,.df-actions,.quiz,#casos,.mod-head p,.hero{display:none !important}
+  .layout{display:block}
+  .content{max-width:100%;padding:0}
+  .painmap{display:block !important;border:0;background:#fff;padding:0}
+  .finding{break-inside:avoid}
+  a[href]:after{content:""}
+}
