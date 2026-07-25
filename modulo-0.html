@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Módulo 0 · Presentación e introducción · DASAR</title>
-<meta name="description" content="Módulo 0 de la formación DASAR: qué es la gestión patrimonial integral, filosofía, visión, misión, valores, servicios y el plan patrimonial.">
+<meta name="description" content="Módulo 0 de la formación DASAR: gestión patrimonial integral, servicios en profundidad, tarifario y criterios de encaje del cliente.">
 <link rel="icon" href="dasar-color.svg">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -13,7 +13,6 @@
 </head>
 <body data-current="mod0">
 
-<!-- TOPBAR -->
 <header class="topbar">
   <button class="menu-toggle" aria-label="Menú"><span></span><span></span><span></span></button>
   <a class="brand" href="index.html">
@@ -27,15 +26,14 @@
   </div>
   <a class="home-link" href="index.html">Inicio</a>
 </header>
+<div class="readprogress" aria-hidden="true"><i></i></div>
 
 <div class="layout">
-  <!-- SIDEBAR -->
   <aside class="sidebar">
     <div class="side-h">Módulos del programa</div>
     <nav id="sidebar-list"></nav>
   </aside>
 
-  <!-- CONTENIDO -->
   <main class="content prose">
 
     <div class="mod-head">
@@ -44,11 +42,15 @@
         <span class="mod-meta">Presentación e introducción</span>
       </div>
       <h1>Bienvenidos a DASAR</h1>
-      <p class="lead">Empezáis un recorrido para dominar la gestión patrimonial tal y como la entendemos aquí: <strong>integral, independiente y ejecutada</strong>. Este módulo es el marco de todo lo que viene: qué hacemos, por qué lo hacemos así y cómo trabajamos.</p>
-      <p style="color:var(--muted-2);font-size:.9rem">Nivel: máster / grado alto · Jurisdicción: España · Duración estimada de lectura: 35–45 min</p>
+      <p class="lead">Empezáis un recorrido para dominar la gestión patrimonial tal y como la entendemos aquí: <strong>integral, independiente y ejecutada</strong>. Este módulo es el marco de todo lo que viene, y baja al detalle de nuestros servicios y de cómo se tarifica el encaje de cada cliente.</p>
+      <p style="color:var(--muted-2);font-size:.9rem">Nivel: máster / grado alto · Jurisdicción: España · Lectura estimada: 45–60 min</p>
     </div>
 
-    <!-- ÍNDICE -->
+    <div class="gate">
+      <span class="tri"></span>
+      <div>Este módulo es <strong>interactivo</strong>: tu progreso se marca solo según avanzas. Para completarlo tendrás que leerlo entero, desplegar el detalle de los tres servicios, usar la calculadora, resolver los casos y superar el test. Verás el checklist al final.</div>
+    </div>
+
     <div class="toc">
       <h4>En este módulo</h4>
       <a href="#s1"><span class="tri"></span>0.1 · Qué es la gestión patrimonial integral</a>
@@ -57,9 +59,10 @@
       <a href="#s4"><span class="tri"></span>0.4 · Metodología y qué esperamos de vosotros</a>
       <a href="#s5"><span class="tri"></span>0.5 · Filosofía: una consultora atípica</a>
       <a href="#s6"><span class="tri"></span>0.6 · Visión, misión y valores</a>
-      <a href="#s7"><span class="tri"></span>0.7 · Nuestros servicios y modelo de negocio</a>
-      <a href="#s8"><span class="tri"></span>0.8 · El plan patrimonial DASAR</a>
-      <a href="#s9"><span class="tri"></span>0.9 · Anticipo del núcleo: el diagnóstico 360º</a>
+      <a href="#s7"><span class="tri"></span>0.7 · Nuestros servicios en profundidad</a>
+      <a href="#s8"><span class="tri"></span>0.8 · Tarifario y encaje del cliente</a>
+      <a href="#s9"><span class="tri"></span>0.9 · El plan patrimonial DASAR</a>
+      <a href="#s10"><span class="tri"></span>0.10 · Anticipo del núcleo: diagnóstico 360º</a>
       <a href="#casos"><span class="tri"></span>Casos prácticos</a>
       <a href="#quiz"><span class="tri"></span>Autoevaluación</a>
     </div>
@@ -68,19 +71,12 @@
     <section id="s1" class="reveal">
       <span class="kicker">0.1 · Fundamento</span>
       <h2>Qué es la gestión patrimonial integral</h2>
-      <p>La gestión patrimonial integral es la disciplina que coordina <strong>todas</strong> las dimensiones del patrimonio de una persona o familia —fiscal, jurídica, financiera, empresarial y sucesoria— con un objetivo común y a lo largo del tiempo. No se trata de resolver un problema puntual (una declaración, una compraventa, una herencia), sino de gobernar el patrimonio como un sistema.</p>
-      <p>La diferencia con el asesoramiento tradicional es de perspectiva. El asesor fiscal responde a la pregunta «¿cómo tributa esta operación?». El gestor patrimonial responde a otra muy distinta: «¿qué le conviene a este patrimonio, en su conjunto y a diez años vista, y cómo encaja esta operación en ese plan?».</p>
-
+      <p>La gestión patrimonial integral coordina <strong>todas</strong> las dimensiones del patrimonio de una persona o familia —fiscal, jurídica, financiera, empresarial y sucesoria— con un objetivo común y a lo largo del tiempo. No resuelve un problema puntual: gobierna el patrimonio como un sistema.</p>
+      <p>El asesor fiscal responde a «¿cómo tributa esta operación?». El gestor patrimonial responde a otra pregunta: «¿qué le conviene a este patrimonio, en su conjunto y a diez años vista?». En DASAR lo decimos así: <em>entendemos el patrimonio como un sistema interconectado, no como compartimentos independientes.</em></p>
       <div class="pullquote">No se optimiza un tributo: se optimiza el patrimonio y la familia, en su conjunto y a lo largo del tiempo.</div>
-
-      <p>Esta idea tiene una consecuencia práctica que recorrerá todo el curso: <strong>las decisiones no se toman por silos</strong>. Una retribución al socio afecta a la vez a su IRPF y al Impuesto sobre Sociedades de la empresa; la forma de tener un inmueble condiciona el Impuesto sobre el Patrimonio y, más tarde, el de Sucesiones; una reestructuración societaria puede activar o preservar la exención de empresa familiar. Quien mira un solo impuesto acierta en la parte y falla en el todo.</p>
-
       <div class="callout idea">
         <div class="ic"><span class="tri" style="border-bottom-color:#fff"></span></div>
-        <div class="ct">
-          <h4>La idea fuerza del programa</h4>
-          <p>Vuestro valor no está en saber más de un impuesto que nadie, sino en <strong>conectar</strong> todas las piezas y traducir ese análisis en decisiones ejecutables para el cliente.</p>
-        </div>
+        <div class="ct"><h4>La idea fuerza del programa</h4><p>Vuestro valor no está en saber más de un impuesto que nadie, sino en <strong>conectar</strong> todas las piezas y traducir ese análisis en decisiones ejecutables.</p></div>
       </div>
     </section>
 
@@ -90,12 +86,11 @@
     <section id="s2" class="reveal">
       <span class="kicker">0.2 · Objetivos</span>
       <h2>Qué queremos que sepáis hacer</h2>
-      <p>Al terminar el programa, un consultor patrimonial de DASAR debe ser capaz de:</p>
       <div class="grid grid-2" style="margin-top:1rem">
-        <div class="card"><div style="display:flex;gap:.9rem"><span class="badge-num">1</span><div><h4 class="mt0">Pensar en 360º</h4><p style="color:var(--muted)">Leer la situación patrimonial, fiscal, de activos y de actividad de un cliente como un todo conectado.</p></div></div></div>
-        <div class="card"><div style="display:flex;gap:.9rem"><span class="badge-num">2</span><div><h4 class="mt0">Conectar tributos</h4><p style="color:var(--muted)">Entender cómo IRPF, Sociedades, Patrimonio y Sucesiones interactúan entre sí, no por separado.</p></div></div></div>
-        <div class="card"><div style="display:flex;gap:.9rem"><span class="badge-num">3</span><div><h4 class="mt0">Detectar el «dolor»</h4><p style="color:var(--muted)">Identificar riesgos e ineficiencias del patrimonio y priorizar lo verdaderamente importante.</p></div></div></div>
-        <div class="card"><div style="display:flex;gap:.9rem"><span class="badge-num">4</span><div><h4 class="mt0">Proponer y ejecutar</h4><p style="color:var(--muted)">Pasar del diagnóstico a una propuesta accionable y llevarla a la práctica como su family office.</p></div></div></div>
+        <div class="card"><div style="display:flex;gap:.9rem"><span class="badge-num">1</span><div><h4 class="mt0">Pensar en 360º</h4><p style="color:var(--muted)">Leer situación patrimonial, fiscal, activos y actividad como un todo conectado.</p></div></div></div>
+        <div class="card"><div style="display:flex;gap:.9rem"><span class="badge-num">2</span><div><h4 class="mt0">Clasificar y tarificar</h4><p style="color:var(--muted)">Determinar el servicio que encaja a cada cliente y calcular su tarifa con criterio.</p></div></div></div>
+        <div class="card"><div style="display:flex;gap:.9rem"><span class="badge-num">3</span><div><h4 class="mt0">Detectar el «dolor»</h4><p style="color:var(--muted)">Identificar riesgos e ineficiencias y priorizar lo verdaderamente importante.</p></div></div></div>
+        <div class="card"><div style="display:flex;gap:.9rem"><span class="badge-num">4</span><div><h4 class="mt0">Proponer y ejecutar</h4><p style="color:var(--muted)">Pasar del diagnóstico a una propuesta accionable y llevarla a la práctica.</p></div></div></div>
       </div>
     </section>
 
@@ -105,17 +100,16 @@
     <section id="s3" class="reveal">
       <span class="kicker">0.3 · Estructura</span>
       <h2>El recorrido del curso</h2>
-      <p>El programa se organiza en siete módulos. El diagnóstico 360º (Módulo 2) es el núcleo metodológico; el resto lo alimenta o parte de él.</p>
       <table class="tbl">
         <thead><tr><th style="width:56px">Mód.</th><th>Contenido</th><th>Qué aporta</th></tr></thead>
         <tbody>
-          <tr><td><strong>0</strong></td><td>Presentación e introducción</td><td>Marco del curso, filosofía y método. <em>(Este módulo.)</em></td></tr>
-          <tr><td><strong>1</strong></td><td>Marco legislativo e institucional</td><td>Jerarquía de normas, reparto Estado–CCAA, doctrina DGT y jurisprudencia.</td></tr>
-          <tr><td><strong>2</strong></td><td>Diagnóstico patrimonial 360º</td><td>El núcleo: situación patrimonial, fiscal, activos y actividades.</td></tr>
+          <tr><td><strong>0</strong></td><td>Presentación e introducción</td><td>Marco, filosofía, servicios y tarifario. <em>(Este módulo.)</em></td></tr>
+          <tr><td><strong>1</strong></td><td>Marco legislativo e institucional</td><td>Jerarquía de normas, Estado–CCAA, DGT y jurisprudencia.</td></tr>
+          <tr><td><strong>2</strong></td><td>Diagnóstico patrimonial 360º</td><td>El núcleo: patrimonial, fiscal, activos y actividades.</td></tr>
           <tr><td><strong>3</strong></td><td>Los tributos y su interconexión</td><td>IRPF, IS, IP, ISD e indirecta, y cómo se conectan.</td></tr>
-          <tr><td><strong>4</strong></td><td>Estructuras y operaciones complejas</td><td>Holdings, reestructuraciones, protocolo familiar y financiación.</td></tr>
+          <tr><td><strong>4</strong></td><td>Estructuras y operaciones complejas</td><td>Holdings, reestructuraciones, protocolo familiar, financiación.</td></tr>
           <tr><td><strong>5</strong></td><td>Planificación patrimonial y sucesoria</td><td>De la propuesta a la ejecución; en vida y mortis causa.</td></tr>
-          <tr><td><strong>6</strong></td><td>Casos prácticos y metodología</td><td>Aplicación integrada y elaboración del informe patrimonial.</td></tr>
+          <tr><td><strong>6</strong></td><td>Casos prácticos y metodología</td><td>Aplicación integrada y el informe patrimonial.</td></tr>
         </tbody>
       </table>
     </section>
@@ -130,18 +124,18 @@
         <div>
           <h3 class="mt0">Metodología del curso</h3>
           <ul>
-            <li>Teoría a nivel de grado alto, siempre aterrizada en la práctica real de la firma.</li>
+            <li>Teoría a nivel de grado alto, aterrizada en la práctica real de la firma.</li>
             <li>Casos reales anonimizados para entrenar el <strong>criterio</strong>, no solo el conocimiento.</li>
-            <li>Vosotros marcáis el ritmo: se avanza módulo a módulo, consolidando cada bloque.</li>
-            <li>Evaluación continua mediante la revisión de los diagnósticos y propuestas que elaboréis.</li>
+            <li>Módulos interactivos: se avanza consolidando cada bloque y demostrando comprensión.</li>
+            <li>Evaluación continua sobre los diagnósticos y propuestas que elaboréis.</li>
           </ul>
         </div>
         <div class="card dark">
           <h3 class="mt0">Qué esperamos de un consultor DASAR</h3>
           <p><strong style="color:#fff">Rigor técnico:</strong> dominar la norma y saber dónde buscarla.</p>
           <p><strong style="color:#fff">Visión de conjunto:</strong> no perder de vista el patrimonio entero.</p>
-          <p><strong style="color:#fff">Discreción:</strong> trabajamos con información muy sensible del cliente.</p>
-          <p><strong style="color:#fff">Mentalidad de ejecución:</strong> el análisis solo vale si se lleva a la práctica.</p>
+          <p><strong style="color:#fff">Criterio de encaje:</strong> clasificar y tarificar bien a cada cliente.</p>
+          <p><strong style="color:#fff">Ejecución y discreción:</strong> llevar el plan a la práctica con máxima confidencialidad.</p>
         </div>
       </div>
     </section>
@@ -152,20 +146,16 @@
     <section id="s5" class="reveal">
       <span class="kicker">0.5 · Filosofía</span>
       <h2>Una consultora patrimonial atípica</h2>
-      <p>DASAR no es una firma de asesoramiento al uso. Nuestro rasgo diferencial es que <strong>ejecutamos</strong>: nos sentamos del lado del cliente y actuamos como si fuéramos el <em>Head del family office</em> de su patrimonio. No emitimos un informe y desaparecemos; coordinamos a todos los actores —abogados, bancos, gestores, notarios, la propia empresa— y llevamos el plan hasta el final.</p>
+      <p><strong>No nos limitamos a asesorar.</strong> Trabajamos con <em>arquitectura abierta</em>: colaboramos y <strong>dirigimos</strong> a auditores, gestoras de inversión, entidades financieras y despachos jurídicos, actuando como el <em>Head del family office</em> del cliente. Hoy participamos en la gestión y supervisión de un patrimonio agregado superior a <strong>500 millones de euros</strong>.</p>
       <div class="grid grid-2" style="margin-top:1.2rem">
         <div class="card">
           <div class="mc-state" style="display:inline-block;margin-bottom:.6rem">Asesor tradicional</div>
-          <p>Emite recomendaciones y deja la ejecución en manos del cliente y de terceros dispersos. El resultado depende de que alguien, después, «lo mueva».</p>
+          <p>Emite recomendaciones y deja la ejecución en manos del cliente y de terceros dispersos.</p>
         </div>
         <div class="card wine">
           <div style="font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;margin-bottom:.6rem;opacity:.9">DASAR</div>
-          <p>Se sienta del lado del cliente, coordina a todos los actores y ejecuta el plan de principio a fin, respondiendo del resultado como lo haría un family office propio.</p>
+          <p>Se sienta del lado del cliente, coordina a todos los actores y dirige (y ejecuta) el plan de principio a fin.</p>
         </div>
-      </div>
-      <div class="callout">
-        <div class="ic">i</div>
-        <div class="ct"><h4>¿Qué es un <em>family office</em>?</h4><p>Es la estructura que gestiona de forma integral el patrimonio de una familia con grandes recursos: inversiones, fiscalidad, sucesión, filantropía y coordinación de asesores. Tradicionalmente solo era accesible a grandes fortunas. La propuesta de DASAR es llevar esa figura —el <em>Head</em> que gobierna todo— a cualquier cliente patrimonial.</p></div>
       </div>
     </section>
 
@@ -175,87 +165,151 @@
     <section id="s6" class="reveal">
       <span class="kicker">0.6 · Nuestro ADN</span>
       <h2>Visión, misión y valores</h2>
-
       <div class="card dark" style="margin:1.2rem 0">
         <div style="font-size:.72rem;letter-spacing:.16em;text-transform:uppercase;color:var(--wine);font-weight:600">Visión</div>
-        <h3 class="mt0" style="font-size:1.6rem">Democratizar la gestión patrimonial independiente</h3>
-        <p>Integrar la gestión de patrimonio independiente como un servicio accesible a todo cliente patrimonial, y lograr que se perciba como algo <strong style="color:#fff">necesario desde las fases iniciales</strong> de la construcción del patrimonio —no como un lujo reservado a las grandes fortunas.</p>
+        <h3 class="mt0" style="font-size:1.5rem">Democratizar la gestión patrimonial independiente</h3>
+        <p>Integrar la gestión de patrimonio independiente como un servicio accesible a todo cliente patrimonial, y que se perciba como <strong style="color:#fff">necesario desde las fases iniciales</strong> —no como un lujo de grandes fortunas.</p>
       </div>
-
       <div class="callout ref">
         <div class="ic"><span class="tri" style="border-bottom-color:#fff"></span></div>
-        <div class="ct"><h4>Misión</h4><p>Prestar el mejor servicio de gestión patrimonial —<strong>transparente e independiente</strong>— del panorama nacional.</p></div>
+        <div class="ct"><h4>Misión</h4><p>Aportar estructura, visión y disciplina estratégica a la gestión del patrimonio empresarial y familiar, facilitando decisiones informadas, eficientes y alineadas con los objetivos vitales y financieros de cada cliente. Y hacerlo como el mejor servicio <strong>transparente e independiente</strong> del panorama nacional.</p></div>
       </div>
-
       <h3>Los valores que nos guían</h3>
       <div class="grid grid-3" style="margin-top:.8rem">
-        <div class="card"><h4 class="mt0">Independencia</h4><p style="color:var(--muted)">Trabajamos solo para el cliente. Sin producto propio ni comisiones que condicionen el consejo.</p></div>
-        <div class="card"><h4 class="mt0">Transparencia</h4><p style="color:var(--muted)">Honorarios claros y explicación honesta de riesgos y alternativas. Nada de letra pequeña.</p></div>
-        <div class="card"><h4 class="mt0">Excelencia técnica</h4><p style="color:var(--muted)">Dominio profundo de la norma y actualización constante. El detalle marca la diferencia.</p></div>
-        <div class="card"><h4 class="mt0">Ejecución</h4><p style="color:var(--muted)">No basta con recomendar: acompañamos y llevamos el plan a la práctica hasta el final.</p></div>
-        <div class="card"><h4 class="mt0">Cercanía y accesibilidad</h4><p style="color:var(--muted)">Un servicio de alto nivel al alcance del cliente desde las primeras fases de su patrimonio.</p></div>
-        <div class="card"><h4 class="mt0">Confidencialidad</h4><p style="color:var(--muted)">Custodiamos información muy sensible con la máxima discreción y rigor.</p></div>
+        <div class="card"><h4 class="mt0">Independencia de criterio</h4><p style="color:var(--muted)">Trabajamos solo para el cliente, sin producto propio que condicione el consejo.</p></div>
+        <div class="card"><h4 class="mt0">Rigor técnico</h4><p style="color:var(--muted)">Dominio profundo de la norma y actualización constante.</p></div>
+        <div class="card"><h4 class="mt0">Confidencialidad</h4><p style="color:var(--muted)">Custodiamos información sensible con la máxima discreción.</p></div>
+        <div class="card"><h4 class="mt0">Coordinación y coherencia</h4><p style="color:var(--muted)">Todas las piezas del patrimonio, bajo una única dirección estratégica.</p></div>
+        <div class="card"><h4 class="mt0">Transparencia en las oportunidades</h4><p style="color:var(--muted)">Asignación clara y con criterios internos de las oportunidades de inversión.</p></div>
+        <div class="card"><h4 class="mt0">Visión a largo plazo y creación de valor</h4><p style="color:var(--muted)">Acompañamos cada etapa del crecimiento patrimonial del cliente.</p></div>
       </div>
     </section>
 
     <hr class="divider">
 
-    <!-- 0.7 -->
+    <!-- 0.7 SERVICIOS EN PROFUNDIDAD -->
     <section id="s7" class="reveal">
-      <span class="kicker">0.7 · Modelo de negocio</span>
-      <h2>Nuestros servicios</h2>
-      <p>Un mismo estándar de calidad, tres niveles de servicio que acompañan al cliente a medida que su patrimonio crece. Todos se contratan en <strong>modalidad anual, renovable</strong>; los importes indicados son el <strong>coste mínimo mensual</strong> y el alcance se dimensiona según el patrimonio y las necesidades de cada cliente.</p>
+      <span class="kicker">0.7 · Modelo de servicios</span>
+      <h2>Nuestros servicios en profundidad</h2>
+      <p>Un mismo equipo y estándar; tres niveles de intensidad. La progresión es clara: de la <strong>supervisión y análisis</strong> (Smart), a la <strong>dirección con ejecución selectiva</strong> (Advanced), al <strong>gobierno patrimonial integral con equipo propio</strong> (Multi).</p>
 
-      <div class="grid grid-3" style="margin-top:1.2rem">
-        <div class="card hoverable">
-          <div class="sub" style="color:var(--wine);font-size:.72rem;font-weight:600;letter-spacing:.12em;text-transform:uppercase">Fase inicial</div>
-          <h3 class="mt0">Smart Family Office</h3>
-          <div style="font-size:1.5rem;font-weight:600;color:var(--wine)">desde 500 € / mes</div>
-          <hr class="divider" style="margin:1rem 0">
-          <p style="color:var(--muted)">Para quien empieza a construir su patrimonio. Introduce la gestión independiente desde el primer momento, cuando cada decisión sienta las bases del futuro.</p>
+      <table class="tbl">
+        <thead><tr><th>&nbsp;</th><th>Smart</th><th>Advanced</th><th>Multi</th></tr></thead>
+        <tbody>
+          <tr><td><strong>Enfoque</strong></td><td>Supervisión y análisis</td><td>Dirección + ejecución selectiva</td><td>Gobierno patrimonial integral</td></tr>
+          <tr><td><strong>Ejecución de actuaciones</strong></td><td>No (informe, sin ejecución)</td><td>Sí, selectiva</td><td>Sí, integral con equipo propio</td></tr>
+          <tr><td><strong>Due diligence de inversiones</strong></td><td>Evaluación básica</td><td>Completa</td><td>Completa + originación</td></tr>
+          <tr><td><strong>Reserva en coinversión</strong></td><td>10%</td><td>20%</td><td>Acceso prioritario</td></tr>
+          <tr><td><strong>Contratos mercantiles/año</strong></td><td>12 revisados · 5 emitidos</td><td>6 revisados · 2 emitidos</td><td>Según alcance</td></tr>
+          <tr><td><strong>Dirección financiera</strong></td><td>—</td><td>Soporte</td><td>Activa (banca, tesorería)</td></tr>
+          <tr><td><strong>Cadencia de seguimiento</strong></td><td>Trimestral</td><td>Trimestral reforzada</td><td>Quincenal (KPIs)</td></tr>
+          <tr><td><strong>Cuota mínima</strong></td><td>500 €/mes</td><td>1.500 €/mes</td><td>5.000 €/mes</td></tr>
+          <tr><td><strong>Duración mínima</strong></td><td>6 meses</td><td>6 meses</td><td>3 meses</td></tr>
+        </tbody>
+      </table>
+
+      <div class="gate"><span class="tri"></span><div>Despliega los tres servicios para conocer su alcance real. Es imprescindible dominarlo para clasificar bien a un cliente.</div></div>
+
+      <!-- SMART -->
+      <div class="caso svc" data-act="srv_smart">
+        <div class="caso-h">
+          <div class="ci">S</div>
+          <div class="cti"><div class="cl">Nivel 1 · 500 €/mes + IVA · mín. 6 meses</div><h4>Smart Family Office</h4><p>Supervisión, coordinación y análisis integral del patrimonio, sin necesidad de una gran estructura permanente.</p></div>
+          <div class="chev">▾</div>
         </div>
-        <div class="card dark hoverable">
-          <div style="color:var(--wine);font-size:.72rem;font-weight:600;letter-spacing:.12em;text-transform:uppercase">En construcción · Empresarios</div>
-          <h3 class="mt0" style="color:#fff">Advance Family Office</h3>
-          <div style="font-size:1.5rem;font-weight:600;color:var(--wine)">desde 1.500 € / mes</div>
-          <hr class="divider" style="margin:1rem 0;background:rgba(255,255,255,.15)">
-          <p style="color:rgba(255,255,255,.82)">Para clientes que ya han empezado a construir y para empresarios. Gestión avanzada que integra la vertiente personal y la empresarial.</p>
-        </div>
-        <div class="card hoverable">
-          <div class="sub" style="color:var(--wine);font-size:.72rem;font-weight:600;letter-spacing:.12em;text-transform:uppercase">Gestión global</div>
-          <h3 class="mt0">Multifamily Office</h3>
-          <div style="font-size:1.5rem;font-weight:600;color:var(--wine)">desde 5.000 € / mes</div>
-          <hr class="divider" style="margin:1rem 0">
-          <p style="color:var(--muted)">Servicio integral para patrimonios que requieren una gestión global con equipo propio. DASAR actúa como el family office completo del cliente.</p>
-        </div>
+        <div class="caso-body"><div class="caso-inner">
+          <p>Es un servicio de <strong>consultoría estratégica</strong>: el primer nivel de una estructura patrimonial bien dirigida. Aporta visión global consolidada, análisis técnico independiente, coordinación de asesores externos, evaluación estructurada de decisiones y acceso organizado a oportunidades internas.</p>
+          <div class="plano"><h5>Plano patrimonial <span class="cad">Mes 1 · anual</span></h5><p>Evaluación inicial y mapa consolidado, diagnóstico de la estructura societaria, riesgos estructurales e informe estratégico inicial. Análisis de hasta <strong>12 oportunidades de inversión al año</strong> presentadas por el cliente. Reserva del <strong>10%</strong> en oportunidades internas (club de coinversión, sujeto a disponibilidad).</p></div>
+          <div class="plano"><h5>Plano fiscal <span class="cad">Mes 2 · anual</span></h5><p>Revisión de la estructura fiscal básica y su encaje societario, tributación personal vinculada al patrimonio empresarial e inmobiliario, impacto de las principales fuentes de renta y coherencia entre estructura y marco fiscal. Coordinación con el asesor fiscal del cliente.</p></div>
+          <div class="plano"><h5>Plano mercantil <span class="cad">anual · trimestral</span></h5><p>Revisión de hasta 12 contratos recibidos y elaboración de hasta 5 emitidos; seguimiento financiero empresarial (valoración de partidas, análisis sectorial, desviaciones estructurales).</p></div>
+          <div class="plano"><h5>Plano sucesorio <span class="cad">Mes 3</span></h5><p>Planificación sucesoria básica: primera planificación estructural, identificación de riesgos hereditarios, coordinación con especialistas y acompañamiento en decisiones.</p></div>
+          <div class="lim"><b>Límites:</b> no sustituye al asesor fiscal ni al despacho jurídico; no implica gestión discrecional de inversiones; no asume dirección financiera operativa; no realiza intermediación financiera. Informe, <b>sin ejecución</b>.</div>
+        </div></div>
       </div>
 
-      <h3>Un servicio necesario en cada etapa</h3>
-      <p>La gestión patrimonial no es un lujo para el final del camino: aporta más cuanto antes empieza. Por eso el modelo es una escalera —a mayor patrimonio y complejidad, mayor alcance del servicio—, pero el acompañamiento independiente está presente desde el primer peldaño.</p>
-      <div class="flow" style="grid-template-columns:repeat(3,1fr)">
-        <div class="step"><div class="n">01</div><h4>Smart</h4><p>Se sientan las bases del patrimonio con criterio desde el inicio.</p></div>
-        <div class="step"><div class="n">02</div><h4>Advance</h4><p>Se consolida el patrimonio y se integra la dimensión empresarial.</p></div>
-        <div class="step"><div class="n">03</div><h4>Multifamily</h4><p>Gestión global con equipo propio para patrimonios complejos.</p></div>
+      <!-- ADVANCED -->
+      <div class="caso svc" data-act="srv_advance">
+        <div class="caso-h">
+          <div class="ci">A</div>
+          <div class="cti"><div class="cl">Nivel 2 · 1.500 €/mes + IVA · mín. 6 meses</div><h4>Advanced Family Office</h4><p>Combina visión estratégica y <strong>ejecución selectiva</strong>: estructura, optimiza y hace crecer el patrimonio sin una estructura integral permanente.</p></div>
+          <div class="chev">▾</div>
+        </div>
+        <div class="caso-body"><div class="caso-inner">
+          <p>El salto respecto al Smart es la <strong>implicación directa en la puesta en marcha</strong>: DASAR define y ejecuta las actuaciones patrimoniales necesarias, en coordinación con la asesoría correspondiente, y hace su seguimiento.</p>
+          <div class="plano"><h5>Plano patrimonial <span class="cad">Mes 1 · anual</span></h5><p>Todo lo del Smart, y además <strong>due diligence completa</strong> de las hasta 12 oportunidades anuales. Reserva del <strong>20%</strong> en coinversión.</p></div>
+          <div class="plano"><h5>Dirección patrimonial y soporte estratégico <span class="cad">continuo</span></h5><p>Revisión y estructuración del patrimonio: análisis de la distribución entre activos (inmobiliario, financiero, liquidez), identificación de ineficiencias y concentraciones de riesgo, propuesta de mejora, seguimiento de la evolución y ajuste de la estrategia. Búsqueda activa de oportunidades y apoyo en la toma de decisiones.</p></div>
+          <div class="plano"><h5>Plano fiscal y mercantil <span class="cad">Mes 2 · anual</span></h5><p>Plano fiscal como el Smart. Revisión de hasta 6 contratos recibidos y elaboración de 2 emitidos; seguimiento estratégico del área financiera.</p></div>
+          <div class="plano"><h5>Continuidad patrimonial y empresarial <span class="cad">Mes 3</span></h5><p>Planificación sucesoria personal y empresarial: riesgos en la transmisión, definición de estructuras de continuidad, coordinación con asesores y acompañamiento.</p></div>
+          <div class="lim"><b>Límites:</b> no gestión directa de inversiones; no intermediación financiera. La ejecución es <b>selectiva</b>, no un gobierno integral permanente.</div>
+        </div></div>
+      </div>
+
+      <!-- MULTI -->
+      <div class="caso svc" data-act="srv_multi">
+        <div class="caso-h">
+          <div class="ci">M</div>
+          <div class="cti"><div class="cl">Nivel 3 · 5.000 €/mes + IVA · mín. 3 meses</div><h4>Multi Family Office</h4><p>El más alto nivel de estructuración, control y proyección estratégica: integra, coordina y <strong>ejecuta</strong> con equipo propio.</p></div>
+          <div class="chev">▾</div>
+        </div>
+        <div class="caso-body"><div class="caso-inner">
+          <p>Pensado para la consolidación, crecimiento y <strong>transmisión intergeneracional</strong> de grandes patrimonios. Se organiza en áreas de dirección, con equipo dedicado y cadencia quincenal.</p>
+          <div class="plano"><h5>Gobierno patrimonial <span class="cad">eje central</span></h5><p>Dirección estratégica y control global: hoja de ruta a medio y largo plazo, prioridades (crecimiento, protección, liquidez, sucesión), supervisión de todos los intervinientes y marco de toma de decisiones.</p></div>
+          <div class="plano"><h5>Seguimiento y KPIs <span class="cad">quincenal</span></h5><p>Cuadro de mando con indicadores por área, reuniones quincenales de estrategia con acta de acuerdos, reporting mensual y revisión trimestral de la hoja de ruta.</p></div>
+          <div class="plano"><h5>Dirección financiera <span class="cad">continuo</span></h5><p>Supervisión activa del balance, estructuración y optimización de la financiación, negociación con entidades, gestión de tesorería y liquidez.</p></div>
+          <div class="plano"><h5>Dirección de administración <span class="cad">continuo</span></h5><p>Control operativo, orden documental, vencimientos y estandarización de procesos operativos de la empresa.</p></div>
+          <div class="plano"><h5>Fiscal avanzada y arquitectura societaria <span class="cad">continuo</span></h5><p>Estructuras fiscales eficientes, reorganizaciones societarias, holdings y protección patrimonial; optimización continua de la carga tributaria.</p></div>
+          <div class="plano"><h5>Inversión, capital y sucesión <span class="cad">según momento</span></h5><p>Acceso prioritario a oportunidades, análisis y estructuración de operaciones, M&A y desinversión, supervisión global de cartera; planificación hereditaria avanzada y protocolos familiares.</p></div>
+          <div class="lim"><b>Equipo dedicado:</b> dirección de consultoría, consultor patrimonial, dirección de administración y legal, dirección de proyectos y project manager. Aun así, tampoco realiza gestión discrecional ni intermediación financiera: <b>dirige y coordina</b> a las entidades habilitadas.</div>
+        </div></div>
       </div>
     </section>
 
     <hr class="divider">
 
-    <!-- 0.8 -->
+    <!-- 0.8 TARIFARIO -->
     <section id="s8" class="reveal">
-      <span class="kicker">0.8 · Nuestro método</span>
-      <h2>El plan patrimonial DASAR</h2>
-      <p>Así convertimos el conocimiento técnico en valor real para el cliente: un ciclo claro que va del análisis a la ejecución y se revisa en el tiempo.</p>
-      <div class="flow">
-        <div class="step"><div class="n">01</div><h4>Diagnóstico</h4><p>Analizamos el patrimonio en 360º y levantamos el <strong>mapa de dolor</strong> del cliente.</p></div>
-        <div class="step"><div class="n">02</div><h4>Cuestiones a mejorar</h4><p>Identificamos riesgos, ineficiencias y oportunidades, y las priorizamos.</p></div>
-        <div class="step"><div class="n">03</div><h4>Propuesta</h4><p>Diseñamos un plan patrimonial a medida, claro y accionable.</p></div>
-        <div class="step"><div class="n">04</div><h4>Ejecución</h4><p>Lo llevamos a la práctica como family office del cliente y revisamos.</p></div>
-      </div>
+      <span class="kicker">0.8 · Tarifario</span>
+      <h2>Tarifario y encaje del cliente</h2>
+      <p>La referencia para fijar el precio es el <strong>AUM en gestión</strong> (patrimonio familiar más la empresa que gestionamos). Sobre ese AUM aplicamos un porcentaje anual recomendado según el tramo, y comparamos con un <strong>mínimo mensual</strong> por servicio. El resultado nos dice el <strong>encaje económico</strong> del cliente.</p>
 
-      <div class="callout">
-        <div class="ic">!</div>
-        <div class="ct"><h4>El mapa de dolor es el punto de partida</h4><p>Antes de proponer nada hay que entender qué preocupa al cliente y qué falla en su patrimonio: sobrecostes fiscales, riesgos jurídicos, falta de liquidez, ausencia de plan sucesorio, estructuras ineficientes… Sin ese mapa no hay buena propuesta, solo recetas genéricas.</p></div>
+      <div class="stats">
+        <div class="stat"><div class="sub">Smart</div><div class="big">1%</div><div class="lbl">sobre AUM · mínimo 500 €/mes</div></div>
+        <div class="stat"><div class="sub">Advanced</div><div class="big">0,75%</div><div class="lbl">sobre AUM · mínimo 1.500 €/mes</div></div>
+        <div class="stat"><div class="sub">Multi</div><div class="big">0,5%</div><div class="lbl">sobre AUM · mínimo 5.000 €/mes</div></div>
+      </div>
+      <p class="mt0" style="color:var(--muted)">Tarifa recomendada = AUM × % del tramo (anual). Si ese importe queda por debajo del mínimo mensual del servicio, <strong>manda el mínimo</strong>. Todos los importes son + IVA, en contratos anuales renovables.</p>
+
+      <h3>Criterios de clasificación (mínimos)</h3>
+      <p>Permitimos clasificar a un cliente en un tramo u otro, pero con criterios mínimos. <strong>La decisión final es del consultor</strong>; estos umbrales acotan la zona.</p>
+      <table class="tbl crit">
+        <thead><tr><th>Tramo</th><th>Empresa (si intervenimos)</th><th>AUM en gestión (empresa + familia)</th></tr></thead>
+        <tbody>
+          <tr><td>Smart</td><td>Factura &lt; 1 M€</td><td>Hasta 2 M€ (por encima, no puede ser Smart)</td></tr>
+          <tr><td>Advanced</td><td>Hasta 3 M€ de facturación</td><td>Hasta 4 M€</td></tr>
+          <tr><td>Zona intermedia</td><td>Facturación 3–5 M€</td><td>4–5 M€ · <em>decide el consultor</em></td></tr>
+          <tr><td>Multi</td><td>Facturación &gt; 5 M€ → siempre Multi</td><td>Desde 5 M€ líquidos → siempre Multi</td></tr>
+        </tbody>
+      </table>
+
+      <div class="calc">
+        <div class="calc-head"><span class="tri"></span><h3>Calculadora de encaje y tarifa</h3></div>
+        <div class="calc-grid">
+          <div class="fld">
+            <label for="c-aum">AUM en gestión (€)</label>
+            <small>Patrimonio familiar + empresa que gestionamos.</small>
+            <input id="c-aum" data-c-aum type="number" min="0" step="10000" placeholder="p. ej. 2700000">
+          </div>
+          <div class="fld">
+            <label for="c-rev">Facturación de la empresa (€)</label>
+            <small>Solo si intervenimos en su empresa.</small>
+            <input id="c-rev" data-c-rev type="number" min="0" step="10000" placeholder="p. ej. 900000">
+          </div>
+        </div>
+        <div class="calc-actions">
+          <label class="switch"><input type="checkbox" data-c-int> Intervenimos en su empresa</label>
+          <button class="btn btn-primary" data-c-run>Calcular encaje</button>
+        </div>
+        <div class="calc-result" data-c-result></div>
       </div>
     </section>
 
@@ -263,67 +317,75 @@
 
     <!-- 0.9 -->
     <section id="s9" class="reveal">
-      <span class="kicker">0.9 · Anticipo del núcleo · Módulo 2</span>
-      <h2>El diagnóstico patrimonial 360º</h2>
-      <p>Todo empieza aquí. En el diagnóstico analizamos cuatro «fotografías» del cliente y, sobre todo, cómo se conectan entre sí. Lo veréis en detalle en el Módulo 2; conviene que os familiaricéis desde ya con el marco.</p>
-      <div class="grid grid-2" style="margin-top:1rem">
-        <div class="card"><div style="display:flex;gap:.9rem"><span class="badge-num">1</span><div><h4 class="mt0">Situación patrimonial</h4><p style="color:var(--muted)">Inventario de activos y pasivos, titularidades, régimen económico matrimonial y estructura familiar.</p></div></div></div>
-        <div class="card"><div style="display:flex;gap:.9rem"><span class="badge-num">2</span><div><h4 class="mt0">Situación fiscal</h4><p style="color:var(--muted)">Residencia, obligaciones declaradas, riesgos abiertos e historial tributario.</p></div></div></div>
-        <div class="card"><div style="display:flex;gap:.9rem"><span class="badge-num">3</span><div><h4 class="mt0">Activos</h4><p style="color:var(--muted)">Naturaleza y liquidez, afectación a la actividad económica y plusvalías latentes.</p></div></div></div>
-        <div class="card"><div style="display:flex;gap:.9rem"><span class="badge-num">4</span><div><h4 class="mt0">Actividades</h4><p style="color:var(--muted)">Fuentes de renta, vehículos empresariales y necesidades de financiación.</p></div></div></div>
+      <span class="kicker">0.9 · Nuestro método</span>
+      <h2>El plan patrimonial DASAR</h2>
+      <div class="flow">
+        <div class="step"><div class="n">01</div><h4>Diagnóstico</h4><p>Analizamos el patrimonio en 360º y levantamos el <strong>mapa de dolor</strong>.</p></div>
+        <div class="step"><div class="n">02</div><h4>Cuestiones a mejorar</h4><p>Identificamos riesgos, ineficiencias y oportunidades, y las priorizamos.</p></div>
+        <div class="step"><div class="n">03</div><h4>Propuesta</h4><p>Diseñamos un plan a medida, claro y accionable.</p></div>
+        <div class="step"><div class="n">04</div><h4>Ejecución</h4><p>Lo llevamos a la práctica como family office del cliente y revisamos.</p></div>
       </div>
-      <p style="margin-top:1.2rem">La destreza que más nos distingue es <strong>conectar</strong> estas cuatro fotografías con todas las figuras impositivas: renta personal, Impuesto sobre Sociedades, Patrimonio, Sucesiones y Donaciones, imposición indirecta, y las estructuras y reestructuraciones que hagan falta para que el conjunto funcione, sin olvidar la financiación.</p>
+      <div class="callout"><div class="ic">!</div><div class="ct"><h4>El mapa de dolor es el punto de partida</h4><p>Sin entender qué preocupa y qué falla —sobrecostes fiscales, riesgos jurídicos, falta de liquidez, ausencia de plan sucesorio, estructuras ineficientes— no hay buena propuesta.</p></div></div>
+    </section>
+
+    <hr class="divider">
+
+    <!-- 0.10 -->
+    <section id="s10" class="reveal">
+      <span class="kicker">0.10 · Anticipo del núcleo · Módulo 2</span>
+      <h2>El diagnóstico patrimonial 360º</h2>
+      <p>Analizamos cuatro fotografías del cliente y cómo se conectan.</p>
+      <div class="grid grid-2" style="margin-top:1rem">
+        <div class="card"><div style="display:flex;gap:.9rem"><span class="badge-num">1</span><div><h4 class="mt0">Situación patrimonial</h4><p style="color:var(--muted)">Activos y pasivos, titularidades, régimen matrimonial, estructura familiar.</p></div></div></div>
+        <div class="card"><div style="display:flex;gap:.9rem"><span class="badge-num">2</span><div><h4 class="mt0">Situación fiscal</h4><p style="color:var(--muted)">Residencia, obligaciones, riesgos abiertos e historial.</p></div></div></div>
+        <div class="card"><div style="display:flex;gap:.9rem"><span class="badge-num">3</span><div><h4 class="mt0">Activos</h4><p style="color:var(--muted)">Naturaleza, liquidez, afectación y plusvalías latentes.</p></div></div></div>
+        <div class="card"><div style="display:flex;gap:.9rem"><span class="badge-num">4</span><div><h4 class="mt0">Actividades</h4><p style="color:var(--muted)">Fuentes de renta, vehículos empresariales y financiación.</p></div></div></div>
+      </div>
     </section>
 
     <hr class="divider">
 
     <!-- CASOS -->
     <section id="casos" class="reveal">
-      <span class="kicker">Práctica</span>
+      <span class="kicker">Práctica exigente</span>
       <h2>Casos prácticos</h2>
-      <p>Tres supuestos breves para fijar las ideas del módulo. Abre cada uno, piensa tu respuesta y compárala con la solución.</p>
+      <p>Tres supuestos para aplicar el tarifario y los criterios de encaje. Piensa tu respuesta (y haz los números) antes de abrir la solución.</p>
 
-      <div class="caso">
-        <div class="caso-h">
-          <div class="ci">1</div>
-          <div class="cti"><div class="cl">Elección de servicio</div><h4>La joven profesional que empieza a ahorrar</h4><p>Ana, 32 años, buenos ingresos por cuenta ajena, primeros ahorros e inversiones. ¿Qué nivel de servicio encaja y por qué?</p></div>
+      <div class="caso" data-act="caso1">
+        <div class="caso-h"><div class="ci">1</div>
+          <div class="cti"><div class="cl">Clasificación + tarifa</div><h4>La empresa pequeña con patrimonio grande</h4><p>Empresario. Intervenimos en su empresa, que factura <strong>850.000 €</strong>. Patrimonio familiar gestionado <strong>1,4 M€</strong> y empresa gestionada valorada en <strong>1,3 M€</strong>. ¿Smart? ¿Qué tarifa?</p></div>
           <div class="chev">▾</div>
         </div>
         <div class="caso-body"><div class="caso-inner">
-          <p>Ana está en la <strong>fase inicial</strong> de construcción de su patrimonio. Todavía no tiene estructuras complejas ni actividad empresarial, pero cada decisión que tome ahora (cómo canaliza el ahorro, cómo declara sus inversiones, cómo empieza a planificar) condiciona su futuro.</p>
-          <div class="sol">
-            <div class="sol-l">Solución razonada</div>
-            <p>Encaja el <strong>Smart Family Office</strong> (desde 500 €/mes). El objetivo no es una gestión sofisticada que aún no necesita, sino instaurar desde el principio la disciplina de la gestión independiente y evitar errores de base. Es la mejor expresión de nuestra visión: que el servicio se perciba como necesario <em>desde las fases iniciales</em>, no como un lujo posterior.</p>
+          <p>AUM en gestión = 1,4 M€ + 1,3 M€ = <strong>2,7 M€</strong>. Aunque la empresa facture menos de 1 M€ (lo que por sí solo permitiría el Smart), el criterio de patrimonio manda: <strong>por encima de 2 M€ de AUM no puede ser Smart</strong>.</p>
+          <div class="sol"><div class="sol-l">Solución</div>
+            <p>Encaje: <strong>Advanced</strong> (AUM en el tramo hasta 4 M€ y facturación &lt; 3 M€). Tarifa recomendada = 0,75% × 2,7 M€ = <strong>20.250 €/año ≈ 1.688 €/mes</strong> (+ IVA), por encima del mínimo de 1.500 €/mes, así que manda el porcentaje. <em>Lección: un criterio (patrimonio) puede expulsar del tramo aunque otro (facturación) lo permitiera.</em></p>
           </div>
         </div></div>
       </div>
 
-      <div class="caso">
-        <div class="caso-h">
-          <div class="ci">2</div>
-          <div class="cti"><div class="cl">Visión 360º</div><h4>El empresario que solo mira su empresa</h4><p>Luis tiene una sociedad rentable y se plantea subirse el sueldo. Su gestor le habla solo del IRPF. ¿Qué aporta DASAR?</p></div>
+      <div class="caso" data-act="caso2">
+        <div class="caso-h"><div class="ci">2</div>
+          <div class="cti"><div class="cl">Zona intermedia + suelo</div><h4>El patrimonio que cae entre dos tramos</h4><p>Cliente sin empresa, <strong>4,6 M€ líquidos</strong> en gestión. ¿Dónde encaja y cuánto pagaría en cada opción?</p></div>
           <div class="chev">▾</div>
         </div>
         <div class="caso-body"><div class="caso-inner">
-          <p>La pregunta «¿cuánto me subo el sueldo?» parece de IRPF, pero toca varias piezas a la vez: la retribución es gasto deducible en el <strong>Impuesto sobre Sociedades</strong>, tributa como rendimiento del trabajo en su <strong>IRPF</strong>, altera la tesorería de la empresa y puede afectar a la calificación de la actividad y a la <strong>exención de empresa familiar</strong> en el Impuesto sobre el Patrimonio y en Sucesiones.</p>
-          <div class="sol">
-            <div class="sol-l">Solución razonada</div>
-            <p>DASAR encaja a Luis en el <strong>Advance Family Office</strong> (desde 1.500 €/mes) y aborda la decisión conectando IRPF, IS y Patrimonio en lugar de optimizar solo uno. El valor no está en la respuesta a una pregunta aislada, sino en integrar la vertiente personal y la empresarial en una única estrategia.</p>
+          <p>4,6 M€ está en la <strong>zona intermedia</strong> (entre 4 y 5 M€): por criterio, lo decide el consultor entre Advanced y Multi.</p>
+          <div class="sol"><div class="sol-l">Solución</div>
+            <p>Como <strong>Advanced</strong>: 0,75% × 4,6 M€ = 34.500 €/año ≈ <strong>2.875 €/mes</strong>. Como <strong>Multi</strong>: 0,5% × 4,6 M€ = 23.000 €/año ≈ 1.917 €/mes, pero como el mínimo del Multi es 5.000 €/mes, pagaría <strong>5.000 €/mes</strong>. Es decir, salvo que el cliente necesite el gobierno integral (dirección financiera, KPIs quincenales, equipo propio), el <strong>encaje económico apunta a Advanced</strong>. <em>Lección: en la zona intermedia decide la necesidad de servicio, y el suelo del Multi puede encarecerlo.</em></p>
           </div>
         </div></div>
       </div>
 
-      <div class="caso">
-        <div class="caso-h">
-          <div class="ci">3</div>
-          <div class="cti"><div class="cl">Mapa de dolor</div><h4>Priorizar antes de proponer</h4><p>Una familia con patrimonio elevado nos pide «pagar menos impuestos». ¿Cuál es el primer paso del plan patrimonial?</p></div>
+      <div class="caso" data-act="caso3">
+        <div class="caso-h"><div class="ci">3</div>
+          <div class="cti"><div class="cl">Alcance del servicio</div><h4>«Gestióname tú la cartera»</h4><p>Un cliente Advanced pide que DASAR ejecute directamente sus órdenes de compraventa de acciones y gestione su cartera de forma discrecional. ¿Podemos?</p></div>
           <div class="chev">▾</div>
         </div>
         <div class="caso-body"><div class="caso-inner">
-          <p>La petición explícita («pagar menos») rara vez es el problema real. Puede haber riesgos jurídicos por titularidades mal ordenadas, ausencia de plan sucesorio que amenace la continuidad de la empresa, falta de liquidez para afrontar un futuro impuesto de Sucesiones, o estructuras que generan sobrecostes recurrentes.</p>
-          <div class="sol">
-            <div class="sol-l">Solución razonada</div>
-            <p>El primer paso no es proponer, es <strong>diagnosticar</strong>: analizar el patrimonio en 360º y levantar el mapa de dolor para descubrir qué preocupa de verdad y qué falla. Solo con ese mapa priorizamos las cuestiones a mejorar y construimos una propuesta que después ejecutamos. Saltarse el diagnóstico es la forma más rápida de dar una respuesta brillante a la pregunta equivocada.</p>
+          <p>No. Ningún nivel —Smart, Advanced o Multi— realiza <strong>gestión discrecional de inversiones ni intermediación financiera</strong>; así consta expresamente en el alcance de los servicios.</p>
+          <div class="sol"><div class="sol-l">Solución</div>
+            <p>Hay que <strong>reconducir la expectativa</strong>: DASAR analiza, dirige y (en Advanced/Multi) ejecuta actuaciones patrimoniales y coordina a las entidades habilitadas, pero la gestión discrecional y la intermediación corresponden a una gestora o entidad autorizada, que operaría <strong>bajo nuestra dirección estratégica</strong>. <em>Lección: conocer los límites del servicio es tan importante como su alcance; prometer lo que no hacemos daña la independencia y la relación.</em></p>
           </div>
         </div></div>
       </div>
@@ -334,74 +396,70 @@
     <!-- QUIZ -->
     <section id="quiz" class="reveal">
       <div class="quiz" data-quiz-mod="mod0">
-        <div class="q-head">
-          <span class="tri"></span>
-          <h3>Autoevaluación · Módulo 0</h3>
-          <span class="q-meta">Necesitas ≥ 70% para completar</span>
-        </div>
+        <div class="q-head"><span class="tri"></span><h3>Autoevaluación · Módulo 0</h3><span class="q-meta">Necesitas ≥ 70% para completar</span></div>
         <div class="q-body">
 
-          <div class="q-item" data-correct="2">
-            <div class="q-txt"><span class="qn">1.</span>¿Qué distingue el enfoque de gestión patrimonial de DASAR del asesoramiento fiscal tradicional?</div>
-            <label class="q-opt"><input type="radio" name="q1" value="0">Se centra en encontrar el impuesto más bajo posible en cada operación.</label>
-            <label class="q-opt"><input type="radio" name="q1" value="1">Solo trabaja con grandes fortunas ya consolidadas.</label>
-            <label class="q-opt"><input type="radio" name="q1" value="2">Optimiza el patrimonio y la familia en su conjunto y a lo largo del tiempo, conectando todas las piezas.</label>
-            <label class="q-opt"><input type="radio" name="q1" value="3">Emite un informe técnico y deja la ejecución al cliente.</label>
-            <div class="q-feedback">La clave es la visión de conjunto y temporal: no se optimiza un tributo aislado, sino el patrimonio entero.</div>
-          </div>
-
           <div class="q-item" data-correct="1">
-            <div class="q-txt"><span class="qn">2.</span>¿Qué significa que DASAR actúa como «Head del family office» del cliente?</div>
-            <label class="q-opt"><input type="radio" name="q2" value="0">Que se limita a recomendar y coordinar por escrito.</label>
-            <label class="q-opt"><input type="radio" name="q2" value="1">Que ejecuta directamente, coordinando a todos los actores y respondiendo del resultado.</label>
-            <label class="q-opt"><input type="radio" name="q2" value="2">Que sustituye al banco del cliente.</label>
-            <label class="q-opt"><input type="radio" name="q2" value="3">Que solo interviene en la sucesión.</label>
-            <div class="q-feedback">El rasgo atípico de DASAR es la ejecución: se sienta del lado del cliente y lleva el plan hasta el final.</div>
+            <div class="q-txt"><span class="qn">1.</span>¿Cómo se calcula la tarifa recomendada de referencia?</div>
+            <label class="q-opt"><input type="radio" name="q1" value="0">Un precio fijo por tramo, igual para todos los clientes.</label>
+            <label class="q-opt"><input type="radio" name="q1" value="1">Un % sobre el AUM en gestión (1% Smart, 0,75% Advanced, 0,5% Multi), con un mínimo mensual por tramo.</label>
+            <label class="q-opt"><input type="radio" name="q1" value="2">Un porcentaje sobre la rentabilidad obtenida.</label>
+            <label class="q-opt"><input type="radio" name="q1" value="3">Según las horas dedicadas al cliente.</label>
+            <div class="q-feedback">El encaje se calcula con AUM × % del tramo, comparado con el mínimo mensual del servicio.</div>
           </div>
 
           <div class="q-item" data-correct="0">
-            <div class="q-txt"><span class="qn">3.</span>La visión de DASAR se resume en…</div>
-            <label class="q-opt"><input type="radio" name="q3" value="0">Democratizar la gestión patrimonial independiente y hacerla accesible desde las fases iniciales.</label>
-            <label class="q-opt"><input type="radio" name="q3" value="1">Maximizar la rentabilidad financiera de las carteras.</label>
-            <label class="q-opt"><input type="radio" name="q3" value="2">Ser el mayor despacho fiscal por número de clientes.</label>
-            <label class="q-opt"><input type="radio" name="q3" value="3">Ofrecer producto financiero propio.</label>
-            <div class="q-feedback">La visión es democratizar el servicio y que se perciba como necesario desde el principio, no como un lujo.</div>
-          </div>
-
-          <div class="q-item" data-correct="3">
-            <div class="q-txt"><span class="qn">4.</span>Relaciona el servicio con el cliente típico. ¿Cuál es correcta?</div>
-            <label class="q-opt"><input type="radio" name="q4" value="0">Multifamily Office · quien acaba de empezar a ahorrar.</label>
-            <label class="q-opt"><input type="radio" name="q4" value="1">Smart Family Office · patrimonio que exige equipo propio.</label>
-            <label class="q-opt"><input type="radio" name="q4" value="2">Advance Family Office · desde 5.000 €/mes.</label>
-            <label class="q-opt"><input type="radio" name="q4" value="3">Advance Family Office · clientes en construcción y empresarios, desde 1.500 €/mes.</label>
-            <div class="q-feedback">Smart (desde 500 €) para fase inicial; Advance (desde 1.500 €) para quienes construyen y empresarios; Multifamily (desde 5.000 €) para gestión global con equipo propio.</div>
+            <div class="q-txt"><span class="qn">2.</span>Cliente Smart con 600.000 € de AUM. ¿Tarifa recomendada mensual (+IVA)?</div>
+            <label class="q-opt"><input type="radio" name="q2" value="0">500 € (1% de 600.000 = 6.000 €/año = 500 €/mes, justo el mínimo).</label>
+            <label class="q-opt"><input type="radio" name="q2" value="1">6.000 € al mes.</label>
+            <label class="q-opt"><input type="radio" name="q2" value="2">250 € al mes.</label>
+            <label class="q-opt"><input type="radio" name="q2" value="3">1.500 € al mes.</label>
+            <div class="q-feedback">1% anual sobre 600.000 € son 6.000 €/año, es decir 500 €/mes: coincide con el mínimo del Smart.</div>
           </div>
 
           <div class="q-item" data-correct="1">
-            <div class="q-txt"><span class="qn">5.</span>¿Cuál es el orden correcto del plan patrimonial DASAR?</div>
-            <label class="q-opt"><input type="radio" name="q5" value="0">Propuesta → Diagnóstico → Ejecución → Revisión.</label>
-            <label class="q-opt"><input type="radio" name="q5" value="1">Diagnóstico (mapa de dolor) → Cuestiones a mejorar → Propuesta → Ejecución.</label>
-            <label class="q-opt"><input type="radio" name="q5" value="2">Ejecución → Propuesta → Diagnóstico.</label>
-            <label class="q-opt"><input type="radio" name="q5" value="3">Propuesta → Ejecución, sin diagnóstico previo.</label>
-            <div class="q-feedback">Primero se diagnostica y se levanta el mapa de dolor; sin él no hay buena propuesta.</div>
+            <div class="q-txt"><span class="qn">3.</span>Empresa que factura 900.000 € (intervenimos) y AUM total de 2,7 M€. ¿Segmento correcto?</div>
+            <label class="q-opt"><input type="radio" name="q3" value="0">Smart, porque la empresa factura menos de 1 M€.</label>
+            <label class="q-opt"><input type="radio" name="q3" value="1">Advanced: el AUM supera los 2 M€, así que no puede ser Smart aunque la empresa sea pequeña.</label>
+            <label class="q-opt"><input type="radio" name="q3" value="2">Multi, siempre.</label>
+            <label class="q-opt"><input type="radio" name="q3" value="3">Cualquiera; lo elige el cliente.</label>
+            <div class="q-feedback">El criterio de patrimonio (2 M€) expulsa del Smart aunque la facturación lo permitiera.</div>
+          </div>
+
+          <div class="q-item" data-correct="1">
+            <div class="q-txt"><span class="qn">4.</span>Cliente con 4,6 M€ en gestión, si se clasifica como Multi, ¿cuánto pagaría al mes?</div>
+            <label class="q-opt"><input type="radio" name="q4" value="0">1.917 € (el 0,5% sobre el AUM).</label>
+            <label class="q-opt"><input type="radio" name="q4" value="1">5.000 €, porque se aplica el mínimo del tramo Multi.</label>
+            <label class="q-opt"><input type="radio" name="q4" value="2">2.875 €.</label>
+            <label class="q-opt"><input type="radio" name="q4" value="3">23.000 €.</label>
+            <div class="q-feedback">0,5% de 4,6 M€ = 1.917 €/mes, por debajo del mínimo Multi (5.000 €/mes), así que manda el suelo.</div>
+          </div>
+
+          <div class="q-item" data-correct="1">
+            <div class="q-txt"><span class="qn">5.</span>¿Qué distingue al Advanced del Smart?</div>
+            <label class="q-opt"><input type="radio" name="q5" value="0">Nada relevante, solo el precio.</label>
+            <label class="q-opt"><input type="radio" name="q5" value="1">Ejecución selectiva de actuaciones, due diligence completa de inversiones y mayor reserva en coinversión (20% vs 10%).</label>
+            <label class="q-opt"><input type="radio" name="q5" value="2">Que el Advanced no incluye plano fiscal.</label>
+            <label class="q-opt"><input type="radio" name="q5" value="3">Que el Smart incluye equipo propio dedicado.</label>
+            <div class="q-feedback">El Smart supervisa y analiza; el Advanced ya dirige y ejecuta de forma selectiva, con due diligence.</div>
+          </div>
+
+          <div class="q-item" data-correct="1">
+            <div class="q-txt"><span class="qn">6.</span>¿Cuál es el rasgo propio del Multi Family Office?</div>
+            <label class="q-opt"><input type="radio" name="q6" value="0">Solo emite informes de diagnóstico.</label>
+            <label class="q-opt"><input type="radio" name="q6" value="1">Gobierno patrimonial integral: dirección financiera, KPIs quincenales, arquitectura societaria y equipo dedicado.</label>
+            <label class="q-opt"><input type="radio" name="q6" value="2">Se limita a revisar 12 contratos al año.</label>
+            <label class="q-opt"><input type="radio" name="q6" value="3">Nunca interviene en la empresa del cliente.</label>
+            <div class="q-feedback">El Multi es el gobierno integral con equipo propio y seguimiento quincenal por KPIs.</div>
           </div>
 
           <div class="q-item" data-correct="2">
-            <div class="q-txt"><span class="qn">6.</span>¿Cuáles son las cuatro «fotografías» del diagnóstico 360º?</div>
-            <label class="q-opt"><input type="radio" name="q6" value="0">Ingresos, gastos, ahorro y deuda.</label>
-            <label class="q-opt"><input type="radio" name="q6" value="1">Renta, IVA, Sociedades y Sucesiones.</label>
-            <label class="q-opt"><input type="radio" name="q6" value="2">Situación patrimonial, situación fiscal, activos y actividades.</label>
-            <label class="q-opt"><input type="radio" name="q6" value="3">Banca, seguros, inmuebles y bolsa.</label>
-            <div class="q-feedback">El diagnóstico analiza situación patrimonial, situación fiscal, activos y actividades, y cómo se conectan.</div>
-          </div>
-
-          <div class="q-item" data-correct="0">
-            <div class="q-txt"><span class="qn">7.</span>Un empresario pregunta cuánto subirse el sueldo. ¿Por qué no es una decisión «solo de IRPF»?</div>
-            <label class="q-opt"><input type="radio" name="q7" value="0">Porque afecta a la vez al IS de la empresa, al IRPF del socio y puede incidir en la exención de empresa familiar (IP e ISD).</label>
-            <label class="q-opt"><input type="radio" name="q7" value="1">Porque el sueldo no tributa.</label>
-            <label class="q-opt"><input type="radio" name="q7" value="2">Porque el IRPF lo calcula la empresa.</label>
-            <label class="q-opt"><input type="radio" name="q7" value="3">Porque siempre conviene el sueldo más alto posible.</label>
-            <div class="q-feedback">Es el ejemplo típico de interconexión: una decisión toca varios impuestos y la estructura patrimonial completa.</div>
+            <div class="q-txt"><span class="qn">7.</span>Un cliente pide gestión discrecional de su cartera e intermediación financiera. ¿Qué nivel lo cubre?</div>
+            <label class="q-opt"><input type="radio" name="q7" value="0">El Multi.</label>
+            <label class="q-opt"><input type="radio" name="q7" value="1">El Advanced.</label>
+            <label class="q-opt"><input type="radio" name="q7" value="2">Ninguno: DASAR no hace gestión discrecional ni intermediación; dirige y coordina a las entidades habilitadas.</label>
+            <label class="q-opt"><input type="radio" name="q7" value="3">El Smart.</label>
+            <div class="q-feedback">Es un límite común a los tres niveles: dirigimos y coordinamos, no intermediamos ni gestionamos de forma discrecional.</div>
           </div>
 
         </div>
@@ -413,13 +471,23 @@
       </div>
     </section>
 
-    <!-- COMPLETAR -->
-    <div class="complete-bar">
-      <div class="cb-t"><strong>¿Has terminado el Módulo 0?</strong><span>Se marcará automáticamente al superar la autoevaluación, o puedes marcarlo tú mismo.</span></div>
-      <button class="btn btn-primary" data-complete-toggle="mod0">Marcar módulo como completado</button>
+    <!-- TRACKER DE ACTIVIDADES -->
+    <div class="tracker" data-mod="mod0">
+      <div class="tk-head"><span class="tri"></span><h3>Actividades para completar el módulo</h3><span class="tk-count" data-tk-count>0/9</span></div>
+      <div class="tk-body">
+        <div class="act" data-act="leer"><span class="box"></span><span class="lbl">Leer el módulo completo</span></div>
+        <div class="act" data-act="srv_smart"><span class="box"></span><span class="lbl">Desplegar el detalle del Smart Family Office</span></div>
+        <div class="act" data-act="srv_advance"><span class="box"></span><span class="lbl">Desplegar el detalle del Advanced Family Office</span></div>
+        <div class="act" data-act="srv_multi"><span class="box"></span><span class="lbl">Desplegar el detalle del Multi Family Office</span></div>
+        <div class="act" data-act="calc"><span class="box"></span><span class="lbl">Usar la calculadora de encaje y tarifa</span></div>
+        <div class="act" data-act="caso1"><span class="box"></span><span class="lbl">Abrir el caso práctico 1</span></div>
+        <div class="act" data-act="caso2"><span class="box"></span><span class="lbl">Abrir el caso práctico 2</span></div>
+        <div class="act" data-act="caso3"><span class="box"></span><span class="lbl">Abrir el caso práctico 3</span></div>
+        <div class="act" data-act="quiz"><span class="box"></span><span class="lbl">Superar la autoevaluación (≥ 70%)</span></div>
+        <div data-tk-done style="display:none;align-items:center;gap:.6rem;margin-top:.9rem;padding:.8rem 1rem;background:var(--wine-soft);border-radius:9px;color:var(--wine-dark);font-weight:600"><span class="tri"></span> ¡Módulo completado! Tu progreso se ha guardado en este navegador.</div>
+      </div>
     </div>
 
-    <!-- NAV MÓDULOS -->
     <nav class="modnav">
       <a href="index.html"><div class="d">← Volver</div><div class="t">Inicio del programa</div></a>
       <a class="next" href="modulo-1.html"><div class="d">Siguiente →</div><div class="t">Módulo 1 · Marco legislativo</div></a>
@@ -428,13 +496,12 @@
   </main>
 </div>
 
-<!-- FOOTER -->
 <footer class="footer">
   <div class="fwrap">
     <img src="dasar-blanco.svg" alt="DASAR Gestión Patrimonial">
     <nav class="fnav">
       <a href="index.html">Inicio</a>
-      <a href="modulo-0.html">Módulo 0</a>
+      <a href="#s8">Tarifario</a>
       <a href="#quiz">Autoevaluación</a>
     </nav>
     <div class="fcopy">© <span data-year>2026</span> DASAR Gestión Patrimonial · Formación interna. Documento de uso formativo; no constituye asesoramiento fiscal ni legal.</div>

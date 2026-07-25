@@ -399,3 +399,79 @@ strong{font-weight:600}
 .wrap{max-width:var(--maxw);margin:0 auto}
 .pad{padding:clamp(2rem,5vw,3.5rem) clamp(1.2rem,5vw,3rem)}
 .narrow{max-width:900px}
+
+/* ============================================================
+   v2 · Progreso por lectura, tracker, calculadora, servicios
+   ============================================================ */
+
+/* Barra de lectura del módulo (bajo el topbar) */
+.readprogress{position:sticky;top:var(--topbar-h);z-index:40;height:4px;background:transparent}
+.readprogress > i{display:block;height:100%;width:0;background:var(--wine);transition:width .15s linear}
+
+/* Tracker de actividades obligatorias */
+.tracker{border:1.5px solid var(--ink);border-radius:var(--radius);overflow:hidden;margin:2rem 0}
+.tracker .tk-head{background:var(--ink);color:#fff;padding:1rem 1.3rem;display:flex;align-items:center;gap:.8rem;flex-wrap:wrap}
+.tracker .tk-head .tri{border-bottom-color:var(--wine)}
+.tracker .tk-head h3{color:#fff;margin:0;font-size:1.1rem}
+.tracker .tk-head .tk-count{margin-left:auto;font-weight:600;color:#fff;background:var(--wine);padding:.2rem .7rem;border-radius:999px;font-size:.85rem}
+.tracker .tk-body{padding:.7rem 1.3rem 1.1rem}
+.act{display:flex;align-items:center;gap:.75rem;padding:.55rem 0;border-bottom:1px dashed var(--line);color:var(--muted)}
+.act:last-child{border-bottom:0}
+.act .box{flex:0 0 auto;width:22px;height:22px;border-radius:6px;border:2px solid var(--line-strong);display:grid;place-items:center;font-size:.8rem;color:#fff;background:#fff;transition:.2s}
+.act.done{color:var(--ink)}
+.act.done .box{background:var(--wine);border-color:var(--wine)}
+.act.done .box::after{content:"✓"}
+.act .lbl{font-size:.96rem}
+.act.done .lbl{font-weight:500}
+
+/* Nota de bloqueo / gate */
+.gate{display:flex;gap:.8rem;align-items:center;background:var(--wine-soft);border:1px dashed var(--wine);
+  border-radius:var(--radius);padding:.9rem 1.1rem;margin:1.2rem 0;color:var(--wine-dark);font-size:.95rem}
+.gate .tri{border-bottom-color:var(--wine)}
+
+/* Acordeón de servicios (reutiliza .caso pero con color propio) */
+.svc .caso-h .ci{background:var(--ink)}
+.svc.open .caso-h{background:#fff}
+.svc .plano{border-left:3px solid var(--line-strong);padding-left:1rem;margin:1.1rem 0}
+.svc .plano h5{font-size:.78rem;letter-spacing:.14em;text-transform:uppercase;color:var(--wine);margin:0 0 .3rem}
+.svc .cad{display:inline-block;font-size:.68rem;letter-spacing:.1em;text-transform:uppercase;color:var(--muted-2);
+  border:1px solid var(--line);border-radius:999px;padding:.1rem .5rem;margin-left:.4rem;vertical-align:middle}
+.svc .lim{background:var(--paper-2);border-radius:var(--radius-sm);padding:.7rem .9rem;margin-top:.8rem;font-size:.9rem;color:var(--muted)}
+.svc .lim b{color:var(--ink)}
+
+/* Calculadora de encaje */
+.calc{border:1.5px solid var(--ink);border-radius:var(--radius);overflow:hidden;margin:1.8rem 0}
+.calc .calc-head{background:var(--ink);color:#fff;padding:1.1rem 1.3rem;display:flex;align-items:center;gap:.8rem}
+.calc .calc-head .tri{border-bottom-color:var(--wine)}
+.calc .calc-head h3{color:#fff;margin:0;font-size:1.15rem}
+.calc .calc-grid{display:grid;grid-template-columns:1fr 1fr;gap:1.1rem;padding:1.3rem}
+.calc .fld{display:flex;flex-direction:column;gap:.35rem}
+.calc .fld label{font-size:.9rem;font-weight:500;color:var(--ink)}
+.calc .fld small{color:var(--muted-2);font-size:.78rem}
+.calc .fld input,.calc .fld select{font-family:var(--ff);font-size:1rem;padding:.6rem .7rem;border:1px solid var(--line-strong);border-radius:var(--radius-sm);background:#fff;color:var(--ink)}
+.calc .fld input:focus,.calc .fld select:focus{outline:2px solid var(--wine);border-color:var(--wine)}
+.calc .calc-actions{padding:0 1.3rem 1.1rem;display:flex;gap:.8rem;align-items:center;flex-wrap:wrap}
+.calc .switch{display:flex;align-items:center;gap:.5rem;font-size:.92rem;color:var(--ink)}
+.calc .switch input{width:18px;height:18px;accent-color:var(--wine)}
+.calc-result{border-top:1px solid var(--line);padding:1.3rem;display:none}
+.calc-result.show{display:block}
+.calc-result .seg{display:flex;align-items:center;gap:1rem;flex-wrap:wrap;margin-bottom:1rem}
+.calc-result .seg .tag{font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;color:var(--muted-2)}
+.calc-result .seg .name{font-size:1.5rem;font-weight:600;color:var(--ink)}
+.calc-result .seg .name.multi{color:var(--wine)}
+.calc-result .money{display:grid;grid-template-columns:repeat(3,1fr);gap:.8rem;margin:.4rem 0}
+.calc-result .money .m{border:1px solid var(--line);border-radius:var(--radius-sm);padding:.9rem}
+.calc-result .money .m .k{font-size:.76rem;color:var(--muted-2);text-transform:uppercase;letter-spacing:.08em}
+.calc-result .money .m .v{font-size:1.35rem;font-weight:600;color:var(--ink);margin-top:.2rem}
+.calc-result .money .m .v.wine{color:var(--wine)}
+.calc-result .note{font-size:.9rem;color:var(--muted);margin-top:.6rem}
+.calc-result .flag{background:var(--wine-soft);color:var(--wine-dark);border-radius:var(--radius-sm);padding:.6rem .8rem;margin-top:.7rem;font-size:.9rem}
+
+/* Tabla de criterios (destacar filas) */
+.tbl.crit td:first-child{font-weight:600}
+.tbl.crit tbody tr td .tri{transform:scale(.6);margin-right:.3rem}
+
+@media (max-width:720px){
+  .calc .calc-grid{grid-template-columns:1fr}
+  .calc-result .money{grid-template-columns:1fr}
+}

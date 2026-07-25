@@ -152,7 +152,7 @@
         quiz.classList.add("checked");
         var pct = Math.round((correct / items.length) * 100);
         if (scoreEl) scoreEl.innerHTML = "Aciertos: <b>" + correct + "/" + items.length + "</b> (" + pct + "%)";
-        if (modId && pct >= 70) markComplete(modId, true);
+        if (modId && pct >= 70) actOrComplete(modId, "quiz");
         if (checkBtn) checkBtn.setAttribute("disabled", "disabled");
       }
       function reset() {
@@ -177,6 +177,8 @@
       head.addEventListener("click", function () {
         var open = caso.classList.toggle("open");
         body.style.maxHeight = open ? body.scrollHeight + "px" : "0px";
+        var act = caso.getAttribute("data-act");
+        if (open && act) actDone(act);
       });
     });
   }
@@ -217,6 +219,151 @@
     });
   }
 
+  /* =========================================================
+     ACTIVIDADES OBLIGATORIAS (gating de avance)
+     ========================================================= */
+  var AKEY = "dasar_activities_v1";
+  function loadActs() { try { return JSON.parse(localStorage.getItem(AKEY)) || {}; } catch (e) { return {}; } }
+  function saveActs(a) { try { localStorage.setItem(AKEY, JSON.stringify(a)); } catch (e) {} }
+
+  function currentMod() { return document.body.getAttribute("data-current"); }
+
+  function actDone(key) {
+    var mod = currentMod();
+    if (!mod) return;
+    var a = loadActs();
+    a[mod] = a[mod] || {};
+    if (a[mod][key]) { refreshTracker(); return; }
+    a[mod][key] = true;
+    saveActs(a);
+    refreshTracker();
+  }
+
+  function refreshTracker() {
+    var tracker = document.querySelector(".tracker[data-mod]");
+    if (!tracker) return;
+    var mod = tracker.getAttribute("data-mod");
+    var a = loadActs();
+    var done = (a[mod]) || {};
+    var items = tracker.querySelectorAll(".act[data-act]");
+    var total = items.length, n = 0;
+    items.forEach(function (it) {
+      var k = it.getAttribute("data-act");
+      if (done[k]) { it.classList.add("done"); n++; } else it.classList.remove("done");
+    });
+    var count = tracker.querySelector("[data-tk-count]");
+    if (count) count.textContent = n + "/" + total;
+    var doneMsg = tracker.querySelector("[data-tk-done]");
+    var allDone = total > 0 && n === total;
+    if (doneMsg) doneMsg.style.display = allDone ? "flex" : "none";
+    if (allDone) markComplete(mod, true);
+  }
+
+  /* Marca actividad si hay tracker; si no, completa el módulo directamente (scaffolds) */
+  function actOrComplete(mod, key) {
+    if (document.querySelector(".tracker[data-mod]")) actDone(key);
+    else markComplete(mod, true);
+  }
+
+  /* =========================================================
+     PROGRESO POR LECTURA (scroll del contenido)
+     ========================================================= */
+  function wireReading() {
+    var bar = document.querySelector(".readprogress > i");
+    var main = document.querySelector(".content");
+    if (!bar || !main) return;
+    var reached = false;
+    function onScroll() {
+      var rect = main.getBoundingClientRect();
+      var total = main.offsetHeight - window.innerHeight;
+      var scrolled = -rect.top;
+      var ratio = total > 0 ? Math.min(1, Math.max(0, scrolled / total)) : 1;
+      bar.style.width = (ratio * 100) + "%";
+      if (!reached && ratio >= 0.9) { reached = true; actDone("leer"); }
+    }
+    window.addEventListener("scroll", onScroll, { passive: true });
+    window.addEventListener("resize", onScroll);
+    onScroll();
+  }
+
+  /* =========================================================
+     CALCULADORA DE ENCAJE Y TARIFA
+     ========================================================= */
+  var RATES = { smart: 0.01, advance: 0.0075, multi: 0.005 };
+  var FLOOR = { smart: 500, advance: 1500, multi: 5000 };  // €/mes + IVA
+  var NAME = { smart: "Smart Family Office", advance: "Advanced Family Office", multi: "Multi Family Office", inter: "Zona intermedia" };
+
+  function eur(n) {
+    return new Intl.NumberFormat("es-ES", { style: "currency", currency: "EUR", maximumFractionDigits: 0 }).format(Math.round(n));
+  }
+
+  function classify(aum, revenue, intervene) {
+    // Umbrales (criterios mínimos; decide el consultor)
+    var rev = intervene ? revenue : 0;
+    if (aum >= 5000000 || rev > 5000000) return "multi";
+    if (aum > 4000000 || rev > 3000000) return "inter"; // zona intermedia Advance/Multi
+    if (aum > 2000000 || rev >= 1000000) return "advance";
+    return "smart";
+  }
+
+  function feeFor(seg, aum) {
+    var rate = RATES[seg], floor = FLOOR[seg];
+    var recomMonth = (aum * rate) / 12;
+    var applied = Math.max(recomMonth, floor);
+    return { rate: rate, floor: floor, recomMonth: recomMonth, month: applied, year: applied * 12, floorApplies: recomMonth < floor };
+  }
+
+  function wireCalc() {
+    var calc = document.querySelector(".calc");
+    if (!calc) return;
+    var elAum = calc.querySelector("[data-c-aum]");
+    var elRev = calc.querySelector("[data-c-rev]");
+    var elInt = calc.querySelector("[data-c-int]");
+    var btn = calc.querySelector("[data-c-run]");
+    var res = calc.querySelector(".calc-result");
+
+    function num(el) { var v = parseFloat((el && el.value || "").toString().replace(/[^0-9.]/g, "")); return isNaN(v) ? 0 : v; }
+
+    function run() {
+      var aum = num(elAum);
+      var rev = num(elRev);
+      var intervene = elInt ? elInt.checked : false;
+      var seg = classify(aum, rev, intervene);
+
+      var html = "";
+      var segName = seg === "inter" ? NAME.inter : NAME[seg];
+      html += '<div class="seg"><span class="tag">Encaje sugerido</span><span class="name ' + (seg === "multi" ? "multi" : "") + '">' + segName + '</span></div>';
+
+      if (seg === "inter") {
+        var fa = feeFor("advance", aum), fm = feeFor("multi", aum);
+        html += '<p class="note">El cliente cae en la <strong>zona intermedia</strong> (AUM entre 4 y 5 M€ o facturación entre 3 y 5 M€). Aquí <strong>decide el consultor</strong>. Comparativa de tarifa recomendada:</p>';
+        html += '<div class="money">' +
+          '<div class="m"><div class="k">Como Advanced (0,75%)</div><div class="v">' + eur(fa.month) + '<span style="font-size:.8rem;color:var(--muted-2)"> /mes</span></div></div>' +
+          '<div class="m"><div class="k">Como Multi (0,5%)</div><div class="v wine">' + eur(fm.month) + '<span style="font-size:.8rem;color:var(--muted-2)"> /mes</span></div></div>' +
+          '<div class="m"><div class="k">AUM en gestión</div><div class="v">' + eur(aum) + '</div></div>' +
+          '</div>';
+        if (fm.floorApplies) html += '<div class="flag">Ojo: en Multi se aplicaría el <strong>mínimo de 5.000 €/mes</strong> (0,5% sobre ' + eur(aum) + ' quedaría por debajo). Valora si el alcance del Multi justifica ese suelo o si encaja mejor en Advanced.</div>';
+      } else {
+        var f = feeFor(seg, aum);
+        var pct = (RATES[seg] * 100).toString().replace(".", ",");
+        html += '<div class="money">' +
+          '<div class="m"><div class="k">Tarifa recomendada</div><div class="v wine">' + eur(f.month) + '<span style="font-size:.8rem;color:var(--muted-2)"> /mes + IVA</span></div></div>' +
+          '<div class="m"><div class="k">Equivalente anual</div><div class="v">' + eur(f.year) + '</div></div>' +
+          '<div class="m"><div class="k">% aplicado sobre AUM</div><div class="v">' + pct + '%</div></div>' +
+          '</div>';
+        html += '<p class="note">Cálculo: ' + pct + '% de ' + eur(aum) + ' = ' + eur(aum * RATES[seg]) + '/año. Mínimo del tramo: ' + eur(FLOOR[seg]) + '/mes.</p>';
+        if (f.floorApplies) html += '<div class="flag">Se aplica el <strong>mínimo del tramo (' + eur(FLOOR[seg]) + '/mes)</strong>: el porcentaje sobre AUM queda por debajo del suelo.</div>';
+        else html += '<div class="flag">La tarifa por % supera el mínimo del tramo, así que manda el porcentaje sobre AUM.</div>';
+      }
+      html += '<p class="note" style="margin-top:.8rem">Recuerda: los umbrales son <strong>criterios mínimos</strong>. La clasificación final la decide el consultor según el encaje real del cliente.</p>';
+
+      res.innerHTML = html;
+      res.classList.add("show");
+      actDone("calc");
+    }
+    if (btn) btn.addEventListener("click", run);
+  }
+
   document.addEventListener("DOMContentLoaded", function () {
     buildSidebar();
     wireMenu();
@@ -225,6 +372,9 @@
     wireComplete();
     wireReveal();
     wireYear();
+    wireReading();
+    wireCalc();
+    refreshTracker();
     refreshProgressUI();
   });
 })();
