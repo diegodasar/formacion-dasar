@@ -3,13 +3,13 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Módulo 3 · Los tributos y su interconexión · DASAR</title>
-<meta name="description" content="Módulo 3 de la formación DASAR: Los tributos, primero uno a uno y después como sistema. El objetivo no es solo dominar cada figura, sino leer las interacciones entre ellas —que es do">
+<title>Módulo 3 · IRPF · DASAR</title>
+<meta name="description" content="Módulo 3 DASAR (parte IRPF): clases de renta, base general y del ahorro, regímenes especiales (Beckham, no residentes), mapa autonómico, deducciones, formas de reducir la base y calculadoras interactivas.">
 <link rel="icon" href="dasar-color.svg">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Jost:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="styles.css?v=6">
+<link rel="stylesheet" href="styles.css?v=7">
 </head>
 <body data-current="mod3">
 
@@ -26,6 +26,7 @@
   </div>
   <a class="home-link" href="index.html">Inicio</a>
 </header>
+<div class="readprogress" aria-hidden="true"><i></i></div>
 
 <div class="layout">
   <aside class="sidebar">
@@ -34,100 +35,397 @@
   </aside>
 
   <main class="content prose">
+
     <div class="mod-head">
       <div class="eyebrow">
-        <span class="mod-badge">Módulo 3</span>
-        <span class="mod-meta">Los tributos y su interconexión</span>
+        <span class="mod-badge">Módulo 3 · Parte 1</span>
+        <span class="mod-meta">IRPF · Impuesto sobre la Renta</span>
       </div>
-      <h1>Los tributos y su interconexión</h1>
-      <p class="lead">Los tributos, primero uno a uno y después como sistema. El objetivo no es solo dominar cada figura, sino leer las interacciones entre ellas —que es donde se genera (o se destruye) valor patrimonial.</p>
-      <p style="margin-top:1rem"><span class="wip"><span class="tri"></span> Contenido en desarrollo</span></p>
-      <p style="color:var(--muted)">Este módulo forma parte del programa y se desarrollará en profundidad próximamente. A continuación tienes sus <strong>objetivos de aprendizaje</strong> y el <strong>índice de contenidos previsto</strong>.</p>
+      <h1>IRPF: todas las rentas y cómo se gravan</h1>
+      <p class="lead">La renta es el impuesto que más veces tocamos. Aquí ves <strong>todas las clases de renta</strong>, cómo se integran, los <strong>regímenes especiales</strong> (Beckham, no residentes…), <strong>dónde tributa más</strong> según la comunidad, las <strong>formas legales de reducir la base</strong> y el comportamiento de cada renta —dividendo, venta de sociedad, alquiler…—, con <strong>dos calculadoras reales</strong>.</p>
+      <p style="color:var(--muted-2);font-size:.9rem">Nivel: máster / especialización · Parte 1 de 5 del Módulo 3 · Incluye calculadoras · Lectura estimada: 70–90 min</p>
     </div>
 
-    <section class="reveal">
-      <span class="kicker">Objetivos de aprendizaje</span>
-      <h2>Qué sabrás hacer al terminar</h2>
+    <div class="gate"><span class="tri"></span><div>Este módulo se desarrolla por partes. Aquí tienes la <strong>parte de IRPF</strong>, completa y a fondo. Al final encontrarás el <strong>índice del resto del Módulo 3</strong> (Sociedades, Patrimonio, Sucesiones, imposición indirecta y su interconexión).</div></div>
+
+    <div class="toc">
+      <h4>En esta parte (IRPF)</h4>
+      <a href="#s1"><span class="tri"></span>3.1 · Estructura y clases de renta</a>
+      <a href="#s2"><span class="tri"></span>3.2 · Base general y base del ahorro</a>
+      <a href="#s3"><span class="tri"></span>3.3 · Cada renta a fondo</a>
+      <a href="#calc1"><span class="tri"></span>Calculadora: renta por comunidad</a>
+      <a href="#s4"><span class="tri"></span>3.4 · Dónde tributa más la renta</a>
+      <a href="#s5"><span class="tri"></span>3.5 · Regímenes especiales (Beckham, IRNR…)</a>
+      <a href="#s6"><span class="tri"></span>3.6 · Cómo se comporta cada renta</a>
+      <a href="#calc2"><span class="tri"></span>Calculadora: rentas del ahorro</a>
+      <a href="#s7"><span class="tri"></span>3.7 · Formas legales de reducir la base</a>
+      <a href="#s8"><span class="tri"></span>3.8 · Deducciones autonómicas</a>
+      <a href="#resto"><span class="tri"></span>Índice del resto del módulo</a>
+      <a href="#casos"><span class="tri"></span>Casos y autoevaluación</a>
+    </div>
+
+    <!-- 3.1 -->
+    <section id="s1" class="reveal">
+      <span class="kicker">3.1 · Estructura</span>
+      <h2>Estructura del IRPF y clases de renta</h2>
+      <p>El IRPF grava la renta mundial del <strong>residente fiscal</strong> en España (más de 183 días o centro de intereses económicos aquí). Quien no es residente tributa por el <strong>IRNR</strong> (ver 3.5). La renta se descompone en cinco fuentes:</p>
       <div class="grid grid-2" style="margin-top:1rem">
-        <div class="card"><div style="display:flex;gap:.9rem"><span class="badge-num">1</span><div><p class="mt0" style="margin:0;color:var(--muted)">Dominar la mecánica esencial de IRPF, IS, IP e ISD y de la imposición indirecta relevante.</p></div></div></div>
-        <div class="card"><div style="display:flex;gap:.9rem"><span class="badge-num">2</span><div><p class="mt0" style="margin:0;color:var(--muted)">Identificar las interconexiones entre figuras en operaciones reales.</p></div></div></div>
-        <div class="card"><div style="display:flex;gap:.9rem"><span class="badge-num">3</span><div><p class="mt0" style="margin:0;color:var(--muted)">Aplicar la exención de empresa familiar de forma coordinada (IP–ISD).</p></div></div></div>
-        <div class="card"><div style="display:flex;gap:.9rem"><span class="badge-num">4</span><div><p class="mt0" style="margin:0;color:var(--muted)">Anticipar el efecto fiscal combinado de una decisión patrimonial.</p></div></div></div>
+        <div class="card"><h4 class="mt0">Rendimientos del trabajo</h4><p style="color:var(--muted)">Sueldos, pensiones, prestaciones, retribuciones de administradores. Con retención a cuenta.</p></div>
+        <div class="card"><h4 class="mt0">Rendimientos del capital inmobiliario</h4><p style="color:var(--muted)">Alquileres de inmuebles (no afectos a actividad).</p></div>
+        <div class="card"><h4 class="mt0">Rendimientos del capital mobiliario</h4><p style="color:var(--muted)">Dividendos, intereses, seguros. Mayoría a la base del ahorro.</p></div>
+        <div class="card"><h4 class="mt0">Actividades económicas</h4><p style="color:var(--muted)">Autónomos y profesionales: estimación directa u objetiva (módulos).</p></div>
+        <div class="card"><h4 class="mt0">Ganancias y pérdidas patrimoniales</h4><p style="color:var(--muted)">Diferencia de valor al transmitir un elemento (o no, en ciertos casos).</p></div>
+        <div class="card"><h4 class="mt0">Imputaciones de renta</h4><p style="color:var(--muted)">Inmuebles a disposición, transparencia fiscal internacional, atribución de rentas.</p></div>
+      </div>
+      <p style="margin-top:1rem">Cada fuente se lleva a una de las dos bases —general o del ahorro— y sobre cada base se aplica su escala. Después se restan los <strong>mínimos personales y familiares</strong> (mínimo del contribuyente ≈ 5.550 €, más por descendientes, ascendientes y discapacidad) y las deducciones.</p>
+    </section>
+
+    <hr class="divider">
+
+    <!-- 3.2 -->
+    <section id="s2" class="reveal">
+      <span class="kicker">3.2 · Las dos bases</span>
+      <h2>Base general y base del ahorro</h2>
+      <p>La clave de todo el impuesto: cada renta va a una base distinta, y las escalas son muy diferentes. Saber "a qué base va" cada operación es lo primero que hay que dominar.</p>
+      <div class="grid grid-2">
+        <div class="card"><h4 class="mt0">Base general <span class="ref-tag">escala progresiva</span></h4><p style="color:var(--muted)">Trabajo, actividades económicas, alquileres, imputaciones y ganancias que <strong>no</strong> derivan de transmisión. Tarifa estatal + autonómica: del <strong>19% al 45–54%</strong> según comunidad.</p></div>
+        <div class="card"><h4 class="mt0">Base del ahorro <span class="ref-tag">escala uniforme</span></h4><p style="color:var(--muted)">Dividendos, intereses y <strong>ganancias por transmisión</strong> (acciones, fondos, inmuebles, sociedades). Escala igual en toda España: <strong>19 / 21 / 23 / 27 / 28%</strong>.</p></div>
+      </div>
+      <table class="tbl">
+        <thead><tr><th>Base del ahorro — tramo</th><th>Tipo</th></tr></thead>
+        <tbody>
+          <tr><td>Hasta 6.000 €</td><td>19%</td></tr>
+          <tr><td>6.000 – 50.000 €</td><td>21%</td></tr>
+          <tr><td>50.000 – 200.000 €</td><td>23%</td></tr>
+          <tr><td>200.000 – 300.000 €</td><td>27%</td></tr>
+          <tr><td>Más de 300.000 €</td><td>28%</td></tr>
+        </tbody>
+      </table>
+      <div class="callout idea"><div class="ic"><span class="tri" style="border-bottom-color:#fff"></span></div><div class="ct"><h4>La palanca de planificación</h4><p>Una misma cantidad puede tributar al <strong>47%+</strong> (base general) o al <strong>28%</strong> (ahorro) según cómo se estructure. Convertir renta general en renta del ahorro —de forma real y con motivo económico— es una de las grandes vías de optimización.</p></div></div>
+    </section>
+
+    <hr class="divider">
+
+    <!-- 3.3 -->
+    <section id="s3" class="reveal">
+      <span class="kicker">3.3 · Renta a renta</span>
+      <h2>Cada clase de renta a fondo</h2>
+      <div class="caso svc" data-act="rentas">
+        <div class="caso-h"><div class="ci">+</div><div class="cti"><div class="cl">Ampliar · las cinco fuentes</div><h4>Cómo tributa cada renta y sus especialidades</h4><p>Trabajo, inmobiliario, mobiliario, actividades y ganancias.</p></div><div class="chev">▾</div></div>
+        <div class="caso-body"><div class="caso-inner">
+          <div class="plano"><h5>Rendimientos del trabajo</h5><p>Van a la base general con retención a cuenta. Reducción general por rendimientos del trabajo (mayor en rentas bajas). <strong>Rendimientos irregulares</strong> (generados en más de 2 años o notoriamente irregulares): reducción del <strong>30%</strong> sobre un máximo de 300.000 €. Indemnizaciones por despido exentas hasta el límite legal (180.000 €). Retribución en especie con reglas propias (vivienda, vehículo, seguros, planes).</p></div>
+          <div class="plano"><h5>Capital inmobiliario (alquiler)</h5><p>Ingresos menos gastos (IBI, comunidad, seguros, intereses, reparaciones, amortización 3%). Sobre el neto positivo, <strong>reducción</strong> del 50% general y hasta 60/70/90% según la Ley de vivienda (Módulo 1). El alquiler turístico o con servicios de hospedaje puede ser actividad económica.</p></div>
+          <div class="plano"><h5>Capital mobiliario</h5><p><strong>Dividendos e intereses</strong> van a la base del ahorro (íntegros: la antigua exención de 1.500 € se suprimió en 2015). Los seguros de vida-ahorro y algunos productos tienen reglas específicas. Determinados rendimientos de vinculadas (préstamos socio-sociedad por encima de 3× fondos propios) pueden ir a la base general.</p></div>
+          <div class="plano"><h5>Actividades económicas</h5><p><strong>Estimación directa</strong> (normal o simplificada): ingresos − gastos, como una empresa. <strong>Estimación objetiva</strong> (módulos): por índices, con límites de facturación. Requisito clave del arrendamiento como actividad: <strong>una persona empleada a jornada completa</strong>. Van a la base general.</p></div>
+          <div class="plano"><h5>Ganancias y pérdidas patrimoniales</h5><p>Si derivan de <strong>transmisión</strong> (vender acciones, fondos, inmuebles, una sociedad) → <strong>base del ahorro</strong>. Si <strong>no</strong> hay transmisión (premios, subvenciones, determinadas ayudas) → base general. Cálculo: valor de transmisión − valor de adquisición (con gastos e impuestos). Especialidades: <strong>coeficientes de abatimiento</strong> (adquisiciones anteriores a 1994, límite 400.000 €), <strong>exención por reinversión</strong> (vivienda habitual, o mayores de 65 en renta vitalicia), y compensación de pérdidas (con ganancias del ahorro y hasta el 25% con rendimientos, arrastre 4 años).</p></div>
+        </div></div>
       </div>
     </section>
 
     <hr class="divider">
 
-    <section class="reveal">
-      <span class="kicker">Contenido previsto</span>
-      <h2>Índice del módulo</h2>
-      <div class="toc">
-        <h4>Secciones</h4>
-      <a href="#sec0"><span class="tri"></span>3.1 · IRPF</a>
-      <a href="#sec1"><span class="tri"></span>3.2 · Impuesto sobre Sociedades</a>
-      <a href="#sec2"><span class="tri"></span>3.3 · Impuesto sobre el Patrimonio e ITSGF</a>
-      <a href="#sec3"><span class="tri"></span>3.4 · Sucesiones y Donaciones</a>
-      <a href="#sec4"><span class="tri"></span>3.5 · Imposición indirecta</a>
-      <a href="#sec5"><span class="tri"></span>3.6 · El sistema conectado</a>
+    <!-- CALC 1 -->
+    <section id="calc1" class="reveal">
+      <span class="kicker">Calculadora interactiva</span>
+      <h2>Estima la renta según la comunidad</h2>
+      <p>Introduce la base general (trabajo, actividades, alquileres) y la base del ahorro (dividendos, intereses, ganancias), elige comunidad y compara. Es un <strong>estimador orientativo</strong>.</p>
+      <div class="calc rcalc irpf">
+        <div class="calc-head"><span class="tri"></span><h3>Calculadora de IRPF por comunidad</h3></div>
+        <div class="calc-grid">
+          <div class="fld"><label for="i-gen">Base general (€)</label><small>Trabajo, actividades, alquileres.</small><input id="i-gen" data-i-gen type="number" min="0" step="1000" placeholder="p. ej. 80000"></div>
+          <div class="fld"><label for="i-aho">Base del ahorro (€)</label><small>Dividendos, intereses, ganancias.</small><input id="i-aho" data-i-aho type="number" min="0" step="1000" placeholder="p. ej. 20000"></div>
+        </div>
+        <div class="calc-grid" style="padding-top:0">
+          <div class="fld"><label for="i-ccaa">Comunidad autónoma</label>
+            <select id="i-ccaa" data-i-ccaa>
+              <option value="madrid">Madrid</option><option value="andalucia">Andalucía</option><option value="aragon">Aragón</option>
+              <option value="asturias">Asturias</option><option value="baleares">Baleares</option><option value="canarias">Canarias</option>
+              <option value="cantabria">Cantabria</option><option value="cyl">Castilla y León</option><option value="clm">Castilla-La Mancha</option>
+              <option value="cataluna">Cataluña</option><option value="cvalenciana">C. Valenciana</option><option value="extremadura">Extremadura</option>
+              <option value="galicia">Galicia</option><option value="larioja">La Rioja</option><option value="murcia">Murcia</option>
+              <option value="navarra">Navarra (foral)</option><option value="paisvasco">País Vasco (foral)</option>
+            </select>
+          </div>
+          <div class="fld" style="justify-content:flex-end"><button class="btn btn-primary" data-i-run>Calcular renta</button></div>
+        </div>
+        <div class="calc-result"></div>
       </div>
-
-      <section id="sec0" class="reveal card" style="margin:1rem 0">
-        <h3 class="mt0">3.1 · IRPF</h3>
-        <ul>
-            <li>Rentas del trabajo, capital y actividades económicas.</li>
-            <li>Ganancias y pérdidas patrimoniales; reglas de integración y compensación.</li>
-            <li>Regímenes especiales relevantes (p. ej. impatriados).</li>
-        </ul>
-      </section>
-      <section id="sec1" class="reveal card" style="margin:1rem 0">
-        <h3 class="mt0">3.2 · Impuesto sobre Sociedades</h3>
-        <ul>
-            <li>Base imponible y diferencias con el resultado contable.</li>
-            <li>Retribución de socios y administradores; operaciones vinculadas.</li>
-            <li>Régimen de entidades patrimoniales y su impacto.</li>
-        </ul>
-      </section>
-      <section id="sec2" class="reveal card" style="margin:1rem 0">
-        <h3 class="mt0">3.3 · Impuesto sobre el Patrimonio e ITSGF</h3>
-        <ul>
-            <li>Hecho imponible, exenciones y mínimo exento.</li>
-            <li>Exención de empresa familiar: requisitos.</li>
-            <li>Impuesto Temporal de Solidaridad de las Grandes Fortunas: coordinación con IP.</li>
-        </ul>
-      </section>
-      <section id="sec3" class="reveal card" style="margin:1rem 0">
-        <h3 class="mt0">3.4 · Sucesiones y Donaciones</h3>
-        <ul>
-            <li>Adquisiciones mortis causa e inter vivos.</li>
-            <li>Reducciones estatales y autonómicas; empresa familiar y vivienda habitual.</li>
-            <li>Coste sucesorio y liquidez para afrontarlo.</li>
-        </ul>
-      </section>
-      <section id="sec4" class="reveal card" style="margin:1rem 0">
-        <h3 class="mt0">3.5 · Imposición indirecta</h3>
-        <ul>
-            <li>IVA vs. ITP-AJD en operaciones patrimoniales e inmobiliarias.</li>
-            <li>Operación societaria y su tratamiento.</li>
-        </ul>
-      </section>
-      <section id="sec5" class="reveal card" style="margin:1rem 0">
-        <h3 class="mt0">3.6 · El sistema conectado</h3>
-        <ul>
-            <li>Casos de interacción: retribución socio-sociedad, inmuebles, empresa familiar.</li>
-            <li>Cómo un beneficio en un impuesto puede generar un coste en otro.</li>
-        </ul>
-      </section>
     </section>
 
-    <div class="complete-bar">
-      <div class="cb-t"><strong>Seguimiento</strong><span>Podrás marcar este módulo como completado cuando esté publicado y superes su autoevaluación.</span></div>
-      <button class="btn btn-outline" data-complete-toggle="mod3">Marcar como completado</button>
+    <hr class="divider">
+
+    <!-- 3.4 mapa -->
+    <section id="s4" class="reveal">
+      <span class="kicker">3.4 · Mapa autonómico</span>
+      <h2>Dónde tributa más la renta</h2>
+      <p>La base del ahorro es igual en toda España; lo que cambia por comunidad es la <strong>base general</strong>, sobre todo en el tramo alto. Este es el <strong>tipo marginal máximo combinado</strong> (estatal + autonómico), orientativo, de mayor a menor.</p>
+      <div class="warnbox"><div class="ic">!</div><p><strong>Orientativo:</strong> las escalas autonómicas cambian cada año. Úsalo para saber el orden de magnitud y dónde conviene planificar; verifica el tipo vigente antes de una propuesta.</p></div>
+      <table class="tbl">
+        <thead><tr><th>Comunidad</th><th>Marginal máx. (aprox.)</th><th>Nivel</th></tr></thead>
+        <tbody>
+          <tr><td><strong>C. Valenciana</strong></td><td>~54%</td><td>El más alto</td></tr>
+          <tr><td><strong>Navarra</strong> (foral)</td><td>~52%</td><td>Muy alto</td></tr>
+          <tr><td><strong>La Rioja</strong></td><td>~51,5%</td><td>Muy alto</td></tr>
+          <tr><td><strong>Canarias</strong></td><td>~50,5%</td><td>Alto</td></tr>
+          <tr><td><strong>Cataluña · Aragón · Asturias · Extremadura</strong></td><td>~50%</td><td>Alto</td></tr>
+          <tr><td><strong>Cantabria · Baleares</strong></td><td>~49,5%</td><td>Alto</td></tr>
+          <tr><td><strong>País Vasco</strong> (foral)</td><td>~49%</td><td>Alto</td></tr>
+          <tr><td><strong>Andalucía · Murcia · Galicia</strong></td><td>~47%</td><td>Medio</td></tr>
+          <tr><td><strong>Castilla-La Mancha</strong></td><td>~45,5%</td><td>Bajo</td></tr>
+          <tr><td><strong>Madrid</strong></td><td>~45%</td><td>De los más bajos</td></tr>
+          <tr><td><strong>Castilla y León</strong></td><td>~44,5%</td><td>El más bajo</td></tr>
+        </tbody>
+      </table>
+      <p class="libnote">Para rentas medias la diferencia entre comunidades es de décimas; se dispara en los tramos altos. Por eso un cambio de residencia real y sostenido puede ser relevante en rentas elevadas (economía de opción; nunca ficticio).</p>
+    </section>
+
+    <hr class="divider">
+
+    <!-- 3.5 regímenes -->
+    <section id="s5" class="reveal">
+      <span class="kicker">3.5 · Regímenes especiales</span>
+      <h2>Los regímenes que cambian las reglas</h2>
+      <p>Fuera del régimen general hay regímenes que alteran por completo la tributación. Reconocer cuándo aplica uno es una ventaja competitiva enorme.</p>
+      <div class="caso svc" data-act="regimenes">
+        <div class="caso-h"><div class="ci">★</div><div class="cti"><div class="cl">Ampliar · imprescindible</div><h4>Beckham, no residentes y otras especialidades</h4><p>Impatriados, IRNR, trabajos en el extranjero, atribución de rentas y previsión.</p></div><div class="chev">▾</div></div>
+        <div class="caso-body"><div class="caso-inner">
+          <div class="plano"><h5>Régimen de impatriados — "Ley Beckham" <span class="ref-tag">art. 93 LIRPF</span></h5><p>Para quien traslada su residencia a España por trabajo, como administrador, por actividad emprendedora o como <strong>nómada digital</strong> (ampliado por la Ley de Startups). Requiere <strong>no haber sido residente en los 5 años anteriores</strong>. Permite tributar como <strong>no residente</strong>: tipo fijo del <strong>24% hasta 600.000 €</strong> de rendimientos del trabajo y 47% por encima, tributando en general solo por la renta de fuente española. Dura el año del desplazamiento y los <strong>5 siguientes</strong>. Ventaja brutal para rentas altas; hay que valorar la cara B (no aplica exenciones ni deducciones ordinarias, y trato de patrimonio en el extranjero).</p></div>
+          <div class="plano"><h5>No residentes — IRNR</h5><p>Quien no es residente tributa solo por su <strong>renta de fuente española</strong>: tipo general <strong>24%</strong> (19% para residentes en la UE/EEE), 19% en dividendos, intereses y ganancias (con exenciones UE y matriz-filial), y <strong>retención del 3%</strong> en la venta de inmuebles. La residencia fiscal (y los convenios de doble imposición) lo condicionan todo.</p></div>
+          <div class="plano"><h5>Trabajos realizados en el extranjero <span class="ref-tag">art. 7.p LIRPF</span></h5><p>Exención de hasta <strong>60.100 €</strong> de los rendimientos del trabajo por labores efectivamente realizadas fuera de España para una empresa no residente. Muy útil para directivos con movilidad internacional.</p></div>
+          <div class="plano"><h5>Atribución de rentas</h5><p>Comunidades de bienes, herencias yacentes y sociedades civiles sin objeto mercantil no tributan ellas: <strong>atribuyen</strong> la renta a sus miembros, que la integran en su IRPF según su naturaleza.</p></div>
+          <div class="plano"><h5>Previsión social</h5><p>Aportaciones a planes de pensiones y sistemas de previsión: reducen la base general (límites en 3.7). El rescate tributa como rendimiento del trabajo; las aportaciones anteriores a 2007 rescatadas en forma de capital disfrutan de reducción del 40%.</p></div>
+        </div></div>
+      </div>
+    </section>
+
+    <hr class="divider">
+
+    <!-- 3.6 comportamiento -->
+    <section id="s6" class="reveal">
+      <span class="kicker">3.6 · Comportamiento</span>
+      <h2>Cómo se comporta cada renta</h2>
+      <table class="tbl">
+        <thead><tr><th>Renta</th><th>Base</th><th>Tipo</th><th>Especialidad</th></tr></thead>
+        <tbody>
+          <tr><td><strong>Sueldo / pensión</strong></td><td>General</td><td>19–54% marginal</td><td>Retención; reducción trabajo; irregular −30%</td></tr>
+          <tr><td><strong>Alquiler de vivienda</strong></td><td>General</td><td>Marginal</td><td>Reducción 50–90% (Ley de vivienda)</td></tr>
+          <tr><td><strong>Dividendos / intereses</strong></td><td>Ahorro</td><td>19–28%</td><td>Íntegros; vía holding, exención 95% en IS</td></tr>
+          <tr><td><strong>Venta de acciones / fondos</strong></td><td>Ahorro</td><td>19–28%</td><td>Traspaso de fondos difiere; abatimiento pre-94</td></tr>
+          <tr><td><strong>Venta de una sociedad</strong></td><td>Ahorro</td><td>19–28%</td><td>Reestructuración neutral o holding (exención 95% IS)</td></tr>
+          <tr><td><strong>Venta de inmueble</strong></td><td>Ahorro</td><td>19–28%</td><td>Reinversión vivienda / &gt;65 años; plusvalía municipal aparte</td></tr>
+          <tr><td><strong>Rescate de plan de pensiones</strong></td><td>General</td><td>Marginal</td><td>Reducción 40% (aportaciones ≤2006, forma capital)</td></tr>
+          <tr><td><strong>Actividad económica</strong></td><td>General</td><td>Marginal</td><td>Estimación directa u objetiva (módulos)</td></tr>
+        </tbody>
+      </table>
+    </section>
+
+    <hr class="divider">
+
+    <!-- CALC 2 -->
+    <section id="calc2" class="reveal">
+      <span class="kicker">Calculadora interactiva</span>
+      <h2>Rentas del ahorro: dividendo, venta o ganancia</h2>
+      <p>Calcula el impuesto de una renta del ahorro. Elige el tipo: dividendos/intereses (importe íntegro) o una venta (con valor de adquisición y transmisión para obtener la ganancia).</p>
+      <div class="calc rcalc ahorro">
+        <div class="calc-head"><span class="tri"></span><h3>Calculadora de rentas del ahorro</h3></div>
+        <div class="calc-grid">
+          <div class="fld"><label for="a-tipo">Tipo de renta</label>
+            <select id="a-tipo" data-a-tipo>
+              <option value="dividendos">Dividendos / intereses</option>
+              <option value="venta_valores">Venta de acciones o sociedad</option>
+              <option value="venta_inmueble">Venta de inmueble</option>
+            </select>
+          </div>
+          <div class="fld" data-wrap-imp><label for="a-imp">Importe íntegro (€)</label><small>Dividendos o intereses percibidos.</small><input id="a-imp" data-a-imp type="number" min="0" step="1000" placeholder="p. ej. 20000"></div>
+        </div>
+        <div class="calc-grid" style="padding-top:0" data-wrap-gan>
+          <div class="fld"><label for="a-adq">Valor de adquisición (€)</label><input id="a-adq" data-a-adq type="number" min="0" step="1000" placeholder="p. ej. 100000"></div>
+          <div class="fld"><label for="a-trn">Valor de transmisión (€)</label><input id="a-trn" data-a-trn type="number" min="0" step="1000" placeholder="p. ej. 300000"></div>
+          <div class="fld"><label for="a-gas">Gastos e impuestos (€)</label><small>De compra y venta.</small><input id="a-gas" data-a-gas type="number" min="0" step="500" placeholder="p. ej. 8000"></div>
+        </div>
+        <div class="calc-actions"><button class="btn btn-primary" data-a-run>Calcular impuesto</button></div>
+        <div class="calc-result"></div>
+      </div>
+    </section>
+
+    <hr class="divider">
+
+    <!-- 3.7 reducir base -->
+    <section id="s7" class="reveal">
+      <span class="kicker">3.7 · Reducir la base</span>
+      <h2>Formas legales de reducir la base</h2>
+      <p>Estas son las vías legítimas —economía de opción— para bajar la factura del IRPF. Cada una tiene requisitos y límites; la combinación adecuada es parte del plan patrimonial.</p>
+      <table class="tbl">
+        <thead><tr><th>Vía</th><th>Efecto</th><th>Nota / límite</th></tr></thead>
+        <tbody>
+          <tr><td><strong>Planes de pensiones</strong></td><td>Reduce base general</td><td>2.000 € individual + hasta 8.500 € de aportación de empresa</td></tr>
+          <tr><td><strong>Tributación conjunta</strong></td><td>Reducción de base</td><td>Reducción por unidad familiar (interesa si un cónyuge tiene rentas bajas)</td></tr>
+          <tr><td><strong>Rendimientos irregulares</strong></td><td>−30% del rendimiento</td><td>Generados en +2 años; máximo 300.000 €</td></tr>
+          <tr><td><strong>Aportaciones a discapacitados</strong></td><td>Reduce base</td><td>Patrimonios protegidos y sistemas específicos</td></tr>
+          <tr><td><strong>Pensiones compensatorias</strong></td><td>Reduce base</td><td>Fijadas por resolución judicial al excónyuge</td></tr>
+          <tr><td><strong>Inversión en empresa nueva</strong></td><td>Deducción 50%</td><td>Base máxima 100.000 €/año (business angels)</td></tr>
+          <tr><td><strong>Donativos (Ley 49/2002)</strong></td><td>Deducción 80/40%</td><td>80% de los primeros 250 € y 40–45% del resto</td></tr>
+          <tr><td><strong>Exención por reinversión</strong></td><td>Exenta la ganancia</td><td>Vivienda habitual; mayores de 65 (vivienda o renta vitalicia, 240.000 €)</td></tr>
+          <tr><td><strong>Diferimiento con fondos</strong></td><td>Aplaza la ganancia</td><td>Traspaso entre fondos sin tributar hasta el reembolso</td></tr>
+          <tr><td><strong>Deducciones autonómicas</strong></td><td>Reduce cuota</td><td>Según comunidad (ver 3.8)</td></tr>
+        </tbody>
+      </table>
+      <div class="callout"><div class="ic">i</div><div class="ct"><h4>Y la gran palanca estructural</h4><p>Canalizar la actividad y el ahorro a través de una <strong>sociedad</strong> (con motivo económico real) permite diferir y tributar al tipo del IS, y un <strong>holding</strong> facilita reinvertir dividendos con exención del 95%. Es terreno del Módulo 3 · Sociedades y del Módulo 4.</p></div></div>
+    </section>
+
+    <hr class="divider">
+
+    <!-- 3.8 deducciones autonómicas -->
+    <section id="s8" class="reveal">
+      <span class="kicker">3.8 · Deducciones autonómicas</span>
+      <h2>Deducciones autonómicas: familias y requisitos</h2>
+      <p>Cada comunidad aprueba sus propias deducciones en la cuota autonómica, con importes y requisitos distintos que cambian cada año. Este cuadro recoge las <strong>familias de deducciones</strong> más frecuentes y sus requisitos típicos, para saber qué buscar en cada cliente.</p>
+      <div class="warnbox"><div class="ic">!</div><p><strong>Importante:</strong> los importes y requisitos exactos varían por comunidad y ejercicio. Este cuadro es una guía de <strong>qué existe y qué mirar</strong>; el listado exhaustivo y vigente está en el <a href="https://sede.agenciatributaria.gob.es" target="_blank" rel="noopener"><strong>manual de Renta de la AEAT</strong></a> y en el portal tributario de cada comunidad.</p></div>
+      <table class="tbl">
+        <thead><tr><th>Familia de deducción</th><th>Requisitos típicos</th><th>Habitual en</th></tr></thead>
+        <tbody>
+          <tr><td><strong>Nacimiento o adopción</strong></td><td>Por hijo nacido/adoptado en el ejercicio; suele exigir límite de renta y convivencia. Importe mayor por parto múltiple o discapacidad.</td><td>Casi todas</td></tr>
+          <tr><td><strong>Familia numerosa o monoparental</strong></td><td>Título vigente de familia numerosa/monoparental; límite de base imponible.</td><td>Mayoría</td></tr>
+          <tr><td><strong>Cuidado de hijos / guardería</strong></td><td>Hijos menores (0–3 años); gastos de guardería o de empleada del hogar; límite de renta; a veces exige ambos progenitores trabajando.</td><td>Madrid, Andalucía, Galicia…</td></tr>
+          <tr><td><strong>Alquiler de vivienda habitual</strong></td><td>Edad (jóvenes, &lt;35), límite de renta, importe máximo; a veces exige depósito de fianza.</td><td>Cataluña, C. Valenciana, Madrid…</td></tr>
+          <tr><td><strong>Adquisición/rehabilitación de vivienda</strong></td><td>Vivienda habitual en <strong>zonas rurales o en riesgo de despoblación</strong>; a veces jóvenes.</td><td>Galicia, C. y León, Aragón…</td></tr>
+          <tr><td><strong>Discapacidad</strong></td><td>Grado reconocido (≥33%) del contribuyente o de ascendientes/descendientes a cargo.</td><td>Todas</td></tr>
+          <tr><td><strong>Gastos de educación</strong></td><td>Enseñanza, idiomas, material escolar, comedor; límite de renta; a veces solo centros concertados/privados.</td><td>Madrid, C. Valenciana…</td></tr>
+          <tr><td><strong>Donativos autonómicos</strong></td><td>A fundaciones, I+D, patrimonio, medioambiente o entidades de la comunidad.</td><td>Mayoría</td></tr>
+          <tr><td><strong>Inversión en empresas nuevas</strong></td><td>Suscripción de participaciones en sociedades de reciente creación de la comunidad (complementa la estatal del 50%).</td><td>Cataluña, Madrid, Galicia…</td></tr>
+          <tr><td><strong>Conciliación / empleada del hogar</strong></td><td>Alta de empleada del hogar por cuidado; ambos progenitores con rentas del trabajo.</td><td>Andalucía, Canarias…</td></tr>
+          <tr><td><strong>Autónomos / inicio de actividad</strong></td><td>Jóvenes que inician actividad; a veces en zonas despobladas.</td><td>Varias</td></tr>
+        </tbody>
+      </table>
+      <p class="libnote">Método práctico: identifica el <strong>perfil</strong> del cliente (edad, hijos, alquiler/compra, discapacidad, dónde vive) y cruza con las familias de arriba; luego confirma importe y requisitos vigentes en la comunidad.</p>
+    </section>
+
+    <hr class="divider">
+
+    <!-- RESTO DEL MODULO -->
+    <section id="resto" class="reveal">
+      <span class="kicker">Hoja de ruta</span>
+      <h2>Índice del resto del Módulo 3</h2>
+      <p>Acabas de ver la <strong>Parte 1 (IRPF)</strong>. El Módulo 3 continúa con el resto de figuras y —lo más importante— su <strong>interconexión</strong>. Esta es la propuesta de índice; dime si quieres añadir o reordenar algo.</p>
+      <div class="grid grid-2">
+        <div class="card"><h4 class="mt0">Parte 2 · Impuesto sobre Sociedades <span class="wip" style="font-size:.7rem">próximamente</span></h4><p style="color:var(--muted)">Base y diferencias con el resultado contable; tipos; retribución socio-administrador y operaciones vinculadas; entidad patrimonial; compensación de pérdidas; holding y exención del 95% de dividendos y plusvalías; deducciones (I+D+i).</p></div>
+        <div class="card"><h4 class="mt0">Parte 3 · Patrimonio e ITSGF <span class="wip" style="font-size:.7rem">próximamente</span></h4><p style="color:var(--muted)">Hecho imponible y valoración; mínimo exento; exención de vivienda y de <strong>empresa familiar</strong> (requisitos); tipos y bonificaciones autonómicas; interacción con el Impuesto de Grandes Fortunas.</p></div>
+        <div class="card"><h4 class="mt0">Parte 4 · Sucesiones y Donaciones <span class="wip" style="font-size:.7rem">próximamente</span></h4><p style="color:var(--muted)">Adquisiciones mortis causa e inter vivos; reducciones (empresa familiar 95%, vivienda, seguros); tarifa y coeficientes; donación vs herencia; la "plusvalía del muerto"; acumulación.</p></div>
+        <div class="card"><h4 class="mt0">Parte 5 · Indirecta e interconexión <span class="wip" style="font-size:.7rem">próximamente</span></h4><p style="color:var(--muted)">IVA vs ITP-AJD en operaciones patrimoniales; y el gran tema: <strong>cómo se conectan todos los impuestos</strong> (retribución socio, inmuebles, empresa familiar, reestructuraciones) para optimizar el conjunto, no la parte.</p></div>
+      </div>
+      <div class="callout ref"><div class="ic"><span class="tri" style="border-bottom-color:#fff"></span></div><div class="ct"><h4>¿Falta algo por analizar?</h4><p>Posibles añadidos: fiscalidad de <strong>criptoactivos</strong> y activos digitales; <strong>fiscalidad internacional</strong> (convenios de doble imposición, exit tax, TFI); régimen de <strong>impatriados/expatriados</strong> ampliado; tributación de <strong>seguros y unit linked</strong>; y <strong>SOCIMI/instituciones de inversión colectiva</strong>. Dime cuáles quieres incorporar.</p></div></div>
+    </section>
+
+    <hr class="divider">
+
+    <!-- CASOS -->
+    <section id="casos" class="reveal">
+      <span class="kicker">Práctica</span>
+      <h2>Casos prácticos</h2>
+      <div class="caso" data-act="caso1">
+        <div class="caso-h"><div class="ci">1</div><div class="cti"><div class="cl">Base general vs ahorro</div><h4>¿Sueldo o dividendo?</h4><p>Un socio-administrador puede cobrar 60.000 € extra como sueldo o como dividendo. Vive en Cataluña. ¿Qué tributa menos en su IRPF (sin contar el IS)?</p></div><div class="chev">▾</div></div>
+        <div class="caso-body"><div class="caso-inner">
+          <div class="sol"><div class="sol-l">Solución</div><p>Como <strong>sueldo</strong> va a la base general: a ese nivel el marginal en Cataluña ronda el <strong>~45–50%</strong>. Como <strong>dividendo</strong> va a la base del ahorro: 60.000 € tributarían al <strong>21–23%</strong>. En el IRPF, el dividendo tributa mucho menos. <em>Pero</em> hay que mirar el conjunto: el sueldo es gasto deducible en el IS de la empresa y el dividendo no; la decisión óptima se toma conectando IRPF e IS (Módulo 3 · Parte 5). Compruébalo en la calculadora.</p></div>
+        </div></div>
+      </div>
+      <div class="caso" data-act="caso2">
+        <div class="caso-h"><div class="ci">2</div><div class="cti"><div class="cl">Régimen especial</div><h4>Directivo que llega a España</h4><p>Un directivo extranjero (no residente los últimos años) se traslada a Madrid con un sueldo de 400.000 €. ¿Le interesa la Ley Beckham?</p></div><div class="chev">▾</div></div>
+        <div class="caso-body"><div class="caso-inner">
+          <div class="sol"><div class="sol-l">Solución</div><p>Sí, con mucha probabilidad. En régimen general, 400.000 € de sueldo tributarían a tipos marginales de hasta el ~45%. Con la <strong>Ley Beckham</strong>, tributa al <strong>24% hasta 600.000 €</strong>: un ahorro enorme, además de no tributar (en general) por su renta mundial. Hay que confirmar requisitos (no residente 5 años previos, causa del desplazamiento) y valorar su patrimonio y rentas en el extranjero antes de optar.</p></div>
+        </div></div>
+      </div>
+    </section>
+
+    <section class="reveal">
+      <div class="quiz" data-quiz-mod="mod3">
+        <div class="q-head"><span class="tri"></span><h3>Autoevaluación · Módulo 3 · IRPF</h3><span class="q-meta">Necesitas ≥ 70% para completar</span></div>
+        <div class="q-body">
+          <div class="q-item" data-correct="1">
+            <div class="q-txt"><span class="qn">1.</span>¿Qué rentas van a la base del ahorro?</div>
+            <label class="q-opt"><input type="radio" name="q1" value="0">Los sueldos y las pensiones.</label>
+            <label class="q-opt"><input type="radio" name="q1" value="1">Dividendos, intereses y ganancias por transmisión (acciones, fondos, inmuebles, sociedades).</label>
+            <label class="q-opt"><input type="radio" name="q1" value="2">Los alquileres de vivienda.</label>
+            <label class="q-opt"><input type="radio" name="q1" value="3">Las actividades económicas.</label>
+            <div class="q-feedback">Dividendos, intereses y ganancias por transmisión tributan en la base del ahorro (19–28%).</div>
+          </div>
+          <div class="q-item" data-correct="2">
+            <div class="q-txt"><span class="qn">2.</span>La escala de la base del ahorro…</div>
+            <label class="q-opt"><input type="radio" name="q2" value="0">Cambia mucho según la comunidad.</label>
+            <label class="q-opt"><input type="radio" name="q2" value="1">Es un tipo fijo del 19%.</label>
+            <label class="q-opt"><input type="radio" name="q2" value="2">Es igual en toda España: 19 / 21 / 23 / 27 / 28%.</label>
+            <label class="q-opt"><input type="radio" name="q2" value="3">Llega hasta el 54%.</label>
+            <div class="q-feedback">La base del ahorro es uniforme; lo que varía por CCAA es la base general.</div>
+          </div>
+          <div class="q-item" data-correct="0">
+            <div class="q-txt"><span class="qn">3.</span>¿En qué consiste la "Ley Beckham"?</div>
+            <label class="q-opt"><input type="radio" name="q3" value="0">Régimen de impatriados: tributar como no residente al 24% hasta 600.000 € durante el año del traslado y 5 más.</label>
+            <label class="q-opt"><input type="radio" name="q3" value="1">Una exención total de por vida.</label>
+            <label class="q-opt"><input type="radio" name="q3" value="2">Un régimen solo para futbolistas.</label>
+            <label class="q-opt"><input type="radio" name="q3" value="3">Una deducción autonómica.</label>
+            <div class="q-feedback">Es el régimen del art. 93 LIRPF para desplazados a España, con tipo fijo del 24% hasta 600.000 €.</div>
+          </div>
+          <div class="q-item" data-correct="1">
+            <div class="q-txt"><span class="qn">4.</span>¿Dónde es más alto el tipo marginal del IRPF?</div>
+            <label class="q-opt"><input type="radio" name="q4" value="0">En Madrid.</label>
+            <label class="q-opt"><input type="radio" name="q4" value="1">En la Comunidad Valenciana (~54%), frente a Madrid o Castilla y León (~45%).</label>
+            <label class="q-opt"><input type="radio" name="q4" value="2">Es igual en toda España.</label>
+            <label class="q-opt"><input type="radio" name="q4" value="3">En Canarias, al 60%.</label>
+            <div class="q-feedback">C. Valenciana encabeza los marginales altos; Madrid y Castilla y León, los más bajos.</div>
+          </div>
+          <div class="q-item" data-correct="1">
+            <div class="q-txt"><span class="qn">5.</span>¿Cuál NO es una vía válida para reducir la base del IRPF?</div>
+            <label class="q-opt"><input type="radio" name="q5" value="0">Aportar a un plan de pensiones.</label>
+            <label class="q-opt"><input type="radio" name="q5" value="1">Simular una operación sin sustancia solo para pagar menos.</label>
+            <label class="q-opt"><input type="radio" name="q5" value="2">Aplicar la reducción por rendimientos irregulares.</label>
+            <label class="q-opt"><input type="radio" name="q5" value="3">Aprovechar la exención por reinversión en vivienda.</label>
+            <div class="q-feedback">La simulación (art. 16 LGT) es ilícita; el resto son economía de opción legítima.</div>
+          </div>
+          <div class="q-item" data-correct="0">
+            <div class="q-txt"><span class="qn">6.</span>Vender un inmueble genera una ganancia. ¿Cómo tributa en IRPF?</div>
+            <label class="q-opt"><input type="radio" name="q6" value="0">En la base del ahorro (19–28%), con posibles exenciones (reinversión, &gt;65 años).</label>
+            <label class="q-opt"><input type="radio" name="q6" value="1">En la base general al marginal.</label>
+            <label class="q-opt"><input type="radio" name="q6" value="2">No tributa nunca.</label>
+            <label class="q-opt"><input type="radio" name="q6" value="3">Solo paga IBI.</label>
+            <div class="q-feedback">Es ganancia por transmisión: base del ahorro; y recuerda la plusvalía municipal aparte.</div>
+          </div>
+          <div class="q-item" data-correct="1">
+            <div class="q-txt"><span class="qn">7.</span>Los dividendos percibidos por una persona física…</div>
+            <label class="q-opt"><input type="radio" name="q7" value="0">Están exentos hasta 1.500 €.</label>
+            <label class="q-opt"><input type="radio" name="q7" value="1">Tributan íntegros en la base del ahorro (la exención de 1.500 € se suprimió).</label>
+            <label class="q-opt"><input type="radio" name="q7" value="2">Van a la base general al marginal.</label>
+            <label class="q-opt"><input type="radio" name="q7" value="3">No tributan.</label>
+            <div class="q-feedback">Desde 2015 no hay exención; tributan íntegros en la base del ahorro.</div>
+          </div>
+        </div>
+        <div class="q-foot">
+          <button class="btn btn-primary" data-quiz-check>Corregir test</button>
+          <button class="btn btn-outline" data-quiz-reset>Reintentar</button>
+          <span class="q-score" data-quiz-score></span>
+        </div>
+      </div>
+    </section>
+
+    <!-- TRACKER -->
+    <div class="tracker" data-mod="mod3">
+      <div class="tk-head"><span class="tri"></span><h3>Actividades para completar la parte de IRPF</h3><span class="tk-count" data-tk-count>0/8</span></div>
+      <div class="tk-body">
+        <div class="act" data-act="leer"><span class="box"></span><span class="lbl">Leer la parte de IRPF</span></div>
+        <div class="act" data-act="rentas"><span class="box"></span><span class="lbl">Desplegar "cada renta a fondo"</span></div>
+        <div class="act" data-act="calc_irpf"><span class="box"></span><span class="lbl">Usar la calculadora de renta por comunidad</span></div>
+        <div class="act" data-act="regimenes"><span class="box"></span><span class="lbl">Desplegar los regímenes especiales</span></div>
+        <div class="act" data-act="calc_ahorro"><span class="box"></span><span class="lbl">Usar la calculadora de rentas del ahorro</span></div>
+        <div class="act" data-act="caso1"><span class="box"></span><span class="lbl">Abrir el caso 1</span></div>
+        <div class="act" data-act="caso2"><span class="box"></span><span class="lbl">Abrir el caso 2</span></div>
+        <div class="act" data-act="quiz"><span class="box"></span><span class="lbl">Superar la autoevaluación (≥ 70%)</span></div>
+        <div data-tk-done style="display:none;align-items:center;gap:.6rem;margin-top:.9rem;padding:.8rem 1rem;background:var(--wine-soft);border-radius:9px;color:var(--wine-dark);font-weight:600"><span class="tri"></span> ¡Parte de IRPF completada! Tu progreso se ha guardado.</div>
+      </div>
     </div>
 
     <nav class="modnav">
-      <a href="modulo-2.html"><div class="d">← Anterior</div><div class="t">Módulo 2 · Diagnóstico patrimonial 360º</div></a>
-      <a class="next" href="modulo-4.html"><div class="d">Siguiente →</div><div class="t">Módulo 4 · Estructuras y operaciones complejas</div></a>
+      <a href="modulo-2.html"><div class="d">← Anterior</div><div class="t">Módulo 2 · Diagnóstico 360º</div></a>
+      <a class="next" href="modulo-4.html"><div class="d">Siguiente →</div><div class="t">Módulo 4 · Estructuras complejas</div></a>
     </nav>
+
   </main>
 </div>
 
@@ -136,12 +434,13 @@
     <img src="dasar-blanco.svg" alt="DASAR Gestión Patrimonial">
     <nav class="fnav">
       <a href="index.html">Inicio</a>
-      <a href="modulo-0.html">Módulo 0</a>
+      <a href="#calc1">Calculadora de renta</a>
+      <a href="#s8">Deducciones</a>
     </nav>
-    <div class="fcopy">© <span data-year>2026</span> DASAR Gestión Patrimonial · Formación interna. Documento de uso formativo; no constituye asesoramiento fiscal ni legal.</div>
+    <div class="fcopy">© <span data-year>2026</span> DASAR Gestión Patrimonial · Formación interna. Documento de uso formativo; no constituye asesoramiento fiscal ni legal. Las calculadoras son estimadores orientativos.</div>
   </div>
 </footer>
 
-<script src="app.js?v=6"></script>
+<script src="app.js?v=7"></script>
 </body>
 </html>

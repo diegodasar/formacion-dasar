@@ -13,7 +13,7 @@
     { id: "mod0", num: "0", title: "Presentación e introducción", file: "modulo-0.html", ready: true, core: false },
     { id: "mod1", num: "1", title: "Marco legislativo e institucional", file: "modulo-1.html", ready: true, core: false },
     { id: "mod2", num: "2", title: "Diagnóstico patrimonial 360º", file: "modulo-2.html", ready: true, core: true },
-    { id: "mod3", num: "3", title: "Los tributos y su interconexión", file: "modulo-3.html", ready: false, core: false },
+    { id: "mod3", num: "3", title: "Los tributos y su interconexión", file: "modulo-3.html", ready: true, core: false },
     { id: "mod4", num: "4", title: "Estructuras y operaciones complejas", file: "modulo-4.html", ready: false, core: false },
     { id: "mod5", num: "5", title: "Planificación patrimonial y sucesoria", file: "modulo-5.html", ready: false, core: false },
     { id: "mod6", num: "6", title: "Casos prácticos y metodología", file: "modulo-6.html", ready: false, core: false }
@@ -314,7 +314,7 @@
   }
 
   function wireCalc() {
-    var calc = document.querySelector(".calc");
+    var calc = document.querySelector(".calc:not(.rcalc)");
     if (!calc) return;
     var elAum = calc.querySelector("[data-c-aum]");
     var elRev = calc.querySelector("[data-c-rev]");
@@ -551,6 +551,124 @@
     });
   }
 
+  /* =========================================================
+     IRPF · calculadoras (Módulo 3) — ESTIMADORES ORIENTATIVOS
+     ========================================================= */
+  // Top marginal combinado (estatal + autonómico) orientativo 2024-25
+  var IRPF_TOP = {
+    madrid: 0.45, castillayleon: 0.445, andalucia: 0.47, murcia: 0.47, galicia: 0.47,
+    clm: 0.455, canarias: 0.505, cantabria: 0.495, aragon: 0.50, cataluna: 0.50,
+    cvalenciana: 0.54, extremadura: 0.50, baleares: 0.495, asturias: 0.50, larioja: 0.515,
+    navarra: 0.52, paisvasco: 0.49
+  };
+  var IRPF_NOMBRE = {
+    madrid: "Madrid", castillayleon: "Castilla y León", andalucia: "Andalucía", murcia: "Murcia",
+    galicia: "Galicia", clm: "Castilla-La Mancha", canarias: "Canarias", cantabria: "Cantabria",
+    aragon: "Aragón", cataluna: "Cataluña", cvalenciana: "C. Valenciana", extremadura: "Extremadura",
+    baleares: "Baleares", asturias: "Asturias", larioja: "La Rioja", navarra: "Navarra (foral)", paisvasco: "País Vasco (foral)"
+  };
+  var MIN_PERSONAL = 5550;
+
+  function progresivo(base, tramos) {
+    var q = 0, prev = 0;
+    for (var i = 0; i < tramos.length; i++) {
+      var lim = tramos[i][0], tipo = tramos[i][1];
+      if (base > lim) { q += (lim - prev) * tipo; prev = lim; }
+      else { q += (base - prev) * tipo; return q; }
+    }
+    return q; // por si supera el último límite (último tramo es Infinity)
+  }
+  function escalaGeneral(base, ccaa) {
+    var top = IRPF_TOP[ccaa] || 0.47;
+    var tramos = [[12450, 0.19], [20200, 0.24], [35200, 0.30], [60000, 0.37], [Infinity, top]];
+    return progresivo(base, tramos);
+  }
+  function escalaAhorro(base) {
+    return progresivo(base, [[6000, 0.19], [50000, 0.21], [200000, 0.23], [300000, 0.27], [Infinity, 0.28]]);
+  }
+  function eurE(n) { return new Intl.NumberFormat("es-ES", { style: "currency", currency: "EUR", maximumFractionDigits: 0 }).format(Math.round(n)); }
+  function pctE(x) { return (x * 100).toFixed(1).replace(".", ",") + "%"; }
+
+  function wireIrpf() {
+    var calc = document.querySelector(".rcalc.irpf");
+    if (!calc) return;
+    var elGen = calc.querySelector("[data-i-gen]"), elAho = calc.querySelector("[data-i-aho]"), elCcaa = calc.querySelector("[data-i-ccaa]");
+    var btn = calc.querySelector("[data-i-run]"), res = calc.querySelector(".calc-result");
+    function n(e) { var v = parseFloat((e && e.value || "").replace(/[^0-9.]/g, "")); return isNaN(v) ? 0 : v; }
+    function run() {
+      var g = n(elGen), a = n(elAho), ccaa = elCcaa.value || "madrid";
+      var qGen = Math.max(0, escalaGeneral(g, ccaa) - escalaGeneral(MIN_PERSONAL, ccaa));
+      var qAho = escalaAhorro(a);
+      var tot = qGen + qAho, bt = g + a;
+      var medio = bt > 0 ? tot / bt : 0;
+      var marg = g > 60000 ? (IRPF_TOP[ccaa] || 0.47) : (g > 35200 ? 0.37 : g > 20200 ? 0.30 : g > 12450 ? 0.24 : 0.19);
+      // comparación con Madrid
+      var qGenMad = Math.max(0, escalaGeneral(g, "madrid") - escalaGeneral(MIN_PERSONAL, "madrid"));
+      var totMad = qGenMad + qAho, dif = tot - totMad;
+      var html = '<div class="seg"><span class="tag">Cuota estimada · ' + IRPF_NOMBRE[ccaa] + '</span><span class="name wine">' + eurE(tot) + '</span></div>';
+      html += '<div class="money">' +
+        '<div class="m"><div class="k">Tipo medio</div><div class="v">' + pctE(medio) + '</div></div>' +
+        '<div class="m"><div class="k">Tipo marginal (general)</div><div class="v wine">' + pctE(marg) + '</div></div>' +
+        '<div class="m"><div class="k">Renta neta</div><div class="v">' + eurE(bt - tot) + '</div></div>' +
+        '</div>';
+      html += '<p class="note">Desglose: base general ' + eurE(g) + ' → ' + eurE(qGen) + ' · base del ahorro ' + eurE(a) + ' → ' + eurE(qAho) + '.</p>';
+      if (ccaa !== "madrid") {
+        if (Math.abs(dif) >= 1) html += '<div class="flag">Frente a <strong>Madrid</strong> (una de las más bajas), aquí ' + (dif > 0 ? 'pagarías <strong>' + eurE(Math.abs(dif)) + ' más</strong>' : 'pagarías <strong>' + eurE(Math.abs(dif)) + ' menos</strong>') + ' al año con la misma renta.</div>';
+      }
+      html += '<p class="note" style="margin-top:.7rem">Estimación orientativa: escala general con el marginal autonómico y mínimo personal simplificado; no incluye todas las reducciones ni las deducciones autonómicas. Verifica la escala vigente de la comunidad.</p>';
+      res.innerHTML = html; res.classList.add("show"); actDone("calc_irpf");
+    }
+    if (btn) btn.addEventListener("click", run);
+  }
+
+  function wireAhorro() {
+    var calc = document.querySelector(".rcalc.ahorro");
+    if (!calc) return;
+    var tipo = calc.querySelector("[data-a-tipo]"), imp = calc.querySelector("[data-a-imp]"),
+        adq = calc.querySelector("[data-a-adq]"), trn = calc.querySelector("[data-a-trn]"), gas = calc.querySelector("[data-a-gas]");
+    var btn = calc.querySelector("[data-a-run]"), res = calc.querySelector(".calc-result");
+    var wrapImp = calc.querySelector("[data-wrap-imp]"), wrapGan = calc.querySelector("[data-wrap-gan]");
+    function n(e) { var v = parseFloat((e && e.value || "").replace(/[^0-9.]/g, "")); return isNaN(v) ? 0 : v; }
+    function toggle() {
+      var t = tipo.value;
+      var esGan = (t === "venta_valores" || t === "venta_inmueble");
+      if (wrapImp) wrapImp.style.display = esGan ? "none" : "";
+      if (wrapGan) wrapGan.style.display = esGan ? "" : "none";
+    }
+    if (tipo) tipo.addEventListener("change", toggle);
+    toggle();
+    function run() {
+      var t = tipo.value, ganancia, detalle;
+      if (t === "dividendos") { ganancia = n(imp); detalle = "Importe íntegro de dividendos/intereses: " + eurE(ganancia) + "."; }
+      else {
+        var g = n(trn) - n(adq) - n(gas); ganancia = g;
+        detalle = "Ganancia = " + eurE(n(trn)) + " − " + eurE(n(adq)) + " − " + eurE(n(gas)) + " gastos = " + eurE(g) + ".";
+      }
+      var html;
+      if (ganancia <= 0) {
+        html = '<div class="seg"><span class="tag">Resultado</span><span class="name">Pérdida patrimonial</span></div>' +
+          '<p class="note">' + detalle + ' No hay cuota; la pérdida se compensa con otras ganancias del ahorro (y hasta el 25% con rendimientos), con arrastre de 4 años.</p>';
+      } else {
+        var q = escalaAhorro(ganancia), medio = q / ganancia;
+        html = '<div class="seg"><span class="tag">Impuesto (base del ahorro)</span><span class="name wine">' + eurE(q) + '</span></div>';
+        html += '<div class="money">' +
+          '<div class="m"><div class="k">Renta del ahorro</div><div class="v">' + eurE(ganancia) + '</div></div>' +
+          '<div class="m"><div class="k">Tipo medio</div><div class="v wine">' + pctE(medio) + '</div></div>' +
+          '<div class="m"><div class="k">Neto</div><div class="v">' + eurE(ganancia - q) + '</div></div>' +
+          '</div>';
+        html += '<p class="note">' + detalle + ' Escala del ahorro: 19% / 21% / 23% / 27% / 28%.</p>';
+      }
+      var notas = {
+        dividendos: "Los dividendos e intereses tributan íntegros en la base del ahorro (no existe la antigua exención de 1.500 €). Vía holding, un dividendo entre sociedades puede tener exención del 95% en el IS (Módulo 3 · IS).",
+        venta_valores: "En la venta de acciones/sociedad: comprueba coeficientes de abatimiento (adquisición anterior a 1994, límite 400.000 €) y, si es una participación significativa, la posible reestructuración con neutralidad o la exención del 95% vía holding en el IS.",
+        venta_inmueble: "En la venta de inmueble: exención por reinversión en vivienda habitual, exención para mayores de 65 años (vivienda habitual o reinversión en renta vitalicia) y recuerda la plusvalía municipal aparte (Módulo 1)."
+      };
+      html += '<div class="flag">' + notas[t] + '</div>';
+      res.innerHTML = html; res.classList.add("show"); actDone("calc_ahorro");
+    }
+    if (btn) btn.addEventListener("click", run);
+  }
+
   document.addEventListener("DOMContentLoaded", function () {
     buildSidebar();
     wireMenu();
@@ -562,6 +680,8 @@
     wireReading();
     wireCalc();
     wireDiagnostico();
+    wireIrpf();
+    wireAhorro();
     refreshTracker();
     refreshProgressUI();
   });
