@@ -596,6 +596,20 @@ strong{font-weight:600}
 .deducc-panel li{display:flex;gap:.6rem;padding:.5rem 0;border-bottom:1px dashed var(--line);font-size:.96rem;color:var(--ink)}
 .deducc-panel li:last-child{border-bottom:0}
 .deducc-panel li .tri{flex:0 0 auto;transform:scale(.68);margin-top:.4rem}
+/* Subapartados del módulo en el panel lateral */
+.side-sub{margin:.2rem 0 .5rem 1.6rem;padding-left:.7rem;border-left:2px solid var(--line-strong);display:flex;flex-direction:column}
+.side-sub .ss{font-size:.85rem;color:var(--muted);padding:.32rem 0;line-height:1.25}
+.side-sub a.ss:hover{color:var(--wine)}
+.side-sub a.ss.on{color:var(--wine);font-weight:600}
+.side-sub .ss.dis{color:var(--muted-2);font-size:.78rem}
+
+/* Navegador de partes dentro del módulo */
+.partnav{display:flex;flex-wrap:wrap;gap:.45rem;margin:0 0 1.4rem}
+.partnav .p{font-size:.85rem;font-weight:500;border:1px solid var(--line-strong);border-radius:999px;padding:.4rem .85rem;color:var(--ink);background:#fff}
+.partnav a.p:hover{border-color:var(--wine);color:var(--wine)}
+.partnav a.p.on{background:var(--ink);color:#fff;border-color:var(--ink)}
+.partnav .p.dis{color:var(--muted-2);border-style:dashed}
+
 .deducc-panel .dp-src{font-size:.86rem;color:var(--muted);margin:.5rem 0 .2rem}
 .deducc-panel .dp-src a{color:var(--wine);font-weight:600}
 .deducc-panel .dp-nota{font-size:.86rem;color:var(--wine-dark);background:var(--wine-soft);border-radius:var(--radius-sm);padding:.6rem .8rem;margin:.6rem 0}

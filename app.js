@@ -13,7 +13,16 @@
     { id: "mod0", num: "0", title: "Presentación e introducción", file: "modulo-0.html", ready: true, core: false },
     { id: "mod1", num: "1", title: "Marco legislativo e institucional", file: "modulo-1.html", ready: true, core: false },
     { id: "mod2", num: "2", title: "Diagnóstico patrimonial 360º", file: "modulo-2.html", ready: true, core: true },
-    { id: "mod3", num: "3", title: "Los tributos y su interconexión", file: "modulo-3.html", ready: true, core: false },
+    {
+      id: "mod3", num: "3", title: "Los tributos y su interconexión", file: "modulo-3.html", ready: true, core: false,
+      parts: [
+        { t: "Parte 1 · IRPF", file: "modulo-3.html", ready: true },
+        { t: "Parte 2 · Patrimonio y Grandes Fortunas", file: "modulo-3-patrimonio.html", ready: true },
+        { t: "Parte 3 · Sociedades", file: "", ready: false },
+        { t: "Parte 4 · Sucesiones y Donaciones", file: "", ready: false },
+        { t: "Parte 5 · Indirecta e interconexión", file: "", ready: false }
+      ]
+    },
     { id: "mod4", num: "4", title: "Estructuras y operaciones complejas", file: "modulo-4.html", ready: false, core: false },
     { id: "mod5", num: "5", title: "Planificación patrimonial y sucesoria", file: "modulo-5.html", ready: false, core: false },
     { id: "mod6", num: "6", title: "Casos prácticos y metodología", file: "modulo-6.html", ready: false, core: false }
@@ -81,6 +90,7 @@
     var list = document.getElementById("sidebar-list");
     if (!list) return;
     var current = document.body.getAttribute("data-current");
+    var here = (location.pathname.split("/").pop() || "index.html");
     var html = "";
     MODULES.forEach(function (m) {
       var active = m.id === current ? " active" : "";
@@ -90,6 +100,16 @@
         '<span class="si-t">' + m.title + (m.ready ? "" : " <em style=\'color:var(--muted-2);font-style:normal;font-size:.75rem\'>· en desarrollo</em>") + '</span>' +
         '<span class="si-check">✓</span>' +
         '</a>';
+      // subapartados del módulo actual (esquema general)
+      if (m.parts && m.id === current) {
+        html += '<div class="side-sub">';
+        m.parts.forEach(function (p) {
+          var on = p.file && p.file === here ? " on" : "";
+          if (p.ready && p.file) html += '<a class="ss' + on + '" href="' + p.file + '">' + p.t + '</a>';
+          else html += '<span class="ss dis">' + p.t + ' · en desarrollo</span>';
+        });
+        html += '</div>';
+      }
     });
     list.innerHTML = html;
   }
