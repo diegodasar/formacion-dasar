@@ -556,14 +556,14 @@
      ========================================================= */
   // Top marginal combinado (estatal + autonómico) orientativo 2024-25
   var IRPF_TOP = {
-    madrid: 0.45, castillayleon: 0.445, andalucia: 0.47, murcia: 0.47, galicia: 0.47,
+    madrid: 0.45, cyl: 0.445, andalucia: 0.47, murcia: 0.47, galicia: 0.47,
     clm: 0.455, canarias: 0.505, cantabria: 0.495, aragon: 0.50, cataluna: 0.50,
     cvalenciana: 0.54, extremadura: 0.50, baleares: 0.495, asturias: 0.50, larioja: 0.515,
     navarra: 0.52, paisvasco: 0.49
   };
   var IRPF_NOMBRE = {
     madrid: "Madrid", castillayleon: "Castilla y León", andalucia: "Andalucía", murcia: "Murcia",
-    galicia: "Galicia", clm: "Castilla-La Mancha", canarias: "Canarias", cantabria: "Cantabria",
+    galicia: "Galicia", cyl: "Castilla y León", clm: "Castilla-La Mancha", canarias: "Canarias", cantabria: "Cantabria",
     aragon: "Aragón", cataluna: "Cataluña", cvalenciana: "C. Valenciana", extremadura: "Extremadura",
     baleares: "Baleares", asturias: "Asturias", larioja: "La Rioja", navarra: "Navarra (foral)", paisvasco: "País Vasco (foral)"
   };
@@ -669,6 +669,207 @@
     if (btn) btn.addEventListener("click", run);
   }
 
+  /* =========================================================
+     DEDUCCIONES AUTONÓMICAS IRPF · grandes rasgos por comunidad
+     Orientativo (último ejercicio); verificar importes/requisitos.
+     ========================================================= */
+  var DEDUCC_CCAA = {
+    madrid: [
+      "Nacimiento o adopción de hijos (importe creciente los años siguientes; límite de renta).",
+      "Adopción internacional de hijos.",
+      "Acogimiento familiar de menores y de personas mayores o con discapacidad.",
+      "Cuidado de hijos menores de 3 años (gastos de empleada de hogar) y por familias con dos o más hijos e ingresos reducidos.",
+      "Arrendamiento de vivienda habitual por menores de 35 años (con límite de renta).",
+      "Gastos educativos: escolaridad en centros no gratuitos, enseñanza de idiomas y vestuario escolar.",
+      "Donativos a fundaciones y por fomento del consumo cultural.",
+      "Inversión en acciones de entidades nuevas o de reciente creación y en el mercado alternativo bursátil."
+    ],
+    cataluna: [
+      "Nacimiento o adopción de hijos.",
+      "Alquiler de la vivienda habitual (jóvenes, parados, viudos ≥65, familias numerosas; con límite de renta).",
+      "Rehabilitación de la vivienda habitual.",
+      "Pago de intereses de préstamos para estudios de máster y doctorado.",
+      "Inversión de un 'ángel inversor' en acciones de empresas nuevas o de reciente creación.",
+      "Donativos a entidades de fomento de la lengua catalana y a la investigación científica.",
+      "Contribuyentes que se quedan viudos.",
+      "Por obligación de declarar por tener dos o más pagadores."
+    ],
+    andalucia: [
+      "Nacimiento o adopción de hijos; adopción internacional.",
+      "Familia numerosa y familia monoparental.",
+      "Discapacidad del contribuyente, cónyuge o parientes; asistencia mediante empleada de hogar.",
+      "Alquiler de vivienda habitual (jóvenes ≤35, mayores, discapacidad).",
+      "Inversión en vivienda habitual protegida por jóvenes.",
+      "Gastos educativos, de informática y de enseñanza de idiomas.",
+      "Ayuda doméstica (por cuotas del empleador a la Seguridad Social).",
+      "Donativos ecológicos y a entidades; inversión en empresas de nueva o reciente creación."
+    ],
+    cvalenciana: [
+      "Nacimiento, adopción o acogimiento; parto múltiple.",
+      "Familia numerosa o monoparental.",
+      "Gastos de guardería y de centros de primer ciclo de educación infantil.",
+      "Conciliación: madres con hijos de 3 a 5 años.",
+      "Adquisición/rehabilitación de primera vivienda habitual por jóvenes ≤35.",
+      "Alquiler de vivienda habitual y por movilidad geográfica por trabajo.",
+      "Discapacidad; ascendientes mayores de 75 años o con discapacidad.",
+      "Gastos educativos y de material escolar; enseñanza de idiomas.",
+      "Donativos culturales, ecológicos y a la investigación; obras de mejora de la eficiencia energética."
+    ],
+    galicia: [
+      "Nacimiento o adopción de hijos.",
+      "Familia numerosa.",
+      "Cuidado de hijos menores (guardería o empleada de hogar).",
+      "Alquiler de vivienda habitual por jóvenes ≤35.",
+      "Adquisición/rehabilitación de vivienda en el medio rural o en núcleos con despoblación.",
+      "Discapacidad de descendientes o ascendientes.",
+      "Inversión en empresas nuevas, en el sector agrario/forestal y en el mercado alternativo.",
+      "Donativos a fundaciones y por fomento de la lengua gallega."
+    ],
+    cyl: [
+      "Nacimiento o adopción; partos múltiples y por hijos.",
+      "Familia numerosa.",
+      "Cuidado de hijos menores (guardería) y conciliación.",
+      "Adquisición/rehabilitación de vivienda por jóvenes en núcleos rurales.",
+      "Alquiler de vivienda habitual para jóvenes.",
+      "Discapacidad del contribuyente y cuidado de ascendientes.",
+      "Fomento de la natalidad y de la fijación de población en el medio rural.",
+      "Donativos para la recuperación del patrimonio e I+D."
+    ],
+    canarias: [
+      "Nacimiento o adopción de hijos.",
+      "Familia numerosa.",
+      "Gastos de guardería.",
+      "Alquiler de vivienda habitual.",
+      "Gastos de estudios de hijos que estudian fuera de la isla de residencia.",
+      "Discapacidad y por familiares dependientes.",
+      "Gastos de enfermedad y sanitarios (deducción característica de Canarias).",
+      "Donativos e inversión en empresas de nueva creación; traslado de isla por trabajo."
+    ],
+    cantabria: [
+      "Nacimiento y adopción; acogimiento familiar de menores.",
+      "Alquiler de vivienda habitual (jóvenes, mayores, discapacidad).",
+      "Obras de mejora y rehabilitación de la vivienda.",
+      "Gastos de guardería.",
+      "Cuidado de familiares (ascendientes o descendientes con discapacidad).",
+      "Gastos de enfermedad y sanitarios; ayuda doméstica.",
+      "Acogimiento no remunerado de mayores o personas con discapacidad.",
+      "Donativos."
+    ],
+    aragon: [
+      "Nacimiento o adopción (especialmente tercer hijo o por discapacidad).",
+      "Familia numerosa.",
+      "Cuidado de personas dependientes (ascendientes/descendientes).",
+      "Adquisición de vivienda en núcleos rurales o con despoblación por jóvenes.",
+      "Alquiler de vivienda (jóvenes y vivienda social).",
+      "Gastos de guardería y de adquisición de libros de texto y material escolar.",
+      "Discapacidad.",
+      "Donativos ecológicos y a la investigación."
+    ],
+    clm: [
+      "Nacimiento o adopción de hijos.",
+      "Familia numerosa y familia monoparental.",
+      "Gastos por cuidado de hijos (guardería).",
+      "Discapacidad del contribuyente y de familiares.",
+      "Adquisición/rehabilitación de vivienda en zonas rurales despobladas.",
+      "Alquiler de vivienda habitual por jóvenes.",
+      "Gastos en libros de texto y enseñanza de idiomas.",
+      "Cuidado de ascendientes mayores; donativos."
+    ],
+    extremadura: [
+      "Nacimiento o adopción; parto múltiple.",
+      "Familia numerosa.",
+      "Cuidado de hijos menores y por trabajo autónomo.",
+      "Alquiler de vivienda habitual (jóvenes, víctimas de violencia, discapacidad, familias numerosas, medio rural).",
+      "Adquisición/rehabilitación de vivienda para jóvenes en el medio rural.",
+      "Compra de material escolar.",
+      "Discapacidad y cuidado de familiares dependientes.",
+      "Deducción general por rendimientos del trabajo; donativos al patrimonio."
+    ],
+    baleares: [
+      "Nacimiento o adopción.",
+      "Familia numerosa o monoparental.",
+      "Gastos de guardería y de aprendizaje de idiomas extranjeros.",
+      "Gastos de estudios superiores de descendientes cursados fuera de la isla.",
+      "Alquiler de vivienda habitual (jóvenes, discapacidad, familias numerosas).",
+      "Discapacidad; cuidado de descendientes o ascendientes.",
+      "Inversión en empresas nuevas o de reciente creación y en I+D+i.",
+      "Donativos culturales, científicos y de patrimonio."
+    ],
+    asturias: [
+      "Nacimiento o adopción; partos o adopciones múltiples.",
+      "Familia numerosa y monoparental.",
+      "Acogimiento familiar de menores y de mayores.",
+      "Alquiler de vivienda habitual (jóvenes; zonas rurales en riesgo de despoblación).",
+      "Adquisición/rehabilitación de vivienda en concejos en riesgo de despoblación.",
+      "Guardería (0-3) y transporte para residentes en zonas rurales.",
+      "Discapacidad y cuidado de ascendientes.",
+      "Donativos."
+    ],
+    larioja: [
+      "Nacimiento y adopción (segundo hijo y siguientes).",
+      "Familia numerosa.",
+      "Escolarización (0-3) y guardería.",
+      "Adquisición/rehabilitación de vivienda habitual para jóvenes en pequeños municipios.",
+      "Alquiler de vivienda para jóvenes.",
+      "Compra de vehículos eléctricos y obras de eficiencia energética/rehabilitación.",
+      "Cuidado de hijos y de ascendientes; discapacidad.",
+      "Acogimiento familiar."
+    ],
+    murcia: [
+      "Nacimiento o adopción de hijos.",
+      "Familia numerosa.",
+      "Gastos de guardería y custodia de menores; conciliación.",
+      "Adquisición o rehabilitación de vivienda habitual por jóvenes.",
+      "Alquiler de vivienda habitual por jóvenes.",
+      "Inversión en empresas nuevas o de reciente creación y en el mercado alternativo bursátil.",
+      "Gastos en material escolar y libros de texto.",
+      "Instalación de energías renovables y dispositivos de ahorro de agua; donativos."
+    ],
+    navarra: [
+      "Mínimos personales y familiares que operan como deducción de la cuota (por hijos y ascendientes).",
+      "Alquiler de vivienda habitual.",
+      "Inversión en vivienda habitual (aún vigente en Navarra, a diferencia del régimen común).",
+      "Deducción por rendimientos del trabajo y por discapacidad.",
+      "Aportaciones a sistemas de previsión.",
+      "Donaciones.",
+      "Nota: IRPF foral propio (Convenio), con estructura y cifras distintas al régimen común."
+    ],
+    paisvasco: [
+      "Deducciones por descendientes y ascendientes; por discapacidad o dependencia.",
+      "Adquisición de vivienda habitual (aún vigente) y por alquiler de vivienda habitual.",
+      "Aportaciones a EPSV y otros sistemas de previsión.",
+      "Deducción por edad.",
+      "Donativos.",
+      "Nota: IRPF foral propio por territorio histórico (Bizkaia, Gipuzkoa y Araba), con cifras propias de cada Diputación Foral."
+    ]
+  };
+
+  function wireDeducciones() {
+    var box = document.querySelector("[data-deducc]");
+    if (!box) return;
+    var chips = box.querySelector("[data-chips]"), panel = box.querySelector("[data-panel]");
+    var order = ["madrid", "cataluna", "andalucia", "cvalenciana", "galicia", "cyl", "canarias", "cantabria", "aragon", "clm", "extremadura", "baleares", "asturias", "larioja", "murcia", "navarra", "paisvasco"];
+    order.forEach(function (k) {
+      if (!DEDUCC_CCAA[k]) return;
+      var b = document.createElement("button");
+      b.className = "chip"; b.type = "button";
+      b.innerHTML = IRPF_NOMBRE[k].replace(" (foral)", "") + '<span class="cm">' + pctE(IRPF_TOP[k]) + '</span>';
+      b.addEventListener("click", function () { render(k, b); });
+      chips.appendChild(b);
+    });
+    function render(k, btn) {
+      box.querySelectorAll(".chip").forEach(function (c) { c.classList.remove("active"); });
+      if (btn) btn.classList.add("active");
+      var foral = (k === "navarra" || k === "paisvasco");
+      var html = '<div class="dp-head"><h4>' + IRPF_NOMBRE[k] + '</h4><span class="dp-marg">Marginal máx. aprox.: ' + pctE(IRPF_TOP[k]) + '</span></div>';
+      if (foral) html += '<p class="note" style="color:var(--muted-2)">Territorio foral con IRPF propio; su estructura de deducciones es distinta al régimen común.</p>';
+      html += '<ul>' + DEDUCC_CCAA[k].map(function (it) { return '<li><span class="tri"></span><span>' + it + '</span></li>'; }).join("") + '</ul>';
+      panel.innerHTML = html;
+      actDone("deducc");
+    }
+    render("madrid", chips.querySelector(".chip"));
+  }
+
   document.addEventListener("DOMContentLoaded", function () {
     buildSidebar();
     wireMenu();
@@ -682,6 +883,7 @@
     wireDiagnostico();
     wireIrpf();
     wireAhorro();
+    wireDeducciones();
     refreshTracker();
     refreshProgressUI();
   });

@@ -9,7 +9,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Jost:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="styles.css?v=7">
+<link rel="stylesheet" href="styles.css?v=8">
 </head>
 <body data-current="mod3">
 
@@ -297,7 +297,13 @@
           <tr><td><strong>Autónomos / inicio de actividad</strong></td><td>Jóvenes que inician actividad; a veces en zonas despobladas.</td><td>Varias</td></tr>
         </tbody>
       </table>
-      <p class="libnote">Método práctico: identifica el <strong>perfil</strong> del cliente (edad, hijos, alquiler/compra, discapacidad, dónde vive) y cruza con las familias de arriba; luego confirma importe y requisitos vigentes en la comunidad.</p>
+      <h3>Explorador por comunidad</h3>
+      <p>Pulsa cada comunidad para ver sus <strong>principales deducciones</strong> del último ejercicio (a grandes rasgos). Aquí se distingue a un buen consultor: saber qué deducción encaja con cada perfil. Los importes y requisitos exactos se verifican y actualizan cada año.</p>
+      <div class="deducc" data-deducc>
+        <div class="deducc-chips" data-chips></div>
+        <div class="deducc-panel" data-panel></div>
+      </div>
+      <p class="libnote">Método práctico: identifica el <strong>perfil</strong> del cliente (edad, hijos, alquiler/compra, discapacidad, dónde vive) y cruza con las deducciones de su comunidad; luego confirma importe y requisitos vigentes.</p>
     </section>
 
     <hr class="divider">
@@ -407,13 +413,14 @@
 
     <!-- TRACKER -->
     <div class="tracker" data-mod="mod3">
-      <div class="tk-head"><span class="tri"></span><h3>Actividades para completar la parte de IRPF</h3><span class="tk-count" data-tk-count>0/8</span></div>
+      <div class="tk-head"><span class="tri"></span><h3>Actividades para completar la parte de IRPF</h3><span class="tk-count" data-tk-count>0/9</span></div>
       <div class="tk-body">
         <div class="act" data-act="leer"><span class="box"></span><span class="lbl">Leer la parte de IRPF</span></div>
         <div class="act" data-act="rentas"><span class="box"></span><span class="lbl">Desplegar "cada renta a fondo"</span></div>
         <div class="act" data-act="calc_irpf"><span class="box"></span><span class="lbl">Usar la calculadora de renta por comunidad</span></div>
         <div class="act" data-act="regimenes"><span class="box"></span><span class="lbl">Desplegar los regímenes especiales</span></div>
         <div class="act" data-act="calc_ahorro"><span class="box"></span><span class="lbl">Usar la calculadora de rentas del ahorro</span></div>
+        <div class="act" data-act="deducc"><span class="box"></span><span class="lbl">Explorar deducciones por comunidad</span></div>
         <div class="act" data-act="caso1"><span class="box"></span><span class="lbl">Abrir el caso 1</span></div>
         <div class="act" data-act="caso2"><span class="box"></span><span class="lbl">Abrir el caso 2</span></div>
         <div class="act" data-act="quiz"><span class="box"></span><span class="lbl">Superar la autoevaluación (≥ 70%)</span></div>
@@ -441,6 +448,6 @@
   </div>
 </footer>
 
-<script src="app.js?v=7"></script>
+<script src="app.js?v=8"></script>
 </body>
 </html>

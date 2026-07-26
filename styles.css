@@ -577,6 +577,26 @@ strong{font-weight:600}
   .assets{display:block;overflow-x:auto}
 }
 
+/* ============================================================
+   v8 · Explorador de deducciones autonómicas
+   ============================================================ */
+.deducc{border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;margin:1.4rem 0}
+.deducc-chips{display:flex;flex-wrap:wrap;gap:.45rem;padding:1rem;background:var(--paper-2);border-bottom:1px solid var(--line)}
+.chip{font-family:var(--ff);font-size:.85rem;font-weight:500;cursor:pointer;border:1px solid var(--line-strong);
+  background:#fff;color:var(--ink);border-radius:999px;padding:.4rem .8rem;transition:.15s;display:inline-flex;align-items:center}
+.chip:hover{border-color:var(--wine)}
+.chip.active{background:var(--ink);color:#fff;border-color:var(--ink)}
+.chip .cm{color:var(--wine);font-weight:600;font-size:.72rem;margin-left:.4rem}
+.chip.active .cm{color:#fff}
+.deducc-panel{padding:1.3rem}
+.deducc-panel .dp-head{display:flex;align-items:baseline;justify-content:space-between;gap:1rem;flex-wrap:wrap;margin-bottom:.2rem}
+.deducc-panel h4{margin:0;font-size:1.25rem}
+.deducc-panel .dp-marg{font-size:.8rem;color:var(--muted-2)}
+.deducc-panel ul{margin:.7rem 0 0;padding-left:0;list-style:none}
+.deducc-panel li{display:flex;gap:.6rem;padding:.5rem 0;border-bottom:1px dashed var(--line);font-size:.96rem;color:var(--ink)}
+.deducc-panel li:last-child{border-bottom:0}
+.deducc-panel li .tri{flex:0 0 auto;transform:scale(.68);margin-top:.4rem}
+
 /* Impresión: solo el mapa de dolor */
 @media print{
   .topbar,.readprogress,.sidebar,.footer,.modnav,.tracker,.toc,.gate,.df-body,.df-actions,.quiz,#casos,.mod-head p,.hero{display:none !important}
