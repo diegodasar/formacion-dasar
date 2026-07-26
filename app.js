@@ -847,27 +847,41 @@
   function wireDeducciones() {
     var box = document.querySelector("[data-deducc]");
     if (!box) return;
+    var DATA = window.DASAR_DED || {};
     var chips = box.querySelector("[data-chips]"), panel = box.querySelector("[data-panel]");
-    var order = ["madrid", "cataluna", "andalucia", "cvalenciana", "galicia", "cyl", "canarias", "cantabria", "aragon", "clm", "extremadura", "baleares", "asturias", "larioja", "murcia", "navarra", "paisvasco"];
-    order.forEach(function (k) {
-      if (!DEDUCC_CCAA[k]) return;
+    var order = ["madrid", "cataluna", "andalucia", "cvalenciana", "galicia", "asturias", "cantabria", "canarias", "baleares", "aragon", "clm", "extremadura", "murcia", "larioja", "navarra", "cyl", "paisvasco"];
+    var avail = order.filter(function (k) { return DATA[k]; });
+    avail.forEach(function (k) {
       var b = document.createElement("button");
       b.className = "chip"; b.type = "button";
-      b.innerHTML = IRPF_NOMBRE[k].replace(" (foral)", "") + '<span class="cm">' + pctE(IRPF_TOP[k]) + '</span>';
+      b.innerHTML = (IRPF_NOMBRE[k] || k).replace(" (foral)", "") +
+        '<span class="cm">' + (DATA[k].items ? DATA[k].items.length : 0) + '</span>';
       b.addEventListener("click", function () { render(k, b); });
       chips.appendChild(b);
     });
+    function esc(s) { return (s || "").replace(/[&<>]/g, function (c) { return { "&": "&amp;", "<": "&lt;", ">": "&gt;" }[c]; }); }
     function render(k, btn) {
+      var d = DATA[k]; if (!d) return;
       box.querySelectorAll(".chip").forEach(function (c) { c.classList.remove("active"); });
       if (btn) btn.classList.add("active");
-      var foral = (k === "navarra" || k === "paisvasco");
-      var html = '<div class="dp-head"><h4>' + IRPF_NOMBRE[k] + '</h4><span class="dp-marg">Marginal máx. aprox.: ' + pctE(IRPF_TOP[k]) + '</span></div>';
-      if (foral) html += '<p class="note" style="color:var(--muted-2)">Territorio foral con IRPF propio; su estructura de deducciones es distinta al régimen común.</p>';
-      html += '<ul>' + DEDUCC_CCAA[k].map(function (it) { return '<li><span class="tri"></span><span>' + it + '</span></li>'; }).join("") + '</ul>';
+      var html = '<div class="dp-head"><h4>' + (IRPF_NOMBRE[k] || k) + '</h4>' +
+        '<span class="dp-marg">' + d.items.length + ' deducciones · marginal máx. aprox. ' + pctE(IRPF_TOP[k] || 0.47) + '</span></div>';
+      html += '<p class="dp-src"><strong>Norma:</strong> ' + esc(d.norma) +
+        (d.url ? ' · <a href="' + d.url + '" target="_blank" rel="noopener">ver texto consolidado ↗</a>' : '') +
+        (d.act ? ' · <em>actualizado a ' + esc(d.act) + '</em>' : '') + '</p>';
+      if (d.nota) html += '<div class="dp-nota">' + esc(d.nota) + '</div>';
+      html += '<div class="dp-tablewrap"><table class="tbl dedtbl"><thead><tr>' +
+        '<th>Deducción</th><th>% / importe</th><th>Límite</th><th>Requisito de renta</th><th>Otros requisitos</th><th>Art.</th>' +
+        '</tr></thead><tbody>';
+      d.items.forEach(function (it) {
+        html += '<tr><td><strong>' + esc(it.n) + '</strong></td><td>' + esc(it.imp) + '</td><td>' + esc(it.lim) +
+          '</td><td>' + esc(it.renta) + '</td><td>' + esc(it.req) + '</td><td>' + esc(it.art) + '</td></tr>';
+      });
+      html += '</tbody></table></div>';
       panel.innerHTML = html;
       actDone("deducc");
     }
-    render("madrid", chips.querySelector(".chip"));
+    if (avail.length) render(avail[0], chips.querySelector(".chip"));
   }
 
   document.addEventListener("DOMContentLoaded", function () {

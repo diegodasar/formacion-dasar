@@ -9,7 +9,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Jost:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="styles.css?v=8">
+<link rel="stylesheet" href="styles.css?v=9">
 </head>
 <body data-current="mod3">
 
@@ -298,7 +298,8 @@
         </tbody>
       </table>
       <h3>Explorador por comunidad</h3>
-      <p>Pulsa cada comunidad para ver sus <strong>principales deducciones</strong> del último ejercicio (a grandes rasgos). Aquí se distingue a un buen consultor: saber qué deducción encaja con cada perfil. Los importes y requisitos exactos se verifican y actualizan cada año.</p>
+      <p>Pulsa una comunidad para ver el <strong>cuadro completo de sus deducciones</strong>: importe o porcentaje, límite, <strong>requisito de renta</strong>, otros requisitos y el <strong>artículo</strong> exacto para consultarlo si hay dudas. Cada ficha enlaza al <strong>texto consolidado oficial</strong> con su fecha de actualización.</p>
+      <div class="callout"><div class="ic">✓</div><div class="ct"><h4>Datos extraídos de los textos consolidados oficiales</h4><p>Se han volcado leyendo la ley de tributos cedidos de cada comunidad (BOE y, en forales, portal propio). <strong>Se actualiza cada ejercicio</strong>: al hacerlo, revisa el archivo <code>deducciones.js</code>. Dos fichas están marcadas como pendientes de verificar (Castilla y León y País Vasco) porque sus textos no están consolidados en el BOE.</p></div></div>
       <div class="deducc" data-deducc>
         <div class="deducc-chips" data-chips></div>
         <div class="deducc-panel" data-panel></div>
@@ -448,6 +449,7 @@
   </div>
 </footer>
 
-<script src="app.js?v=8"></script>
+<script src="deducciones.js?v=9"></script>
+<script src="app.js?v=9"></script>
 </body>
 </html>

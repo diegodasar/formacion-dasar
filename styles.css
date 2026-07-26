@@ -596,6 +596,18 @@ strong{font-weight:600}
 .deducc-panel li{display:flex;gap:.6rem;padding:.5rem 0;border-bottom:1px dashed var(--line);font-size:.96rem;color:var(--ink)}
 .deducc-panel li:last-child{border-bottom:0}
 .deducc-panel li .tri{flex:0 0 auto;transform:scale(.68);margin-top:.4rem}
+.deducc-panel .dp-src{font-size:.86rem;color:var(--muted);margin:.5rem 0 .2rem}
+.deducc-panel .dp-src a{color:var(--wine);font-weight:600}
+.deducc-panel .dp-nota{font-size:.86rem;color:var(--wine-dark);background:var(--wine-soft);border-radius:var(--radius-sm);padding:.6rem .8rem;margin:.6rem 0}
+.dp-tablewrap{overflow-x:auto;margin-top:.8rem}
+table.dedtbl{font-size:.86rem;min-width:900px}
+table.dedtbl th{font-size:.7rem}
+table.dedtbl td{vertical-align:top;padding:.6rem .7rem}
+table.dedtbl td:nth-child(1){min-width:210px}
+table.dedtbl td:nth-child(2),table.dedtbl td:nth-child(3){min-width:150px}
+table.dedtbl td:nth-child(4){min-width:170px}
+table.dedtbl td:nth-child(5){min-width:230px}
+table.dedtbl td:last-child{white-space:nowrap;color:var(--muted-2);font-size:.8rem}
 
 /* Impresión: solo el mapa de dolor */
 @media print{
