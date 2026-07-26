@@ -18,7 +18,7 @@
       parts: [
         { t: "Parte 1 · IRPF", file: "modulo-3.html", ready: true },
         { t: "Parte 2 · Patrimonio y Grandes Fortunas", file: "modulo-3-patrimonio.html", ready: true },
-        { t: "Parte 3 · Sociedades", file: "", ready: false },
+        { t: "Parte 3 · Sociedades", file: "modulo-3-sociedades.html", ready: true },
         { t: "Parte 4 · Sucesiones y Donaciones", file: "", ready: false },
         { t: "Parte 5 · Indirecta e interconexión", file: "", ready: false }
       ]
@@ -997,6 +997,103 @@
     if (btn) btn.addEventListener("click", run);
   }
 
+  /* =========================================================
+     SOCIEDADES · reserva de capitalización, nivelación, BINs y tipo
+     Datos verificados: Ley 27/2014 (arts. 25, 26, 29, 101, 105 y DT 44.ª)
+     ========================================================= */
+  function wireIsCalc() {
+    var calc = document.querySelector(".rcalc.iscalc");
+    if (!calc) return;
+    var g = function (s) { return calc.querySelector(s); };
+    function n(sel) { var e = g(sel); var v = parseFloat((e && e.value || "").replace(/[^0-9.]/g, "")); return isNaN(v) ? 0 : v; }
+    function chk(sel) { var e = g(sel); return e ? e.checked : false; }
+    var btn = g("[data-s-run]"), res = calc.querySelector(".calc-result");
+
+    // Tipo aplicable según INCN, ejercicio y condición (DT 44.ª)
+    function tipoAplicable(incn, anio, erd, nueva, patrimonial) {
+      if (patrimonial) return { t: 0.25, nota: "Entidad patrimonial: no accede a los tipos reducidos (art. 29.1, último párrafo)." };
+      if (nueva) return { t: 0.15, nota: "Entidad de nueva creación: 15 % en el primer período con base positiva y el siguiente (art. 29.1)." };
+      if (incn > 0 && incn < 1000000) {
+        if (anio <= 2025) return { t: 0.215, nota: "Microempresa (INCN < 1 M€) en 2025: 21 % hasta 50.000 € y 22 % el resto (DT 44.ª). Se muestra el tipo medio aproximado." };
+        if (anio === 2026) return { t: 0.20, nota: "Microempresa en 2026: 19 % hasta 50.000 € y 21 % el resto (DT 44.ª)." };
+        return { t: 0.19, nota: "Microempresa (régimen definitivo): 17 % hasta 50.000 € y 20 % el resto (art. 29.1)." };
+      }
+      if (erd) {
+        if (anio <= 2025) return { t: 0.24, nota: "Entidad de reducida dimensión en 2025: 24 % (DT 44.ª)." };
+        if (anio === 2026) return { t: 0.23, nota: "ERD en 2026: 23 % (DT 44.ª)." };
+        if (anio === 2027) return { t: 0.22, nota: "ERD en 2027: 22 % (DT 44.ª)." };
+        return { t: 0.21, nota: "ERD desde 2028: 21 % (DT 44.ª) — el régimen definitivo del art. 29.1 es el 20 %." };
+      }
+      return { t: 0.25, nota: "Tipo general del 25 % (art. 29.1)." };
+    }
+
+    function run() {
+      var base = n("[data-s-base]");        // base imponible previa
+      var incn = n("[data-s-incn]");        // cifra de negocios del año anterior
+      var incrFP = n("[data-s-fp]");        // incremento de fondos propios
+      var incrPlantilla = n("[data-s-plantilla]"); // % incremento de plantilla
+      var bins = n("[data-s-bins]");        // BINs pendientes
+      var anio = n("[data-s-anio]") || 2026;
+      var erd = incn > 0 && incn < 10000000;
+      var nueva = chk("[data-s-nueva]");
+      var patrimonial = chk("[data-s-patrimonial]");
+
+      // --- Reserva de capitalización (art. 25) ---
+      var pctCap = 0.20, notaCap = "20 %";
+      if (incrPlantilla > 10) { pctCap = 0.30; notaCap = "30 % (plantilla +10 %)"; }
+      else if (incrPlantilla >= 5) { pctCap = 0.265; notaCap = "26,5 % (plantilla +5-10 %)"; }
+      else if (incrPlantilla >= 2) { pctCap = 0.23; notaCap = "23 % (plantilla +2-5 %)"; }
+      var topeCapPct = (incn > 0 && incn < 1000000) ? 0.25 : 0.20;
+      var capBruta = incrFP * pctCap;
+      var capAplicada = Math.min(capBruta, topeCapPct * base);
+      var capPendiente = Math.max(0, capBruta - capAplicada);
+      var base1 = Math.max(0, base - capAplicada);
+
+      // --- BINs (art. 26 + DA 15.ª) ---
+      var limPct = 0.70, limNota = "70 %";
+      if (incn >= 60000000) { limPct = 0.25; limNota = "25 % (INCN ≥ 60 M€, DA 15.ª)"; }
+      else if (incn >= 20000000) { limPct = 0.50; limNota = "50 % (INCN 20-60 M€, DA 15.ª)"; }
+      var topeBin = Math.max(1000000, limPct * base); // el mínimo de 1 M€ siempre compensable
+      var binAplicada = Math.min(bins, topeBin, base1);
+      var base2 = Math.max(0, base1 - binAplicada);
+
+      // --- Reserva de nivelación (art. 105, solo ERD) ---
+      var nivAplicada = 0;
+      if (erd && !patrimonial) nivAplicada = Math.min(base2 * 0.10, 1000000);
+      var baseFinal = Math.max(0, base2 - nivAplicada);
+
+      var tp = tipoAplicable(incn, anio, erd, nueva, patrimonial);
+      var cuota = baseFinal * tp.t;
+      var ahorro = (base * tp.t) - cuota;
+
+      var html = '<div class="seg"><span class="tag">Cuota íntegra estimada</span><span class="name wine">' + eurE(cuota) + '</span></div>';
+      html += '<div class="money">' +
+        '<div class="k-wrap"></div>' +
+        '<div class="m"><div class="k">Base imponible final</div><div class="v">' + eurE(baseFinal) + '</div></div>' +
+        '<div class="m"><div class="k">Tipo aplicable</div><div class="v wine">' + pctE(tp.t) + '</div></div>' +
+        '<div class="m"><div class="k">Ahorro por incentivos</div><div class="v">' + eurE(ahorro) + '</div></div>' +
+        '</div>';
+      html += '<table class="tbl" style="margin:.9rem 0"><tbody>' +
+        '<tr><td>Base imponible previa</td><td><strong>' + eurE(base) + '</strong></td></tr>' +
+        '<tr><td>− Reserva de capitalización (' + notaCap + ', tope ' + pctE(topeCapPct) + ' de la base)</td><td>−' + eurE(capAplicada) + '</td></tr>' +
+        (capPendiente > 0 ? '<tr><td style="color:var(--muted)">Capitalización pendiente para los 2 años siguientes</td><td style="color:var(--muted)">' + eurE(capPendiente) + '</td></tr>' : '') +
+        '<tr><td>− Bases imponibles negativas (límite ' + limNota + ', mínimo 1 M€)</td><td>−' + eurE(binAplicada) + '</td></tr>' +
+        (bins - binAplicada > 0 ? '<tr><td style="color:var(--muted)">BINs que quedan pendientes</td><td style="color:var(--muted)">' + eurE(bins - binAplicada) + '</td></tr>' : '') +
+        (erd ? '<tr><td>− Reserva de nivelación (10 %, máx. 1 M€, revierte en 5 años)</td><td>−' + eurE(nivAplicada) + '</td></tr>' : '') +
+        '<tr><td><strong>Base imponible final</strong></td><td><strong>' + eurE(baseFinal) + '</strong></td></tr>' +
+        '<tr><td>× Tipo</td><td>' + pctE(tp.t) + '</td></tr>' +
+        '<tr><td><strong>Cuota íntegra</strong></td><td><strong>' + eurE(cuota) + '</strong></td></tr>' +
+        '</tbody></table>';
+      html += '<div class="flag">' + tp.nota + (erd ? ' Es <strong>entidad de reducida dimensión</strong> (INCN < 10 M€): accede a nivelación, libertad de amortización con empleo y amortización acelerada.' : '') + '</div>';
+      if (nivAplicada > 0) html += '<div class="flag">Ojo con la <strong>nivelación</strong>: no es un ahorro definitivo. Revierte en los 5 años siguientes (contra bases negativas o, si no las hay, al final del plazo). Es diferimiento, no exención.</div>';
+      if (capAplicada > 0) html += '<div class="flag">La <strong>reserva de capitalización</strong> exige mantener el incremento de fondos propios y una reserva indisponible durante <strong>3 años</strong>. Si se incumple, hay que regularizar con intereses.</div>';
+      if (patrimonial) html += '<div class="flag">Al ser <strong>entidad patrimonial</strong> (art. 5.2) pierde los tipos reducidos y los incentivos de ERD, y compromete la exención de empresa familiar en IP e ISD.</div>';
+      html += '<p class="note" style="margin-top:.7rem">Estimación orientativa. En microempresas el tipo real es por tramos (50.000 € al tipo menor); aquí se muestra un tipo medio. Verifica siempre la normativa vigente y el ejercicio aplicable.</p>';
+      res.innerHTML = html; res.classList.add("show"); actDone("calc_is");
+    }
+    if (btn) btn.addEventListener("click", run);
+  }
+
   document.addEventListener("DOMContentLoaded", function () {
     buildSidebar();
     wireMenu();
@@ -1012,6 +1109,7 @@
     wireAhorro();
     wireDeducciones();
     wireIpCalc();
+    wireIsCalc();
     refreshTracker();
     refreshProgressUI();
   });

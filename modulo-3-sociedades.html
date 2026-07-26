@@ -1,0 +1,567 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+<meta http-equiv="Pragma" content="no-cache">
+<meta http-equiv="Expires" content="0">
+<title>Módulo 3 · Impuesto sobre Sociedades · DASAR</title>
+<meta name="description" content="Módulo 3 DASAR (parte IS): reducciones de base, reserva de capitalización y nivelación, exención del art. 21 y holding, entidad patrimonial, retribución del socio, ENISA y Ley de Startups, con calculadora del IS.">
+<link rel="icon" href="dasar-color.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Jost:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css?v=13">
+</head>
+<body data-current="mod3">
+
+<header class="topbar">
+  <button class="menu-toggle" aria-label="Menú"><span></span><span></span><span></span></button>
+  <a class="brand" href="index.html">
+    <img src="dasar-blanco.svg" alt="DASAR Gestión Patrimonial">
+    <span class="tag">Formación</span>
+  </a>
+  <span class="spacer"></span>
+  <div class="tprogress" title="Progreso del programa">
+    <span data-progress-text>0/7</span>
+    <span class="bar"><i data-progress-bar></i></span>
+  </div>
+  <a class="home-link" href="index.html">Inicio</a>
+</header>
+<div class="readprogress" aria-hidden="true"><i></i></div>
+
+<div class="layout">
+  <aside class="sidebar">
+    <div class="side-h">Módulos del programa</div>
+    <nav id="sidebar-list"></nav>
+  </aside>
+
+  <main class="content prose">
+
+    <div class="mod-head">
+      <div class="eyebrow">
+        <span class="mod-badge">Módulo 3 · Parte 3</span>
+        <span class="mod-meta">Impuesto sobre Sociedades</span>
+      </div>
+      <h1>Sociedades: reducir base y estructurar</h1>
+      <p class="lead">La sociedad es la herramienta central de la planificación patrimonial. Aquí ves <strong>todo lo que reduce la base</strong> (capitalización, nivelación, BINs, amortizaciones), la <strong>exención del art. 21</strong> y por qué existe —la clave del <strong>holding</strong>—, cuándo una sociedad se vuelve <strong>patrimonial</strong> y lo pierde todo, cómo retribuir al socio, e <strong>inversiones concretas</strong>: I+D+i, ENISA y la Ley de Startups. Con <strong>calculadora del IS</strong>.</p>
+      <p style="color:var(--muted-2);font-size:.9rem">Nivel: máster / especialización · Parte 3 de 5 del Módulo 3 · Lectura estimada: 80–100 min</p>
+    </div>
+
+    <nav class="partnav" aria-label="Partes del Módulo 3">
+      <a class="p" href="modulo-3.html">← Parte 1 · IRPF</a>
+      <a class="p" href="modulo-3-patrimonio.html">← Parte 2 · Patrimonio</a>
+      <span class="p on">Parte 3 · Sociedades</span>
+      <span class="p dis">Parte 4 · Sucesiones y Donaciones</span>
+      <span class="p dis">Parte 5 · Indirecta e interconexión</span>
+    </nav>
+
+    <div class="callout"><div class="ic">✓</div><div class="ct"><h4>Datos verificados en el BOE</h4><p>Extraído del <strong>texto consolidado de la Ley 27/2014</strong> (IS), del <strong>art. 20 del RDL 7/1996</strong> (préstamos participativos), de la <strong>Ley 28/2022</strong> (empresas emergentes) y de la web oficial de <strong>ENISA</strong>. Incluye las novedades de la <strong>Ley 7/2024</strong> (nuevos tipos y régimen transitorio de la DT 44.ª).</p></div></div>
+
+    <div class="toc">
+      <h4>En esta parte</h4>
+      <a href="#s1"><span class="tri"></span>3.17 · Del resultado contable a la cuota</a>
+      <a href="#s2"><span class="tri"></span>3.18 · Tipos de gravamen (y transitoria)</a>
+      <a href="#s3"><span class="tri"></span>3.19 · Todo lo que reduce la base</a>
+      <a href="#calc"><span class="tri"></span>Calculadora del Impuesto sobre Sociedades</a>
+      <a href="#s4"><span class="tri"></span>3.20 · Gastos no deducibles y vinculadas</a>
+      <a href="#s5"><span class="tri"></span>3.21 · Art. 21: exención de dividendos y plusvalías</a>
+      <a href="#s6"><span class="tri"></span>3.22 · El holding: por qué y para qué</a>
+      <a href="#s7"><span class="tri"></span>3.23 · Entidad patrimonial: el gran riesgo</a>
+      <a href="#s8"><span class="tri"></span>3.24 · Retribución del socio</a>
+      <a href="#s9"><span class="tri"></span>3.25 · Inversiones concretas: I+D+i, ENISA y Startups</a>
+      <a href="#s10"><span class="tri"></span>3.26 · Checklist de planificación</a>
+      <a href="#casos"><span class="tri"></span>Casos y autoevaluación</a>
+    </div>
+
+    <!-- 3.17 -->
+    <section id="s1" class="reveal">
+      <span class="kicker">3.17 · Estructura</span>
+      <h2>Del resultado contable a la cuota</h2>
+      <p>El IS parte del <strong>resultado contable</strong> y le aplica los <strong>ajustes</strong> que ordena la ley fiscal. Entender esta secuencia es lo que permite saber dónde se puede actuar:</p>
+      <div class="flow" style="grid-template-columns:repeat(4,1fr)">
+        <div class="step"><div class="n">01</div><h4>Resultado contable</h4><p>El del Código de Comercio y el Plan General Contable.</p></div>
+        <div class="step"><div class="n">02</div><h4>± Ajustes fiscales</h4><p>Gastos no deducibles, amortizaciones, vinculadas, deterioros.</p></div>
+        <div class="step"><div class="n">03</div><h4>− Reducciones</h4><p>Capitalización, BINs y nivelación (en ese orden legal).</p></div>
+        <div class="step"><div class="n">04</div><h4>× Tipo − deducciones</h4><p>Tipo aplicable y deducciones (I+D+i, doble imposición).</p></div>
+      </div>
+      <div class="callout idea"><div class="ic"><span class="tri" style="border-bottom-color:#fff"></span></div><div class="ct"><h4>La lógica de la planificación en el IS</h4><p>En IRPF se trabaja sobre la renta de una persona; en el IS, sobre la <strong>estructura</strong>. Casi todo el valor que añadimos aquí viene de tres decisiones: <strong>qué se factura y con qué gastos</strong>, <strong>cuánta beneficio se retiene frente a repartir</strong> y <strong>cómo se ordenan las participaciones</strong> (holding). Lo demás son matices.</p></div></div>
+    </section>
+
+    <hr class="divider">
+
+    <!-- 3.18 -->
+    <section id="s2" class="reveal">
+      <span class="kicker">3.18 · Tipos</span>
+      <h2>Tipos de gravamen: el nuevo mapa</h2>
+      <p>La Ley 7/2024 cambió el cuadro de tipos con efectos desde 2025 y estableció una <strong>bajada progresiva</strong> (DT 44.ª) para microempresas y entidades de reducida dimensión.</p>
+      <table class="tbl">
+        <thead><tr><th>Situación</th><th>Tipo</th><th>Requisito / referencia</th></tr></thead>
+        <tbody>
+          <tr><td><strong>Tipo general</strong></td><td><strong>25 %</strong></td><td>Art. 29.1</td></tr>
+          <tr><td><strong>Microempresa</strong> (INCN &lt; 1 M€)</td><td><strong>17 %</strong> hasta 50.000 € y <strong>20 %</strong> el resto <em>(régimen definitivo)</em></td><td>Transitoriamente: 2025 → 21 % / 22 %; 2026 → 19 % / 21 % (DT 44.ª)</td></tr>
+          <tr><td><strong>Reducida dimensión</strong> (INCN &lt; 10 M€)</td><td><strong>20 %</strong> <em>(régimen definitivo)</em></td><td>Transitoriamente: 2025 → 24 %; 2026 → 23 %; 2027 → 22 %; 2028 → 21 % (DT 44.ª y art. 101)</td></tr>
+          <tr><td><strong>Entidad de nueva creación</strong></td><td><strong>15 %</strong></td><td>Primer período con base positiva y el siguiente. No aplica si la actividad la ejercía antes una vinculada o una persona física con &gt;50 %, ni a entidades de grupo (art. 29.1)</td></tr>
+          <tr><td><strong>Empresa emergente</strong> (Ley de Startups)</td><td><strong>15 %</strong></td><td>Primer período con base positiva y los <strong>3 siguientes</strong>, manteniendo la condición (art. 7 Ley 28/2022)</td></tr>
+          <tr><td>Entidades sin fines lucrativos (Ley 49/2002)</td><td>10 %</td><td>Art. 29.3</td></tr>
+          <tr><td>IIC y SOCIMI (arrendamiento)</td><td>1 %</td><td>Art. 29.4</td></tr>
+          <tr><td>Fondos de pensiones</td><td>0 %</td><td>Art. 29.5</td></tr>
+          <tr><td>Entidades de crédito e hidrocarburos</td><td>30 %</td><td>Art. 29.6</td></tr>
+        </tbody>
+      </table>
+      <div class="warnbox"><div class="ic">!</div><p><strong>Aviso clave:</strong> los tipos del 20 %, 17 % y 15 % <strong>no se aplican a las entidades patrimoniales</strong> (art. 29.1, último párrafo). Es la primera consecuencia de caer en el art. 5.2 — ver 3.22.</p></div>
+    </section>
+
+    <hr class="divider">
+
+    <!-- 3.19 REDUCIR BASE -->
+    <section id="s3" class="reveal">
+      <span class="kicker">3.19 · Reducir la base</span>
+      <h2>Todo lo que reduce la base imponible</h2>
+      <p>Este es el catálogo completo, con sus cifras y requisitos exactos. Conviene leerlo como una lista de comprobación anual para cada sociedad del cliente.</p>
+
+      <h3>Reserva de capitalización <span class="ref-tag">art. 25</span></h3>
+      <p>Premia <strong>retener beneficios</strong> en la sociedad en lugar de repartirlos. Desde 2025 el porcentaje base subió al <strong>20 %</strong> del incremento de fondos propios y se creó una <strong>escala por creación de empleo</strong>:</p>
+      <table class="tbl">
+        <thead><tr><th>Incremento de plantilla media</th><th>Reducción</th><th>Requisitos comunes</th></tr></thead>
+        <tbody>
+          <tr><td>Sin incremento relevante</td><td><strong>20 %</strong> del incremento de fondos propios</td><td rowspan="4">Mantener el incremento de fondos propios <strong>3 años</strong> (salvo pérdidas contables) y dotar una <strong>reserva indisponible</strong> ese plazo, con título apropiado en el balance. Límite: <strong>20 % de la base</strong> previa (o <strong>25 %</strong> si el INCN es &lt; 1 M€). El exceso se aplica en los <strong>2 años</strong> siguientes. El incremento de plantilla debe mantenerse 3 años.</td></tr>
+          <tr><td>+2 % y hasta +5 %</td><td><strong>23 %</strong></td></tr>
+          <tr><td>+5 % y hasta +10 %</td><td><strong>26,5 %</strong></td></tr>
+          <tr><td>Más de +10 %</td><td><strong>30 %</strong></td></tr>
+        </tbody>
+      </table>
+      <p class="libnote">No computan como incremento de fondos propios, entre otros: las aportaciones de socios, las ampliaciones por compensación de créditos, las reservas legales o estatutarias, ni las dotaciones a la reserva de nivelación o a la RIC. Incumplir obliga a regularizar con intereses.</p>
+
+      <h3>Reserva de nivelación <span class="ref-tag">art. 105</span></h3>
+      <p>Solo para <strong>entidades de reducida dimensión</strong>. Permite minorar la base hasta el <strong>10 %</strong>, con un máximo de <strong>1.000.000 €</strong>. No es un ahorro definitivo: <strong>revierte</strong> en los <strong>5 años</strong> siguientes contra bases negativas y, si no las hay, al final del plazo. Es <strong>diferimiento</strong> puro y exige reserva indisponible. Incompatible con destinar las mismas cantidades a capitalización o a la RIC; incumplir cuesta la cuota más un <strong>5 %</strong>.</p>
+
+      <h3>Bases imponibles negativas <span class="ref-tag">art. 26</span></h3>
+      <table class="tbl">
+        <thead><tr><th>Cifra de negocios</th><th>Límite de compensación</th></tr></thead>
+        <tbody>
+          <tr><td>General</td><td><strong>70 %</strong> de la base previa</td></tr>
+          <tr><td>INCN de 20 a 60 M€</td><td><strong>50 %</strong> (DA 15.ª)</td></tr>
+          <tr><td>INCN ≥ 60 M€</td><td><strong>25 %</strong> (DA 15.ª)</td></tr>
+          <tr><td>En todo caso</td><td>Siempre compensables <strong>hasta 1.000.000 €</strong></td></tr>
+        </tbody>
+      </table>
+      <p class="libnote">Sin límite: rentas por quitas y esperas, y el período de extinción de la entidad. Las <strong>entidades de nueva creación</strong> no tienen el límite del 70 % en los 3 primeros períodos con base positiva. Ojo con el <strong>art. 26.4</strong>: prohíbe aprovechar BINs comprando sociedades inactivas o patrimoniales. La Administración puede comprobar las BINs durante <strong>10 años</strong>.</p>
+
+      <h3>Amortizaciones e inversiones</h3>
+      <table class="tbl">
+        <thead><tr><th>Incentivo</th><th>Contenido</th><th>Art.</th></tr></thead>
+        <tbody>
+          <tr><td>Libertad de amortización general</td><td>Inmovilizado material nuevo de valor unitario ≤ <strong>300 €</strong>, con límite de <strong>25.000 €</strong> por período. También elementos afectos a I+D</td><td>12.3</td></tr>
+          <tr><td>Libertad de amortización con empleo (ERD)</td><td><strong>120.000 €</strong> por cada punto de incremento de plantilla media, si el incremento se mantiene 24 + 24 meses</td><td>102</td></tr>
+          <tr><td>Amortización acelerada (ERD)</td><td>Coeficiente de tablas <strong>× 2</strong> para elementos nuevos; intangibles del art. 13.3 al <strong>150 %</strong></td><td>103</td></tr>
+        </tbody>
+      </table>
+
+      <h3>Gastos financieros <span class="ref-tag">art. 16</span></h3>
+      <p>Deducibles con el límite del <strong>30 % del beneficio operativo</strong>, pero <strong>en todo caso son deducibles 1.000.000 €</strong>. Lo no deducido se arrastra sin límite temporal, y el límite no consumido se puede añadir durante <strong>5 años</strong>. Relevante en compras apalancadas y en estructuras con deuda intragrupo.</p>
+
+      <div class="caso svc" data-act="reducir">
+        <div class="caso-h"><div class="ci">+</div><div class="cti"><div class="cl">Ampliar · cómo se combinan</div><h4>El orden correcto y los errores frecuentes</h4><p>Secuencia legal, incompatibilidades y trampas de la nivelación.</p></div><div class="chev">▾</div></div>
+        <div class="caso-body"><div class="caso-inner">
+          <div class="plano"><h5>El orden importa</h5><p>La ley fija la secuencia: primero la <strong>reserva de capitalización</strong>, después la <strong>compensación de BINs</strong> (cuyo límite se calcula sobre la base previa a la capitalización) y, en ERD, por último la <strong>nivelación</strong>. Aplicarlo en otro orden cambia el resultado.</p></div>
+          <div class="plano"><h5>Capitalización vs nivelación</h5><p>Son <strong>compatibles</strong> entre sí, pero las <strong>mismas cantidades</strong> no pueden destinarse a las dos reservas. La capitalización es ahorro definitivo si se mantienen los fondos propios; la nivelación es solo diferimiento a 5 años. En una empresa que crece y no reparte, la capitalización es preferente.</p></div>
+          <div class="plano"><h5>El error clásico de la nivelación</h5><p>Muchas pymes la aplican como si fuera un ahorro y no provisionan la reversión. Si a los 5 años no ha habido bases negativas, <strong>toda la cantidad vuelve a la base</strong> de golpe. Hay que anotarlo en el calendario del cliente.</p></div>
+          <div class="plano"><h5>Reserva para Inversiones en Canarias (RIC)</h5><p>No está en la Ley del IS: se regula en el <strong>art. 27 de la Ley 19/1994</strong>. La Ley del IS solo la menciona para decir que no computa como incremento de fondos propios y que es incompatible con destinar las mismas cantidades a la nivelación. Si el cliente opera en Canarias, es una palanca de primer orden (junto con la ZEC) que hay que analizar aparte.</p></div>
+          <div class="plano"><h5>Deducciones de cuota que no reducen base pero sí factura</h5><p>Tras calcular la cuota entran las <strong>deducciones</strong>: I+D+i, producciones audiovisuales, donativos de la Ley 49/2002 y deducciones por doble imposición. Ver 3.25.</p></div>
+        </div></div>
+      </div>
+    </section>
+
+    <hr class="divider">
+
+    <!-- CALCULADORA -->
+    <section id="calc" class="reveal">
+      <span class="kicker">Calculadora interactiva</span>
+      <h2>Calculadora del Impuesto sobre Sociedades</h2>
+      <p>Introduce los datos y verás cómo se aplican en su orden legal la reserva de capitalización, las bases negativas y la nivelación, con el tipo que corresponda al ejercicio.</p>
+      <div class="calc rcalc iscalc">
+        <div class="calc-head"><span class="tri"></span><h3>Base, incentivos y cuota</h3></div>
+        <div class="calc-grid">
+          <div class="fld"><label for="s-base">Base imponible previa (€)</label><small>Resultado contable ya ajustado.</small><input id="s-base" data-s-base type="number" min="0" step="1000" placeholder="p. ej. 300000"></div>
+          <div class="fld"><label for="s-incn">Cifra de negocios del año anterior (€)</label><small>Determina el tipo y los límites.</small><input id="s-incn" data-s-incn type="number" min="0" step="10000" placeholder="p. ej. 2000000"></div>
+        </div>
+        <div class="calc-grid" style="padding-top:0">
+          <div class="fld"><label for="s-fp">Incremento de fondos propios (€)</label><small>Beneficio retenido, para la reserva de capitalización.</small><input id="s-fp" data-s-fp type="number" min="0" step="1000" placeholder="p. ej. 200000"></div>
+          <div class="fld"><label for="s-plantilla">Incremento de plantilla media (%)</label><small>Eleva la reducción al 23, 26,5 o 30 %.</small><input id="s-plantilla" data-s-plantilla type="number" min="0" step="1" placeholder="p. ej. 6"></div>
+        </div>
+        <div class="calc-grid" style="padding-top:0">
+          <div class="fld"><label for="s-bins">Bases negativas pendientes (€)</label><input id="s-bins" data-s-bins type="number" min="0" step="1000" placeholder="p. ej. 80000"></div>
+          <div class="fld"><label for="s-anio">Ejercicio</label>
+            <select id="s-anio" data-s-anio>
+              <option value="2026">2026</option><option value="2025">2025</option>
+              <option value="2027">2027</option><option value="2028">2028 o posterior</option>
+            </select>
+          </div>
+        </div>
+        <div class="calc-actions">
+          <label class="switch"><input type="checkbox" data-s-nueva> Entidad de nueva creación</label>
+          <label class="switch"><input type="checkbox" data-s-patrimonial> Entidad patrimonial (art. 5.2)</label>
+          <button class="btn btn-primary" data-s-run>Calcular</button>
+        </div>
+        <div class="calc-result"></div>
+      </div>
+    </section>
+
+    <hr class="divider">
+
+    <!-- 3.20 -->
+    <section id="s4" class="reveal">
+      <span class="kicker">3.20 · Ajustes</span>
+      <h2>Gastos no deducibles y operaciones vinculadas</h2>
+      <p>Los ajustes que más discusiones generan en una inspección y que más afectan a la familia empresaria.</p>
+      <table class="tbl">
+        <thead><tr><th>Concepto</th><th>Regla</th></tr></thead>
+        <tbody>
+          <tr><td><strong>Retribución de fondos propios</strong></td><td>No deducible. Incluye los <strong>préstamos participativos otorgados por entidades del grupo</strong> (art. 15.a)</td></tr>
+          <tr><td><strong>Donativos y liberalidades</strong></td><td>No deducibles. <strong>Sí</strong> lo son las atenciones a clientes y proveedores, con el límite del <strong>1 % del INCN</strong>, y los gastos por usos y costumbres con el personal y los de promoción (art. 15.e)</td></tr>
+          <tr><td><strong>Retribución de administradores</strong></td><td><strong>Sí es deducible</strong> la retribución por funciones de <strong>alta dirección</strong> u otras derivadas de un contrato laboral: la ley lo dice expresamente (art. 15.e, último párrafo). Conviene documentarla en estatutos y acuerdos</td></tr>
+          <tr><td>Multas, sanciones y recargos</td><td>No deducibles (art. 15.c)</td></tr>
+          <tr><td>Gastos de actuaciones contrarias al ordenamiento</td><td>No deducibles (art. 15.f)</td></tr>
+          <tr><td>Gastos financieros intragrupo para comprar participaciones</td><td>No deducibles <strong>salvo motivo económico válido</strong> acreditado (art. 15.h)</td></tr>
+          <tr><td>Indemnizaciones por cese</td><td>No deducible el exceso sobre el mayor de <strong>1.000.000 €</strong> o el importe obligatorio del Estatuto de los Trabajadores (art. 15.i)</td></tr>
+        </tbody>
+      </table>
+      <h3>Operaciones vinculadas <span class="ref-tag">art. 18</span></h3>
+      <p>Todo lo que ocurre entre la sociedad y su entorno familiar debe valorarse a <strong>valor de mercado</strong>. Se consideran vinculadas, entre otras: la entidad y sus <strong>socios con al menos el 25 %</strong>; la entidad y sus administradores (salvo la retribución por sus funciones); la entidad y los <strong>cónyuges o parientes hasta el tercer grado</strong> de socios y administradores; y dos entidades del mismo grupo. La documentación puede ser <strong>simplificada</strong> si el INCN es inferior a <strong>45 M€</strong>.</p>
+      <div class="callout"><div class="ic">i</div><div class="ct"><h4>Regla de seguridad para sociedades profesionales (art. 18.6)</h4><p>Si más del <strong>75 %</strong> de los ingresos proceden de actividades profesionales con medios adecuados, y la retribución de los socios profesionales no baja del <strong>75 %</strong> del resultado previo, con un mínimo por socio de <strong>1,5 veces</strong> el salario medio de los asalariados con funciones análogas (o <strong>5 veces el IPREM</strong> si no hay), se entiende cumplido el valor de mercado. Es el puerto seguro de despachos y consultoras.</p></div></div>
+    </section>
+
+    <hr class="divider">
+
+    <!-- 3.21 ART 21 -->
+    <section id="s5" class="reveal">
+      <span class="kicker">3.21 · El artículo 21</span>
+      <h2>Exención de dividendos y plusvalías: por qué existe</h2>
+      <p>Es la norma que hace posible el holding. Y su razón de ser es sencilla y de justicia tributaria: <strong>evitar la doble imposición económica</strong>. El beneficio de la filial <em>ya tributó</em> en su Impuesto sobre Sociedades; si al subir como dividendo a la matriz volviera a tributar, la misma renta pagaría dos veces —y tres, y cuatro, en cadenas de sociedades—. El art. 21 corta esa cadena: la renta tributa una vez en la sociedad que la genera y circula ya limpia dentro del grupo.</p>
+      <div class="pullquote">El art. 21 no es un regalo fiscal: es el mecanismo que impide que el mismo beneficio se grave dos veces al subir por la estructura.</div>
+
+      <h3>Requisitos</h3>
+      <table class="tbl">
+        <thead><tr><th>Requisito</th><th>Contenido exacto</th></tr></thead>
+        <tbody>
+          <tr><td><strong>Participación</strong></td><td>Al menos el <strong>5 %</strong> del capital o de los fondos propios, directa o indirecta (art. 21.1.a). <em>Ya no existe la alternativa por valor de adquisición de 20 M€.</em></td></tr>
+          <tr><td><strong>Tenencia</strong></td><td><strong>Un año ininterrumpido</strong> antes de que el dividendo sea exigible, o completarlo después</td></tr>
+          <tr><td><strong>Filiales no residentes</strong></td><td>Que hayan estado <strong>sujetas a un impuesto análogo con tipo nominal ≥ 10 %</strong>. Se cumple si hay convenio de doble imposición con cláusula de intercambio de información. Nunca si residen en paraíso fiscal (salvo UE con motivos económicos válidos y actividad real)</td></tr>
+          <tr><td><strong>Importe exento</strong></td><td>El dividendo o la plusvalía se <strong>reduce en un 5 %</strong> por gastos de gestión: la exención efectiva es del <strong>95 %</strong> (art. 21.10, con efectos desde 1-1-2021)</td></tr>
+          <tr><td><strong>Excepción al 5 %</strong></td><td>Exención <strong>íntegra</strong> si el perceptor tiene INCN &lt; <strong>40 M€</strong>, no es patrimonial, no formaba parte de grupo y la filial se constituyó desde <strong>1-1-2021</strong> participada al 100 % desde su origen; durante los <strong>3 años</strong> siguientes al de constitución (art. 21.11)</td></tr>
+        </tbody>
+      </table>
+
+      <div class="caso svc" data-act="art21">
+        <div class="caso-h"><div class="ci">21</div><div class="cti"><div class="cl">Ampliar · imprescindible</div><h4>La exención en la VENTA de participaciones y sus límites</h4><p>Cuándo la plusvalía está exenta, cuándo no, y las exclusiones que arruinan la operación.</p></div><div class="chev">▾</div></div>
+        <div class="caso-body"><div class="caso-inner">
+          <div class="plano"><h5>Transmisión de participaciones (art. 21.3)</h5><p>La renta positiva por vender una participación está exenta si se cumplen los requisitos del apartado 1. Se extiende a <strong>liquidación, separación del socio, fusión, escisión, reducción de capital, aportación no dineraria y cesión global</strong>. El requisito del 5 % debe cumplirse <strong>el día de la transmisión</strong>; el de tributación mínima (no residentes), <strong>en todos y cada uno</strong> de los ejercicios de tenencia. Si en algún ejercicio no se cumplió, la exención es <strong>parcial</strong>.</p></div>
+          <div class="plano"><h5>Exclusiones que hay que revisar SIEMPRE (art. 21.5)</h5><p>No se aplica la exención a la parte de renta que no corresponda a un incremento de beneficios no distribuidos cuando se transmite: (a) una <strong>entidad patrimonial</strong> del art. 5.2; (b) una <strong>agrupación de interés económico</strong>; ni (c) cuando la participada esté en <strong>transparencia fiscal internacional</strong> con al menos el 15 % de sus rentas sometidas. Traducción: <strong>vender una sociedad patrimonial no disfruta de la exención</strong> sobre las plusvalías latentes de sus activos.</p></div>
+          <div class="plano"><h5>La trampa de la aportación previa (art. 21.4)</h5><p>Si las participaciones llegaron a la sociedad mediante una <strong>aportación no dineraria acogida al régimen de neutralidad</strong> y ello difirió una renta, la exención <strong>no cubre esa renta diferida</strong>, salvo prueba de que se integró. Y si aportó una persona física y se venden <strong>en los dos años siguientes</strong>, tampoco cubre la diferencia entre valor fiscal y valor de mercado, salvo que la persona física haya vendido también su participación. Es el freno a "meter y vender".</p></div>
+          <div class="plano"><h5>Cadenas y filiales de segundo nivel</h5><p>Si la participada obtiene <strong>más del 70 %</strong> de sus ingresos de dividendos o plusvalías de cartera, hay que mirar la participación <strong>indirecta</strong>: debe respetar el 5 % en cada nivel, salvo que formen grupo del art. 42 del Código de Comercio y consoliden cuentas.</p></div>
+          <div class="plano"><h5>Rentas negativas y otras cautelas</h5><p>Simétricamente, las <strong>pérdidas</strong> por transmisión de participaciones con derecho a exención <strong>no se integran</strong>. En extinción de la participada sí son deducibles (salvo reestructuración), minoradas en los dividendos exentos de los <strong>10 años</strong> anteriores. Y no hay exención si el dividendo <strong>genera un gasto deducible</strong> en la pagadora (híbridos).</p></div>
+        </div></div>
+      </div>
+    </section>
+
+    <hr class="divider">
+
+    <!-- 3.22 HOLDING -->
+    <section id="s6" class="reveal">
+      <span class="kicker">3.22 · Holding</span>
+      <h2>El holding: por qué y para qué en planificación patrimonial</h2>
+      <p>Un holding es una sociedad cuya función es <strong>tenencia y dirección</strong> de participaciones. Bien construido, con medios reales y motivo económico, es la pieza que ordena un patrimonio empresarial familiar. Estas son sus ventajas, todas conectadas con otros módulos:</p>
+      <div class="grid grid-2" style="margin-top:1rem">
+        <div class="card"><h4 class="mt0">1 · Reinvertir sin peaje</h4><p style="color:var(--muted)">El dividendo sube de la filial al holding con <strong>exención del 95 %</strong> (art. 21) y puede reinvertirse en otro negocio o inmueble. Si subiera a la persona física, tributaría al <strong>19-28 %</strong> en su IRPF y quedaría menos dinero para reinvertir.</p></div>
+        <div class="card"><h4 class="mt0">2 · Vender mejor</h4><p style="color:var(--muted)">La plusvalía por vender una filial está <strong>exenta al 95 %</strong> en el holding (≈1,25 % de coste efectivo al 25 %), frente al 19-28 % si vende la persona física. El precio se queda dentro para reinvertir.</p></div>
+        <div class="card"><h4 class="mt0">3 · Blindar la empresa familiar</h4><p style="color:var(--muted)">Concentra la participación del <strong>grupo familiar</strong> y facilita cumplir el 5 %/20 % y las funciones de dirección de la <strong>exención en IP</strong> y la <strong>reducción del 95 % en ISD</strong> (Partes 2 y 4).</p></div>
+        <div class="card"><h4 class="mt0">4 · Ordenar la sucesión</h4><p style="color:var(--muted)">Se transmiten participaciones del holding, no activos sueltos: permite dar entrada a los hijos, separar control (voto) de economía y apoyar el <strong>protocolo familiar</strong> (Módulo 4).</p></div>
+        <div class="card"><h4 class="mt0">5 · Separar riesgos</h4><p style="color:var(--muted)">Aísla el patrimonio inmobiliario o la caja del riesgo operativo de la actividad, con la cautela de no convertir el holding en patrimonial.</p></div>
+        <div class="card"><h4 class="mt0">6 · Financiar el grupo</h4><p style="color:var(--muted)">Centraliza tesorería y financiación. Cuidado: los <strong>gastos financieros intragrupo</strong> para comprar participaciones exigen motivo económico válido (art. 15.h) y hay límite del 30 % del beneficio operativo.</p></div>
+      </div>
+      <div class="callout ref"><div class="ic">!</div><div class="ct"><h4>La condición para que todo esto funcione</h4><p>El holding debe tener <strong>medios materiales y personales</strong> para dirigir y gestionar las participaciones, participación de <strong>al menos el 5 %</strong> y mantenerla <strong>un año</strong>. Sin esos medios, sus participaciones cuentan como "valores" y el holding pasa a ser <strong>entidad patrimonial</strong>: adiós a los tipos reducidos, a la exención del art. 21 en la venta y a la exención de empresa familiar. Y siempre, <strong>motivo económico válido</strong>: crear un holding solo por el ahorro fiscal es terreno del art. 15 de la LGT (Módulo 1).</p></div></div>
+    </section>
+
+    <hr class="divider">
+
+    <!-- 3.23 PATRIMONIAL -->
+    <section id="s7" class="reveal">
+      <span class="kicker">3.23 · Entidad patrimonial</span>
+      <h2>Entidad patrimonial: el gran riesgo</h2>
+      <p>La definición del <strong>art. 5.2</strong> es la línea que separa una estructura eficiente de una ruinosa: es entidad patrimonial aquella en la que <strong>más de la mitad del activo</strong> está constituido por <strong>valores</strong> o <strong>no está afecto</strong> a una actividad económica.</p>
+      <table class="tbl">
+        <thead><tr><th>Aspecto</th><th>Regla del IS (art. 5.2)</th></tr></thead>
+        <tbody>
+          <tr><td><strong>Cómo se mide</strong></td><td>Por la <strong>media de los balances trimestrales</strong> del ejercicio (o consolidados si es dominante de grupo). <em>Nota: en el IP se usa la regla de los 90 días — no confundir (Parte 2)</em></td></tr>
+          <tr><td><strong>Dinero de una venta</strong></td><td>No computa el dinero o los derechos de crédito procedentes de la <strong>transmisión de elementos afectos o de valores cualificados</strong> realizada en el período o en los <strong>dos anteriores</strong></td></tr>
+          <tr><td><strong>Valores que no computan</strong></td><td>Los poseídos por obligaciones legales; los de créditos de la actividad; los de sociedades de valores; y los que otorguen <strong>al menos el 5 %</strong> del capital, poseídos <strong>un año como mínimo</strong> con la finalidad de <strong>dirigir y gestionar</strong>, con <strong>organización de medios</strong> y participada no patrimonial</td></tr>
+          <tr><td><strong>Arrendamiento</strong></td><td>Es actividad económica solo si se emplea <strong>al menos una persona con contrato laboral y jornada completa</strong> (art. 5.1)</td></tr>
+        </tbody>
+      </table>
+      <div class="callout"><div class="ic">✗</div><div class="ct"><h4>Qué se pierde al ser patrimonial</h4><p>Los <strong>tipos reducidos</strong> (20/17/15 %) y los incentivos de <strong>reducida dimensión</strong>; la <strong>exención del art. 21 en la venta</strong> respecto de plusvalías latentes; la posibilidad de compensar BINs adquiridas; y, en cascada, la <strong>exención de empresa familiar en IP</strong> y la <strong>reducción del 95 % en ISD</strong>. Es el escenario que más valor destruye en una sucesión.</p></div></div>
+      <p><strong>Cómo se evita en la práctica:</strong> dar sustancia real (medios y personas), afectar los activos a la actividad, controlar la caja acumulada (recuerda la regla de los beneficios no distribuidos de 10 años del IP), y documentar todo con actas y contratos. La revisión debe ser <strong>anual</strong>, porque la condición se mide cada ejercicio.</p>
+    </section>
+
+    <hr class="divider">
+
+    <!-- 3.24 RETRIBUCION -->
+    <section id="s8" class="reveal">
+      <span class="kicker">3.24 · Retribución del socio</span>
+      <h2>Cómo sacar el dinero de la sociedad</h2>
+      <p>La pregunta más frecuente del cliente empresario. No hay una respuesta única: depende de conectar IS e IRPF (esto es el corazón de la Parte 5).</p>
+      <table class="tbl">
+        <thead><tr><th>Vía</th><th>En la sociedad</th><th>En el socio (IRPF)</th><th>Cautelas</th></tr></thead>
+        <tbody>
+          <tr><td><strong>Sueldo / alta dirección</strong></td><td><strong>Gasto deducible</strong> (art. 15.e, último párrafo)</td><td>Base general, marginal hasta <strong>45-54 %</strong></td><td>Documentar funciones y estatutos; valor de mercado si hay vinculación</td></tr>
+          <tr><td><strong>Dividendo</strong></td><td><strong>No deducible</strong> (retribución de fondos propios)</td><td>Base del ahorro, <strong>19-28 %</strong></td><td>Doble imposición económica: ya tributó el beneficio en el IS</td></tr>
+          <tr><td><strong>Alquiler de un inmueble del socio a la sociedad</strong></td><td>Gasto deducible</td><td>Capital inmobiliario (base general)</td><td>Valor de mercado (art. 18) y regla de vinculación</td></tr>
+          <tr><td><strong>Préstamo del socio</strong></td><td>Interés deducible con límites</td><td>Capital mobiliario</td><td>Valor de mercado; si es intragrupo y participativo, <strong>no deducible</strong> (art. 15.a)</td></tr>
+          <tr><td><strong>Retener y reinvertir</strong></td><td><strong>Reserva de capitalización</strong>: reduce base hasta el 20-30 %</td><td>Sin tributación hasta que se reparta</td><td>Mantener fondos propios y reserva 3 años</td></tr>
+        </tbody>
+      </table>
+      <div class="callout idea"><div class="ic">=</div><div class="ct"><h4>La lectura de conjunto</h4><p>El <strong>dividendo</strong> tributa menos en el IRPF del socio, pero no ahorra nada en el IS. El <strong>sueldo</strong> tributa más en el socio, pero rebaja la base de la sociedad. La decisión óptima depende del tipo del IS aplicable, del marginal del socio y de si el dinero se va a <strong>consumir o reinvertir</strong>: si es para reinvertir, casi siempre gana dejarlo dentro (capitalización + art. 21).</p></div></div>
+    </section>
+
+    <hr class="divider">
+
+    <!-- 3.25 INVERSIONES -->
+    <section id="s9" class="reveal">
+      <span class="kicker">3.25 · Inversiones concretas</span>
+      <h2>I+D+i, ENISA y Ley de Startups</h2>
+
+      <h3>Deducciones por I+D+i <span class="ref-tag">arts. 35 y 39</span></h3>
+      <table class="tbl">
+        <thead><tr><th>Concepto</th><th>Deducción</th></tr></thead>
+        <tbody>
+          <tr><td>Gastos en <strong>I+D</strong></td><td><strong>25 %</strong> de los gastos del período; <strong>42 %</strong> sobre el exceso respecto de la media de los 2 años anteriores</td></tr>
+          <tr><td>Investigadores cualificados en exclusiva</td><td><strong>+17 %</strong> adicional de sus gastos de personal</td></tr>
+          <tr><td>Inversiones en inmovilizado afecto a I+D</td><td><strong>8 %</strong> (excluidos edificios y terrenos)</td></tr>
+          <tr><td><strong>Innovación tecnológica</strong></td><td><strong>12 %</strong> de los gastos</td></tr>
+          <tr><td>Límite en cuota</td><td><strong>25 %</strong> de la cuota íntegra (minorada); se eleva al <strong>50 %</strong> si las deducciones de I+D+i exceden del 10 % de la cuota</td></tr>
+          <tr><td><strong>Monetización</strong> (art. 39.2)</td><td>Se puede cobrar la deducción no aplicada con un <strong>descuento del 20 %</strong>, con topes de <strong>1 M€/año</strong> (innovación) y <strong>3 M€/año</strong> conjuntos</td></tr>
+        </tbody>
+      </table>
+      <p class="libnote">La monetización es especialmente valiosa en compañías en pérdidas o sin cuota: convierte un crédito fiscal en <strong>tesorería</strong>. Requiere informe motivado y cumplir plazos. En audiovisual, el art. 36 da un <strong>30 %</strong> sobre el primer millón y un <strong>25 %</strong> sobre el exceso, con límites por producción.</p>
+
+      <h3>ENISA: financiación pública sin diluir</h3>
+      <p><strong>ENISA</strong> (Empresa Nacional de Innovación, S.M.E.) es una <strong>sociedad pública dependiente del Ministerio de Industria y Turismo</strong> que concede <strong>préstamos participativos</strong> a pymes con modelo de negocio innovador. Es una pieza de planificación financiera —no un incentivo fiscal— con implicaciones fiscales y societarias relevantes.</p>
+      <table class="tbl">
+        <thead><tr><th>Aspecto</th><th>Condiciones (web oficial)</th></tr></thead>
+        <tbody>
+          <tr><td><strong>Importe</strong></td><td>De <strong>25.000 € a 1.500.000 €</strong>, <strong>sin garantías</strong> reales ni personales</td></tr>
+          <tr><td><strong>Fondos propios</strong></td><td>Deben ser <strong>al menos iguales</strong> al préstamo solicitado</td></tr>
+          <tr><td><strong>Plazo y carencia</strong></td><td>Hasta <strong>7 años</strong>, con carencia de principal de hasta <strong>2 años</strong> (los dos primeros años solo intereses)</td></tr>
+          <tr><td><strong>Interés</strong></td><td>Variable en <strong>dos tramos</strong>: primero euríbor + diferencial; segundo, en función de la <strong>rentabilidad financiera</strong> de la empresa</td></tr>
+          <tr><td><strong>Requisitos</strong></td><td>Pyme constituida en España (&lt;250 empleados, facturación &lt;50 M€ o balance &lt;43 M€); cuentas depositadas; al corriente con Hacienda y Seguridad Social; <strong>auditoría si se piden más de 300.000 €</strong></td></tr>
+          <tr><td><strong>Sectores excluidos</strong></td><td><strong>Inmobiliario y financiero</strong></td></tr>
+          <tr><td><strong>Otros</strong></td><td>Comisión de apertura 0,5 %; no participa en la gestión ni en la propiedad; no figura en CIRBE. Programas específicos: Innovación x Clima, Emprendedoras Digitales, AgroInnpulso y Audiovisual e ICC</td></tr>
+        </tbody>
+      </table>
+
+      <div class="caso svc" data-act="participativo">
+        <div class="caso-h"><div class="ci">§</div><div class="cti"><div class="cl">Ampliar · por qué el préstamo participativo es tan útil</div><h4>Régimen del art. 20 del RDL 7/1996</h4><p>Cuenta como patrimonio neto, es subordinado y no diluye al socio.</p></div><div class="chev">▾</div></div>
+        <div class="caso-body"><div class="caso-inner">
+          <div class="plano"><h5>Sus cuatro características legales</h5><p>(a) La prestamista percibe un <strong>interés variable en función de la evolución de la actividad</strong> (beneficio neto, volumen de negocio, patrimonio u otro criterio pactado), y cabe además un <strong>interés fijo</strong>. (b) Puede pactarse <strong>cláusula penalizadora</strong> por amortización anticipada, y esta solo es posible si se <strong>compensa con una ampliación de fondos propios</strong> de igual cuantía. (c) En la prelación de créditos, se sitúa <strong>después de los acreedores comunes</strong> (es subordinado). (d) Se considera <strong>patrimonio neto a efectos de reducción de capital y liquidación</strong> de sociedades.</p></div>
+          <div class="plano"><h5>Por qué importa en planificación patrimonial</h5><p>Refuerza el balance <strong>sin diluir la propiedad familiar</strong> —a diferencia de dar entrada a un inversor en capital— y, al computar como patrimonio neto, ayuda a evitar la <strong>causa de disolución por pérdidas</strong>. Además, al no ser intragrupo, sus intereses son <strong>gasto financiero deducible</strong> en el IS (con el límite del 30 % del beneficio operativo del art. 16); recuerda que los participativos <strong>intragrupo</strong> sí son no deducibles (art. 15.a).</p></div>
+          <div class="plano"><h5>Nota de rigor</h5><p>El apartado del RDL 7/1996 que declaraba expresamente deducibles los intereses fue <strong>derogado</strong>: hoy la deducibilidad se rige por las reglas generales del IS. Y en la web oficial de ENISA <strong>ya no aparecen</strong> las antiguas líneas "Jóvenes Emprendedores", "Emprendedores" y "Crecimiento": hay una línea general más programas sectoriales. Verifica siempre las condiciones vigentes antes de proponerlo.</p></div>
+        </div></div>
+      </div>
+
+      <h3>Ley de Startups <span class="ref-tag">Ley 28/2022</span></h3>
+      <p>Para clientes emprendedores es un paquete muy potente. Requisitos de <strong>empresa emergente</strong>: antigüedad máxima de <strong>5 años</strong> (7 en biotecnología, energía, industria y otros sectores estratégicos o con tecnología propia desarrollada en España); <strong>no haber distribuido dividendos</strong>; <strong>no cotizar</strong>; sede o establecimiento permanente en España; <strong>60 % de la plantilla</strong> con contrato en España; y carácter innovador y escalable <strong>certificado por ENISA</strong> (evaluación en máximo 3 meses, con silencio positivo). Se pierden los beneficios, entre otros supuestos, si el volumen de negocio supera <strong>10 M€</strong>.</p>
+      <div class="grid grid-2" style="margin-top:1rem">
+        <div class="card"><h4 class="mt0">Impuesto sobre Sociedades</h4><p style="color:var(--muted)"><strong>15 %</strong> en el primer período con base positiva y los <strong>3 siguientes</strong> (art. 7).</p></div>
+        <div class="card"><h4 class="mt0">Aplazamiento sin intereses</h4><p style="color:var(--muted)">Aplazamiento de la deuda de los <strong>dos primeros períodos</strong> con base positiva, <strong>12 y 6 meses</strong>, con <strong>dispensa de garantías y sin intereses de demora</strong>; y <strong>sin pagos fraccionados</strong> (art. 8).</p></div>
+        <div class="card"><h4 class="mt0">Stock options</h4><p style="color:var(--muted)">Exención en IRPF de <strong>50.000 €</strong> anuales (frente a 12.000 € general). El exceso se imputa al salir a bolsa o al vender, y como tope a los <strong>10 años</strong>. Valoración: la de la <strong>última ampliación suscrita por un tercero independiente</strong>.</p></div>
+        <div class="card"><h4 class="mt0">Deducción del inversor</h4><p style="color:var(--muted)"><strong>50 %</strong> de lo invertido, base máxima <strong>100.000 €</strong>/año; entidad con fondos propios ≤ <strong>400.000 €</strong>; suscripción en la constitución o en los <strong>5 años</strong> siguientes (<strong>7</strong> en emergentes); permanencia entre <strong>3 y 12 años</strong>. El límite del 40 % de participación <strong>no aplica a los socios fundadores</strong> de una emergente.</p></div>
+        <div class="card"><h4 class="mt0">Carried interest</h4><p style="color:var(--muted)">Los derechos económicos especiales de gestores de fondos de emprendimiento son rendimientos del trabajo que se integran <strong>al 50 %</strong>, si se exige rentabilidad mínima a los inversores y se mantienen <strong>5 años</strong>.</p></div>
+        <div class="card"><h4 class="mt0">Impatriados reforzado</h4><p style="color:var(--muted)">Bastan <strong>5 años</strong> de no residencia previa, y se añaden como supuestos el <strong>teletrabajo internacional</strong> (nómada digital), el <strong>emprendedor</strong> y el <strong>profesional altamente cualificado</strong> que presta servicios a emergentes (Parte 1 · IRPF).</p></div>
+      </div>
+    </section>
+
+    <hr class="divider">
+
+    <!-- 3.26 CHECKLIST -->
+    <section id="s10" class="reveal">
+      <span class="kicker">3.26 · Planificación</span>
+      <h2>Checklist de planificación con sociedades</h2>
+      <div class="caso svc" data-act="planifis">
+        <div class="caso-h"><div class="ci">★</div><div class="cti"><div class="cl">Ampliar · lo que revisamos cada año</div><h4>Las doce palancas del Impuesto sobre Sociedades</h4><p>De la reserva de capitalización al holding.</p></div><div class="chev">▾</div></div>
+        <div class="caso-body"><div class="caso-inner">
+          <div class="plano"><h5>1 · Dotar la reserva de capitalización</h5><p>Si el cliente no reparte, es ahorro definitivo: 20 % y hasta el 30 % creando empleo. Comprobar la reserva indisponible en el balance y el mantenimiento de 3 años.</p></div>
+          <div class="plano"><h5>2 · Decidir sobre la nivelación con calendario</h5><p>Solo ERD. Anotar la reversión a 5 años; no venderla al cliente como ahorro definitivo.</p></div>
+          <div class="plano"><h5>3 · Planificar el uso de BINs</h5><p>Vigilar el límite (70/50/25 %) y el mínimo de 1 M€; recordar los 10 años de comprobación y las restricciones del art. 26.4.</p></div>
+          <div class="plano"><h5>4 · Aprovechar amortizaciones de ERD</h5><p>Aceleración ×2 y libertad con creación de empleo (120.000 € por punto de plantilla). Suele estar sin usar.</p></div>
+          <div class="plano"><h5>5 · Revisar el tipo aplicable y el calendario de la DT 44.ª</h5><p>Micro y ERD bajan de tipo año a año hasta 2028: puede convenir diferir o anticipar bases.</p></div>
+          <div class="plano"><h5>6 · Documentar la retribución del administrador</h5><p>Es deducible si responde a alta dirección o contrato laboral: estatutos, acuerdo social y contrato.</p></div>
+          <div class="plano"><h5>7 · Poner al día las operaciones vinculadas</h5><p>Valor de mercado y documentación (simplificada si INCN &lt; 45 M€). En profesionales, usar el puerto seguro del art. 18.6.</p></div>
+          <div class="plano"><h5>8 · Diseñar o depurar el holding</h5><p>5 %, un año, medios reales y motivo económico válido. Es lo que permite el art. 21 y protege la empresa familiar.</p></div>
+          <div class="plano"><h5>9 · Vigilar el test de entidad patrimonial</h5><p>Media de balances trimestrales; recordar que el dinero de una venta de activos afectos no computa durante 2 años.</p></div>
+          <div class="plano"><h5>10 · Antes de vender: revisar el art. 21.4 y 21.5</h5><p>Si hubo aportación con neutralidad o la sociedad es patrimonial, la exención puede no aplicarse. Analizarlo <em>antes</em> de firmar.</p></div>
+          <div class="plano"><h5>11 · Explotar I+D+i y su monetización</h5><p>25/42/12 % y cobro con descuento del 20 % si no hay cuota. Requiere informe motivado y buena documentación.</p></div>
+          <div class="plano"><h5>12 · Financiar sin diluir y usar la Ley de Startups</h5><p>ENISA (participativo, cuenta como patrimonio neto) y, si califica como emergente, 15 % en IS, aplazamiento sin intereses, stock options a 50.000 € y deducción del 50 % para sus inversores.</p></div>
+        </div></div>
+      </div>
+    </section>
+
+    <hr class="divider">
+
+    <section class="reveal">
+      <span class="kicker">Descargables</span>
+      <h2>Normativa de esta parte</h2>
+      <div class="lib">
+        <a class="libitem" href="https://www.boe.es/buscar/act.php?id=BOE-A-2014-12328" target="_blank" rel="noopener"><span class="pdf">BOE</span><span class="lt"><b>Ley 27/2014 · Sociedades</b><span>Arts. 5.2, 15, 16, 18, 21, 25, 26, 29, 35, 101-105 y DT 44.ª</span></span><span class="go">PDF ↗</span></a>
+        <a class="libitem" href="https://www.boe.es/buscar/act.php?id=BOE-A-1996-13002" target="_blank" rel="noopener"><span class="pdf">BOE</span><span class="lt"><b>RDL 7/1996 · art. 20</b><span>Préstamos participativos: patrimonio neto y subordinación</span></span><span class="go">PDF ↗</span></a>
+        <a class="libitem" href="https://www.boe.es/buscar/act.php?id=BOE-A-2022-21739" target="_blank" rel="noopener"><span class="pdf">BOE</span><span class="lt"><b>Ley 28/2022 · Startups</b><span>Empresa emergente, 15 %, stock options, deducción del inversor</span></span><span class="go">PDF ↗</span></a>
+        <a class="libitem" href="https://www.enisa.es/" target="_blank" rel="noopener"><span class="pdf">WEB</span><span class="lt"><b>ENISA · condiciones vigentes</b><span>Líneas, importes y requisitos actualizados</span></span><span class="go">Ver ↗</span></a>
+      </div>
+    </section>
+
+    <hr class="divider">
+
+    <!-- CASOS -->
+    <section id="casos" class="reveal">
+      <span class="kicker">Práctica exigente</span>
+      <h2>Casos prácticos</h2>
+
+      <div class="caso" data-act="caso1">
+        <div class="caso-h"><div class="ci">1</div><div class="cti"><div class="cl">Holding · art. 21</div><h4>Vender la empresa: ¿persona física o holding?</h4><p>Un empresario puede vender su sociedad operativa por 5 M€ (coste 500.000 €) directamente o a través de un holding que la participa al 100 % desde hace años. ¿Qué diferencia hay?</p></div><div class="chev">▾</div></div>
+        <div class="caso-body"><div class="caso-inner">
+          <div class="sol"><div class="sol-l">Solución</div><p><strong>Persona física:</strong> ganancia de 4,5 M€ en la base del ahorro del IRPF → en torno a <strong>1,25 M€</strong> de impuesto (tipos 19-28 %). <strong>Holding:</strong> plusvalía exenta al <strong>95 %</strong> (art. 21.3 y 21.10): tributa el 5 % al tipo del IS → coste efectivo ≈ <strong>1,25 %</strong>, unos <strong>56.000 €</strong>, y los 5 M€ quedan dentro para reinvertir. <em>Cautela imprescindible:</em> comprobar que el holding no es patrimonial y revisar el <strong>art. 21.4</strong> si las participaciones llegaron por aportación con régimen de neutralidad —y sobre todo la regla de los <strong>dos años</strong> si aportó la persona física—. Si el dinero se va a consumir, tarde o temprano habrá que sacarlo del holding y ahí sí tributará.</p></div>
+        </div></div>
+      </div>
+
+      <div class="caso" data-act="caso2">
+        <div class="caso-h"><div class="ci">2</div><div class="cti"><div class="cl">Reducir base</div><h4>Pyme con beneficio y crecimiento de plantilla</h4><p>Sociedad con INCN de 2 M€, base imponible de 300.000 €, que retiene todo el beneficio (incremento de fondos propios 200.000 €) y aumenta plantilla un 6 %. ¿Cuánto puede reducir?</p></div><div class="chev">▾</div></div>
+        <div class="caso-body"><div class="caso-inner">
+          <div class="sol"><div class="sol-l">Solución</div><p>Es <strong>ERD</strong> (INCN &lt; 10 M€). Reserva de <strong>capitalización</strong>: al subir la plantilla entre el 5 y el 10 %, el porcentaje es del <strong>26,5 %</strong> → 53.000 €, y el límite es el 20 % de la base (60.000 €), así que se aplica íntegra. Después cabe la <strong>nivelación</strong>: 10 % de la base restante. Compruébalo en la calculadora introduciendo esos datos. <em>Lección: combinar capitalización y nivelación en una ERD que retiene beneficios puede rebajar la base más de un 25 %, pero la nivelación hay que devolverla.</em></p></div>
+        </div></div>
+      </div>
+
+      <div class="caso" data-act="caso3">
+        <div class="caso-h"><div class="ci">3</div><div class="cti"><div class="cl">Patrimonial</div><h4>El holding que se convirtió en patrimonial</h4><p>Un holding familiar vendió su filial hace tres años y mantiene 6 M€ en cuentas y una cartera, sin empleados. Ahora quiere vender otra participación. ¿Qué problema tiene?</p></div><div class="chev">▾</div></div>
+        <div class="caso-body"><div class="caso-inner">
+          <div class="sol"><div class="sol-l">Solución</div><p>El dinero de la venta solo deja de computar durante el período y los <strong>dos siguientes</strong>: al tercer año esos 6 M€ y la cartera <strong>sí computan</strong>, y sin medios personales las participaciones tampoco se salvan como "valores cualificados". Es previsiblemente <strong>entidad patrimonial</strong> (art. 5.2): pierde tipos reducidos e incentivos de ERD, la exención del art. 21 no cubrirá la plusvalía latente al vender (art. 21.5.a) y peligra la <strong>exención de empresa familiar</strong> en IP e ISD. <em>Actuación: dar sustancia (medios y personal para dirigir las participaciones), reinvertir la caja en activos afectos o reestructurar antes de vender.</em></p></div>
+        </div></div>
+      </div>
+    </section>
+
+    <section class="reveal">
+      <div class="quiz" data-quiz-mod="mod3is">
+        <div class="q-head"><span class="tri"></span><h3>Autoevaluación · Sociedades</h3><span class="q-meta">Necesitas ≥ 70 %</span></div>
+        <div class="q-body">
+          <div class="q-item" data-correct="1">
+            <div class="q-txt"><span class="qn">1.</span>¿Por qué existe la exención del art. 21?</div>
+            <label class="q-opt"><input type="radio" name="q1" value="0">Para incentivar la compra de sociedades.</label>
+            <label class="q-opt"><input type="radio" name="q1" value="1">Para evitar la doble imposición económica: el beneficio ya tributó en la filial y no debe volver a tributar al subir a la matriz.</label>
+            <label class="q-opt"><input type="radio" name="q1" value="2">Para que los holdings no paguen nunca impuestos.</label>
+            <label class="q-opt"><input type="radio" name="q1" value="3">Es una ayuda de Estado temporal.</label>
+            <div class="q-feedback">Su función es cortar la cadena de doble imposición dentro del grupo.</div>
+          </div>
+          <div class="q-item" data-correct="2">
+            <div class="q-txt"><span class="qn">2.</span>Requisitos básicos del art. 21 para el dividendo:</div>
+            <label class="q-opt"><input type="radio" name="q2" value="0">10 % de participación y 3 años de tenencia.</label>
+            <label class="q-opt"><input type="radio" name="q2" value="1">20 M€ de valor de adquisición.</label>
+            <label class="q-opt"><input type="radio" name="q2" value="2">Al menos el 5 % del capital y un año de tenencia ininterrumpida; exención efectiva del 95 %.</label>
+            <label class="q-opt"><input type="radio" name="q2" value="3">Solo que ambas sean españolas.</label>
+            <div class="q-feedback">5 % y un año; la reducción del 5 % por gastos de gestión deja la exención en el 95 %.</div>
+          </div>
+          <div class="q-item" data-correct="0">
+            <div class="q-txt"><span class="qn">3.</span>La reserva de capitalización permite reducir la base en…</div>
+            <label class="q-opt"><input type="radio" name="q3" value="0">El 20 % del incremento de fondos propios, y hasta el 30 % si la plantilla crece más de un 10 %.</label>
+            <label class="q-opt"><input type="radio" name="q3" value="1">El 10 % de la base, con máximo de 1 M€.</label>
+            <label class="q-opt"><input type="radio" name="q3" value="2">El 70 % de la base.</label>
+            <label class="q-opt"><input type="radio" name="q3" value="3">Nada: es una deducción de cuota.</label>
+            <div class="q-feedback">Art. 25: 20 % con escala al 23, 26,5 y 30 % por incremento de plantilla. El 10 %/1 M€ es la nivelación.</div>
+          </div>
+          <div class="q-item" data-correct="1">
+            <div class="q-txt"><span class="qn">4.</span>La reserva de nivelación…</div>
+            <label class="q-opt"><input type="radio" name="q4" value="0">Es un ahorro definitivo para cualquier sociedad.</label>
+            <label class="q-opt"><input type="radio" name="q4" value="1">Solo la aplican las ERD, hasta el 10 % de la base con máximo de 1 M€, y revierte en 5 años.</label>
+            <label class="q-opt"><input type="radio" name="q4" value="2">Se aplica antes de la reserva de capitalización.</label>
+            <label class="q-opt"><input type="radio" name="q4" value="3">No exige dotar ninguna reserva.</label>
+            <div class="q-feedback">Es diferimiento: revierte contra bases negativas en 5 años o al final del plazo.</div>
+          </div>
+          <div class="q-item" data-correct="2">
+            <div class="q-txt"><span class="qn">5.</span>¿Cuándo es una entidad patrimonial según el art. 5.2 del IS?</div>
+            <label class="q-opt"><input type="radio" name="q5" value="0">Cuando tiene menos de 10 empleados.</label>
+            <label class="q-opt"><input type="radio" name="q5" value="1">Cuando no reparte dividendos.</label>
+            <label class="q-opt"><input type="radio" name="q5" value="2">Cuando más de la mitad del activo son valores o no está afecto a actividad económica, según la media de balances trimestrales.</label>
+            <label class="q-opt"><input type="radio" name="q5" value="3">Cuando su INCN es inferior a 1 M€.</label>
+            <div class="q-feedback">Media de balances trimestrales; en el IP la regla es la de los 90 días.</div>
+          </div>
+          <div class="q-item" data-correct="0">
+            <div class="q-txt"><span class="qn">6.</span>La retribución del administrador por funciones de alta dirección:</div>
+            <label class="q-opt"><input type="radio" name="q6" value="0">Es gasto deducible: la ley lo excluye expresamente de los donativos y liberalidades.</label>
+            <label class="q-opt"><input type="radio" name="q6" value="1">Nunca es deducible.</label>
+            <label class="q-opt"><input type="radio" name="q6" value="2">Es deducible solo si es gratuita.</label>
+            <label class="q-opt"><input type="radio" name="q6" value="3">Tributa al 1 %.</label>
+            <div class="q-feedback">Art. 15.e), último párrafo. Conviene documentarla en estatutos y acuerdos sociales.</div>
+          </div>
+          <div class="q-item" data-correct="1">
+            <div class="q-txt"><span class="qn">7.</span>Un préstamo participativo de ENISA…</div>
+            <label class="q-opt"><input type="radio" name="q7" value="0">Obliga a dar entrada a ENISA en el capital.</label>
+            <label class="q-opt"><input type="radio" name="q7" value="1">Computa como patrimonio neto a efectos de reducción de capital y liquidación, es subordinado y no diluye la propiedad.</label>
+            <label class="q-opt"><input type="radio" name="q7" value="2">Exige garantías reales.</label>
+            <label class="q-opt"><input type="radio" name="q7" value="3">Solo se concede a inmobiliarias.</label>
+            <div class="q-feedback">Art. 20 RDL 7/1996; y ENISA excluye precisamente los sectores inmobiliario y financiero, sin exigir garantías.</div>
+          </div>
+          <div class="q-item" data-correct="2">
+            <div class="q-txt"><span class="qn">8.</span>Una empresa emergente certificada por ENISA disfruta de…</div>
+            <label class="q-opt"><input type="radio" name="q8" value="0">Exención total del IS durante 5 años.</label>
+            <label class="q-opt"><input type="radio" name="q8" value="1">Un tipo del 10 % indefinido.</label>
+            <label class="q-opt"><input type="radio" name="q8" value="2">Tipo del 15 % en el primer período con base positiva y los 3 siguientes, aplazamiento sin garantías ni intereses y sin pagos fraccionados.</label>
+            <label class="q-opt"><input type="radio" name="q8" value="3">Solo ventajas laborales.</label>
+            <div class="q-feedback">Arts. 7 y 8 de la Ley 28/2022, además de stock options y la deducción del 50 % para el inversor.</div>
+          </div>
+        </div>
+        <div class="q-foot">
+          <button class="btn btn-primary" data-quiz-check>Corregir test</button>
+          <button class="btn btn-outline" data-quiz-reset>Reintentar</button>
+          <span class="q-score" data-quiz-score></span>
+        </div>
+      </div>
+    </section>
+
+    <div class="tracker" data-mod="mod3is">
+      <div class="tk-head"><span class="tri"></span><h3>Actividades de esta parte</h3><span class="tk-count" data-tk-count>0/8</span></div>
+      <div class="tk-body">
+        <div class="act" data-act="leer"><span class="box"></span><span class="lbl">Leer la parte de Sociedades</span></div>
+        <div class="act" data-act="reducir"><span class="box"></span><span class="lbl">Desplegar cómo se combinan los incentivos</span></div>
+        <div class="act" data-act="calc_is"><span class="box"></span><span class="lbl">Usar la calculadora del IS</span></div>
+        <div class="act" data-act="art21"><span class="box"></span><span class="lbl">Desplegar el art. 21 en la venta</span></div>
+        <div class="act" data-act="participativo"><span class="box"></span><span class="lbl">Desplegar el préstamo participativo</span></div>
+        <div class="act" data-act="planifis"><span class="box"></span><span class="lbl">Desplegar el checklist de planificación</span></div>
+        <div class="act" data-act="caso1"><span class="box"></span><span class="lbl">Abrir los casos prácticos</span></div>
+        <div class="act" data-act="quiz"><span class="box"></span><span class="lbl">Superar la autoevaluación</span></div>
+        <div data-tk-done style="display:none;align-items:center;gap:.6rem;margin-top:.9rem;padding:.8rem 1rem;background:var(--wine-soft);border-radius:9px;color:var(--wine-dark);font-weight:600"><span class="tri"></span> ¡Parte completada!</div>
+      </div>
+    </div>
+
+    <nav class="modnav">
+      <a href="modulo-3-patrimonio.html"><div class="d">← Anterior</div><div class="t">Parte 2 · Patrimonio y Grandes Fortunas</div></a>
+      <a class="next" href="modulo-4.html"><div class="d">Siguiente →</div><div class="t">Módulo 4 · Estructuras complejas</div></a>
+    </nav>
+
+  </main>
+</div>
+
+<footer class="footer">
+  <div class="fwrap">
+    <img src="dasar-blanco.svg" alt="DASAR Gestión Patrimonial">
+    <nav class="fnav">
+      <a href="index.html">Inicio</a>
+      <a href="modulo-3.html">Parte 1 · IRPF</a>
+      <a href="modulo-3-patrimonio.html">Parte 2 · Patrimonio</a>
+      <a href="#calc">Calculadora</a>
+    </nav>
+    <div class="fcopy">© <span data-year>2026</span> DASAR Gestión Patrimonial · Formación interna. No constituye asesoramiento fiscal ni legal. Verifica siempre la normativa vigente.</div>
+  </div>
+</footer>
+
+<script src="deducciones.js?v=13"></script>
+<script src="app.js?v=13"></script>
+</body>
+</html>
