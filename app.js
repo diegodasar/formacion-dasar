@@ -31,8 +31,8 @@
         { t: "Parte 3 · Gobernanza e internacional", file: "modulo-4-gobernanza.html", ready: true }
       ]
     },
-    { id: "mod5", num: "5", title: "Planificación patrimonial y sucesoria", file: "modulo-5.html", ready: false, core: false },
-    { id: "mod6", num: "6", title: "Casos prácticos y metodología", file: "modulo-6.html", ready: false, core: false }
+    { id: "mod5", num: "5", title: "Planificación patrimonial y sucesoria", file: "modulo-5.html", ready: true, core: false },
+    { id: "mod6", num: "6", title: "Casos prácticos y metodología", file: "modulo-6.html", ready: true, core: true }
   ];
   window.DASAR_MODULES = MODULES;
 
@@ -1848,7 +1848,7 @@
   ];
 
   function wireIrl() {
-    var box = document.querySelector(".irl");
+    var box = document.querySelector(".irl:not(.informe)");
     if (!box) return;
     var KEY = "dasar_irl_v1";
     var st = {};
@@ -2023,6 +2023,375 @@
     render();
   }
 
+
+  /* ======================================================================
+     MÓDULO 5 · PLANIFICACIÓN PATRIMONIAL Y SUCESORIA
+     ====================================================================== */
+
+  /* ---------- 1. Fiscalidad de rentas y seguros (art. 25.3 LIRPF) ---------- */
+  var RENTA_VIT = [[40, 40], [50, 35], [60, 28], [66, 24], [70, 20], [999, 8]];
+  // tramos: edad LÍMITE superior (exclusiva) -> porcentaje. Se resuelve con lógica explícita.
+  function pctVitalicia(edad) {
+    if (edad < 40) return 40;
+    if (edad <= 49) return 35;
+    if (edad <= 59) return 28;
+    if (edad <= 65) return 24;
+    if (edad <= 69) return 20;
+    return 8;
+  }
+  function pctTemporal(anios) {
+    if (anios <= 5) return 12;
+    if (anios <= 10) return 16;
+    if (anios <= 15) return 20;
+    return 25;
+  }
+
+  function wireRentas() {
+    var box = document.querySelector(".rcalc.rentas");
+    if (!box) return;
+    var g = function (s) { return box.querySelector(s); };
+    function n(sel) { var e = g(sel); var v = parseFloat((e && e.value || "").replace(/[^0-9.]/g, "")); return isNaN(v) ? 0 : v; }
+    var btn = g("[data-r-run]"), res = box.querySelector(".calc-result");
+    var tipo = g("[data-r-tipo]");
+    function toggle() {
+      var t = tipo.value;
+      var wEdad = g("[data-r-wrap-edad]"), wDur = g("[data-r-wrap-dur]"), wRenta = g("[data-r-wrap-renta]"), wCap = g("[data-r-wrap-cap]");
+      if (wEdad) wEdad.style.display = (t === "vitalicia") ? "" : "none";
+      if (wDur) wDur.style.display = (t === "temporal") ? "" : "none";
+      if (wRenta) wRenta.style.display = (t === "capital") ? "none" : "";
+      if (wCap) wCap.style.display = (t === "capital") ? "" : "none";
+    }
+    if (tipo) tipo.addEventListener("change", toggle);
+    toggle();
+
+    function run() {
+      var t = tipo.value, primas = n("[data-r-primas]"), renta = n("[data-r-renta]"),
+          edad = n("[data-r-edad]"), dur = n("[data-r-dur]"), cap = n("[data-r-cap]");
+      var html = "", pct = 0, rend = 0, cuota = 0, base = 0;
+      if (t === "capital") {
+        rend = Math.max(0, cap - primas);
+        cuota = escalaAhorro(rend);
+        html = '<div class="seg"><span class="tag">Capital diferido · art. 25.3.a) 1.º</span><span class="name wine">' + eurE(cuota) + ' de impuesto</span></div>';
+        html += '<div class="money">' +
+          '<div class="k-wrap"></div>' +
+          '<div class="m"><div class="k">Rendimiento del capital mobiliario</div><div class="v">' + eurE(rend) + '</div></div>' +
+          '<div class="m"><div class="k">Tipo efectivo sobre el rendimiento</div><div class="v">' + pctE(rend > 0 ? cuota / rend : 0) + '</div></div>' +
+          '<div class="m"><div class="k">Neto percibido</div><div class="v wine">' + eurE(cap - cuota) + '</div></div>' +
+          '</div>';
+        html += '<p class="note">Rendimiento = capital percibido − primas satisfechas. Tributa en la <strong>base del ahorro</strong> (19 %–28 %). Sobre el total cobrado, el tipo efectivo real es del ' + pctE(cap > 0 ? cuota / cap : 0) + '.</p>';
+      } else if (t === "vitalicia") {
+        pct = pctVitalicia(edad);
+        rend = renta * pct / 100;
+        cuota = escalaAhorro(rend);
+        html = '<div class="seg"><span class="tag">Renta vitalicia inmediata · art. 25.3.a) 2.º</span><span class="name wine">Sólo el ' + pct + ' % de la renta tributa</span></div>';
+        html += '<div class="money">' +
+          '<div class="m"><div class="k">Renta anual</div><div class="v">' + eurE(renta) + '</div></div>' +
+          '<div class="m"><div class="k">Parte que es rendimiento</div><div class="v">' + eurE(rend) + '</div></div>' +
+          '<div class="m"><div class="k">Impuesto anual estimado</div><div class="v wine">' + eurE(cuota) + '</div></div>' +
+          '</div>';
+        html += '<p class="note">Porcentaje fijado por la <strong>edad en el momento de constituir la renta</strong> (' + edad + ' años → ' + pct + ' %) y que <strong>permanece constante durante toda su vigencia</strong>. Tipo efectivo sobre la renta cobrada: <strong>' + pctE(renta > 0 ? cuota / renta : 0) + '</strong>.</p>';
+        html += '<table class="tbl"><thead><tr><th>Edad al constituir</th><th>% que tributa</th><th>Tipo efectivo aproximado sobre la renta</th></tr></thead><tbody>';
+        [[35, 40], [45, 35], [55, 28], [63, 24], [68, 20], [72, 8]].forEach(function (p) {
+          var r = renta * p[1] / 100, c = escalaAhorro(r);
+          html += '<tr' + (p[1] === pct ? ' style="background:var(--wine-soft)"' : '') + '><td>' + (p[0] < 40 ? 'menos de 40' : p[0] > 70 ? 'más de 70' : p[0] + ' años') + '</td><td><strong>' + p[1] + ' %</strong></td><td>' + pctE(renta > 0 ? c / renta : 0) + '</td></tr>';
+        });
+        html += '</tbody></table>';
+        html += '<div class="flag">De aquí sale la palanca más simple de toda la planificación de rentas: <strong>esperar a cumplir 70 años</strong> antes de constituir una renta vitalicia reduce la parte gravada del 20 % al 8 %. Y si la renta procede de la venta de elementos patrimoniales por un mayor de 65 años, puede además quedar exenta la ganancia con el límite de 240.000 € del art. 38.3.</div>';
+      } else {
+        pct = pctTemporal(dur);
+        rend = renta * pct / 100;
+        cuota = escalaAhorro(rend);
+        html = '<div class="seg"><span class="tag">Renta temporal inmediata · art. 25.3.a) 3.º</span><span class="name wine">Sólo el ' + pct + ' % de la renta tributa</span></div>';
+        html += '<div class="money">' +
+          '<div class="m"><div class="k">Renta anual</div><div class="v">' + eurE(renta) + '</div></div>' +
+          '<div class="m"><div class="k">Parte que es rendimiento</div><div class="v">' + eurE(rend) + '</div></div>' +
+          '<div class="m"><div class="k">Impuesto anual estimado</div><div class="v wine">' + eurE(cuota) + '</div></div>' +
+          '</div>';
+        html += '<table class="tbl"><thead><tr><th>Duración</th><th>% que tributa</th></tr></thead><tbody>' +
+          '<tr' + (pct === 12 ? ' style="background:var(--wine-soft)"' : '') + '><td>Hasta 5 años</td><td><strong>12 %</strong></td></tr>' +
+          '<tr' + (pct === 16 ? ' style="background:var(--wine-soft)"' : '') + '><td>Más de 5 y hasta 10 años</td><td><strong>16 %</strong></td></tr>' +
+          '<tr' + (pct === 20 ? ' style="background:var(--wine-soft)"' : '') + '><td>Más de 10 y hasta 15 años</td><td><strong>20 %</strong></td></tr>' +
+          '<tr' + (pct === 25 ? ' style="background:var(--wine-soft)"' : '') + '><td>Más de 15 años</td><td><strong>25 %</strong></td></tr>' +
+          '</tbody></table>';
+        html += '<p class="note">En las rentas <strong>diferidas</strong> se aplica el mismo porcentaje pero <strong>incrementado en la rentabilidad obtenida hasta la constitución</strong> de la renta (art. 25.3.a) 4.º). Y si la renta se adquirió por donación inter vivos, el rendimiento es exclusivamente el porcentaje, sin esa rentabilidad.</p>';
+      }
+      html += '<div class="flag">Si la renta se <strong>rescata</strong>, el rendimiento se recalcula: importe del rescate más rentas ya satisfechas, menos primas pagadas y menos las cuantías que ya tributaron (art. 25.3.a) 5.º). Rescatar no borra lo tributado, pero tampoco lo duplica.</div>';
+      html += '<p class="note" style="margin-top:.7rem">Estimación orientativa con la escala estatal del ahorro y sin considerar otras rentas del contribuyente, que pueden elevar el tramo aplicable.</p>';
+      res.innerHTML = html; res.classList.add("show"); actDone("calc_rentas");
+    }
+    if (btn) btn.addEventListener("click", run);
+  }
+
+  /* ---------- 2. Previsión social: límites y ahorro fiscal ---------- */
+  function wirePrevision() {
+    var box = document.querySelector(".rcalc.prevision");
+    if (!box) return;
+    var g = function (s) { return box.querySelector(s); };
+    function n(sel) { var e = g(sel); var v = parseFloat((e && e.value || "").replace(/[^0-9.]/g, "")); return isNaN(v) ? 0 : v; }
+    var btn = g("[data-p-run]"), res = box.querySelector(".calc-result");
+
+    function run() {
+      var rend = n("[data-p-rend]");          // rendimientos netos del trabajo y actividades
+      var apInd = n("[data-p-ind]");          // aportación individual del partícipe
+      var apEmp = n("[data-p-emp]");          // contribución empresarial
+      var apAut = n("[data-p-aut]");          // aportaciones propias de autónomo a plan de empleo/sectorial/simplificado
+      var apDep = n("[data-p-dep]");          // primas de seguro colectivo de dependencia pagadas por la empresa
+      var ccaa = g("[data-p-ccaa]").value;
+
+      // Límite general: menor de 30 % de rendimientos y 1.500 €
+      var limGen = Math.min(rend * 0.30, 1500);
+      // Incremento por contribución empresarial: hasta 8.500 €, con la tabla de multiplicadores
+      var maxTrabajador;
+      if (apEmp <= 500) maxTrabajador = apEmp * 2.5;
+      else if (apEmp <= 1500) maxTrabajador = 1250 + 0.25 * (apEmp - 500);
+      else maxTrabajador = apEmp * 1;
+      var altaRenta = rend > 60000;
+      if (altaRenta) maxTrabajador = apEmp * 1;
+      var aportTrabajadorComputable = Math.min(Math.max(0, apInd - limGen), maxTrabajador);
+      var incrEmpresa = Math.min(8500, apEmp + aportTrabajadorComputable);
+      // Incremento de autónomos: 4.250 €, con tope conjunto de 8.500 €
+      var incrAut = Math.min(4250, apAut);
+      var incrTotal = Math.min(8500, incrEmpresa + incrAut);
+      var limDependencia = Math.min(5000, apDep);
+
+      var totalAportado = apInd + apEmp + apAut + apDep;
+      var reducible = Math.min(apInd + apEmp + apAut, limGen + incrTotal) + limDependencia;
+      var exceso = Math.max(0, totalAportado - reducible);
+
+      // marginal
+      var top = IRPF_TOP[ccaa] || 0.47;
+      var marg = rend > 300000 ? top : rend > 60000 ? Math.min(top, 0.45) : rend > 35200 ? 0.37 : rend > 20200 ? 0.30 : rend > 12450 ? 0.24 : 0.19;
+      var ahorro = reducible * marg;
+
+      var html = '<div class="seg"><span class="tag">Reducción aplicable este ejercicio</span><span class="name wine">' + eurE(reducible) + '</span></div>';
+      html += '<div class="money">' +
+        '<div class="m"><div class="k">Ahorro fiscal estimado</div><div class="v wine">' + eurE(ahorro) + '</div></div>' +
+        '<div class="m"><div class="k">Tipo marginal aplicado</div><div class="v">' + pctE(marg) + '</div></div>' +
+        '<div class="m"><div class="k">Exceso no reducible</div><div class="v">' + eurE(exceso) + '</div></div>' +
+        '</div>';
+      html += '<table class="tbl"><thead><tr><th>Concepto</th><th>Importe</th><th>Regla</th></tr></thead><tbody>';
+      html += '<tr><td>Límite general</td><td>' + eurE(limGen) + '</td><td>El <strong>menor</strong> de: 30 % de los rendimientos netos del trabajo y de actividades económicas, o <strong>1.500 €</strong> (art. 52.1).</td></tr>';
+      html += '<tr><td>Incremento por contribuciones empresariales</td><td>' + eurE(incrEmpresa) + '</td><td>Hasta <strong>8.500 €</strong>. Tu aportación como trabajador computa aquí con el multiplicador de la tabla: ' + (altaRenta ? 'al superar 60.000 € de rendimientos del trabajo de esa empresa, el multiplicador es <strong>1</strong>' : (apEmp <= 500 ? '<strong>2,5×</strong> la contribución de la empresa' : apEmp <= 1500 ? '<strong>1.250 € + 0,25 ×</strong> (contribución − 500 €)' : '<strong>1×</strong> la contribución de la empresa')) + '.</td></tr>';
+      html += '<tr><td>Incremento de autónomos</td><td>' + eurE(incrAut) + '</td><td>Hasta <strong>4.250 €</strong> por planes sectoriales, planes de empleo simplificados o aportaciones propias del empresario individual (art. 52.1.2.º).</td></tr>';
+      html += '<tr><td>Tope conjunto de los incrementos</td><td>' + eurE(incrTotal) + '</td><td>Los dos incrementos no pueden superar conjuntamente <strong>8.500 €</strong>.</td></tr>';
+      html += '<tr><td>Seguro colectivo de dependencia</td><td>' + eurE(limDependencia) + '</td><td>Adicionalmente, <strong>5.000 €</strong> por primas satisfechas por la empresa.</td></tr>';
+      html += '</tbody></table>';
+      if (exceso > 0) html += '<div class="flag">Hay <strong>' + eurE(exceso) + '</strong> aportados que no reducen la base. Los excesos por insuficiencia de base o por el límite porcentual pueden reducirse en los <strong>cinco ejercicios siguientes</strong> (art. 52.2); pero los excesos sobre el límite financiero de aportación no, y además pueden dar lugar a devolución. Antes de aportar, calcula el límite.</div>';
+      html += '<div class="flag">La palanca menos usada: si el <strong>cónyuge</strong> obtiene rendimientos del trabajo o de actividades inferiores a <strong>8.000 €</strong> anuales, se pueden reducir hasta <strong>1.000 €</strong> aportados a su plan (art. 51.7). Y en discapacidad, los límites son mucho mayores: <strong>10.000 €</strong> por aportante y <strong>24.250 €</strong> conjuntos (art. 53), con las mismas cifras para aportaciones a patrimonios protegidos (art. 54).</div>';
+      html += '<div class="flag">Aviso de salida: la aportación reduce la base general hoy, pero la prestación tributa como <strong>rendimiento del trabajo</strong> mañana. El instrumento sólo gana si el marginal de rescate es menor que el de aportación (' + pctE(marg) + ' en este caso) y si se planifica la <strong>forma</strong> de cobro. Rescatar todo en un año suele destruir la ventaja.</div>';
+      html += '<p class="note" style="margin-top:.7rem">Estimación orientativa: el marginal se aproxima con la escala estatal y el tramo autonómico máximo. No incluye deducciones autonómicas por aportaciones ni el régimen transitorio de la DT 12.ª.</p>';
+      res.innerHTML = html; res.classList.add("show"); actDone("calc_prevision");
+    }
+    if (btn) btn.addEventListener("click", run);
+  }
+
+  /* ---------- 3. Test de liquidez sucesoria ---------- */
+  function wireLiquidez() {
+    var box = document.querySelector(".rcalc.liquidez");
+    if (!box) return;
+    var g = function (s) { return box.querySelector(s); };
+    function n(sel) { var e = g(sel); var v = parseFloat((e && e.value || "").replace(/[^0-9.]/g, "")); return isNaN(v) ? 0 : v; }
+    var btn = g("[data-l-run]"), res = box.querySelector(".calc-result");
+    var sel = g("[data-l-ccaa]");
+    if (sel && !sel.options.length && typeof ISD_CCAA !== "undefined") {
+      Object.keys(ISD_CCAA).forEach(function (k) {
+        var o = document.createElement("option"); o.value = k; o.textContent = ISD_CCAA[k].n; sel.appendChild(o);
+      });
+      sel.value = "madrid";
+    }
+
+    function run() {
+      var empresa = n("[data-l-empresa]"), inmuebles = n("[data-l-inmuebles]"),
+          financiero = n("[data-l-financiero]"), seguros = n("[data-l-seguros]"),
+          deudas = n("[data-l-deudas]"), herederos = Math.max(1, n("[data-l-herederos]")),
+          plusv = n("[data-l-plusv]");
+      var exenta = g("[data-l-exenta]").value === "si";
+      var k = sel.value, C = ISD_CCAA[k];
+
+      var patrimonio = empresa + inmuebles + financiero - deudas;
+      var porHeredero = patrimonio / herederos;
+      var empresaPorHeredero = empresa / herederos;
+
+      // ISD por heredero (Grupo II), con reducción de empresa familiar si procede
+      var redEmpresa = exenta ? Math.min(empresaPorHeredero, porHeredero) * (C.emp / 100) : 0;
+      var redParentesco = Math.max(ISD_RED_ESTATAL.hijo || 15956.87, C.red);
+      var base = Math.max(0, porHeredero - redEmpresa - redParentesco);
+      var cuotaInt = tarifa(base, ISD_ESCALA) * coefISD(2, 0);
+      var bon = C.bon; if (bon === -1) bon = bonifCLM(base); if (bon === -2) bon = 0;
+      var isdPorHeredero = cuotaInt * (1 - bon / 100);
+      var isdTotal = isdPorHeredero * herederos;
+
+      // seguros: se cobran fuera de la masa pero tributan en ISD (aquí se suman como liquidez)
+      var facturaTotal = isdTotal + plusv;
+      var liquidezDisponible = financiero + seguros;
+      var gap = facturaTotal - liquidezDisponible;
+      var cobertura = facturaTotal > 0 ? Math.min(1, liquidezDisponible / facturaTotal) : 1;
+      var pesoIliquido = patrimonio > 0 ? (empresa + inmuebles) / (empresa + inmuebles + financiero) : 0;
+
+      var html = '<div class="seg"><span class="tag">Cobertura de la factura sucesoria</span><span class="name ' + (gap > 0 ? 'wine' : '') + '">' + pctE(cobertura) + '</span></div>';
+      html += '<div class="money">' +
+        '<div class="m"><div class="k">Factura estimada al fallecimiento</div><div class="v wine">' + eurE(facturaTotal) + '</div></div>' +
+        '<div class="m"><div class="k">Liquidez disponible</div><div class="v">' + eurE(liquidezDisponible) + '</div></div>' +
+        '<div class="m"><div class="k">' + (gap > 0 ? 'Déficit de liquidez' : 'Excedente') + '</div><div class="v ' + (gap > 0 ? 'wine' : '') + '">' + eurE(Math.abs(gap)) + '</div></div>' +
+        '</div>';
+      html += '<table class="tbl"><thead><tr><th>Concepto</th><th>Importe</th><th>Detalle</th></tr></thead><tbody>';
+      html += '<tr><td>Patrimonio neto</td><td>' + eurE(patrimonio) + '</td><td>Empresa ' + eurE(empresa) + ' + inmuebles ' + eurE(inmuebles) + ' + financiero ' + eurE(financiero) + ' − deudas ' + eurE(deudas) + '.</td></tr>';
+      html += '<tr><td>Peso de activos ilíquidos</td><td>' + pctE(pesoIliquido) + '</td><td>Empresa e inmuebles sobre el total. Por encima del 80 % la sucesión es un problema de tesorería antes que de impuestos.</td></tr>';
+      html += '<tr><td>Base liquidable por heredero</td><td>' + eurE(base) + '</td><td>Tras reducción de parentesco (' + eurE(redParentesco) + ')' + (redEmpresa > 0 ? ' y de empresa familiar (' + eurE(redEmpresa) + ', ' + C.emp + ' %)' : ' y sin reducción de empresa familiar') + '.</td></tr>';
+      html += '<tr><td>ISD por heredero · ' + C.n + '</td><td>' + eurE(isdPorHeredero) + '</td><td>Bonificación aplicada: ' + bon + ' %. ' + C.nota + '</td></tr>';
+      html += '<tr><td><strong>ISD total de la familia</strong></td><td class="wine"><strong>' + eurE(isdTotal) + '</strong></td><td>' + herederos + ' heredero(s). A pagar en <strong>6 meses</strong> desde el fallecimiento.</td></tr>';
+      html += '<tr><td>Plusvalía municipal estimada</td><td>' + eurE(plusv) + '</td><td>Recuerda la bonificación potestativa de hasta el 95 % en transmisiones mortis causa (art. 108.4 TRLRHL).</td></tr>';
+      html += '</tbody></table>';
+
+      if (gap > 0) {
+        html += '<div class="flag"><strong>Hay un déficit de ' + eurE(gap) + '.</strong> Sin liquidez, los herederos tienen tres salidas y las tres son malas: vender con prisa (y pagar IRPF sobre la ganancia y plusvalía municipal), endeudarse, o solicitar aplazamiento con garantías. La cuarta salida es planificarlo antes.</div>';
+        html += '<div class="flag"><strong>Capital de seguro recomendado:</strong> aproximadamente <strong>' + eurE(gap) + '</strong> adicionales, en póliza con beneficiarios designados. Recuerda que el capital del seguro tributa en el ISD del beneficiario, con la reducción estatal de <strong>9.195,49 €</strong>, y que si el tomador y el beneficiario son la misma persona el capital tributa en IRPF y no en ISD: la designación cambia el impuesto.</div>';
+      } else {
+        html += '<div class="flag">La familia puede pagar la factura sin vender activos. Aun así, revisa <strong>quién</strong> tiene esa liquidez: si el dinero está en la sociedad y la factura la pagan los herederos como personas físicas, hay que planificar el reparto (dividendo, reducción de capital, préstamo) y su coste.</div>';
+      }
+      if (empresa > 0 && !exenta) html += '<div class="flag">Has indicado que la empresa <strong>no cumple</strong> los requisitos de la exención de empresa familiar. Recuperar ese cumplimiento (funciones de dirección, retribución superior al 50 % de las rentas, activos afectos) reduciría la base en un ' + C.emp + ' % de la parte empresarial: es la palanca de mayor impacto de todo el plan.</div>';
+      html += '<p class="note" style="margin-top:.7rem">Estimación orientativa y didáctica: reparto igualitario entre herederos del Grupo II, escala y coeficientes estatales, y bonificación autonómica cuando es lineal. Para un cálculo por comunidad usa la calculadora del Módulo 3 · Parte 4.</p>';
+      res.innerHTML = html; res.classList.add("show"); actDone("calc_liquidez");
+    }
+    if (btn) btn.addEventListener("click", run);
+  }
+
+
+  /* ======================================================================
+     MÓDULO 6 · CASOS PRÁCTICOS Y METODOLOGÍA
+     ====================================================================== */
+
+  var INFORME = [
+    { k: "res", n: "1 · Resumen ejecutivo", items: [
+      { t: "Situación en cinco líneas", d: "Qué patrimonio hay, quién lo controla y cuál es el problema central." },
+      { t: "Los tres dolores prioritarios", d: "Con su impacto económico estimado y su plazo." },
+      { t: "Las tres decisiones que pedimos hoy", d: "Concretas, con responsable y fecha. Un informe sin decisiones es un documento de archivo." }
+    ]},
+    { k: "diag", n: "2 · Diagnóstico", items: [
+      { t: "Inventario de activos y pasivos con valoración", d: "Método de valoración de cada partida y fecha de referencia." },
+      { t: "Estructura societaria y titularidades reales", d: "Organigrama antes, con porcentajes y régimen económico matrimonial de cada titular." },
+      { t: "Comportamiento tributario actual", d: "Qué impuesto paga hoy cada activo y con qué tipo efectivo." },
+      { t: "Mapa de dolor", d: "Los desórdenes detectados, priorizados por impacto y urgencia (Módulo 2)." },
+      { t: "Riesgos abiertos", d: "Contingencias fiscales, litigios, garantías personales y concentración de riesgo." }
+    ]},
+    { k: "obj", n: "3 · Objetivos y restricciones", items: [
+      { t: "Objetivos de la familia, en sus palabras", d: "Ordenados por prioridad y firmados por el cliente. Sin esto, cualquier propuesta es una opinión." },
+      { t: "Horizonte temporal y necesidades de renta", d: "Qué necesita cobrar y cuándo, incluida la jubilación." },
+      { t: "Restricciones", d: "Liquidez, deuda, pactos existentes, acuerdos familiares, límites personales." },
+      { t: "Perfil de riesgo y tolerancia a la complejidad", d: "Una estructura que el cliente no entiende no se sostiene." }
+    ]},
+    { k: "prop", n: "4 · Propuesta", items: [
+      { t: "Escenario base y escenario propuesto, comparados con números", d: "Coste fiscal, liquidez y control en ambos." },
+      { t: "Estructura objetivo", d: "Organigrama después, con el papel de cada vehículo." },
+      { t: "Instrumentos", d: "Sociedades, seguros, previsión social, testamentos, pactos, régimen matrimonial." },
+      { t: "Motivo económico de cada operación", d: "Redactado antes de ejecutar, no después (art. 89.2 LIS)." },
+      { t: "Riesgos de la propuesta y cómo se mitigan", d: "Incluido lo que puede salir mal y qué haríamos entonces." }
+    ]},
+    { k: "ejec", n: "5 · Plan de ejecución", items: [
+      { t: "Cronograma con hitos y responsables", d: "Quién hace qué y en qué fecha, incluidos notaría, registro y plazos fiscales." },
+      { t: "Presupuesto de la ejecución", d: "Honorarios, aranceles, impuestos y coste de oportunidad." },
+      { t: "Documentación a preparar y a solicitar", d: "Con la lista concreta y quién la aporta." },
+      { t: "Condiciones previas", d: "Lo que debe estar resuelto antes del primer paso." }
+    ]},
+    { k: "seg", n: "6 · Seguimiento", items: [
+      { t: "Calendario de obligaciones y plazos críticos", d: "Comunicaciones, mantenimientos de 5 y 10 años, prescripciones." },
+      { t: "Indicadores de que el plan sigue vivo", d: "Requisitos de exención, afectación de activos, retribución por dirección." },
+      { t: "Revisión anual y disparadores de revisión extraordinaria", d: "Cambio normativo, fallecimiento, divorcio, venta, cambio de residencia." }
+    ]},
+    { k: "anex", n: "7 · Anexos y trazabilidad", items: [
+      { t: "Normativa aplicada con artículo y fecha de consulta", d: "El material autonómico caduca: se fecha siempre." },
+      { t: "Cálculos completos y hojas de trabajo", d: "Reproducibles por otro consultor sin preguntar nada." },
+      { t: "Documentación recibida y su origen", d: "Con fecha y persona que la aportó." },
+      { t: "Advertencias y límites del informe", d: "Qué no se ha revisado y qué queda fuera del alcance." }
+    ]}
+  ];
+
+  function wireInforme() {
+    var box = document.querySelector(".irl.informe");
+    if (!box) return;
+    var KEY = "dasar_informe_v1";
+    var st = {};
+    try { st = JSON.parse(localStorage.getItem(KEY) || "{}"); } catch (e) { st = {}; }
+    function save() { try { localStorage.setItem(KEY, JSON.stringify(st)); } catch (e) {} }
+    var bar = box.querySelector("[data-inf-bar]"), body = box.querySelector("[data-inf-body]"),
+        out = box.querySelector(".irlout"), pb = box.querySelector("[data-inf-pb]"), ptxt = box.querySelector("[data-inf-ptxt]");
+    var actual = INFORME[0].k;
+    function id(ak, i) { return ak + "_" + i; }
+    function counts(A) {
+      var ok = 0;
+      A.items.forEach(function (it, i) { var s = st[id(A.k, i)]; if (s && (s.st === "rev" || s.st === "na")) ok++; });
+      return { ok: ok, tot: A.items.length };
+    }
+    function renderBar() {
+      var h = "";
+      INFORME.forEach(function (A) {
+        var c = counts(A);
+        h += '<button class="achip' + (A.k === actual ? ' on' : '') + '" data-sec="' + A.k + '">' + A.n + '<i>' + c.ok + '/' + c.tot + '</i></button>';
+      });
+      bar.innerHTML = h;
+      bar.querySelectorAll("[data-sec]").forEach(function (b) {
+        b.addEventListener("click", function () { actual = b.getAttribute("data-sec"); renderBar(); renderBody(); });
+      });
+      var tot = 0, done = 0;
+      INFORME.forEach(function (A) { var c = counts(A); tot += c.tot; done += c.ok; });
+      if (pb) pb.style.width = (tot ? done / tot * 100 : 0) + "%";
+      if (ptxt) ptxt.textContent = done + " de " + tot + " apartados cerrados";
+    }
+    function renderBody() {
+      var A = INFORME.filter(function (x) { return x.k === actual; })[0];
+      var h = "";
+      A.items.forEach(function (it, i) {
+        var k = id(A.k, i), s = st[k] || { st: "pend", nota: "" };
+        h += '<div class="irlitem ' + (s.st === "rev" ? "st-rec" : s.st === "na" ? "st-na" : "") + '" data-k="' + k + '">' +
+          '<div><div class="it-t">' + it.t + '</div><div class="it-d">' + it.d + '</div></div>' +
+          '<div class="it-st">' +
+            '<button data-set="pend" class="' + (s.st === "pend" ? "on" : "") + '">Pendiente</button>' +
+            '<button data-set="bor" class="' + (s.st === "bor" ? "on" : "") + '">Borrador</button>' +
+            '<button data-set="rev" class="rec ' + (s.st === "rev" ? "on" : "") + '">Revisado</button>' +
+            '<button data-set="na" class="' + (s.st === "na" ? "on" : "") + '">N/A</button>' +
+          '</div>' +
+          '<textarea placeholder="Contenido, cifra clave o quién lo redacta…">' + (s.nota || "") + '</textarea>' +
+        '</div>';
+      });
+      body.innerHTML = h;
+      body.querySelectorAll(".irlitem").forEach(function (el) {
+        var k = el.getAttribute("data-k");
+        el.querySelectorAll("[data-set]").forEach(function (b) {
+          b.addEventListener("click", function () {
+            st[k] = st[k] || { st: "pend", nota: "" };
+            st[k].st = b.getAttribute("data-set");
+            save(); renderBar(); renderBody(); actDone("informe");
+          });
+        });
+        var ta = el.querySelector("textarea");
+        ta.addEventListener("input", function () { st[k] = st[k] || { st: "pend", nota: "" }; st[k].nota = ta.value; save(); });
+      });
+    }
+    function generar() {
+      var h = '<h3>Informe patrimonial · estado de elaboración</h3>';
+      var pend = 0;
+      INFORME.forEach(function (A) {
+        var lines = [];
+        A.items.forEach(function (it, i) {
+          var s = st[id(A.k, i)] || { st: "pend", nota: "" };
+          var etq = s.st === "rev" ? "revisado" : s.st === "bor" ? "borrador" : s.st === "na" ? "no aplica" : "pendiente";
+          if (s.st !== "rev" && s.st !== "na") pend++;
+          lines.push("<li>" + it.t + " — <em>" + etq + "</em>" + (s.nota ? " · " + s.nota : "") + "</li>");
+        });
+        h += '<div class="oarea"><h5>' + A.n + '</h5><ul>' + lines.join("") + '</ul></div>';
+      });
+      h += '<p class="note">' + (pend ? pend + ' apartados sin cerrar. El informe no se envía hasta que todos estén revisados o marcados como no aplicables.' : 'Todos los apartados cerrados: el informe está listo para revisión final y envío.') + '</p>';
+      out.innerHTML = h; out.classList.add("show");
+      out.scrollIntoView({ behavior: "smooth", block: "start" });
+      actDone("informe");
+    }
+    var b1 = box.querySelector("[data-inf-gen]"), b2 = box.querySelector("[data-inf-print]"), b3 = box.querySelector("[data-inf-reset]");
+    if (b1) b1.addEventListener("click", generar);
+    if (b2) b2.addEventListener("click", function () { generar(); setTimeout(function () { window.print(); }, 350); });
+    if (b3) b3.addEventListener("click", function () { if (confirm("¿Vaciar el estado del informe?")) { st = {}; save(); out.classList.remove("show"); renderBar(); renderBody(); } });
+    renderBar(); renderBody();
+  }
+
   document.addEventListener("DOMContentLoaded", function () {
     buildSidebar();
     wireMenu();
@@ -2046,6 +2415,10 @@
     wireDeal();
     wireIrl();
     wireHallazgos();
+    wireRentas();
+    wirePrevision();
+    wireLiquidez();
+    wireInforme();
     refreshTracker();
     refreshProgressUI();
   });

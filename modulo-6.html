@@ -7,12 +7,12 @@
 <meta http-equiv="Pragma" content="no-cache">
 <meta http-equiv="Expires" content="0">
 <title>Módulo 6 · Casos prácticos y metodología · DASAR</title>
-<meta name="description" content="Módulo 6 de la formación DASAR: El cierre práctico del programa. Aplicación integrada de todo lo anterior sobre casos reales anonimizados y aprendizaje del entregable estrella de DAS">
+<meta name="description" content="Módulo 6 DASAR: metodología de trabajo, el informe patrimonial con herramienta de elaboración, gestión de reuniones y objeciones, control de calidad, tres casos integrales y examen final del programa.">
 <link rel="icon" href="dasar-color.svg">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Jost:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="styles.css?v=12">
+<link rel="stylesheet" href="styles.css?v=17">
 </head>
 <body data-current="mod6">
 
@@ -29,6 +29,7 @@
   </div>
   <a class="home-link" href="index.html">Inicio</a>
 </header>
+<div class="readprogress" aria-hidden="true"><i></i></div>
 
 <div class="layout">
   <aside class="sidebar">
@@ -37,82 +38,397 @@
   </aside>
 
   <main class="content prose">
+
     <div class="mod-head">
       <div class="eyebrow">
         <span class="mod-badge">Módulo 6</span>
         <span class="mod-meta">Casos prácticos y metodología</span>
       </div>
       <h1>Casos prácticos y metodología</h1>
-      <p class="lead">El cierre práctico del programa. Aplicación integrada de todo lo anterior sobre casos reales anonimizados y aprendizaje del entregable estrella de DASAR: el informe patrimonial.</p>
-      <p style="margin-top:1rem"><span class="wip"><span class="tri"></span> Contenido en desarrollo</span></p>
-      <p style="color:var(--muted)">Este módulo forma parte del programa y se desarrollará en profundidad próximamente. A continuación tienes sus <strong>objetivos de aprendizaje</strong> y el <strong>índice de contenidos previsto</strong>.</p>
+      <p class="lead">El módulo de cierre. Aquí no hay normativa nueva: hay <strong>oficio</strong>. Cómo se lleva un cliente desde la primera reunión hasta la ejecución, cómo se escribe un <strong>informe patrimonial</strong> que se entiende y se sostiene, cómo se presenta una propuesta y se gestionan las objeciones, cómo se controla la calidad de lo que firmamos y dónde están nuestros límites. Con una <strong>herramienta de elaboración del informe</strong>, tres <strong>casos integrales</strong> que obligan a usar todo el programa y el <strong>examen final</strong>.</p>
+      <p style="color:var(--muted-2);font-size:.9rem">Nivel: máster / especialización · Lectura estimada: 90–110 min · Incluye examen final de 12 preguntas</p>
     </div>
 
-    <section class="reveal">
-      <span class="kicker">Objetivos de aprendizaje</span>
-      <h2>Qué sabrás hacer al terminar</h2>
-      <div class="grid grid-2" style="margin-top:1rem">
-        <div class="card"><div style="display:flex;gap:.9rem"><span class="badge-num">1</span><div><p class="mt0" style="margin:0;color:var(--muted)">Resolver casos integrados que combinen varias figuras y estructuras.</p></div></div></div>
-        <div class="card"><div style="display:flex;gap:.9rem"><span class="badge-num">2</span><div><p class="mt0" style="margin:0;color:var(--muted)">Elaborar un diagnóstico 360º completo de principio a fin.</p></div></div></div>
-        <div class="card"><div style="display:flex;gap:.9rem"><span class="badge-num">3</span><div><p class="mt0" style="margin:0;color:var(--muted)">Redactar un informe patrimonial claro, accionable y a la altura de la firma.</p></div></div></div>
-        <div class="card"><div style="display:flex;gap:.9rem"><span class="badge-num">4</span><div><p class="mt0" style="margin:0;color:var(--muted)">Conducir la entrevista con el cliente y la posterior ejecución.</p></div></div></div>
+    <div class="callout"><div class="ic">✓</div><div class="ct"><h4>Metodología DASAR</h4><p>Este módulo es doctrina de casa: el modo en que trabajamos. Los datos técnicos que aparecen en los casos remiten a los módulos anteriores, donde están verificados con su artículo. Aquí lo que se evalúa es la <strong>capacidad de aplicarlos juntos</strong>.</p></div></div>
+
+    <div class="toc">
+      <h4>En este módulo</h4>
+      <a href="#s1"><span class="tri"></span>6.1 · Cómo se lleva un cliente</a>
+      <a href="#s2"><span class="tri"></span>6.2 · La primera reunión</a>
+      <a href="#s3"><span class="tri"></span>6.3 · El informe patrimonial</a>
+      <a href="#inf"><span class="tri"></span>Herramienta: elaboración del informe</a>
+      <a href="#s4"><span class="tri"></span>6.4 · Presentar la propuesta</a>
+      <a href="#s5"><span class="tri"></span>6.5 · Objeciones y cómo se responden</a>
+      <a href="#s6"><span class="tri"></span>6.6 · Control de calidad y límites</a>
+      <a href="#s7"><span class="tri"></span>6.7 · El seguimiento anual</a>
+      <a href="#casos"><span class="tri"></span>Tres casos integrales</a>
+      <a href="#rubrica"><span class="tri"></span>6.8 · Cuándo estás listo</a>
+      <a href="#examen"><span class="tri"></span>Examen final del programa</a>
+    </div>
+
+    <hr class="divider">
+
+    <!-- 6.1 -->
+    <section id="s1" class="reveal">
+      <span class="kicker">6.1 · El encargo</span>
+      <h2>Cómo se lleva un cliente de principio a fin</h2>
+      <div class="timeline">
+        <div class="tlstep"><div class="tl-w">Semana 0</div><div class="tl-t">Primera reunión y encuadre</div><div class="tl-d">Escuchar, no proponer. Se identifican los dolores, se explica el método y se acota el alcance. Sale de aquí con una lista de documentación y una fecha.</div></div>
+        <div class="tlstep"><div class="tl-w">Semanas 1-3</div><div class="tl-t">Recopilación y diagnóstico</div><div class="tl-d">Documentación (Módulo 2), inventario, valoración, comportamiento tributario y mapa de dolor. Preguntas de aclaración agrupadas, no en goteo diario.</div></div>
+        <div class="tlstep"><div class="tl-w">Semana 4</div><div class="tl-t">Escenario base cuantificado</div><div class="tl-d">Lo que pasa si no hacemos nada: factura anual, factura sucesoria, test de liquidez y riesgos abiertos. Este número es el ancla de toda la conversación.</div></div>
+        <div class="tlstep"><div class="tl-w">Semanas 5-6</div><div class="tl-t">Diseño y contraste interno</div><div class="tl-d">Propuesta, alternativas descartadas y stress test. Revisión por un segundo consultor antes de que el cliente lo vea.</div></div>
+        <div class="tlstep"><div class="tl-w">Semana 7</div><div class="tl-t">Presentación de la propuesta</div><div class="tl-d">Con el informe entregado <strong>antes</strong> de la reunión, no durante. Se presentan decisiones, no conocimientos.</div></div>
+        <div class="tlstep"><div class="tl-w">Semanas 8+</div><div class="tl-t">Ejecución</div><div class="tl-d">Cronograma con responsables, coordinación con notaría, registro, gestoría y bancos. Nosotros ejecutamos: es la diferencia del servicio.</div></div>
+        <div class="tlstep"><div class="tl-w">Continuo</div><div class="tl-t">Seguimiento</div><div class="tl-d">Calendario de plazos y mantenimientos, revisión anual y disparadores extraordinarios. El expediente queda cerrado y trazable.</div></div>
+      </div>
+      <div class="flag">Dos reglas de gestión del encargo que evitan la mayoría de los problemas: <strong>1)</strong> nada se propone sin diagnóstico terminado; <strong>2)</strong> nada se ejecuta sin que el cliente haya visto por escrito el coste, el plazo y el riesgo de cada paso. Si el cliente presiona para saltarse una de las dos, la respuesta correcta es explicar por qué no.</div>
+    </section>
+
+    <hr class="divider">
+
+    <!-- 6.2 -->
+    <section id="s2" class="reveal">
+      <span class="kicker">6.2 · Oficio</span>
+      <h2>La primera reunión: escuchar bien es una técnica</h2>
+      <div class="grid grid-3">
+        <div class="card"><h4>Las cuatro preguntas de apertura</h4><p>¿Qué te preocupa cuando piensas en tu patrimonio? ¿Qué querrías que pasara si mañana no estuvieras? ¿Qué te ha dicho ya alguien que deberías hacer? ¿Qué has intentado y no ha funcionado?</p></div>
+        <div class="card"><h4>Lo que no se hace</h4><p>No se dan soluciones en la primera reunión. No se critica a otros asesores. No se prometen ahorros. Y no se toman notas mentales: se toman por escrito y se confirman por correo.</p></div>
+        <div class="card"><h4>Señales que hay que captar</h4><p>Quién manda de verdad, quién no está en la sala pero decide, qué conflicto familiar late debajo, y qué está el cliente dispuesto a no hacer. Esto último determina el plan más que la fiscalidad.</p></div>
+        <div class="card"><h4>El encuadre del servicio</h4><p>Explicar el método (diagnóstico → propuesta → ejecución), los plazos y el modelo de servicio y tarifa. Un cliente que no entiende el proceso interpreta cualquier silencio como falta de trabajo.</p></div>
+        <div class="card"><h4>El cierre correcto</h4><p>Salir con tres cosas: lista de documentación, fecha de la siguiente reunión y una <strong>hipótesis</strong> de los tres dolores principales, expresada como pregunta y no como conclusión.</p></div>
+        <div class="card"><h4>El seguimiento en 24 horas</h4><p>Correo con el resumen de lo hablado, los objetivos tal como los ha expresado el cliente y la lista de documentación. Es el primer entregable y ya dice cómo trabajamos.</p></div>
+      </div>
+      <div class="flag">La frase que más veces ha abierto un encargo: <strong>«¿Has hecho alguna vez el cálculo de lo que pagarían tus hijos si falleces mañana?»</strong>. No es una técnica de venta: es la pregunta que revela si existe un plan. Y en nueve de cada diez casos, la respuesta es que no.</div>
+    </section>
+
+    <hr class="divider">
+
+    <!-- 6.3 -->
+    <section id="s3" class="reveal">
+      <span class="kicker">6.3 · Entregable</span>
+      <h2>El informe patrimonial: estructura y estándar</h2>
+      <p>El informe es nuestro producto. Tiene siete secciones y un orden que no se cambia, porque el orden es el argumento.</p>
+      <table class="tbl">
+        <thead><tr><th>Sección</th><th>Qué contiene</th><th>Error típico</th></tr></thead>
+        <tbody>
+          <tr><td><strong>1 · Resumen ejecutivo</strong></td><td>Situación en cinco líneas, los tres dolores prioritarios con su impacto y las tres decisiones que pedimos hoy</td><td>Escribirlo primero. Se escribe <strong>al final</strong>, cuando ya sabes qué has concluido</td></tr>
+          <tr><td><strong>2 · Diagnóstico</strong></td><td>Inventario valorado, estructura y titularidades, comportamiento tributario actual, mapa de dolor y riesgos abiertos</td><td>Confundir descripción con diagnóstico. Un listado de bienes no es un diagnóstico: falta el «y por tanto»</td></tr>
+          <tr><td><strong>3 · Objetivos y restricciones</strong></td><td>Los objetivos <strong>en palabras del cliente</strong>, jerarquizados, con horizonte, necesidades de renta y límites</td><td>Poner los objetivos que nos convienen para justificar la propuesta que ya habíamos pensado</td></tr>
+          <tr><td><strong>4 · Propuesta</strong></td><td>Escenario base frente a escenario propuesto con números, estructura objetivo, instrumentos, motivo económico y riesgos de la propuesta</td><td>No cuantificar el escenario base. Sin él, el ahorro es una afirmación sin prueba</td></tr>
+          <tr><td><strong>5 · Plan de ejecución</strong></td><td>Cronograma con hitos y responsables, presupuesto, documentación y condiciones previas</td><td>Terminar el informe en la propuesta. Un plan sin cronograma no se ejecuta</td></tr>
+          <tr><td><strong>6 · Seguimiento</strong></td><td>Calendario de plazos críticos, indicadores de cumplimiento y disparadores de revisión</td><td>Olvidar los mantenimientos de 5 y 10 años, que es donde se pierden las reducciones ya aplicadas</td></tr>
+          <tr><td><strong>7 · Anexos y trazabilidad</strong></td><td>Normativa con artículo y fecha de consulta, cálculos reproducibles, documentación recibida y límites del alcance</td><td>No fechar la normativa autonómica. Caduca cada año y sin fecha el informe envejece mal</td></tr>
+        </tbody>
+      </table>
+      <div class="grid grid-3">
+        <div class="card"><h4>Estándar de redacción</h4><p>Frases cortas, cifras redondeadas en el texto y exactas en el anexo, y cada afirmación técnica con su artículo. Si una frase no aporta una decisión o un dato, se borra.</p></div>
+        <div class="card"><h4>Estándar de cifras</h4><p>Toda cifra tiene fuente, fecha y método. Los rangos se expresan como rangos. Y lo que es estimación se llama estimación, siempre.</p></div>
+        <div class="card"><h4>Estándar de honestidad</h4><p>Lo que no sabemos se dice. Lo que depende de una interpretación se marca. Lo que no hemos revisado va en «límites del alcance». Un informe que no tiene advertencias es un informe que oculta algo.</p></div>
       </div>
     </section>
 
     <hr class="divider">
 
-    <section class="reveal">
-      <span class="kicker">Contenido previsto</span>
-      <h2>Índice del módulo</h2>
-      <div class="toc">
-        <h4>Secciones</h4>
-      <a href="#sec0"><span class="tri"></span>6.1 · Metodología de trabajo</a>
-      <a href="#sec1"><span class="tri"></span>6.2 · El informe patrimonial</a>
-      <a href="#sec2"><span class="tri"></span>6.3 · Casos integrados</a>
-      <a href="#sec3"><span class="tri"></span>6.4 · La relación con el cliente</a>
+    <!-- HERRAMIENTA INFORME -->
+    <section id="inf" class="reveal">
+      <span class="kicker">Herramienta</span>
+      <h2>Elaboración del informe patrimonial</h2>
+      <p>Marca cada apartado como <strong>pendiente, borrador, revisado o no aplica</strong>, anota la cifra clave o quién lo redacta, y genera el estado completo para la revisión interna. Ningún informe sale de DASAR con apartados en borrador.</p>
+      <div class="irl informe">
+        <div class="irl-head"><span class="tri"></span><h3>Informe patrimonial · control de elaboración</h3><span class="irl-meta">Se guarda en este navegador</span></div>
+        <div class="irl-bar" data-inf-bar></div>
+        <div class="irl-body">
+          <div class="irl-progress"><span data-inf-ptxt>0 de 0 apartados cerrados</span><span class="pb"><i data-inf-pb></i></span></div>
+          <div data-inf-body></div>
+        </div>
+        <div class="irl-actions">
+          <button class="btn btn-primary" data-inf-gen>Ver estado del informe</button>
+          <button class="btn btn-outline" data-inf-print>Imprimir o guardar en PDF</button>
+          <button class="btn btn-ghost" data-inf-reset>Vaciar</button>
+        </div>
+        <div class="irlout"></div>
       </div>
-
-      <section id="sec0" class="reveal card" style="margin:1rem 0">
-        <h3 class="mt0">6.1 · Metodología de trabajo</h3>
-        <ul>
-            <li>El flujo completo: entrevista, documentación, diagnóstico, propuesta, ejecución.</li>
-            <li>Herramientas y plantillas internas.</li>
-        </ul>
-      </section>
-      <section id="sec1" class="reveal card" style="margin:1rem 0">
-        <h3 class="mt0">6.2 · El informe patrimonial</h3>
-        <ul>
-            <li>Estructura del informe DASAR.</li>
-            <li>Cómo presentar el mapa de dolor y las recomendaciones.</li>
-            <li>Nivel de detalle y lenguaje según el cliente.</li>
-        </ul>
-      </section>
-      <section id="sec2" class="reveal card" style="margin:1rem 0">
-        <h3 class="mt0">6.3 · Casos integrados</h3>
-        <ul>
-            <li>Empresario con holding y sucesión pendiente.</li>
-            <li>Familia con patrimonio inmobiliario y liquidez ajustada.</li>
-            <li>Cliente en construcción que da el salto a Advance.</li>
-        </ul>
-      </section>
-      <section id="sec3" class="reveal card" style="margin:1rem 0">
-        <h3 class="mt0">6.4 · La relación con el cliente</h3>
-        <ul>
-            <li>La entrevista inicial y el arte de preguntar.</li>
-            <li>Seguimiento, revisión periódica y confianza a largo plazo.</li>
-        </ul>
-      </section>
     </section>
 
-    <div class="complete-bar">
-      <div class="cb-t"><strong>Seguimiento</strong><span>Podrás marcar este módulo como completado cuando esté publicado y superes su autoevaluación.</span></div>
-      <button class="btn btn-outline" data-complete-toggle="mod6">Marcar como completado</button>
+    <hr class="divider">
+
+    <!-- 6.4 -->
+    <section id="s4" class="reveal">
+      <span class="kicker">6.4 · Oficio</span>
+      <h2>Presentar la propuesta</h2>
+      <table class="tbl">
+        <thead><tr><th>Momento</th><th>Cómo se hace</th></tr></thead>
+        <tbody>
+          <tr><td><strong>Antes</strong></td><td>El informe se envía <strong>48 horas antes</strong>. Quien lee por primera vez en la reunión no decide: se defiende. Y se decide quién debe estar en la sala: a veces el cónyuge o los hijos son los verdaderos destinatarios</td></tr>
+          <tr><td><strong>Apertura</strong></td><td>Recordar <strong>sus</strong> objetivos, con sus palabras, y pedir confirmación de que siguen siendo esos. Si han cambiado, se cambia la reunión, no se sigue el guion</td></tr>
+          <tr><td><strong>El número</strong></td><td>Empezar por el escenario base: «si no hacemos nada, esto cuesta X». Después, el escenario propuesto. La diferencia es la propuesta, y no hace falta adornarla</td></tr>
+          <tr><td><strong>Estructura del mensaje</strong></td><td>Tres decisiones, no quince recomendaciones. Cada una con coste, plazo y quién la ejecuta. Lo demás va en el informe para quien quiera leerlo</td></tr>
+          <tr><td><strong>Los riesgos</strong></td><td>Se cuentan nosotros, antes de que los descubra otro. Incluido lo que puede cambiar en la norma y lo que depende de una interpretación</td></tr>
+          <tr><td><strong>Cierre</strong></td><td>Acta de decisiones con responsables y fechas, enviada el mismo día. Sin acta, la reunión no ha ocurrido</td></tr>
+        </tbody>
+      </table>
+      <div class="flag">Regla de sobriedad: cuando una propuesta necesita muchas diapositivas para entenderse, casi siempre es porque es demasiado compleja para el cliente. Y una estructura que el cliente no entiende <strong>no se mantiene</strong>: dejará de cumplir requisitos en cuanto dejemos de estar encima. La simplicidad no es un estilo, es una condición de viabilidad.</div>
+    </section>
+
+    <hr class="divider">
+
+    <!-- 6.5 -->
+    <section id="s5" class="reveal">
+      <span class="kicker">6.5 · Objeciones</span>
+      <h2>Las ocho objeciones reales y qué se responde</h2>
+      <div class="caso svc" data-act="objeciones">
+        <div class="caso-h"><div class="ci">+</div><div class="cti"><div class="cl">Desplegar · las ocho objeciones</div><h4>Con la respuesta técnica, no comercial</h4><p>Ninguna se responde con presión: todas con datos y con la decisión en manos del cliente.</p></div><div class="chev">▾</div></div>
+        <div class="caso-body"><div class="caso-inner">
+          <div class="plano"><h5>1 · «Mi asesor ya me lo lleva todo»</h5><p>Correcto y respetable: la gestoría cumple obligaciones y nosotros diseñamos y ejecutamos el plan. No compiten. La pregunta que aclara la diferencia: «¿tienes calculado por escrito qué pagarían tus hijos si falleces mañana y de dónde saldría ese dinero?».</p></div>
+          <div class="plano"><h5>2 · «Esto es muy caro»</h5><p>Se compara con el número del escenario base, no con la sensación. Y si el ahorro anual no paga el coste del plan y su mantenimiento, lo decimos: hay clientes a los que <strong>no</strong> les conviene contratarnos todavía, y decirlo es lo que construye la relación a diez años.</p></div>
+          <div class="plano"><h5>3 · «Prefiero no complicarme»</h5><p>Legítimo, y a menudo acertado. Hay una versión mínima de casi todo plan: testamentos, poder preventivo, beneficiarios de seguros y liquidez. Cuesta poco, se hace en semanas y cubre el 60 % del riesgo.</p></div>
+          <div class="plano"><h5>4 · «Ya lo haré más adelante»</h5><p>Aquí no se presiona: se informa. Los plazos son los que son (5 y 10 años de mantenimiento, un año de tenencia para aportar, 3 años del art. 338) y hay decisiones que a partir de cierta edad o de cierta situación de salud ya no se pueden tomar. Ese calendario se entrega por escrito.</p></div>
+          <div class="plano"><h5>5 · «Un conocido lo hizo de otra forma»</h5><p>Puede que su caso fuera distinto, o puede que asumiera un riesgo que no le contaron. Se compara el supuesto con datos, sin descalificar a nadie. Y si su solución es mejor para este cliente, se adopta.</p></div>
+          <div class="plano"><h5>6 · «¿Esto es legal?»</h5><p>La mejor pregunta que puede hacer. Se responde con artículos, con el motivo económico por escrito y con el riesgo explicado: economía de opción sí, artificio no (art. 89.2 LIS, arts. 15 y 16 LGT). Si algo sólo se explica por el ahorro, no lo proponemos.</p></div>
+          <div class="plano"><h5>7 · «Mis hijos no están preparados»</h5><p>Es un diagnóstico, no una objeción. Y tiene respuestas concretas: separar propiedad de gestión, dirección profesional, consejo con independientes, protocolo familiar, o preparar una venta ordenada. La estructura se adapta a la familia real, no a la deseada.</p></div>
+          <div class="plano"><h5>8 · «No quiero perder el control»</h5><p>Casi nunca hay que perderlo. Nuda propiedad con reserva de usufructo, participaciones sin voto, mayorías reforzadas, poderes. Se puede transmitir valor conservando el mando: eso es precisamente lo que hacemos.</p></div>
+        </div></div>
+      </div>
+    </section>
+
+    <hr class="divider">
+
+    <!-- 6.6 -->
+    <section id="s6" class="reveal">
+      <span class="kicker">6.6 · Calidad</span>
+      <h2>Control de calidad y nuestros límites</h2>
+      <div class="grid grid-3">
+        <div class="card"><h4>Revisión por pares</h4><p>Ningún informe se envía sin que otro consultor lo lea. Revisa tres cosas: que las cifras cuadren, que cada afirmación tenga artículo y que el escenario base esté cuantificado.</p></div>
+        <div class="card"><h4>Reproducibilidad</h4><p>Cualquier cálculo debe poder repetirlo otra persona sin preguntar nada. Hoja de trabajo con datos de entrada, fuente y fórmula. Si no es reproducible, no es un cálculo: es una opinión.</p></div>
+        <div class="card"><h4>Fecha en todo</h4><p>Normativa autonómica, valoraciones, tipos y bonificaciones llevan fecha de consulta. El material de este programa se actualiza cada año por la misma razón.</p></div>
+        <div class="card"><h4>Lo que no hacemos</h4><p>No damos consejo de inversión que no nos corresponda, no diseñamos estructuras cuya única razón sea el ahorro, no firmamos valoraciones que no hemos hecho y no ejecutamos operaciones cuyo riesgo el cliente no ha aceptado por escrito.</p></div>
+        <div class="card"><h4>Cuándo se pide ayuda</h4><p>Derecho foral distinto del habitual, fiscalidad internacional, concurso, penal, valoración compleja de empresa. Pedir una segunda opinión no resta autoridad: la construye.</p></div>
+        <div class="card"><h4>Expediente cerrado</h4><p>Un único archivo por cliente y operación: diagnóstico, informe, cálculos, motivo económico, comunicaciones, escrituras y calendario. Es lo que se enseña tres años después, cuando nadie recuerda los detalles.</p></div>
+      </div>
+      <div class="warnbox"><div class="ic">!</div><p>El límite ético que define la casa: <strong>somos independientes y transparentes</strong>. Eso significa decir a un cliente que no necesita un producto, que su estructura actual ya está bien, o que la operación que quiere hacer no la vamos a ejecutar. La primera vez cuesta; después es lo que hace que nos recomienden.</p></div>
+    </section>
+
+    <hr class="divider">
+
+    <!-- 6.7 -->
+    <section id="s7" class="reveal">
+      <span class="kicker">6.7 · Seguimiento</span>
+      <h2>La revisión anual: el trabajo que nadie ve</h2>
+      <table class="tbl">
+        <thead><tr><th>Qué se revisa</th><th>Por qué</th></tr></thead>
+        <tbody>
+          <tr><td><strong>Requisitos de la exención de empresa familiar</strong></td><td>Funciones de dirección, porcentaje de retribución sobre el total de rentas y proporción de activos afectos. Cambian con cada ejercicio y sin avisar</td></tr>
+          <tr><td><strong>Plazos de mantenimiento</strong></td><td>Reducciones de ISD ya aplicadas (10 años estatal, 5 o 3 según comunidad), afectación de 5 años, 3 años del art. 338 Ley 6/2023, 4 años del patrimonio protegido</td></tr>
+          <tr><td><strong>Normativa autonómica</strong></td><td>Deducciones de IRPF, bonificaciones de ISD y de Patrimonio, tipos de ITP y AJD. Es la parte del programa que se actualiza cada año</td></tr>
+          <tr><td><strong>Cambios familiares</strong></td><td>Nacimientos, matrimonios, divorcios, fallecimientos, traslados de residencia. Cada uno puede invalidar una parte del plan</td></tr>
+          <tr><td><strong>Beneficiarios y designaciones</strong></td><td>Seguros, previsión social y cuentas. Es el error más frecuente y el más fácil de corregir: designaciones que quedaron a favor de un excónyuge</td></tr>
+          <tr><td><strong>Testamentos y pactos</strong></td><td>Que sigan describiendo la estructura que existe hoy, no la de hace cinco años</td></tr>
+          <tr><td><strong>Liquidez sucesoria</strong></td><td>El test se repite cada año: el patrimonio crece, la factura crece con él y el seguro contratado se queda corto</td></tr>
+          <tr><td><strong>Riesgos abiertos</strong></td><td>Prescripciones que corren, procedimientos, garantías personales y avales vivos</td></tr>
+        </tbody>
+      </table>
+      <div class="flag">Cómo se convierte esto en servicio: un <strong>informe anual de dos páginas</strong> por cliente con el semáforo de cada punto y las acciones del año. Es el entregable que hace que un contrato anual se renueve sin discusión, porque demuestra que el plan sigue vivo.</div>
+    </section>
+
+    <hr class="divider">
+
+    <!-- CASOS INTEGRALES -->
+    <section id="casos" class="reveal">
+      <span class="kicker">Casos integrales</span>
+      <h2>Tres casos que cruzan todo el programa</h2>
+      <p>Trabájalos con las calculadoras de los módulos anteriores <strong>antes</strong> de abrir la solución. Cada uno tiene datos suficientes para llegar a cifras: el objetivo no es acertar el número exacto, es <strong>ordenar bien las decisiones</strong>.</p>
+
+      <div class="caso" data-act="caso1">
+        <div class="caso-h"><div class="ci">1</div><div class="cti"><div class="cl">Caso integral 1 · La familia Ruiz</div><h4>Empresa, nave, pisos y tres hijos en Cantabria</h4><p>Matrimonio de 64 y 62 años, casados en gananciales, residentes en Cantabria. Sociedad operativa (distribución industrial) valorada en 4.000.000 €, con la nave en el balance de la sociedad (valor fiscal 500.000 €, mercado 1.500.000 €). Cuatro pisos alquilados por 900.000 €, sin estructura de gestión. Cartera de fondos: 400.000 €. Deuda: 600.000 €. Tres hijos: uno trabaja en la empresa, dos no. El titular cobra 45.000 € de la sociedad; el resto de sus rentas son alquileres por 42.000 €.</p></div><div class="chev">▾</div></div>
+        <div class="caso-body"><div class="caso-inner">
+          <div class="plano"><h5>Paso 1 · Diagnóstico y el problema que nadie ha visto</h5><p>La retribución por funciones de dirección (45.000 €) <strong>no supera el 50 %</strong> del total de sus rentas empresariales, profesionales y del trabajo (45.000 de 87.000 = 51,7 %... justo al límite y sin documentar las funciones). Un año con menos dividendo del alquiler o un alquiler más alto rompe el requisito. Sin él: no hay exención de empresa familiar en Patrimonio y no hay reducción del 95 % en el ISD sobre 4.000.000 € de empresa. Eso es lo primero que hay que arreglar, y es gratis.</p></div>
+          <div class="plano"><h5>Paso 2 · El escenario base</h5><p>Patrimonio neto de unos 5.700.000 €. Sin exención y con tres herederos, la factura del ISD en Cantabria se cuenta en cientos de miles de euros, frente a 400.000 € de cartera líquida. Lanza el <strong>test de liquidez</strong> del Módulo 5 con estos datos: el déficit es evidente. Añade que la nave está dentro de la sociedad operativa, expuesta al riesgo del negocio.</p></div>
+          <div class="plano"><h5>Paso 3 · Estructura</h5><p>Dos operaciones, en este orden: <strong>a)</strong> documentar y ajustar la retribución por dirección y depurar activos no afectos (Módulo 4 · Parte 1); <strong>b)</strong> <strong>escindir la actividad</strong> a una sociedad nueva dejando la nave en la original, que pasa a arrendarla (recuerda del Módulo 4: la nave sola no es rama de actividad, la actividad sí). Motivo económico: separar riesgo operativo del inmueble y preparar el relevo. Coste indirecto: cero, porque la reestructuración no está sujeta a OS y está exenta de TPO y AJD (art. 45.I.B).10).</p></div>
+          <div class="plano"><h5>Paso 4 · Los pisos</h5><p>Sin estructura de gestión son mera tenencia: no hay afectación, no hay exención y arrastran a la sociedad hacia la calificación de patrimonial si se meten dentro. Decisión: mantenerlos en el patrimonio personal y planificar su transmisión por la vía de la <strong>nuda propiedad</strong> reservando usufructo, para conservar las rentas. Si se quisieran afectar de verdad, hay que dotarlos de medios y esperar: no se improvisa.</p></div>
+          <div class="plano"><h5>Paso 5 · Reparto entre hermanos</h5><p>La empresa al hijo que trabaja en ella; los pisos y la cartera a los otros dos; y la diferencia se cubre con un <strong>seguro de vida</strong> dimensionado con el déficit del test. Testamento coherente, valoración pactada en el pacto de socios y prestaciones accesorias en estatutos para que quien dirija tenga que dedicarse de verdad.</p></div>
+          <div class="plano"><h5>Paso 6 · Lo urgente y barato, primero</h5><p>Antes de todo lo anterior, en la primera semana: testamentos, <strong>poder preventivo</strong> y autocuratela de ambos cónyuges, revisión de beneficiarios de seguros, y revisión del régimen de gananciales respecto de las participaciones. Cuesta unos cientos de euros y cubre el riesgo de que ocurra algo mañana.</p></div>
+          <div class="plano"><h5>Qué se evalúa en este caso</h5><p>Que detectes el requisito del 50 % de las rentas antes de proponer estructuras; que sepas que la nave sola no es rama de actividad; que no metas los pisos en la sociedad; y que ordenes las medidas por coste y urgencia, no por complejidad.</p></div>
+        </div></div>
+      </div>
+
+      <div class="caso" data-act="caso2">
+        <div class="caso-h"><div class="ci">2</div><div class="cti"><div class="cl">Caso integral 2 · Venta de la compañía con oferta sobre la mesa</div><h4>Cinco millones, un comprador industrial y ocho semanas</h4><p>Socio único, 58 años, residente en Valencia. Recibe una oferta no vinculante por su compañía: 5.000.000 € de enterprise value, deuda neta de 800.000 €, con propuesta de 15 % en earn-out y 10 % en escrow. Valor de adquisición de sus participaciones: 200.000 €. En el balance hay un local desde el que opera la empresa (valor de mercado 700.000 €) y 600.000 € de tesorería excedentaria. Le han sugerido «crear un holding antes de vender».</p></div><div class="chev">▾</div></div>
+        <div class="caso-body"><div class="caso-inner">
+          <div class="plano"><h5>Paso 1 · Traducir la oferta a dinero real</h5><p>Equity value = 5.000.000 − 800.000 = <strong>4.200.000 €</strong>. Con 15 % de earn-out y 10 % de escrow, el cobro al cierre son <strong>3.150.000 €</strong> y quedan 1.050.000 € condicionados. Usa la calculadora del Módulo 4 · Parte 2. Sobre la ganancia (4.000.000 €), el IRPF en la base del ahorro supera el millón de euros. Este es el número con el que hay que trabajar, no el titular de «cinco millones».</p></div>
+          <div class="plano"><h5>Paso 2 · El holding llega tarde</h5><p>Con la oferta ya sobre la mesa, crear un holding para vender con la exención del art. 21 es el supuesto de manual del <strong>art. 89.2 LIS</strong>: sin motivo económico válido y con la mera finalidad de obtener una ventaja fiscal. Y la consecuencia vigente es precisamente eliminar los efectos de esa ventaja. Se dice claramente al cliente, con el artículo, y se documenta que se le advirtió.</p></div>
+          <div class="plano"><h5>Paso 3 · Lo que sí se puede hacer, y es mucho</h5><p><strong>a)</strong> Sacar del perímetro el <strong>local</strong>: si el comprador no lo necesita en propiedad, se queda fuera y se firma arrendamiento a valor de mercado el mismo día del cierre. Eso reduce el precio pero convierte parte del cobro en una renta futura, y evita que la plusvalía del inmueble se realice ahora. <strong>b)</strong> Repartir la <strong>tesorería excedentaria</strong> antes del cierre como dividendo (<em>pay-out</em>) y comparar su coste con cobrarla vía precio. <strong>c)</strong> Estructurar el earn-out y el vendor loan como <strong>operación a plazos</strong> para imputar la renta según los cobros. <strong>d)</strong> Negociar los límites de las garantías con plazos ligados a la prescripción real (4 años; 10 para bases y deducciones pendientes, art. 66 bis LGT).</p></div>
+          <div class="plano"><h5>Paso 4 · Vender bien es una due diligence propia</h5><p>Vendor due diligence antes de abrir el data room: retribuciones del socio, contratos con partes vinculadas, licencias del local, contingencias laborales. Cada hallazgo que encuentre el comprador primero se convierte en descuento; cada uno que encontremos nosotros antes, en una corrección sin coste.</p></div>
+          <div class="plano"><h5>Paso 5 · El día después</h5><p>La conversación que decide el valor de nuestro servicio: <strong>¿qué hace con 3.000.000 € en la cuenta?</strong> Aquí sí tiene sentido una estructura, ahora con motivo económico real (gestionar el patrimonio financiero e inmobiliario familiar, coinvertir con los hijos), y aquí entra el Módulo 5: cartera con traspasos, previsión social, seguros, test de liquidez sucesoria con el patrimonio nuevo, y actualización de testamentos porque el patrimonio ya no es una empresa sino dinero.</p></div>
+          <div class="plano"><h5>Qué se evalúa en este caso</h5><p>Que digas «no» al holding de última hora con el artículo en la mano; que sepas convertir un EV en dinero al cierre; que uses las palancas legítimas que quedan; y que no olvides que después de cobrar empieza el trabajo patrimonial de verdad.</p></div>
+        </div></div>
+      </div>
+
+      <div class="caso" data-act="caso3">
+        <div class="caso-h"><div class="ci">3</div><div class="cti"><div class="cl">Caso integral 3 · La herencia que nadie ordenó</div><h4>Fallecimiento sin plan, con proindivisos y una sucesión antigua sin liquidar</h4><p>Fallece el padre en Andalucía. Deja: vivienda habitual (300.000 €), tres fincas rústicas heredadas de su propio padre en 1998 y <strong>nunca puestas a su nombre</strong>, un 40 % de una sociedad con dos primos, y 80.000 € en cuentas. Viuda y dos hijos, uno residente en Alemania desde hace ocho años. No hay testamento.</p></div><div class="chev">▾</div></div>
+        <div class="caso-body"><div class="caso-inner">
+          <div class="plano"><h5>Paso 1 · Primero el derecho civil, después el impuesto</h5><p>Sin testamento hay <strong>sucesión intestada</strong>: los hijos heredan por partes iguales y la viuda conserva su usufructo legal. Hay que determinar el régimen económico del matrimonio para saber qué era del padre y qué era común, y hacer la liquidación de gananciales antes de la partición. Nada se calcula hasta que esto está claro.</p></div>
+          <div class="plano"><h5>Paso 2 · La sucesión de 1998</h5><p>Las fincas están a nombre del abuelo. Hay que analizar si aquella sucesión prescribió (Módulo 3 · Parte 4), qué documentación existe y si cabe acta de notoriedad o expediente de dominio —con la advertencia de que en esos casos <strong>la prescripción se computa desde la fecha del expediente</strong>, no desde la transmisión original (art. 7.2.C TRLITPAJD)—. También si hay <strong>usucapión</strong> a favor de quien ha venido poseyendo. Es el punto más delicado del caso y el que más se improvisa en la práctica.</p></div>
+          <div class="plano"><h5>Paso 3 · Los plazos que corren</h5><p><strong>Seis meses</strong> para el ISD desde el fallecimiento, con posibilidad de prórroga solicitada en plazo. Se calcula la cuota por heredero con la calculadora del Módulo 3 · Parte 4: en Andalucía la bonificación deja la factura de los hijos y del cónyuge en un importe muy reducido, pero <strong>hay que presentar y liquidar igual</strong>, y la vivienda habitual y la participación societaria tienen sus propias reducciones con requisitos de mantenimiento.</p></div>
+          <div class="plano"><h5>Paso 4 · El hijo no residente</h5><p>Reside en Alemania: hay que revisar su tributación por obligación real y los puntos de conexión aplicables, además de su situación en su país de residencia. Y si en el futuro vende su parte de las fincas, aparecerá la <strong>retención del 3 %</strong> del art. 25.2 TRLIRNR y la tributación por las ganancias de los arts. 13.1.i). Esto se le explica ahora, no cuando venda.</p></div>
+          <div class="plano"><h5>Paso 5 · El 40 % de la sociedad con los primos</h5><p>Se hereda una minoría en una sociedad sin pacto de socios, sin fórmula de valoración y con dos socios que no son familia directa. Es el peor activo posible de una herencia. Opciones: negociar la venta a los primos con valoración por tercero, pactar ahora las reglas que no existían (arrastre, acompañamiento, valoración, salida), o aceptar la situación con un dividendo pactado. Y una lección para el resto de la cartera de clientes: esto se evita con un pacto de socios firmado veinte años antes.</p></div>
+          <div class="plano"><h5>Paso 6 · Y evitar el proindiviso eterno</h5><p>Tres herederos con cuotas sobre cinco activos generan cinco comunidades. Hay que planificar la <strong>partición</strong> con adjudicaciones íntegras y compensaciones en dinero, vigilando los excesos de adjudicación (art. 7.2.B) y recordando que extinguir un condominio devenga <strong>AJD sobre el valor total</strong> del bien y que en IRPF <strong>no se actualizan valores</strong> (art. 33.2). Y ojo: la comunidad hereditaria que continúa la explotación en indivisión más de <strong>tres años</strong> tributa como sociedad por Operaciones Societarias (art. 22.5.º).</p></div>
+          <div class="plano"><h5>Qué se evalúa en este caso</h5><p>Que empieces por el derecho civil y no por el impuesto; que detectes la sucesión antigua sin liquidar y sus consecuencias; que controles los plazos; que veas el problema del no residente y el de la minoría sin pacto; y que cierres con una partición que no deje proindivisos. Este caso es el que separa a un buen consultor de alguien que sólo sabe calcular.</p></div>
+        </div></div>
+      </div>
+    </section>
+
+    <hr class="divider">
+
+    <!-- 6.8 RUBRICA -->
+    <section id="rubrica" class="reveal">
+      <span class="kicker">6.8 · Evaluación</span>
+      <h2>Cuándo estás listo para llevar un cliente solo</h2>
+      <table class="tbl">
+        <thead><tr><th>Nivel</th><th>Qué demuestras</th></tr></thead>
+        <tbody>
+          <tr><td><strong>1 · En formación</strong></td><td>Conoces los impuestos y sabes usar las calculadoras. Trabajas con supervisión en todas las fases</td></tr>
+          <tr><td><strong>2 · Diagnóstico autónomo</strong></td><td>Levantas un diagnóstico 360º completo, pides la documentación correcta y elaboras el mapa de dolor sin ayuda. Presentas hallazgos, no conclusiones</td></tr>
+          <tr><td><strong>3 · Propuesta supervisada</strong></td><td>Cuantificas el escenario base, diseñas la propuesta con alternativas y escribes el motivo económico. Un senior la revisa antes de enviarla</td></tr>
+          <tr><td><strong>4 · Cliente propio</strong></td><td>Llevas el encargo completo, presentas al cliente, ejecutas con notaría y registro y mantienes el seguimiento. Sabes <strong>cuándo pedir ayuda</strong>, que es el indicador más fiable de este nivel</td></tr>
+          <tr><td><strong>5 · Criterio</strong></td><td>Detectas lo que no está en la documentación, dices «no» cuando toca, y eres capaz de defender el expediente ante una inspección tres años después</td></tr>
+        </tbody>
+      </table>
+      <div class="flag">Las cinco preguntas de autoevaluación honesta, para responder antes de pedir un cliente propio: ¿sé calcular la factura sucesoria de un patrimonio mixto sin ayuda? ¿Sé decir a un cliente que su idea no es viable y por qué, con el artículo? ¿Sé cuándo una operación necesita motivo económico y cómo se escribe? ¿Sé qué documentación hay que pedir y para qué sirve cada documento? ¿Sé qué no sé?</div>
+    </section>
+
+    <hr class="divider">
+
+    <!-- EXAMEN FINAL -->
+    <section id="examen" class="reveal">
+      <span class="kicker">Evaluación final</span>
+      <h2>Examen final del programa</h2>
+      <p>Doce preguntas que cruzan los seis módulos. Necesitas un 70 % para superarlo, igual que en el resto de autoevaluaciones, pero aquí el estándar real es otro: <strong>deberías poder explicar en voz alta por qué cada respuesta correcta lo es</strong>.</p>
+      <div class="quiz" data-quiz-mod="mod6">
+        <div class="q-head"><span class="tri"></span><h3>Examen integrador · seis módulos</h3><span class="q-meta">Necesitas ≥ 70 %</span></div>
+        <div class="q-body">
+          <div class="q-item" data-correct="2">
+            <div class="q-txt"><span class="qn">1.</span>Un cliente quiere separar la nave de la actividad. ¿Cuál es la vía que cumple los requisitos sin forzarlos?</div>
+            <label class="q-opt"><input type="radio" name="q1" value="0">Escindir la nave a una sociedad nueva: es escisión parcial.</label>
+            <label class="q-opt"><input type="radio" name="q1" value="1">Vender la nave a otra sociedad del grupo con préstamo intragrupo.</label>
+            <label class="q-opt"><input type="radio" name="q1" value="2">Escindir o segregar la actividad, que sí es rama de actividad, dejando la nave en la sociedad original.</label>
+            <label class="q-opt"><input type="radio" name="q1" value="3">Aportar la nave al holding con neutralidad, sin más requisitos.</label>
+            <div class="q-feedback">Un inmueble aislado difícilmente es rama de actividad (art. 76.4 LIS). La actividad sí lo es. Y la venta intragrupo financiada con deuda del grupo choca además con el art. 15.h) LIS.</div>
+          </div>
+          <div class="q-item" data-correct="1">
+            <div class="q-txt"><span class="qn">2.</span>Sociedad vende una nave usada a otra sociedad con derecho a deducción plena. El coste fiscal más bajo se consigue…</div>
+            <label class="q-opt"><input type="radio" name="q2" value="0">Dejando la operación exenta y pagando TPO.</label>
+            <label class="q-opt"><input type="radio" name="q2" value="1">Renunciando a la exención: IVA deducible con inversión del sujeto pasivo y AJD agravado.</label>
+            <label class="q-opt"><input type="radio" name="q2" value="2">Vendiendo las participaciones de la sociedad en todo caso.</label>
+            <label class="q-opt"><input type="radio" name="q2" value="3">Aportando la nave a una sociedad nueva y vendiéndola al mes siguiente.</label>
+            <div class="q-feedback">Arts. 20.Dos y 84.Uno.2.º e) LIVA. Con prorrata alta, la renuncia gana; con prorrata baja, no. Y la opción 4 activa la trampa de los tres años del art. 338.2.c) Ley 6/2023.</div>
+          </div>
+          <div class="q-item" data-correct="3">
+            <div class="q-txt"><span class="qn">3.</span>Lo primero que hay que comprobar en una empresa familiar antes de cualquier propuesta es…</div>
+            <label class="q-opt"><input type="radio" name="q3" value="0">El tipo de gravamen del Impuesto sobre Sociedades.</label>
+            <label class="q-opt"><input type="radio" name="q3" value="1">La comunidad autónoma de residencia.</label>
+            <label class="q-opt"><input type="radio" name="q3" value="2">El valor de mercado de la compañía.</label>
+            <label class="q-opt"><input type="radio" name="q3" value="3">Si se cumplen los requisitos de la exención de empresa familiar: funciones de dirección, retribución superior al 50 % de las rentas y activos afectos.</label>
+            <div class="q-feedback">Es el nudo del que cuelgan IRPF, Patrimonio, Sucesiones y Sociedades. Si falla, se rompen los cuatro a la vez.</div>
+          </div>
+          <div class="q-item" data-correct="0">
+            <div class="q-txt"><span class="qn">4.</span>En una herencia, la normativa autonómica aplicable es…</div>
+            <label class="q-opt"><input type="radio" name="q4" value="0">La de la residencia habitual del causante, medida por permanencia mayoritaria en los cinco años anteriores.</label>
+            <label class="q-opt"><input type="radio" name="q4" value="1">La de la residencia del heredero.</label>
+            <label class="q-opt"><input type="radio" name="q4" value="2">La del lugar donde estén los bienes.</label>
+            <label class="q-opt"><input type="radio" name="q4" value="3">La que elijan los herederos de común acuerdo.</label>
+            <div class="q-feedback">Y en donaciones de inmuebles, la de donde esté el inmueble. Cambia el resultado por cientos de miles de euros.</div>
+          </div>
+          <div class="q-item" data-correct="2">
+            <div class="q-txt"><span class="qn">5.</span>Una donación de inmueble a un hijo activa…</div>
+            <label class="q-opt"><input type="radio" name="q5" value="0">Sólo el ISD del donatario.</label>
+            <label class="q-opt"><input type="radio" name="q5" value="1">Sólo la plusvalía municipal.</label>
+            <label class="q-opt"><input type="radio" name="q5" value="2">ISD del donatario, ganancia patrimonial en el IRPF del donante y plusvalía municipal, sin bonificación mortis causa.</label>
+            <label class="q-opt"><input type="radio" name="q5" value="3">Nada, si es entre padres e hijos.</label>
+            <div class="q-feedback">Y la pérdida, si la hubiera, no es computable (art. 33.5.c LIRPF). En sucesión, en cambio, no hay ganancia (art. 33.3.b) y la plusvalía municipal es bonificable hasta el 95 %.</div>
+          </div>
+          <div class="q-item" data-correct="1">
+            <div class="q-txt"><span class="qn">6.</span>El límite conjunto del art. 31 de la Ley del Impuesto sobre el Patrimonio…</div>
+            <label class="q-opt"><input type="radio" name="q6" value="0">Limita la cuota del IP al 50 % de la base.</label>
+            <label class="q-opt"><input type="radio" name="q6" value="1">Impide que las cuotas de IRPF y Patrimonio superen el 60 % de la base imponible del IRPF, con una reducción máxima del 80 % de la cuota del IP y excluyendo los elementos improductivos.</label>
+            <label class="q-opt"><input type="radio" name="q6" value="2">Sólo se aplica a no residentes.</label>
+            <label class="q-opt"><input type="radio" name="q6" value="3">Se aplica también al Impuesto de Grandes Fortunas sin ajustes.</label>
+            <div class="q-feedback">Es el cálculo que hay que hacer siempre junto al IRPF, nunca por separado (Módulo 3 · Parte 2).</div>
+          </div>
+          <div class="q-item" data-correct="3">
+            <div class="q-txt"><span class="qn">7.</span>En una compra apalancada con fusión posterior, la deuda máxima que evita el límite adicional de gastos financieros es…</div>
+            <label class="q-opt"><input type="radio" name="q7" value="0">El 50 % del precio.</label>
+            <label class="q-opt"><input type="radio" name="q7" value="1">El 100 %, no hay límite.</label>
+            <label class="q-opt"><input type="radio" name="q7" value="2">El 30 % del precio.</label>
+            <label class="q-opt"><input type="radio" name="q7" value="3">El 70 % del precio; o más, si se reduce proporcionalmente en 8 años hasta el 30 %.</label>
+            <div class="q-feedback">Arts. 16.5, 83 y 67.b) LIS. Define el apalancamiento máximo viable y, con él, el precio que el comprador puede pagar.</div>
+          </div>
+          <div class="q-item" data-correct="0">
+            <div class="q-txt"><span class="qn">8.</span>Un cliente de 71 años quiere convertir 240.000 € en renta. ¿Qué combinación es óptima?</div>
+            <label class="q-opt"><input type="radio" name="q8" value="0">Renta vitalicia: sólo el 8 % de cada anualidad es rendimiento, y si procede de la transmisión de un elemento patrimonial puede además exonerarse la ganancia con el límite de 240.000 € en 6 meses.</label>
+            <label class="q-opt"><input type="radio" name="q8" value="1">Renta temporal a 5 años, que tributa al 12 %.</label>
+            <label class="q-opt"><input type="radio" name="q8" value="2">Rescatar todo el capital de golpe.</label>
+            <label class="q-opt"><input type="radio" name="q8" value="3">Aportar el dinero a una sociedad patrimonial.</label>
+            <div class="q-feedback">Arts. 25.3.a) 2.º y 38.3 LIRPF. La renta temporal al 12 % parece mejor porcentaje, pero se aplica sobre una renta mucho mayor y durante menos tiempo: hay que calcular, no intuir.</div>
+          </div>
+          <div class="q-item" data-correct="2">
+            <div class="q-txt"><span class="qn">9.</span>En una compra de rama de actividad (asset deal), lo primero que se pide es…</div>
+            <label class="q-opt"><input type="radio" name="q9" value="0">La escritura de constitución de la sociedad vendedora.</label>
+            <label class="q-opt"><input type="radio" name="q9" value="1">Una tasación de los inmuebles.</label>
+            <label class="q-opt"><input type="radio" name="q9" value="2">El certificado de deudas tributarias del art. 175.2 LGT, con la conformidad del titular: limita la responsabilidad solidaria del art. 42.1.c).</label>
+            <label class="q-opt"><input type="radio" name="q9" value="3">El seguro de responsabilidad civil del vendedor.</label>
+            <div class="q-feedback">La Administración tiene tres meses para expedirlo; si no lo expide o lo expide sin deudas, el adquirente queda exento. Y si no se pide, la responsabilidad alcanza también a las sanciones.</div>
+          </div>
+          <div class="q-item" data-correct="1">
+            <div class="q-txt"><span class="qn">10.</span>Un cliente pierde capacidad de decisión y no había previsto nada. ¿Cuál es la consecuencia práctica?</div>
+            <label class="q-opt"><input type="radio" name="q10" value="0">Sus hijos pueden actuar automáticamente en su nombre.</label>
+            <label class="q-opt"><input type="radio" name="q10" value="1">Hay que acudir a medidas judiciales de apoyo, con el patrimonio y la empresa potencialmente bloqueados durante meses, cuando un poder preventivo en escritura pública lo habría evitado.</label>
+            <label class="q-opt"><input type="radio" name="q10" value="2">Se aplica la patria potestad prorrogada.</label>
+            <label class="q-opt"><input type="radio" name="q10" value="3">El notario nombra un administrador.</label>
+            <div class="q-feedback">Arts. 249 y ss. CC tras la Ley 8/2021: las medidas judiciales sólo proceden «en defecto o insuficiencia de la voluntad de la persona». La patria potestad prorrogada está suprimida.</div>
+          </div>
+          <div class="q-item" data-correct="3">
+            <div class="q-txt"><span class="qn">11.</span>El escenario base de un informe patrimonial sirve para…</div>
+            <label class="q-opt"><input type="radio" name="q11" value="0">Rellenar el informe.</label>
+            <label class="q-opt"><input type="radio" name="q11" value="1">Justificar los honorarios.</label>
+            <label class="q-opt"><input type="radio" name="q11" value="2">Cumplir un requisito formal.</label>
+            <label class="q-opt"><input type="radio" name="q11" value="3">Cuantificar qué cuesta no hacer nada, y ser la referencia con la que se compara cada propuesta y se mide la ventaja fiscal del art. 89.2.</label>
+            <div class="q-feedback">Sin escenario base, el ahorro es una afirmación sin prueba y no se puede medir cuál era la ventaja fiscal si llega una comprobación.</div>
+          </div>
+          <div class="q-item" data-correct="0">
+            <div class="q-txt"><span class="qn">12.</span>Un cliente propone una operación cuyo único efecto real es ahorrar impuestos. La respuesta correcta es…</div>
+            <label class="q-opt"><input type="radio" name="q12" value="0">Explicar con el artículo por qué no la proponemos, dejar constancia escrita de la advertencia y ofrecer las alternativas que sí tienen motivo económico.</label>
+            <label class="q-opt"><input type="radio" name="q12" value="1">Ejecutarla si el cliente asume el riesgo por escrito.</label>
+            <label class="q-opt"><input type="radio" name="q12" value="2">Ejecutarla sin comunicación para reducir el rastro.</label>
+            <label class="q-opt"><input type="radio" name="q12" value="3">Derivarla a otro despacho.</label>
+            <div class="q-feedback">Art. 89.2 LIS y arts. 15 y 16 LGT. Economía de opción sí; artificio no. Y esto no es sólo ética: es gestión del riesgo del cliente y del nuestro.</div>
+          </div>
+        </div>
+        <div class="q-actions">
+          <button class="btn btn-primary" data-quiz-check>Corregir examen</button>
+          <button class="btn btn-outline" data-quiz-reset>Reintentar</button>
+          <span class="q-score" data-quiz-score></span>
+        </div>
+      </div>
+    </section>
+
+    <div class="tracker" data-mod="mod6">
+      <div class="tk-head"><span class="tri"></span><h3>Actividades del módulo</h3><span class="tk-count" data-tk-count>0/6</span></div>
+      <div class="tk-body">
+        <div class="act" data-act="leer"><span class="box"></span><span class="lbl">Leer el módulo completo</span></div>
+        <div class="act" data-act="informe"><span class="box"></span><span class="lbl">Trabajar con la herramienta del informe patrimonial</span></div>
+        <div class="act" data-act="objeciones"><span class="box"></span><span class="lbl">Desplegar las ocho objeciones</span></div>
+        <div class="act" data-act="caso1"><span class="box"></span><span class="lbl">Resolver los tres casos integrales</span></div>
+        <div class="act" data-act="caso3"><span class="box"></span><span class="lbl">Abrir el caso de la herencia sin ordenar</span></div>
+        <div class="act" data-act="quiz"><span class="box"></span><span class="lbl">Superar el examen final</span></div>
+        <div data-tk-done style="display:none;align-items:center;gap:.6rem;margin-top:.9rem;padding:.8rem 1rem;background:var(--wine-soft);border-radius:9px;color:var(--wine-dark);font-weight:600"><span class="tri"></span> ¡Programa completado!</div>
+      </div>
     </div>
 
     <nav class="modnav">
-      <a href="modulo-5.html"><div class="d">← Anterior</div><div class="t">Módulo 5 · Planificación patrimonial y sucesoria</div></a>
-      <a class="next" href="index.html"><div class="d">Fin →</div><div class="t">Volver al inicio</div></a>
+      <a href="modulo-5.html"><div class="d">← Anterior</div><div class="t">Módulo 5 · Planificación patrimonial</div></a>
+      <a class="next" href="index.html"><div class="d">Volver →</div><div class="t">Inicio del programa</div></a>
     </nav>
+
   </main>
 </div>
 
@@ -121,12 +437,15 @@
     <img src="dasar-blanco.svg" alt="DASAR Gestión Patrimonial">
     <nav class="fnav">
       <a href="index.html">Inicio</a>
-      <a href="modulo-0.html">Módulo 0</a>
+      <a href="#inf">Informe patrimonial</a>
+      <a href="#casos">Casos integrales</a>
+      <a href="#examen">Examen final</a>
     </nav>
-    <div class="fcopy">© <span data-year>2026</span> DASAR Gestión Patrimonial · Formación interna. Documento de uso formativo; no constituye asesoramiento fiscal ni legal.</div>
+    <div class="fcopy">© <span data-year>2026</span> DASAR Gestión Patrimonial · Formación interna. No constituye asesoramiento fiscal ni legal. Verifica siempre la normativa vigente.</div>
   </div>
 </footer>
 
-<script src="app.js?v=12"></script>
+<script src="deducciones.js?v=17"></script>
+<script src="app.js?v=17"></script>
 </body>
 </html>
