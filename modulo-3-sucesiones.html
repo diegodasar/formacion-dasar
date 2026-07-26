@@ -1,0 +1,623 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+<meta http-equiv="Pragma" content="no-cache">
+<meta http-equiv="Expires" content="0">
+<title>Módulo 3 · Sucesiones y Donaciones · DASAR</title>
+<meta name="description" content="Módulo 3 DASAR (parte ISD): calculadora por comunidad, donación frente a sucesión, usufructo y consolidación, regímenes matrimoniales, testamentos, venta de empresa, herencias no reclamadas y usucapión.">
+<link rel="icon" href="dasar-color.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Jost:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css?v=14">
+</head>
+<body data-current="mod3">
+
+<header class="topbar">
+  <button class="menu-toggle" aria-label="Menú"><span></span><span></span><span></span></button>
+  <a class="brand" href="index.html">
+    <img src="dasar-blanco.svg" alt="DASAR Gestión Patrimonial">
+    <span class="tag">Formación</span>
+  </a>
+  <span class="spacer"></span>
+  <div class="tprogress" title="Progreso del programa">
+    <span data-progress-text>0/7</span>
+    <span class="bar"><i data-progress-bar></i></span>
+  </div>
+  <a class="home-link" href="index.html">Inicio</a>
+</header>
+<div class="readprogress" aria-hidden="true"><i></i></div>
+
+<div class="layout">
+  <aside class="sidebar">
+    <div class="side-h">Módulos del programa</div>
+    <nav id="sidebar-list"></nav>
+  </aside>
+
+  <main class="content prose">
+
+    <div class="mod-head">
+      <div class="eyebrow">
+        <span class="mod-badge">Módulo 3 · Parte 4</span>
+        <span class="mod-meta">Sucesiones y Donaciones</span>
+      </div>
+      <h1>Sucesiones y Donaciones</h1>
+      <p class="lead">El punto donde se decide si una familia conserva o pierde su patrimonio. Aquí ves la mecánica completa del ISD, una <strong>calculadora por comunidad</strong>, la comparativa <strong>donación frente a sucesión</strong>, el <strong>usufructo</strong> y su consolidación, los <strong>regímenes matrimoniales</strong> y el derecho civil de cada territorio, los <strong>tipos de testamento</strong> y su procedimiento, qué pasa si se <strong>vende la empresa</strong> antes de tiempo y cómo se resuelven las <strong>herencias no reclamadas</strong> (yacencia, prescripción y usucapión).</p>
+      <p style="color:var(--muted-2);font-size:.9rem">Nivel: máster / especialización · Parte 4 de 5 del Módulo 3 · Lectura estimada: 100–120 min</p>
+    </div>
+
+    <nav class="partnav" aria-label="Partes del Módulo 3">
+      <a class="p" href="modulo-3.html">← Parte 1 · IRPF</a>
+      <a class="p" href="modulo-3-patrimonio.html">← Parte 2 · Patrimonio</a>
+      <a class="p" href="modulo-3-sociedades.html">← Parte 3 · Sociedades</a>
+      <span class="p on">Parte 4 · Sucesiones y Donaciones</span>
+      <span class="p dis">Parte 5 · Indirecta e interconexión</span>
+    </nav>
+
+    <div class="callout"><div class="ic">✓</div><div class="ct"><h4>Datos verificados en el BOE</h4><p>Extraído del <strong>texto consolidado de la Ley 29/1987</strong> y su <strong>Reglamento (RD 1629/1991)</strong>, del <strong>Código Civil</strong> y de la ley de tributos cedidos de <strong>cada comunidad</strong>. Los datos autonómicos cambian con frecuencia: verifica siempre antes de una propuesta.</p></div></div>
+
+    <div class="toc">
+      <h4>En esta parte</h4>
+      <a href="#s1"><span class="tri"></span>3.27 · Mecánica del impuesto y plazos</a>
+      <a href="#s2"><span class="tri"></span>3.28 · Base imponible: ajuar, adiciones y deudas</a>
+      <a href="#s3"><span class="tri"></span>3.29 · Reducciones estatales</a>
+      <a href="#s4"><span class="tri"></span>3.30 · Tarifa y coeficientes</a>
+      <a href="#calc"><span class="tri"></span>Calculadora del ISD por comunidad</a>
+      <a href="#s5"><span class="tri"></span>3.31 · Mapa autonómico: sucesiones</a>
+      <a href="#s6"><span class="tri"></span>3.32 · Donación frente a sucesión</a>
+      <a href="#s7"><span class="tri"></span>3.33 · Usufructo, nuda propiedad y consolidación</a>
+      <a href="#s8"><span class="tri"></span>3.34 · Regímenes matrimoniales y derecho civil</a>
+      <a href="#s9"><span class="tri"></span>3.35 · Testamentos: tipos y cómo hacerlo</a>
+      <a href="#s10"><span class="tri"></span>3.36 · Los pasos de una sucesión</a>
+      <a href="#s11"><span class="tri"></span>3.37 · Vender la empresa: el timing</a>
+      <a href="#s12"><span class="tri"></span>3.38 · Herencias no reclamadas y usucapión</a>
+      <a href="#s13"><span class="tri"></span>3.39 · Checklist de planificación</a>
+      <a href="#casos"><span class="tri"></span>Casos y autoevaluación</a>
+    </div>
+
+    <!-- 3.27 -->
+    <section id="s1" class="reveal">
+      <span class="kicker">3.27 · Mecánica</span>
+      <h2>Cómo funciona el ISD y qué plazos hay</h2>
+      <p>Grava tres cosas <span class="ref-tag">art. 3</span>: las adquisiciones <strong>mortis causa</strong>, las <strong>donaciones</strong> e inter vivos gratuitas, y las <strong>cantidades percibidas por beneficiarios de seguros de vida</strong> cuando el contratante es persona distinta. Solo lo pagan las <strong>personas físicas</strong>: si adquiere una sociedad, va al Impuesto sobre Sociedades.</p>
+      <div class="flow" style="grid-template-columns:repeat(4,1fr)">
+        <div class="step"><div class="n">01</div><h4>Base imponible</h4><p>Caudal + ajuar + adiciones − cargas, deudas y gastos.</p></div>
+        <div class="step"><div class="n">02</div><h4>Base liquidable</h4><p>− reducciones estatales y luego autonómicas.</p></div>
+        <div class="step"><div class="n">03</div><h4>Cuota íntegra</h4><p>× tarifa progresiva (7,65 % → 34 %).</p></div>
+        <div class="step"><div class="n">04</div><h4>Cuota a ingresar</h4><p>× coeficiente por patrimonio preexistente − bonificaciones.</p></div>
+      </div>
+      <table class="tbl">
+        <thead><tr><th>Cuestión</th><th>Regla</th></tr></thead>
+        <tbody>
+          <tr><td><strong>Devengo</strong></td><td>Mortis causa y seguros: <strong>día del fallecimiento</strong>. Pactos sucesorios: el día del acuerdo. Donaciones: el día del acto <span class="ref-tag">art. 24</span></td></tr>
+          <tr><td><strong>Plazo de presentación</strong></td><td>Sucesiones y seguros: <strong>6 meses</strong> desde el fallecimiento. Donaciones: <strong>30 días hábiles</strong> <span class="ref-tag">art. 67 Rgto.</span></td></tr>
+          <tr><td><strong>Prórroga</strong></td><td>Solo en sucesiones: <strong>6 meses más</strong>, pidiéndola en los <strong>5 primeros meses</strong>; se entiende concedida si en un mes no hay respuesta. <strong>Devenga intereses de demora</strong> <span class="ref-tag">art. 68 Rgto.</span></td></tr>
+          <tr><td><strong>Valor de los inmuebles</strong></td><td>El <strong>valor de referencia</strong> de Catastro a la fecha de devengo (o el declarado si es superior) <span class="ref-tag">art. 9.3</span></td></tr>
+          <tr><td><strong>Aplazamiento</strong></td><td>Hasta 1 año, o fraccionado en 5 anualidades. En <strong>empresa familiar y vivienda habitual</strong>: <strong>5 años sin intereses</strong> con caución y después 10 plazos semestrales <span class="ref-tag">arts. 38-39</span></td></tr>
+          <tr><td><strong>No residentes</strong></td><td>Tras la <strong>STJUE de 3-9-2014</strong>: si el causante era no residente, se aplica la normativa de la CCAA donde esté el <strong>mayor valor</strong> de los bienes en España; si no hay bienes, la de residencia del sujeto pasivo <span class="ref-tag">DA 2.ª</span></td></tr>
+          <tr><td><strong>Residencia autonómica</strong></td><td>Se es residente en la CCAA donde se haya permanecido <strong>más días de los últimos 5 años</strong> <span class="ref-tag">DA 2.ª</span></td></tr>
+        </tbody>
+      </table>
+      <div class="callout"><div class="ic">!</div><div class="ct"><h4>La regla de los 5 años que cambia todo</h4><p>La comunidad aplicable no es donde vive el heredero ni donde están los bienes: es la de <strong>residencia habitual del causante</strong>, medida por permanencia mayoritaria en los <strong>5 años anteriores</strong>. Un traslado de residencia solo "cuenta" si se sostiene en el tiempo. Es la primera pregunta de cualquier planificación sucesoria.</p></div></div>
+    </section>
+
+    <hr class="divider">
+
+    <!-- 3.28 -->
+    <section id="s2" class="reveal">
+      <span class="kicker">3.28 · Base imponible</span>
+      <h2>Ajuar, adiciones, deudas y gastos</h2>
+      <table class="tbl">
+        <thead><tr><th>Concepto</th><th>Regla exacta</th><th>Art.</th></tr></thead>
+        <tbody>
+          <tr><td><strong>Ajuar doméstico</strong></td><td>Se valora en el <strong>3 % del caudal relicto</strong>, salvo que se pruebe fehacientemente su inexistencia o un valor inferior. En su cálculo <strong>no</strong> se incluyen los bienes adicionados, las donaciones acumuladas ni los seguros de vida; y se minora en el <strong>3 % del valor catastral de la vivienda habitual</strong> del matrimonio (bienes del art. 1.321 CC para el viudo)</td><td>15 · 34.3 Rgto.</td></tr>
+          <tr><td><strong>Adición de bienes</strong></td><td>Se presumen del caudal: los del causante hasta <strong>1 año</strong> antes; los adquiridos en usufructo por el causante y nuda propiedad por heredero o pariente hasta 3.er grado en <strong>3 años</strong>; los transmitidos reservándose usufructo en <strong>4 años</strong>; y los valores con resguardos endosados</td><td>11</td></tr>
+          <tr><td><strong>Cargas deducibles</strong></td><td>Solo las que disminuyan realmente el valor del bien (censos, pensiones). <strong>Nunca las hipotecas ni las prendas</strong> (que son deuda, no carga)</td><td>12</td></tr>
+          <tr><td><strong>Deudas</strong></td><td>Las del causante acreditadas en documento público o con los requisitos del art. 1.227 CC. <strong>No</strong> las contraídas a favor de herederos, legatarios de parte alícuota ni de sus cónyuges, ascendientes, descendientes o hermanos</td><td>13</td></tr>
+          <tr><td><strong>Gastos</strong></td><td>Litigio de interés común; y <strong>última enfermedad, entierro y funeral</strong> justificados y proporcionados al caudal</td><td>14</td></tr>
+          <tr><td><strong>Acumulación</strong></td><td>Donaciones del mismo donante al mismo donatario en <strong>3 años</strong> se suman entre sí; y las donaciones se acumulan a la <strong>sucesión</strong> si median menos de <strong>4 años</strong>. Se aplica el <strong>tipo medio</strong> del total</td><td>30</td></tr>
+          <tr><td><strong>Excesos de adjudicación</strong></td><td>Se liquidan cuando lo adjudicado a un heredero <strong>excede del 50 %</strong> de lo que le correspondería por su título</td><td>27.3</td></tr>
+        </tbody>
+      </table>
+      <div class="callout ref"><div class="ic">i</div><div class="ct"><h4>El ajuar y el criterio del Supremo</h4><p>El Tribunal Supremo ha matizado que el 3 % <strong>no se calcula sobre todo el caudal indiscriminadamente</strong>: quedan fuera los bienes que por su naturaleza no pueden integrar el ajuar doméstico (dinero, valores, participaciones, activos afectos a actividad). En herencias con mucho activo financiero, discutir el ajuar es una de las primeras palancas de ahorro.</p></div></div>
+    </section>
+
+    <hr class="divider">
+
+    <!-- 3.29 -->
+    <section id="s3" class="reveal">
+      <span class="kicker">3.29 · Reducciones estatales</span>
+      <h2>Las reducciones del art. 20 y los grupos de parentesco</h2>
+      <table class="tbl">
+        <thead><tr><th>Grupo</th><th>Quién</th><th>Reducción estatal</th></tr></thead>
+        <tbody>
+          <tr><td><strong>I</strong></td><td>Descendientes y adoptados <strong>menores de 21 años</strong></td><td><strong>15.956,87 €</strong> + <strong>3.990,72 €</strong> por cada año menos de 21, máximo <strong>47.858,59 €</strong></td></tr>
+          <tr><td><strong>II</strong></td><td>Descendientes de 21 o más años, <strong>cónyuge</strong>, ascendientes y adoptantes</td><td><strong>15.956,87 €</strong></td></tr>
+          <tr><td><strong>III</strong></td><td>Colaterales de 2.º y 3.er grado (hermanos, sobrinos, tíos) y afines</td><td><strong>7.993,46 €</strong></td></tr>
+          <tr><td><strong>IV</strong></td><td>Colaterales de 4.º grado (primos), grados más distantes y extraños</td><td><strong>Sin reducción</strong></td></tr>
+        </tbody>
+      </table>
+      <table class="tbl">
+        <thead><tr><th>Otras reducciones estatales</th><th>Contenido</th></tr></thead>
+        <tbody>
+          <tr><td><strong>Discapacidad</strong></td><td><strong>47.858,59 €</strong> (grado ≥33 % y &lt;65 %) y <strong>150.253,03 €</strong> (≥65 %), <em>además</em> de la de parentesco</td></tr>
+          <tr><td><strong>Seguros de vida</strong></td><td><strong>100 %, con límite de 9.195,49 €</strong>, para cónyuge, ascendiente, descendiente, adoptante o adoptado. Única por sujeto pasivo. <strong>Sin límite</strong> en actos de terrorismo y misiones humanitarias</td></tr>
+          <tr><td><strong>Empresa familiar</strong> (mortis causa)</td><td><strong>95 %</strong> del valor de empresa individual, negocio profesional o participaciones con derecho a la <strong>exención del art. 4.Ocho del IP</strong> (Parte 2), para cónyuge, descendientes o adoptados. Mantenimiento <strong>10 años</strong> (salvo fallecimiento del adquirente). Si no hay descendientes, a ascendientes y colaterales <strong>hasta 3.er grado</strong>; <em>el cónyuge siempre tiene derecho</em></td></tr>
+          <tr><td><strong>Vivienda habitual del causante</strong></td><td><strong>95 %</strong>, con límite de <strong>122.606,47 € por sujeto pasivo</strong>, para cónyuge, ascendientes o descendientes (o colateral mayor de 65 años que conviviera 2 años). Mantenimiento 10 años</td></tr>
+          <tr><td><strong>Patrimonio Histórico</strong></td><td><strong>95 %</strong> con los mismos requisitos de permanencia</td></tr>
+          <tr><td><strong>Transmisión consecutiva</strong></td><td>Si los mismos bienes se transmiten <strong>dos o más veces mortis causa en 10 años</strong> a favor de descendientes, se deduce lo pagado en las anteriores</td></tr>
+          <tr><td><strong>Donación de empresa</strong> (inter vivos)</td><td><strong>95 %</strong> si el donante tiene <strong>65 o más años</strong> o incapacidad permanente absoluta o gran invalidez; <strong>debe dejar de ejercer funciones de dirección y de percibir remuneración</strong> por ellas; el donatario mantiene y conserva el derecho a la exención en IP <strong>10 años</strong> <span class="ref-tag">art. 20.6</span></td></tr>
+        </tbody>
+      </table>
+      <div class="callout idea"><div class="ic">★</div><div class="ct"><h4>Las dos condiciones que se olvidan en la donación de empresa</h4><p>Que el donante <strong>deje de dirigir y de cobrar</strong> por dirigir (la mera pertenencia al consejo no cuenta como función de dirección), y que el donatario <strong>no realice actos que minoren sustancialmente el valor</strong> de lo adquirido. Son la causa más frecuente de pérdida de la reducción del 95 %.</p></div></div>
+    </section>
+
+    <hr class="divider">
+
+    <!-- 3.30 -->
+    <section id="s4" class="reveal">
+      <span class="kicker">3.30 · Tarifa</span>
+      <h2>Tarifa estatal y coeficientes multiplicadores</h2>
+      <p>La escala estatal va del <strong>7,65 %</strong> al <strong>34 %</strong> (16 tramos), y se alcanza el tipo máximo a partir de <strong>797.555,08 €</strong> de base liquidable. Después, la cuota se multiplica por un coeficiente que depende del <strong>grupo de parentesco</strong> y del <strong>patrimonio preexistente</strong> del heredero:</p>
+      <table class="tbl">
+        <thead><tr><th>Patrimonio preexistente</th><th>Grupos I y II</th><th>Grupo III</th><th>Grupo IV</th></tr></thead>
+        <tbody>
+          <tr><td>0 – 402.678,11 €</td><td>1,0000</td><td>1,5882</td><td>2,0000</td></tr>
+          <tr><td>402.678,11 – 2.007.380,43 €</td><td>1,0500</td><td>1,6676</td><td>2,1000</td></tr>
+          <tr><td>2.007.380,43 – 4.020.770,98 €</td><td>1,1000</td><td>1,7471</td><td>2,2000</td></tr>
+          <tr><td>Más de 4.020.770,98 €</td><td>1,2000</td><td>1,9059</td><td>2,4000</td></tr>
+        </tbody>
+      </table>
+      <p class="libnote">De aquí sale el dato más brutal del impuesto: un <strong>no pariente</strong> con patrimonio alto puede pagar <strong>34 % × 2,4 = 81,6 %</strong> de tipo marginal. Por eso dejar bienes a sobrinos-nietos, amigos o parejas no formalizadas exige planificación específica. Existe una regla de "error de salto" que corrige el exceso al cambiar de tramo.</p>
+    </section>
+
+    <hr class="divider">
+
+    <!-- CALCULADORA -->
+    <section id="calc" class="reveal">
+      <span class="kicker">Calculadora interactiva</span>
+      <h2>Calculadora del Impuesto sobre Sucesiones por comunidad</h2>
+      <p>Introduce lo que recibe <strong>un heredero concreto</strong> (el impuesto es individual) y compara comunidades. Aplica la escala y los coeficientes estatales, la reducción de parentesco (estatal o autonómica, la mejor), la de empresa familiar y la bonificación de cada comunidad.</p>
+      <div class="calc rcalc isdcalc">
+        <div class="calc-head"><span class="tri"></span><h3>Estimador del ISD por comunidad</h3></div>
+        <div class="calc-grid">
+          <div class="fld"><label for="h-caudal">Valor que recibe este heredero (€)</label><small>Su parte del caudal, ya con ajuar y deudas.</small><input id="h-caudal" data-h-caudal type="number" min="0" step="10000" placeholder="p. ej. 600000"></div>
+          <div class="fld"><label for="h-ccaa">Comunidad del causante</label><select id="h-ccaa" data-h-ccaa></select></div>
+        </div>
+        <div class="calc-grid" style="padding-top:0">
+          <div class="fld"><label for="h-rel">Parentesco con el causante</label>
+            <select id="h-rel" data-h-rel>
+              <option value="hijo">Hijo/a de 21 o más años (Grupo II)</option>
+              <option value="conyuge">Cónyuge (Grupo II)</option>
+              <option value="hijoMenor">Hijo/a menor de 21 (Grupo I)</option>
+              <option value="ascendiente">Padre o madre (Grupo II)</option>
+              <option value="hermano">Hermano/a o sobrino/a (Grupo III)</option>
+              <option value="noPariente">Sin parentesco (Grupo IV)</option>
+            </select>
+          </div>
+          <div class="fld"><label for="h-edad">Edad (solo si es menor de 21)</label><input id="h-edad" data-h-edad type="number" min="0" max="21" placeholder="p. ej. 12"></div>
+        </div>
+        <div class="calc-grid" style="padding-top:0">
+          <div class="fld"><label for="h-empresa">De ese valor, empresa familiar o participaciones (€)</label><small>Con derecho a la exención del art. 4.Ocho del IP.</small><input id="h-empresa" data-h-empresa type="number" min="0" step="10000" placeholder="p. ej. 0"></div>
+          <div class="fld"><label for="h-patrimonio">Patrimonio preexistente del heredero (€)</label><small>Determina el coeficiente multiplicador.</small><input id="h-patrimonio" data-h-patrimonio type="number" min="0" step="10000" placeholder="p. ej. 200000"></div>
+        </div>
+        <div class="calc-actions"><button class="btn btn-primary" data-h-run>Calcular impuesto</button></div>
+        <div class="calc-result"></div>
+      </div>
+    </section>
+
+    <hr class="divider">
+
+    <!-- 3.31 MAPA SUCESIONES -->
+    <section id="s5" class="reveal">
+      <span class="kicker">3.31 · Mapa autonómico</span>
+      <h2>Sucesiones: cómo está cada comunidad</h2>
+      <div class="warnbox"><div class="ic">!</div><p>Verificado en los textos consolidados, pero cambia con frecuencia. <strong>Castilla-La Mancha, Madrid y Cataluña</strong> llevan aviso de "actualización en proceso" en el BOE: confírmalo siempre.</p></div>
+      <table class="tbl">
+        <thead><tr><th>Comunidad</th><th>Reducción propia GI-GII</th><th>Bonificación de cuota</th><th>Empresa familiar / vivienda</th></tr></thead>
+        <tbody>
+          <tr><td><strong>Andalucía</strong></td><td><strong>1.000.000 €</strong> por heredero</td><td><strong>99 %</strong></td><td>Empresa <strong>99 %</strong> y vivienda <strong>99 %</strong>, mantenimiento solo <strong>3 años</strong></td></tr>
+          <tr><td><strong>Galicia</strong></td><td><strong>1.000.000 €</strong> (GI hasta 1,5 M€)</td><td>99 % <strong>solo Grupo I</strong>; el GII no tiene, pero hay <strong>tarifa propia 5-18 %</strong></td><td>Empresa 99 % (5 años); vivienda 99/97/95 %, cónyuge 100 %</td></tr>
+          <tr><td><strong>Extremadura</strong></td><td><strong>500.000 €</strong></td><td><strong>99 %</strong> (presentando en plazo)</td><td>Empresa 99 % (5 años, domicilio en Extremadura)</td></tr>
+          <tr><td><strong>Aragón</strong></td><td><strong>500.000 €</strong> (100 % de la base, límite conjunto)</td><td>99 % <strong>solo GI</strong>; GII: 65 % de la cuota de la vivienda</td><td>Empresa 99 %; vivienda <strong>100 %</strong> con límite 200.000 €</td></tr>
+          <tr><td><strong>Castilla y León</strong></td><td>60.000 € + variable hasta <strong>400.000 €</strong></td><td><strong>99 %</strong></td><td>Empresa 99 % (5 años); sin reducción propia de vivienda</td></tr>
+          <tr><td><strong>Asturias</strong></td><td><strong>300.000 €</strong></td><td><strong>Sin bonificación</strong>; coeficientes reducidos en GI</td><td>Empresa +4 % sobre la estatal; vivienda 99-95 % (3 años). <strong>Tarifa propia más alta (21,25-36,50 %)</strong></td></tr>
+          <tr><td><strong>Cataluña</strong></td><td><strong>100.000 €</strong> (hijo y cónyuge)</td><td>Cónyuge <strong>99 %</strong>; resto GI-GII <strong>decreciente</strong>. Se pierde si se usan reducciones rogadas</td><td>Empresa 95 % (97 % sociedades laborales); vivienda 95 %, límite 500.000 € conjunto</td></tr>
+          <tr><td><strong>C. Valenciana</strong></td><td><strong>100.000 €</strong></td><td><strong>99 %</strong> (solo bienes declarados)</td><td>Empresa 99 %; vivienda 95 % (límite 150.000 €)</td></tr>
+          <tr><td><strong>Canarias</strong></td><td>GI: 100 % de la base con topes por edad; GII: 40.400 € cónyuge / 23.125 € hijos</td><td><strong>99,9 %</strong> — y alcanza también al <strong>Grupo III</strong></td><td>Empresa 99 %; vivienda 99 % (límite 200.000 € conjunto)</td></tr>
+          <tr><td><strong>Cantabria</strong></td><td>50.000 €</td><td><strong>100 %</strong>; se asimilan convivientes de 2 años</td><td>Empresa 99 %; vivienda 95 % (125.000 €); seguros hasta <strong>50.000 €</strong></td></tr>
+          <tr><td><strong>Madrid</strong></td><td>16.000 €</td><td><strong>99 %</strong> (solo bienes declarados); <strong>Grupo III: 50 %</strong></td><td>Empresa <strong>99 %</strong> con mantenimiento <strong>5 años</strong>; vivienda 95 % (123.000 €)</td></tr>
+          <tr><td><strong>Baleares</strong></td><td>25.000 €</td><td><strong>100 %</strong> (deducción), si se consigna el valor de los inmuebles; <strong>GIII: 60/35 %</strong></td><td>Escala especial GI-II <strong>del 1 % hasta 700.000 €</strong>; vivienda <strong>100 %</strong> (270.151,20 €); agrarias 100 %</td></tr>
+          <tr><td><strong>Murcia</strong></td><td>Sin reducción propia</td><td><strong>99 %</strong></td><td>Empresa 99 %; tarifa propia hasta 36,50 %</td></tr>
+          <tr><td><strong>La Rioja</strong></td><td>Sin reducción propia</td><td><strong>99 %</strong>; también a convivientes de 15 años</td><td>Empresa 99 % (99,5 % cultural); vivienda 95 %</td></tr>
+          <tr><td><strong>Castilla-La Mancha</strong></td><td>Sin reducción propia</td><td><strong>Decreciente</strong>: 100 % (&lt;175.000 €), 95, 90, 85 y <strong>80 %</strong> (≥300.000 €)</td><td>Empresa +4 % sobre la estatal; sin reducción propia de vivienda; <strong>+95 % de bonificación si discapacidad ≥65 %</strong></td></tr>
+        </tbody>
+      </table>
+      <div class="caso svc" data-act="autonomicas">
+        <div class="caso-h"><div class="ci">+</div><div class="cti"><div class="cl">Ampliar · exenciones específicas por comunidad</div><h4>Las reducciones propias que casi nadie aprovecha</h4><p>Discapacidad, agrarias, patrimonio histórico, jóvenes y donaciones finalistas.</p></div><div class="chev">▾</div></div>
+        <div class="caso-body"><div class="caso-inner">
+          <div class="plano"><h5>Discapacidad</h5><p>Muy por encima de la estatal: <strong>Aragón y Galicia</strong> llegan al <strong>100 % de la base</strong> (Galicia con patrimonio ≤3 M€); <strong>Cataluña</strong> 275.000/650.000 €; <strong>Andalucía</strong> 250.000/500.000 €; <strong>Canarias</strong> 72.000/400.000 €; <strong>Asturias</strong> bonifica el <strong>100 % de la cuota</strong> si el grado es ≥65 % y el patrimonio ≤402.678,11 €; <strong>Castilla-La Mancha</strong> añade un 95 % de bonificación.</p></div>
+          <div class="plano"><h5>Explotaciones agrarias y forestales</h5><p><strong>Baleares 100 %</strong>; <strong>Galicia, Asturias, Cantabria, Extremadura, La Rioja y Castilla y León 99 %</strong> (Extremadura eleva al 99 % las de la Ley 19/1995). En Cataluña, 95 % y <strong>99 % para joven agricultor</strong>. No existen en Madrid, Andalucía, Aragón ni CLM.</p></div>
+          <div class="plano"><h5>Donaciones finalistas de dinero</h5><p>Muy potentes y poco usadas: <strong>Madrid 100 % hasta 250.000 €</strong> (vivienda, participaciones o activos de empresa, en 1 año); <strong>Andalucía 99 % hasta 1.000.000 €</strong> para constituir empresa y hasta 150.000/250.000 € para vivienda; <strong>Aragón 100 % hasta 300.000 €</strong> para primera vivienda de hijos; <strong>Extremadura 100 % de los primeros 200.000 €</strong>; <strong>Castilla y León 99 % hasta 180.000 €</strong>; <strong>Galicia 95 % hasta 60.000 €</strong>; <strong>Cataluña 95 %</strong> (200.000 € empresa, 60.000 € vivienda); <strong>Murcia 99 % hasta 300.000 €</strong> para empresa <em>incluso a Grupos III y IV</em>.</p></div>
+          <div class="plano"><h5>Patrimonio histórico y cultural</h5><p>Madrid, Cantabria y Baleares 95-99 %; <strong>Canarias 97 %</strong> (y 97 % patrimonio natural); Castilla-La Mancha 100/95/75/50 % según la duración de la cesión; Murcia 100 % en cesión permanente; Castilla y León 99 % con cesión &gt;10 años.</p></div>
+          <div class="plano"><h5>Vínculos no familiares</h5><p><strong>Extremadura</strong> permite que "personas con especial vinculación" inscritas en un registro autonómico reciban el trato de GI-GII. <strong>Cantabria</strong> asimila convivientes de 2 años; <strong>La Rioja</strong>, de 15 años. <strong>Asturias y Cataluña</strong> tienen reducciones del 95 % para empleados sin parentesco que continúan la empresa. Es la vía para parejas no casadas y para el directivo que sucede al fundador.</p></div>
+        </div></div>
+      </div>
+    </section>
+
+    <hr class="divider">
+
+    <!-- 3.32 DONACION VS SUCESION -->
+    <section id="s6" class="reveal">
+      <span class="kicker">3.32 · La gran decisión</span>
+      <h2>Donación frente a sucesión</h2>
+      <p>La pregunta que más veces nos hará un cliente. No hay respuesta universal: depende de la comunidad, del activo, de la edad y de la situación familiar. Este es el cuadro de decisión:</p>
+      <table class="tbl">
+        <thead><tr><th>Factor</th><th>Sucesión (mortis causa)</th><th>Donación (inter vivos)</th></tr></thead>
+        <tbody>
+          <tr><td><strong>ISD</strong></td><td>Reducciones estatales y autonómicas amplias; bonificaciones del 99-100 % en casi todas las CCAA para GI-GII</td><td>Menos reducciones; la bonificación existe en casi todas, pero con <strong>requisitos formales</strong> (escritura, origen de fondos)</td></tr>
+          <tr><td><strong>IRPF del transmitente</strong></td><td><strong>No tributa</strong>: la "plusvalía del muerto" está exenta y el heredero <strong>actualiza el valor</strong> (step-up)</td><td><strong>Sí tributa</strong>: el donante declara <strong>ganancia patrimonial</strong> por la diferencia de valor, aunque no reciba nada. <em>Es el gran coste oculto de donar.</em></td></tr>
+          <tr><td><strong>Plusvalía municipal</strong></td><td>La paga el heredero; muchos municipios bonifican hasta el <strong>95 %</strong> la vivienda habitual</td><td>La paga el donatario, sin esa bonificación</td></tr>
+          <tr><td><strong>Control</strong></td><td>El causante conserva todo hasta el final</td><td>Se pierde la propiedad (salvo reserva de <strong>usufructo</strong>)</td></tr>
+          <tr><td><strong>Certeza</strong></td><td>Depende de la ley vigente al fallecer y de la residencia de entonces</td><td><strong>Consolida hoy</strong> el régimen fiscal actual: útil si se espera un empeoramiento normativo</td></tr>
+          <tr><td><strong>Empresa familiar</strong></td><td>95-99 % con mantenimiento 5-10 años</td><td>95-99 %, pero el donante debe tener <strong>≥65 años</strong> y <strong>dejar la dirección</strong></td></tr>
+          <tr><td><strong>Acumulación</strong></td><td>—</td><td>Donaciones entre las mismas personas se suman a <strong>3 años</strong>, y a la herencia si median menos de <strong>4 años</strong></td></tr>
+        </tbody>
+      </table>
+      <div class="callout idea"><div class="ic">=</div><div class="ct"><h4>La regla práctica</h4><p>Con activos que tienen <strong>mucha plusvalía latente</strong> (inmuebles antiguos, acciones compradas baratas), la <strong>sucesión suele ganar</strong>: no hay ganancia en IRPF y el heredero actualiza el valor. Con activos <strong>sin plusvalía</strong> (dinero, inmueble recién comprado) o cuando hace falta <strong>anticipar el relevo</strong> o aprovechar una <strong>donación finalista</strong> muy bonificada, gana la <strong>donación</strong>. Y en territorios forales, valorar el <strong>pacto sucesorio</strong> (Módulo 1), que combina lo mejor de ambos.</p></div></div>
+      <h3>Donaciones: cómo se comporta cada comunidad</h3>
+      <table class="tbl">
+        <thead><tr><th>Comunidad</th><th>Beneficio en donaciones GI-GII</th><th>Requisito formal</th></tr></thead>
+        <tbody>
+          <tr><td>Madrid</td><td><strong>99 %</strong> (GIII 50 %); 100 % si base ≤1.000 €</td><td>Documento público si la base &gt;10.000 €; origen de fondos</td></tr>
+          <tr><td>Andalucía</td><td><strong>99 %</strong></td><td>Documento público si &gt;5.000 €; escritura en 1 mes en metálico</td></tr>
+          <tr><td>C. Valenciana</td><td><strong>99 %</strong> (cónyuge, padres, hijos, nietos y abuelos)</td><td>Documento público; justificar procedencia del dinero</td></tr>
+          <tr><td>Cantabria</td><td><strong>100 %</strong></td><td>No lo exige expresamente</td></tr>
+          <tr><td>Canarias</td><td><strong>99,9 %</strong></td><td>Documento público. <strong>No aplica si se usó en los 3 años anteriores</strong></td></tr>
+          <tr><td>Baleares</td><td><strong>100 %</strong> (deducción)</td><td>Escritura; en inmuebles, valor ≤ referencia +20 % (si no, tributa al 7 %)</td></tr>
+          <tr><td>Murcia</td><td><strong>99 %</strong>, también <strong>Grupo III</strong></td><td>Documento público en plazo</td></tr>
+          <tr><td>La Rioja</td><td><strong>99 %</strong></td><td>Documento <strong>notarial</strong>; excepción para transferencia bancaria declarada en 30 días</td></tr>
+          <tr><td>Castilla y León</td><td><strong>99 %</strong></td><td>Documento público</td></tr>
+          <tr><td>Extremadura</td><td><strong>99 %</strong> hasta 300.000 € y <strong>50 %</strong> del exceso, límite 600.000 €</td><td>Documento público</td></tr>
+          <tr><td>Aragón</td><td><strong>99 %</strong> GII si base ≤500.000 € (computando 5 años); GI 99 %</td><td>Autoliquidación en plazo</td></tr>
+          <tr><td>Castilla-La Mancha</td><td><strong>Decreciente</strong>: 95 % (&lt;120.000 €), 90 %, <strong>85 %</strong> (≥240.000 €)</td><td>Escritura pública; permanencia 5 años en bienes no dinerarios</td></tr>
+          <tr><td><strong>Cataluña</strong></td><td><strong>No hay bonificación</strong>: el beneficio es una <strong>tarifa reducida del 5 / 7 / 9 %</strong></td><td>Escritura pública o elevación en 1 mes</td></tr>
+          <tr><td><strong>Galicia</strong></td><td><strong>No hay bonificación</strong>: <strong>tarifa reducida 5 / 7 / 9 %</strong></td><td>Escritura pública (sin ella, tarifa general)</td></tr>
+          <tr><td><strong>Asturias</strong></td><td><strong>No hay bonificación</strong>: <strong>tarifa del 2 %</strong> en los primeros 150.000 € y luego 15-36,50 %</td><td>Documento público antes del fin del plazo; patrimonio del donatario ≤402.678,11 €</td></tr>
+        </tbody>
+      </table>
+      <p class="libnote">Ojo con Cataluña, Galicia y Asturias: al ser <strong>tarifa reducida</strong> y no bonificación, no se puede razonar "paga el 1 %". Y en varias comunidades la donación en metálico exige <strong>acreditar el origen de los fondos</strong> y manifestarlo en la escritura: sin eso, se pierde el beneficio.</p>
+    </section>
+
+    <hr class="divider">
+
+    <!-- 3.33 USUFRUCTO -->
+    <section id="s7" class="reveal">
+      <span class="kicker">3.33 · Usufructo</span>
+      <h2>Usufructo, nuda propiedad y consolidación del dominio</h2>
+      <p>Es la herramienta técnica más usada en planificación sucesoria y la que más errores de liquidación genera.</p>
+      <table class="tbl">
+        <thead><tr><th>Derecho</th><th>Valoración</th></tr></thead>
+        <tbody>
+          <tr><td><strong>Usufructo temporal</strong></td><td><strong>2 % por cada año</strong> de duración, <strong>sin exceder del 70 %</strong> del valor del bien (los períodos inferiores al año computan el 2 %)</td></tr>
+          <tr><td><strong>Usufructo vitalicio</strong></td><td><strong>70 %</strong> si el usufructuario tiene menos de 20 años, <strong>menos 1 % por cada año más</strong>, con <strong>mínimo del 10 %</strong>. <em>Regla mnemotécnica: 89 − edad, con los límites 70 % y 10 %.</em></td></tr>
+          <tr><td><strong>Nuda propiedad</strong></td><td>La <strong>diferencia</strong> entre el valor total y el del usufructo. Si es vitalicio y temporal a la vez, se aplica la regla que le dé <strong>menor valor</strong></td></tr>
+          <tr><td><strong>Uso y habitación</strong></td><td>Se aplican las reglas anteriores sobre el <strong>75 %</strong> del valor del bien</td></tr>
+          <tr><td><strong>Usufructo a persona jurídica</strong></td><td>Reglas del temporal, sin exceder del <strong>60 %</strong>; el mismo 60 % si la duración es indeterminada</td></tr>
+        </tbody>
+      </table>
+      <div class="caso svc" data-act="usufructo">
+        <div class="caso-h"><div class="ci">§</div><div class="cti"><div class="cl">Ampliar · imprescindible</div><h4>La consolidación del dominio: el impuesto que llega años después</h4><p>Cómo tributa el nudo propietario cuando muere el usufructuario.</p></div><div class="chev">▾</div></div>
+        <div class="caso-body"><div class="caso-inner">
+          <div class="plano"><h5>Al desmembrarse el dominio</h5><p>El usufructuario liquida por el valor de su usufructo. El nudo propietario liquida por el valor de la nuda propiedad, pero <strong>aplicando el tipo medio efectivo de gravamen correspondiente al valor íntegro</strong> del bien: no se beneficia de tributar sobre una base pequeña con tipos bajos.</p></div>
+          <div class="plano"><h5>Al extinguirse el usufructo (consolidación)</h5><p>El nudo propietario <strong>vuelve a pagar</strong>, esta vez <strong>sobre el valor que se atribuyó al usufructo en su constitución</strong>, con el <strong>mismo tipo medio efectivo</strong> y aplicando el resto de reducción no agotada. Es decir: el impuesto no desaparece, <strong>se aplaza</strong> al fallecimiento del usufructuario. Muchas familias lo descubren por sorpresa años después.</p></div>
+          <div class="plano"><h5>Reglas especiales que hay que conocer</h5><p><strong>Usufructos sucesivos:</strong> la nuda propiedad se calcula con el usufructo de mayor porcentaje y se liquida al extinguirse cada uno. <strong>Usufructo a favor de ambos cónyuges:</strong> solo se liquida la consolidación <strong>cuando fallece el último</strong>. <strong>Renuncia</strong> a un usufructo ya aceptado: se considera <strong>donación</strong> al nudo propietario. Si la consolidación se produce por causa distinta al plazo o a la muerte, se paga <strong>la mayor</strong> de las dos liquidaciones.</p></div>
+          <div class="plano"><h5>Por qué se usa igualmente</h5><p>Porque permite <strong>transmitir la nuda propiedad hoy</strong> (a valor reducido, y con las bonificaciones actuales) manteniendo el <strong>control y los rendimientos</strong> del bien; y porque saca de la base del donante la parte transmitida a efectos de IP e ISD futuro. Bien planificado, con un usufructuario de edad avanzada la nuda propiedad vale el 90 % — así que conviene hacerlo <strong>pronto</strong>, no tarde.</p></div>
+        </div></div>
+      </div>
+    </section>
+
+    <hr class="divider">
+
+    <!-- 3.34 REGIMENES -->
+    <section id="s8" class="reveal">
+      <span class="kicker">3.34 · Derecho civil</span>
+      <h2>Regímenes matrimoniales y derecho civil por territorio</h2>
+      <p>Antes de calcular un impuesto hay que resolver una pregunta civil: <strong>qué se hereda exactamente</strong>. Y eso depende del régimen económico y de la vecindad civil (Módulo 1).</p>
+      <p>En <strong>gananciales</strong>, al fallecer uno de los cónyuges primero se <strong>liquida la sociedad</strong>: la mitad ya es del viudo y no se hereda; solo la otra mitad forma el caudal. En <strong>separación de bienes</strong> (Cataluña y Baleares por defecto) se hereda todo lo que era del causante. Un error aquí duplica o reduce a la mitad la base del impuesto.</p>
+      <table class="tbl">
+        <thead><tr><th>Territorio</th><th>Régimen por defecto</th><th>Legítima de los hijos</th><th>Pactos sucesorios</th></tr></thead>
+        <tbody>
+          <tr><td><strong>Común</strong> (Código Civil)</td><td>Gananciales</td><td><strong>2/3</strong> (1/3 estricta + 1/3 mejora); 1/3 libre</td><td><strong>Prohibidos</strong> <span class="ref-tag">art. 1271 CC</span></td></tr>
+          <tr><td><strong>Cataluña</strong></td><td>Separación de bienes</td><td><strong>1/4</strong>, pagadera en dinero</td><td>Sí (heredamientos, pactos de atribución)</td></tr>
+          <tr><td><strong>Galicia</strong></td><td>Gananciales</td><td><strong>1/4</strong></td><td>Sí: <strong>pacto de mejora y apartación</strong></td></tr>
+          <tr><td><strong>Aragón</strong></td><td>Consorcio conyugal</td><td><strong>1/2 colectiva</strong> (se elige a quién)</td><td>Sí (pacto al más viviente, fiducia)</td></tr>
+          <tr><td><strong>País Vasco</strong></td><td>Comunicación foral (Bizkaia)</td><td><strong>1/3 colectiva</strong></td><td>Sí</td></tr>
+          <tr><td><strong>Navarra</strong></td><td>Conquistas</td><td>Legítima <strong>formal</strong> (simbólica)</td><td>Sí</td></tr>
+          <tr><td><strong>Baleares</strong></td><td>Separación de bienes</td><td>Mallorca 1/3 o 1/2; <strong>Ibiza casi libertad</strong></td><td>Sí (definición, finiquito de legítima)</td></tr>
+        </tbody>
+      </table>
+      <p><strong>El usufructo del viudo en territorio común:</strong> tiene derecho legitimario en usufructo de <strong>1/3</strong> si concurre con hijos, <strong>1/2</strong> con ascendientes y <strong>2/3</strong> si no hay descendientes ni ascendientes. Condiciona todo el reparto y su valoración fiscal.</p>
+      <div class="callout ref"><div class="ic">i</div><div class="ct"><h4>Dos cautelas civiles con efecto fiscal</h4><p>La <strong>disolución de gananciales</strong> por mitades no tributa, pero un <strong>exceso de adjudicación</strong> sí. Y las <strong>parejas de hecho</strong> no tienen régimen económico legal salvo pacto, y su equiparación al cónyuge en el ISD <strong>depende de la comunidad</strong>: en unas se trata como cónyuge (Grupo II) y en otras como extraño (Grupo IV, con coeficiente 2,0). La diferencia puede ser de decenas de miles de euros.</p></div></div>
+    </section>
+
+    <hr class="divider">
+
+    <!-- 3.35 TESTAMENTOS -->
+    <section id="s9" class="reveal">
+      <span class="kicker">3.35 · Testamento</span>
+      <h2>Tipos de testamento y cómo se hace</h2>
+      <table class="tbl">
+        <thead><tr><th>Tipo</th><th>Cómo se hace</th><th>Cuándo usarlo</th></tr></thead>
+        <tbody>
+          <tr><td><strong>Abierto notarial</strong></td><td>Ante notario, que lo redacta, lo autoriza y lo remite al <strong>Registro General de Actos de Última Voluntad</strong>. Es el habitual</td><td><strong>Casi siempre.</strong> Máxima seguridad, no se pierde y no necesita trámites posteriores de validación</td></tr>
+          <tr><td><strong>Cerrado</strong></td><td>El testador entrega al notario el documento en sobre cerrado; el notario no conoce su contenido</td><td>Muy raro. Riesgo de pérdida o deterioro</td></tr>
+          <tr><td><strong>Ológrafo</strong></td><td>Escrito <strong>a mano y firmado</strong> por el testador, con fecha. Solo válido para mayores de edad</td><td>Solo como último recurso: al fallecer exige <strong>adveración y protocolización judicial</strong> en 5 años, con coste y demora</td></tr>
+          <tr><td><strong>Testamento en peligro de muerte / epidemia</strong></td><td>Sin notario, ante testigos, con eficacia temporal limitada</td><td>Situaciones excepcionales</td></tr>
+          <tr><td><strong>Mancomunado</strong></td><td>Dos personas en un solo documento</td><td><strong>Prohibido en territorio común</strong>; permitido en Aragón, Navarra, País Vasco y Galicia</td></tr>
+          <tr><td><strong>Pacto sucesorio</strong></td><td>Contrato, irrevocable unilateralmente</td><td>Solo en territorios forales. Muy potente para anticipar el relevo (Módulo 1)</td></tr>
+        </tbody>
+      </table>
+      <div class="caso svc" data-act="testamento">
+        <div class="caso-h"><div class="ci">✎</div><div class="cti"><div class="cl">Ampliar · el procedimiento y qué incluir</div><h4>Cómo se hace un testamento bien planificado</h4><p>Pasos, cláusulas útiles y errores frecuentes.</p></div><div class="chev">▾</div></div>
+        <div class="caso-body"><div class="caso-inner">
+          <div class="plano"><h5>Los pasos</h5><p>1) <strong>Diagnóstico previo</strong>: inventario, titularidades, régimen matrimonial y vecindad civil. 2) Decidir el <strong>reparto</strong> respetando legítimas. 3) Elegir <strong>instrumentos</strong> (legados, usufructo viudal, sustituciones, cautela socini, albacea, contador-partidor). 4) <strong>Cita con notario</strong> con DNI y el esquema acordado. 5) Firma y remisión automática al Registro de Últimas Voluntades. Coste: muy bajo (decenas de euros).</p></div>
+          <div class="plano"><h5>Cláusulas que evitan conflictos</h5><p><strong>Contador-partidor</strong> (un tercero que hace la partición si no hay acuerdo: evita el bloqueo por unanimidad); <strong>cautela socini</strong> (si un legitimario impugna, recibe solo la legítima estricta); <strong>sustituciones vulgares</strong> (por si un heredero fallece antes o renuncia); <strong>legado de la vivienda</strong> a quien conviva; y <strong>prohibiciones de disponer</strong> temporales, con cuidado.</p></div>
+          <div class="plano"><h5>Errores frecuentes</h5><p>No actualizarlo tras divorcio, nuevo matrimonio o nacimiento; repartir <strong>bienes concretos</strong> sin prever cambios de valor (genera excesos de adjudicación que tributan); ignorar la legítima del territorio aplicable; olvidar que la <strong>empresa familiar</strong> necesita cláusulas coordinadas con el protocolo familiar y con los estatutos; y dejar la vivienda en <strong>proindiviso</strong> a varios hijos sin reglas de salida.</p></div>
+          <div class="plano"><h5>Y lo que el testamento no resuelve</h5><p>El testamento reparte, pero <strong>no aporta liquidez</strong> para pagar el impuesto ni evita que la empresa quede bloqueada. Para eso hacen falta <strong>seguros de vida</strong> (con reducción propia y liquidez inmediata), tesorería prevista y el diseño societario adecuado.</p></div>
+        </div></div>
+      </div>
+    </section>
+
+    <hr class="divider">
+
+    <!-- 3.36 PASOS -->
+    <section id="s10" class="reveal">
+      <span class="kicker">3.36 · Procedimiento</span>
+      <h2>Los pasos de una sucesión, en orden</h2>
+      <table class="tbl">
+        <thead><tr><th>#</th><th>Trámite</th><th>Nota práctica</th></tr></thead>
+        <tbody>
+          <tr><td>1</td><td>Certificado de <strong>defunción</strong></td><td>Registro Civil. A partir de 24 h</td></tr>
+          <tr><td>2</td><td>Certificado de <strong>últimas voluntades</strong> y de <strong>seguros de cobertura de fallecimiento</strong></td><td>Se piden a los <strong>15 días hábiles</strong> del fallecimiento. El segundo revela seguros olvidados</td></tr>
+          <tr><td>3</td><td><strong>Copia autorizada del testamento</strong> o, si no hay, <strong>acta de declaración de herederos</strong></td><td>La declaración de herederos abintestato es notarial (parientes próximos) o judicial</td></tr>
+          <tr><td>4</td><td><strong>Inventario y valoración</strong> de bienes y deudas</td><td>Aquí entra el diagnóstico del Módulo 2 y el valor de referencia de los inmuebles</td></tr>
+          <tr><td>5</td><td><strong>Liquidación de gananciales</strong> (si procede)</td><td>Separa lo que ya es del viudo de lo que se hereda</td></tr>
+          <tr><td>6</td><td><strong>Aceptación</strong> de la herencia</td><td>Pura y simple, o <strong>a beneficio de inventario</strong> (limita la responsabilidad a lo heredado). También cabe renunciar</td></tr>
+          <tr><td>7</td><td><strong>Cuaderno particional</strong> y escritura de adjudicación</td><td>Vigilar los <strong>excesos de adjudicación</strong> (&gt;50 %) y el proindiviso</td></tr>
+          <tr><td>8</td><td><strong>Autoliquidación del ISD</strong> (modelo 650) en <strong>6 meses</strong></td><td>Pedir <strong>prórroga</strong> en los 5 primeros meses si hace falta; valorar aplazamiento</td></tr>
+          <tr><td>9</td><td><strong>Plusvalía municipal</strong> (IIVTNU)</td><td>6 meses prorrogables; comprobar la <strong>bonificación de vivienda habitual</strong></td></tr>
+          <tr><td>10</td><td><strong>Cambios de titularidad</strong></td><td>Registro de la Propiedad, bancos, sociedades (libro registro de socios), Catastro, vehículos</td></tr>
+          <tr><td>11</td><td>Cierre fiscal del causante</td><td><strong>IRPF del año del fallecimiento</strong> (declaración individual) y, en su caso, IP</td></tr>
+        </tbody>
+      </table>
+      <div class="callout"><div class="ic">!</div><div class="ct"><h4>El problema de los 6 meses</h4><p>El plazo corre aunque la familia no se ponga de acuerdo. Si se agota sin presentar, hay <strong>recargos, intereses y pérdida de bonificaciones</strong> que exigen presentar "en plazo" (Madrid, C. Valenciana, Extremadura, Aragón). La prórroga es un derecho casi automático: <strong>pedirla siempre</strong> si hay cualquier duda, aunque devengue intereses.</p></div></div>
+    </section>
+
+    <hr class="divider">
+
+    <!-- 3.37 VENDER EMPRESA -->
+    <section id="s11" class="reveal">
+      <span class="kicker">3.37 · Timing</span>
+      <h2>Qué pasa si se vende la empresa después de heredarla</h2>
+      <p>Uno de los escenarios más delicados y peor gestionados. La reducción del 95-99 % no es gratuita: exige <strong>mantenimiento</strong> y <strong>no minorar sustancialmente el valor</strong>.</p>
+      <table class="tbl">
+        <thead><tr><th>Escenario</th><th>Consecuencia</th></tr></thead>
+        <tbody>
+          <tr><td>Se vende <strong>dentro</strong> del plazo de mantenimiento</td><td>Se pierde la reducción: hay que pagar <strong>la parte del impuesto no ingresada más intereses de demora</strong>. Con bases de millones, la factura es enorme</td></tr>
+          <tr><td>¿Cuánto dura el plazo?</td><td><strong>10 años</strong> en la norma estatal; <strong>5 años</strong> en la mayoría de comunidades (Madrid, Cataluña, Galicia, C. Valenciana, Cantabria, Canarias, Baleares, Aragón, Extremadura, Murcia, La Rioja, CyL, CLM) y <strong>3 años</strong> en Andalucía y en la vivienda de Asturias</td></tr>
+          <tr><td>Se vende y se <strong>reinvierte</strong></td><td>El criterio administrativo admite el mantenimiento si se conserva el <strong>valor</strong> de lo adquirido reinvirtiendo el precio en otros activos; hay que <strong>documentarlo</strong> y no distribuir el importe. Es terreno de consulta previa a la DGT</td></tr>
+          <tr><td>Operaciones societarias</td><td>Fusiones, escisiones o canjes acogidos al régimen de neutralidad <strong>no rompen</strong> el mantenimiento si no minoran el valor. Una reducción de capital con devolución de aportaciones, sí puede romperlo</td></tr>
+          <tr><td>IRPF del heredero al vender</td><td>Ganancia = precio − <strong>valor declarado en el ISD</strong>. Si se declaró un valor alto, la ganancia es menor: hay que decidir el valor con visión de conjunto (ISD hoy vs IRPF futuro)</td></tr>
+          <tr><td>Vender <strong>antes</strong> de morir</td><td>El titular tributa en su IRPF (19-28 %) y el dinero pasa a ser líquido: pierde la exención de empresa familiar en IP y la reducción en ISD, pero gana liquidez. Vía holding, la venta está exenta al 95 % (Parte 3)</td></tr>
+        </tbody>
+      </table>
+      <div class="callout idea"><div class="ic">★</div><div class="ct"><h4>La decisión que hay que anticipar</h4><p>Si la familia <strong>ya sabe</strong> que va a vender la empresa, heredarla con reducción del 95 % y venderla al año siguiente es la peor combinación posible. Alternativas: vender antes del fallecimiento (con holding), estructurar la venta después del plazo de mantenimiento, o documentar una <strong>reinversión</strong> que conserve el valor. Esta conversación hay que tenerla <em>antes</em>, no después.</p></div></div>
+    </section>
+
+    <hr class="divider">
+
+    <!-- 3.38 HERENCIAS NO RECLAMADAS -->
+    <section id="s12" class="reveal">
+      <span class="kicker">3.38 · Herencias pendientes</span>
+      <h2>Herencias no reclamadas, yacencia, prescripción y usucapión</h2>
+      <p>Situación mucho más frecuente de lo que parece: bienes que siguen a nombre de un abuelo fallecido hace décadas, pisos "de la familia" sin escriturar, fincas sin inscribir. Así se aborda:</p>
+      <div class="caso svc" data-act="yacente">
+        <div class="caso-h"><div class="ci">?</div><div class="cti"><div class="cl">Ampliar · imprescindible</div><h4>Qué hacer con una sucesión antigua sin liquidar</h4><p>Herencia yacente, prescripción del impuesto, usucapión y vías de regularización.</p></div><div class="chev">▾</div></div>
+        <div class="caso-body"><div class="caso-inner">
+          <div class="plano"><h5>Herencia yacente</h5><p>Mientras nadie acepta, la herencia está <strong>yacente</strong>: es un patrimonio sin titular definitivo que, a efectos fiscales, <strong>atribuye rentas</strong> a sus futuros herederos (Módulo 3 · IRPF) y puede necesitar un administrador. No prescribe el <em>derecho</em> a aceptar por el simple paso del tiempo, pero sí pueden prescribir acciones concretas y consolidarse situaciones posesorias.</p></div>
+          <div class="plano"><h5>Prescripción del impuesto</h5><p>El ISD se rige por la <strong>prescripción general tributaria</strong> (la Ley remite a la LGT): el plazo se cuenta desde el fin del plazo de presentación —6 meses desde el fallecimiento—. Si han pasado muchos años y no hubo actuación administrativa ni actos que interrumpan, la deuda puede estar <strong>prescrita</strong>, y entonces la escritura de aceptación se presenta a efectos de constancia. <strong>Cautela clave:</strong> en escrituras autorizadas por <strong>funcionarios extranjeros</strong> el plazo se cuenta desde su presentación ante una Administración española <span class="ref-tag">art. 25.2</span>, y determinados actos (presentar documentos, requerimientos) interrumpen la prescripción.</p></div>
+          <div class="plano"><h5>Usucapión (prescripción adquisitiva)</h5><p>Quien posee un bien como propio puede llegar a adquirirlo por el tiempo: en inmuebles, <strong>10 años con buena fe y justo título</strong> (ordinaria) o <strong>30 años sin necesidad de título ni buena fe</strong> (extraordinaria); en muebles, 3 y 6 años. Es la vía por la que un heredero que ha ocupado y mantenido la casa familiar durante décadas puede consolidar su titularidad frente a los demás. Requiere posesión <strong>en concepto de dueño, pública, pacífica e ininterrumpida</strong>, y se declara judicialmente.</p></div>
+          <div class="plano"><h5>Cómo se regulariza en la práctica</h5><p>1) Reconstruir la <strong>cadena sucesoria</strong> (defunciones, últimas voluntades, testamentos de cada causante). 2) Hacer las <strong>aceptaciones y particiones pendientes</strong>, a veces varias sucesivas ("herencia de herencia"). 3) Analizar la <strong>prescripción de cada una</strong>. 4) Para inscribir: <strong>expediente de dominio</strong>, acta de notoriedad o, en su caso, procedimiento judicial; y art. 205/206 LH para inmatriculaciones. 5) Regularizar <strong>Catastro</strong> y las plusvalías municipales pendientes. 6) Valorar el coste total antes de mover nada: a veces conviene esperar y a veces actuar ya, según prescripción y bonificaciones vigentes.</p></div>
+          <div class="plano"><h5>Riesgos que hay que advertir</h5><p>Deudas del causante y responsabilidad si se acepta pura y simplemente (usar <strong>beneficio de inventario</strong>); bienes ocultos que reaparecen; herederos ilocalizables o menores (requieren representación y a veces autorización judicial); y el <strong>Estado o la comunidad</strong> como herederos si no hay nadie con derecho.</p></div>
+        </div></div>
+      </div>
+    </section>
+
+    <hr class="divider">
+
+    <!-- 3.39 CHECKLIST -->
+    <section id="s13" class="reveal">
+      <span class="kicker">3.39 · Planificación</span>
+      <h2>Checklist de planificación sucesoria</h2>
+      <div class="caso svc" data-act="planifisd">
+        <div class="caso-h"><div class="ci">★</div><div class="cti"><div class="cl">Ampliar · lo que revisamos con cada familia</div><h4>Las doce palancas del ISD</h4><p>De la residencia del causante a la liquidez para pagar.</p></div><div class="chev">▾</div></div>
+        <div class="caso-body"><div class="caso-inner">
+          <div class="plano"><h5>1 · Residencia del causante</h5><p>Es la variable con más impacto: determina la comunidad aplicable, medida por los <strong>5 años</strong> anteriores. Cualquier plan empieza aquí.</p></div>
+          <div class="plano"><h5>2 · Vecindad civil y régimen matrimonial</h5><p>Deciden qué se hereda y con cuánta libertad; y si caben <strong>pactos sucesorios</strong>.</p></div>
+          <div class="plano"><h5>3 · Testamento actualizado</h5><p>Con contador-partidor, sustituciones y cautela socini. Revisar tras cada cambio familiar.</p></div>
+          <div class="plano"><h5>4 · Blindar la empresa familiar</h5><p>Requisitos del art. 4.Ocho del IP <em>cada año</em> (Parte 2): es la condición de la reducción del 95-99 %.</p></div>
+          <div class="plano"><h5>5 · Elegir donación o sucesión activo por activo</h5><p>Con plusvalía latente, sucesión; sin ella o con donación finalista muy bonificada, donación.</p></div>
+          <div class="plano"><h5>6 · Aprovechar las donaciones finalistas</h5><p>Vivienda para hijos, dinero para constituir empresa: hasta 250.000-1.000.000 € casi exentos según comunidad, con requisitos formales estrictos.</p></div>
+          <div class="plano"><h5>7 · Usufructo y nuda propiedad</h5><p>Transmitir nuda propiedad pronto (vale más cuanto más joven el usufructuario) sin perder control, recordando la <strong>consolidación</strong> futura.</p></div>
+          <div class="plano"><h5>8 · Seguros de vida</h5><p>Reducción propia (hasta 50.000 € en Cantabria) y, sobre todo, <strong>liquidez inmediata</strong> para pagar el impuesto sin vender activos.</p></div>
+          <div class="plano"><h5>9 · Prever la liquidez del ISD</h5><p>Calcular la factura con la calculadora y comprobar que hay caja o seguro. Si no, valorar aplazamiento de <strong>5 años sin intereses</strong> para empresa y vivienda.</p></div>
+          <div class="plano"><h5>10 · Vigilar plazos y acumulaciones</h5><p>6 meses (y prórroga), 30 días en donaciones, acumulación a 3 y 4 años, y mantenimiento de 5-10 años.</p></div>
+          <div class="plano"><h5>11 · Colaterales, parejas y no parientes</h5><p>Grupos III y IV pagan de verdad (coeficiente hasta 2,4). Buscar asimilaciones autonómicas, seguros, o estructurar en vida.</p></div>
+          <div class="plano"><h5>12 · Regularizar el pasado</h5><p>Sucesiones antiguas sin liquidar, proindivisos y bienes sin inscribir: analizar prescripción y usucapión antes de tocar nada.</p></div>
+        </div></div>
+      </div>
+    </section>
+
+    <hr class="divider">
+
+    <section class="reveal">
+      <span class="kicker">Descargables</span>
+      <h2>Normativa de esta parte</h2>
+      <div class="lib">
+        <a class="libitem" href="https://www.boe.es/buscar/act.php?id=BOE-A-1987-28141" target="_blank" rel="noopener"><span class="pdf">BOE</span><span class="lt"><b>Ley 29/1987 · ISD</b><span>Reducciones (art. 20), tarifa (21), coeficientes (22), usufructo (26)</span></span><span class="go">PDF ↗</span></a>
+        <a class="libitem" href="https://www.boe.es/buscar/act.php?id=BOE-A-1991-27678" target="_blank" rel="noopener"><span class="pdf">BOE</span><span class="lt"><b>RD 1629/1991 · Reglamento del ISD</b><span>Ajuar (34), usufructos y consolidación (49-52), plazos (67-68)</span></span><span class="go">PDF ↗</span></a>
+        <a class="libitem" href="https://www.boe.es/buscar/act.php?id=BOE-A-1889-4763" target="_blank" rel="noopener"><span class="pdf">BOE</span><span class="lt"><b>Código Civil</b><span>Sucesiones, legítimas, testamentos y usucapión</span></span><span class="go">PDF ↗</span></a>
+        <a class="libitem" href="https://www.boe.es/buscar/act.php?id=BOE-A-1991-14392" target="_blank" rel="noopener"><span class="pdf">BOE</span><span class="lt"><b>Ley 19/1991 · Patrimonio</b><span>Art. 4.Ocho: la puerta de la reducción de empresa familiar</span></span><span class="go">PDF ↗</span></a>
+      </div>
+    </section>
+
+    <hr class="divider">
+
+    <!-- CASOS -->
+    <section id="casos" class="reveal">
+      <span class="kicker">Práctica exigente</span>
+      <h2>Casos prácticos</h2>
+
+      <div class="caso" data-act="caso1">
+        <div class="caso-h"><div class="ci">1</div><div class="cti"><div class="cl">Comunidad y residencia</div><h4>La misma herencia en dos comunidades</h4><p>Un hijo hereda 600.000 € (sin empresa). ¿Qué diferencia hay si el padre residía en Andalucía o en Asturias?</p></div><div class="chev">▾</div></div>
+        <div class="caso-body"><div class="caso-inner">
+          <div class="sol"><div class="sol-l">Solución</div><p><strong>Andalucía:</strong> reducción propia de <strong>1.000.000 €</strong> por heredero → base liquidable cero, <strong>cuota 0 €</strong>. <strong>Asturias:</strong> reducción de 300.000 €, base de 300.000 €, <strong>sin bonificación</strong> de cuota y con tarifa propia más alta → decenas de miles de euros. Compruébalo en la calculadora cambiando de comunidad. <em>Lección: la residencia del causante (5 años) es la variable de mayor impacto de todo el impuesto.</em></p></div>
+        </div></div>
+      </div>
+
+      <div class="caso" data-act="caso2">
+        <div class="caso-h"><div class="ci">2</div><div class="cti"><div class="cl">Donación vs sucesión</div><h4>El piso comprado en 1985</h4><p>Un padre quiere pasar a su hija un piso comprado en 1985 por el equivalente a 30.000 € y que hoy vale 400.000 €. ¿Donar ahora o dejarlo en herencia?</p></div><div class="chev">▾</div></div>
+        <div class="caso-body"><div class="caso-inner">
+          <div class="sol"><div class="sol-l">Solución</div><p>Si <strong>dona</strong>, el padre declara en su IRPF una <strong>ganancia patrimonial de ~370.000 €</strong> (19-28 %: en torno a <strong>90.000 €</strong>) aunque no reciba nada, más la plusvalía municipal, y el ISD de la hija (bonificado en casi todas las CCAA). Si lo deja en <strong>herencia</strong>, <strong>no hay ganancia en IRPF</strong> (la "plusvalía del muerto" no tributa), la hija <strong>actualiza el valor</strong> a 400.000 € y la plusvalía municipal puede estar bonificada al 95 % si era vivienda habitual. <strong>Gana claramente la sucesión.</strong> Alternativa intermedia: donar la <strong>nuda propiedad</strong> reservando usufructo (menor base) o, con vecindad foral, un pacto sucesorio.</p></div>
+        </div></div>
+      </div>
+
+      <div class="caso" data-act="caso3">
+        <div class="caso-h"><div class="ci">3</div><div class="cti"><div class="cl">Empresa y mantenimiento</div><h4>Heredar y vender al año siguiente</h4><p>Dos hermanos heredan en Madrid la empresa familiar (4 M€) con reducción del 99 %. Al año reciben una oferta de compra muy buena. ¿Qué ocurre?</p></div><div class="chev">▾</div></div>
+        <div class="caso-body"><div class="caso-inner">
+          <div class="sol"><div class="sol-l">Solución</div><p>Madrid exige mantenimiento <strong>5 años</strong>. Vender al año <strong>rompe el requisito</strong>: hay que ingresar la parte del impuesto no pagada <strong>más intereses de demora</strong> — sobre una base de 4 M€, la factura es muy alta. Salidas: (a) esperar a cumplir el plazo si la operación lo permite; (b) documentar una <strong>reinversión</strong> del precio que mantenga el valor de lo adquirido (criterio administrativo, conviene <strong>consulta previa a la DGT</strong>); (c) si la venta era previsible, haber vendido <strong>antes</strong> del fallecimiento a través de holding (exención del 95 %, Parte 3). <em>Lección: la reducción del 95-99 % no es un regalo, es un compromiso de permanencia.</em></p></div>
+        </div></div>
+      </div>
+    </section>
+
+    <section class="reveal">
+      <div class="quiz" data-quiz-mod="mod3isd">
+        <div class="q-head"><span class="tri"></span><h3>Autoevaluación · Sucesiones y Donaciones</h3><span class="q-meta">Necesitas ≥ 70 %</span></div>
+        <div class="q-body">
+          <div class="q-item" data-correct="1">
+            <div class="q-txt"><span class="qn">1.</span>¿Qué normativa autonómica se aplica en una herencia?</div>
+            <label class="q-opt"><input type="radio" name="q1" value="0">La de residencia del heredero.</label>
+            <label class="q-opt"><input type="radio" name="q1" value="1">La de la residencia habitual del causante, medida por permanencia mayoritaria en los 5 años anteriores.</label>
+            <label class="q-opt"><input type="radio" name="q1" value="2">La del lugar donde estén los bienes, siempre.</label>
+            <label class="q-opt"><input type="radio" name="q1" value="3">La que elija el heredero.</label>
+            <div class="q-feedback">Es la del causante; la regla de los 5 años está en la DA 2.ª.</div>
+          </div>
+          <div class="q-item" data-correct="2">
+            <div class="q-txt"><span class="qn">2.</span>El ajuar doméstico se valora en…</div>
+            <label class="q-opt"><input type="radio" name="q2" value="0">El 10 % del caudal.</label>
+            <label class="q-opt"><input type="radio" name="q2" value="1">Su valor de mercado siempre.</label>
+            <label class="q-opt"><input type="radio" name="q2" value="2">El 3 % del caudal relicto, salvo prueba de inexistencia o de valor inferior.</label>
+            <label class="q-opt"><input type="radio" name="q2" value="3">Nada: está exento.</label>
+            <div class="q-feedback">Art. 15. Y el Supremo ha excluido del cálculo los bienes que no pueden integrar el ajuar (dinero, valores…).</div>
+          </div>
+          <div class="q-item" data-correct="0">
+            <div class="q-txt"><span class="qn">3.</span>Un usufructo vitalicio de una persona de 70 años se valora en…</div>
+            <label class="q-opt"><input type="radio" name="q3" value="0">19 % del valor del bien (89 − 70), con límites del 70 % y del 10 %.</label>
+            <label class="q-opt"><input type="radio" name="q3" value="1">70 % siempre.</label>
+            <label class="q-opt"><input type="radio" name="q3" value="2">2 % por año.</label>
+            <label class="q-opt"><input type="radio" name="q3" value="3">50 %.</label>
+            <div class="q-feedback">Vitalicio: 70 % menos 1 % por cada año que exceda de 20, con mínimo del 10 %.</div>
+          </div>
+          <div class="q-item" data-correct="1">
+            <div class="q-txt"><span class="qn">4.</span>Al extinguirse el usufructo, el nudo propietario…</div>
+            <label class="q-opt"><input type="radio" name="q4" value="0">No paga nada más.</label>
+            <label class="q-opt"><input type="radio" name="q4" value="1">Paga por la consolidación, sobre el valor atribuido al usufructo en su constitución y con el mismo tipo medio efectivo.</label>
+            <label class="q-opt"><input type="radio" name="q4" value="2">Paga por el valor de mercado actual del pleno dominio.</label>
+            <label class="q-opt"><input type="radio" name="q4" value="3">Solo paga plusvalía municipal.</label>
+            <div class="q-feedback">Art. 51 del Reglamento: el impuesto se aplaza, no desaparece.</div>
+          </div>
+          <div class="q-item" data-correct="2">
+            <div class="q-txt"><span class="qn">5.</span>Con un inmueble muy antiguo y gran plusvalía latente, ¿qué suele convenir?</div>
+            <label class="q-opt"><input type="radio" name="q5" value="0">Donar, porque el ISD está bonificado.</label>
+            <label class="q-opt"><input type="radio" name="q5" value="1">Es indiferente.</label>
+            <label class="q-opt"><input type="radio" name="q5" value="2">La sucesión: no hay ganancia en IRPF del transmitente y el heredero actualiza el valor.</label>
+            <label class="q-opt"><input type="radio" name="q5" value="3">Venderlo y donar el dinero.</label>
+            <div class="q-feedback">Donar genera ganancia patrimonial en el IRPF del donante; heredar no ("plusvalía del muerto").</div>
+          </div>
+          <div class="q-item" data-correct="1">
+            <div class="q-txt"><span class="qn">6.</span>Para donar la empresa con reducción del 95 %, el donante debe…</div>
+            <label class="q-opt"><input type="radio" name="q6" value="0">Tener menos de 65 años y seguir dirigiendo.</label>
+            <label class="q-opt"><input type="radio" name="q6" value="1">Tener 65 o más años (o incapacidad absoluta) y dejar de ejercer funciones de dirección y de cobrar por ellas.</label>
+            <label class="q-opt"><input type="radio" name="q6" value="2">Solo otorgar escritura.</label>
+            <label class="q-opt"><input type="radio" name="q6" value="3">Vender antes el 50 %.</label>
+            <div class="q-feedback">Art. 20.6. La mera pertenencia al consejo no cuenta como función de dirección.</div>
+          </div>
+          <div class="q-item" data-correct="0">
+            <div class="q-txt"><span class="qn">7.</span>Plazos del impuesto:</div>
+            <label class="q-opt"><input type="radio" name="q7" value="0">6 meses en sucesiones (prorrogables otros 6, pidiéndolo en los 5 primeros) y 30 días hábiles en donaciones.</label>
+            <label class="q-opt"><input type="radio" name="q7" value="1">1 año en ambos casos.</label>
+            <label class="q-opt"><input type="radio" name="q7" value="2">3 meses y 15 días.</label>
+            <label class="q-opt"><input type="radio" name="q7" value="3">No hay plazo.</label>
+            <div class="q-feedback">Art. 67 del Reglamento; la prórroga devenga intereses de demora.</div>
+          </div>
+          <div class="q-item" data-correct="2">
+            <div class="q-txt"><span class="qn">8.</span>Un heredero ha poseído como propia la casa familiar 30 años sin título. Puede…</div>
+            <label class="q-opt"><input type="radio" name="q8" value="0">Nada: la herencia nunca prescribe.</label>
+            <label class="q-opt"><input type="radio" name="q8" value="1">Inscribirla directamente en el Registro sin más.</label>
+            <label class="q-opt"><input type="radio" name="q8" value="2">Adquirirla por usucapión extraordinaria (30 años en inmuebles, sin necesidad de título ni buena fe), con declaración judicial.</label>
+            <label class="q-opt"><input type="radio" name="q8" value="3">Reclamar al Estado una indemnización.</label>
+            <div class="q-feedback">Usucapión extraordinaria: posesión en concepto de dueño, pública, pacífica e ininterrumpida.</div>
+          </div>
+        </div>
+        <div class="q-foot">
+          <button class="btn btn-primary" data-quiz-check>Corregir test</button>
+          <button class="btn btn-outline" data-quiz-reset>Reintentar</button>
+          <span class="q-score" data-quiz-score></span>
+        </div>
+      </div>
+    </section>
+
+    <div class="tracker" data-mod="mod3isd">
+      <div class="tk-head"><span class="tri"></span><h3>Actividades de esta parte</h3><span class="tk-count" data-tk-count>0/9</span></div>
+      <div class="tk-body">
+        <div class="act" data-act="leer"><span class="box"></span><span class="lbl">Leer la parte de Sucesiones</span></div>
+        <div class="act" data-act="calc_isd"><span class="box"></span><span class="lbl">Usar la calculadora del ISD por comunidad</span></div>
+        <div class="act" data-act="autonomicas"><span class="box"></span><span class="lbl">Desplegar las exenciones autonómicas</span></div>
+        <div class="act" data-act="usufructo"><span class="box"></span><span class="lbl">Desplegar la consolidación del usufructo</span></div>
+        <div class="act" data-act="testamento"><span class="box"></span><span class="lbl">Desplegar cómo se hace un testamento</span></div>
+        <div class="act" data-act="yacente"><span class="box"></span><span class="lbl">Desplegar herencias no reclamadas y usucapión</span></div>
+        <div class="act" data-act="planifisd"><span class="box"></span><span class="lbl">Desplegar el checklist de planificación</span></div>
+        <div class="act" data-act="caso1"><span class="box"></span><span class="lbl">Abrir los casos prácticos</span></div>
+        <div class="act" data-act="quiz"><span class="box"></span><span class="lbl">Superar la autoevaluación</span></div>
+        <div data-tk-done style="display:none;align-items:center;gap:.6rem;margin-top:.9rem;padding:.8rem 1rem;background:var(--wine-soft);border-radius:9px;color:var(--wine-dark);font-weight:600"><span class="tri"></span> ¡Parte completada!</div>
+      </div>
+    </div>
+
+    <nav class="modnav">
+      <a href="modulo-3-sociedades.html"><div class="d">← Anterior</div><div class="t">Parte 3 · Sociedades</div></a>
+      <a class="next" href="modulo-4.html"><div class="d">Siguiente →</div><div class="t">Módulo 4 · Estructuras complejas</div></a>
+    </nav>
+
+  </main>
+</div>
+
+<footer class="footer">
+  <div class="fwrap">
+    <img src="dasar-blanco.svg" alt="DASAR Gestión Patrimonial">
+    <nav class="fnav">
+      <a href="index.html">Inicio</a>
+      <a href="#calc">Calculadora del ISD</a>
+      <a href="#s6">Donación vs sucesión</a>
+    </nav>
+    <div class="fcopy">© <span data-year>2026</span> DASAR Gestión Patrimonial · Formación interna. No constituye asesoramiento fiscal ni legal. Verifica siempre la normativa autonómica vigente.</div>
+  </div>
+</footer>
+
+<script src="deducciones.js?v=14"></script>
+<script src="app.js?v=14"></script>
+</body>
+</html>

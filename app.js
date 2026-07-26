@@ -19,7 +19,7 @@
         { t: "Parte 1 · IRPF", file: "modulo-3.html", ready: true },
         { t: "Parte 2 · Patrimonio y Grandes Fortunas", file: "modulo-3-patrimonio.html", ready: true },
         { t: "Parte 3 · Sociedades", file: "modulo-3-sociedades.html", ready: true },
-        { t: "Parte 4 · Sucesiones y Donaciones", file: "", ready: false },
+        { t: "Parte 4 · Sucesiones y Donaciones", file: "modulo-3-sucesiones.html", ready: true },
         { t: "Parte 5 · Indirecta e interconexión", file: "", ready: false }
       ]
     },
@@ -1094,6 +1094,116 @@
     if (btn) btn.addEventListener("click", run);
   }
 
+  /* =========================================================
+     SUCESIONES · calculadora por comunidad
+     Escala y coeficientes estatales verificados (Ley 29/1987, arts. 20-22).
+     Datos autonómicos verificados en los textos consolidados.
+     ========================================================= */
+  var ISD_ESCALA = [
+    [7993.46, 0.0765], [15980.91, 0.085], [23968.36, 0.0935], [31955.81, 0.102],
+    [39943.26, 0.1105], [47930.72, 0.119], [55918.17, 0.1275], [63905.62, 0.136],
+    [71893.07, 0.1445], [79880.52, 0.153], [119757.67, 0.1615], [159634.83, 0.187],
+    [239389.13, 0.2125], [398777.54, 0.255], [797555.08, 0.2975], [Infinity, 0.34]
+  ];
+  // Reducción estatal por parentesco (art. 20.2.a)
+  var ISD_RED_ESTATAL = { conyuge: 15956.87, hijo: 15956.87, hijoMenor: 15956.87, ascendiente: 15956.87, hermano: 7993.46, noPariente: 0 };
+  var ISD_GRUPO = { conyuge: 2, hijo: 2, hijoMenor: 1, ascendiente: 2, hermano: 3, noPariente: 4 };
+  // Datos autonómicos (sucesiones). red = reducción propia por parentesco GI-GII; bon = % bonificación de cuota
+  var ISD_CCAA = {
+    madrid:      { n: "Madrid",             red: 16000,   bon: 99,  emp: 99, nota: "Bonificación del 99 % (GI-GII) solo sobre bienes declarados en plazo. Tarifa y coeficientes propios. Grupo III: 50 %." },
+    andalucia:   { n: "Andalucía",          red: 1000000, bon: 99,  emp: 99, nota: "Reducción propia de 1.000.000 € por heredero (GI-GII) y bonificación del 99 %: la mayoría de herencias familiares quedan a cero." },
+    extremadura: { n: "Extremadura",        red: 500000,  bon: 99,  emp: 99, nota: "Reducción de 500.000 € (GI-GII) y bonificación del 99 %, condicionada a presentar en plazo." },
+    cantabria:   { n: "Cantabria",          red: 50000,   bon: 100, emp: 99, nota: "Bonificación del 100 % para GI-GII. Se asimilan convivientes de 2 años y cuidadores del causante con discapacidad." },
+    baleares:    { n: "Baleares",           red: 25000,   bon: 100, emp: 95, nota: "Deducción del 100 % de la cuota (GI-GII), condicionada a consignar en escritura el valor de los inmuebles (≤ valor de referencia +20 %). Escala especial GI-II del 1 % hasta 700.000 €." },
+    canarias:    { n: "Canarias",           red: 40400,   bon: 99.9, emp: 99, nota: "Bonificación del 99,9 % que alcanza también al GRUPO III. La reducción por parentesco de GI es del 100 % de la base con topes por edad." },
+    murcia:      { n: "Murcia",             red: 0,       bon: 99,  emp: 99, nota: "Sin reducción propia por parentesco, pero bonificación del 99 % sobre la cuota. Tarifa propia hasta el 36,50 %." },
+    larioja:     { n: "La Rioja",           red: 0,       bon: 99,  emp: 99, nota: "Bonificación del 99 % (GI-GII), extensible a convivientes de 15 años. Sin reducción propia por parentesco." },
+    cyl:         { n: "Castilla y León",    red: 400000,  bon: 99,  emp: 99, nota: "Reducción variable que eleva el conjunto hasta 400.000 € (aquí se aplica como tal) más bonificación del 99 %." },
+    cvalenciana: { n: "C. Valenciana",      red: 100000,  bon: 99,  emp: 99, nota: "Reducción de 100.000 € y bonificación del 99 % (solo sobre bienes declarados). Tarifa y coeficientes propios." },
+    clm:         { n: "Castilla-La Mancha", red: 0,       bon: -1,  emp: 99, nota: "Bonificación DECRECIENTE por tramos de base liquidable: 100 % (<175.000), 95 %, 90 %, 85 % y 80 % (≥300.000). Sin reducción propia. Texto consolidado con aviso de actualización en proceso: verificar." },
+    cataluna:    { n: "Cataluña",           red: 100000,  bon: -2,  emp: 95, nota: "Cónyuge: bonificación del 99 %. Resto de GI-GII: bonificación DECRECIENTE (art. 633-4.2) que aquí NO se aplica automáticamente. Tarifa propia (7-32 %) y se pierde la bonificación si se usan reducciones rogadas." },
+    galicia:     { n: "Galicia",            red: 1000000, bon: 0,   emp: 99, nota: "Reducción de 1.000.000 € por heredero. La bonificación del 99 % es SOLO para el Grupo I; el Grupo II no la tiene, pero se aplica una TARIFA PROPIA muy baja (5-18 %) no reflejada aquí." },
+    asturias:    { n: "Asturias",           red: 300000,  bon: 0,   emp: 99, nota: "Reducción de 300.000 € (GI-GII) y SIN bonificación de cuota; además tiene TARIFA PROPIA más alta (21,25-36,50 %) no reflejada aquí: el resultado real puede ser MAYOR." },
+    aragon:      { n: "Aragón",             red: 500000,  bon: 0,   emp: 99, nota: "Reducción del 100 % de la base con límite conjunto de 500.000 € (cónyuge, ascendientes y descendientes). Bonificación del 99 % solo para el Grupo I; el GII tiene el 65 % de la cuota de la vivienda habitual." }
+  };
+
+  function bonifCLM(bl) {
+    if (bl < 175000) return 100; if (bl < 225000) return 95; if (bl < 275000) return 90; if (bl < 300000) return 85; return 80;
+  }
+  function coefISD(grupo, patr) {
+    var t = patr <= 402678.11 ? 0 : patr <= 2007380.43 ? 1 : patr <= 4020770.98 ? 2 : 3;
+    var tabla = { 1: [1, 1.05, 1.10, 1.20], 2: [1, 1.05, 1.10, 1.20], 3: [1.5882, 1.6676, 1.7471, 1.9059], 4: [2, 2.1, 2.2, 2.4] };
+    return tabla[grupo][t];
+  }
+
+  function wireIsdCalc() {
+    var calc = document.querySelector(".rcalc.isdcalc");
+    if (!calc) return;
+    var g = function (s) { return calc.querySelector(s); };
+    function n(sel) { var e = g(sel); var v = parseFloat((e && e.value || "").replace(/[^0-9.]/g, "")); return isNaN(v) ? 0 : v; }
+    var btn = g("[data-h-run]"), res = calc.querySelector(".calc-result");
+
+    // rellenar el selector de comunidad
+    var sel = g("[data-h-ccaa]");
+    if (sel && !sel.options.length) {
+      Object.keys(ISD_CCAA).forEach(function (k) {
+        var o = document.createElement("option"); o.value = k; o.textContent = ISD_CCAA[k].n; sel.appendChild(o);
+      });
+    }
+
+    function run() {
+      var caudal = n("[data-h-caudal]");         // lo que recibe ESTE heredero
+      var empresa = n("[data-h-empresa]");        // parte que es empresa familiar/participaciones
+      var patr = n("[data-h-patrimonio]");        // patrimonio preexistente del heredero
+      var edad = n("[data-h-edad]");
+      var rel = g("[data-h-rel]").value;
+      var k = sel.value, C = ISD_CCAA[k];
+      var grupo = ISD_GRUPO[rel];
+
+      // Reducción de empresa familiar (sobre la parte que sea empresa)
+      var redEmpresa = Math.min(empresa, caudal) * (C.emp / 100);
+      // Reducción por parentesco: estatal + autonómica (la autonómica sustituye/mejora)
+      var redEstatal = ISD_RED_ESTATAL[rel] || 0;
+      if (rel === "hijoMenor") redEstatal = Math.min(47858.59, 15956.87 + 3990.72 * Math.max(0, 21 - edad));
+      var redParentesco = (grupo <= 2) ? Math.max(redEstatal, C.red) : redEstatal;
+
+      var base = Math.max(0, caudal - redEmpresa - redParentesco);
+      var cuotaIntegra = tarifa(base, ISD_ESCALA);
+      var coef = coefISD(grupo, patr);
+      var cuotaCorregida = cuotaIntegra * coef;
+
+      var bon = C.bon, notaBon = "";
+      if (bon === -1) { bon = bonifCLM(base); notaBon = "Bonificación decreciente aplicada: " + bon + " % (tramo de base liquidable)."; }
+      else if (bon === -2) { bon = (rel === "conyuge") ? 99 : 0; notaBon = (rel === "conyuge") ? "Cónyuge: 99 %." : "Para descendientes, la bonificación catalana es decreciente y NO se aplica en este cálculo: el resultado real será MENOR."; }
+      if (grupo >= 4) { bon = 0; notaBon = "Grupo IV (no parientes): sin bonificación en la práctica totalidad de comunidades."; }
+      if (grupo === 3 && k !== "canarias" && k !== "madrid" && k !== "baleares") { bon = 0; notaBon = "Grupo III: esta comunidad no bonifica a colaterales (Canarias, Madrid y Baleares sí, total o parcialmente)."; }
+      var cuotaFinal = cuotaCorregida * (1 - bon / 100);
+      var tipoEfectivo = caudal > 0 ? cuotaFinal / caudal : 0;
+
+      var html = '<div class="seg"><span class="tag">Cuota estimada · ' + C.n + '</span><span class="name wine">' + eurE(cuotaFinal) + '</span></div>';
+      html += '<div class="money">' +
+        '<div class="m"><div class="k">Base liquidable</div><div class="v">' + eurE(base) + '</div></div>' +
+        '<div class="m"><div class="k">Bonificación aplicada</div><div class="v wine">' + bon + ' %</div></div>' +
+        '<div class="m"><div class="k">Tipo efectivo sobre lo heredado</div><div class="v">' + pctE(tipoEfectivo) + '</div></div>' +
+        '</div>';
+      html += '<table class="tbl" style="margin:.9rem 0"><tbody>' +
+        '<tr><td>Valor recibido por este heredero</td><td><strong>' + eurE(caudal) + '</strong></td></tr>' +
+        (redEmpresa > 0 ? '<tr><td>− Reducción de empresa familiar (' + C.emp + ' %)</td><td>−' + eurE(redEmpresa) + '</td></tr>' : '') +
+        '<tr><td>− Reducción por parentesco aplicada</td><td>−' + eurE(redParentesco) + '</td></tr>' +
+        '<tr><td><strong>Base liquidable</strong></td><td><strong>' + eurE(base) + '</strong></td></tr>' +
+        '<tr><td>Cuota íntegra (escala estatal)</td><td>' + eurE(cuotaIntegra) + '</td></tr>' +
+        '<tr><td>× Coeficiente por patrimonio preexistente y grupo (' + coef.toFixed(4) + ')</td><td>' + eurE(cuotaCorregida) + '</td></tr>' +
+        '<tr><td>− Bonificación autonómica (' + bon + ' %)</td><td>−' + eurE(cuotaCorregida * bon / 100) + '</td></tr>' +
+        '<tr><td><strong>Cuota a ingresar</strong></td><td><strong>' + eurE(cuotaFinal) + '</strong></td></tr>' +
+        '</tbody></table>';
+      html += '<div class="flag"><strong>' + C.n + ':</strong> ' + C.nota + (notaBon ? ' ' + notaBon : '') + '</div>';
+      if (redEmpresa > 0) html += '<div class="flag">La reducción de empresa familiar exige <strong>mantener la adquisición</strong> (10 años en la norma estatal; 5 en la mayoría de comunidades, 3 en Andalucía) y no realizar actos que minoren sustancialmente su valor. Si se incumple: impuesto dejado de ingresar más intereses.</div>';
+      html += '<p class="note" style="margin-top:.7rem">Estimación orientativa: aplica la <strong>escala y los coeficientes estatales</strong>. Madrid, Cataluña, Andalucía, C. Valenciana, Galicia, Asturias, Cantabria, Baleares y Murcia tienen <strong>tarifa propia</strong>, por lo que el resultado real diferirá (a la baja en Galicia y Baleares; al alza en Asturias y Murcia). Verifica siempre la norma vigente.</p>';
+      res.innerHTML = html; res.classList.add("show"); actDone("calc_isd");
+    }
+    if (btn) btn.addEventListener("click", run);
+  }
+
   document.addEventListener("DOMContentLoaded", function () {
     buildSidebar();
     wireMenu();
@@ -1110,6 +1220,7 @@
     wireDeducciones();
     wireIpCalc();
     wireIsCalc();
+    wireIsdCalc();
     refreshTracker();
     refreshProgressUI();
   });
