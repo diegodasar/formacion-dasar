@@ -884,6 +884,99 @@
     if (avail.length) render(avail[0], chips.querySelector(".chip"));
   }
 
+  /* =========================================================
+     PATRIMONIO · escala estatal, ITSGF y LÍMITE CONJUNTO (art. 31)
+     ========================================================= */
+  // Escala estatal art. 30 Ley 19/1991 (verificada en BOE)
+  var IP_ESCALA = [
+    [167129.45, 0.002], [334252.88, 0.003], [668499.75, 0.005], [1336999.51, 0.009],
+    [2673999.01, 0.013], [5347998.03, 0.017], [10695996.06, 0.021], [Infinity, 0.035]
+  ];
+  // Escala ITSGF art. 3.Once Ley 38/2022 (verificada en BOE)
+  var ITSGF_ESCALA = [[3000000, 0], [5347998.03, 0.017], [10695996.06, 0.021], [Infinity, 0.035]];
+
+  function tarifa(base, tramos) {
+    var q = 0, prev = 0;
+    for (var i = 0; i < tramos.length; i++) {
+      var lim = tramos[i][0], t = tramos[i][1];
+      if (base > lim) { q += (lim - prev) * t; prev = lim; }
+      else { q += (base - prev) * t; return q; }
+    }
+    return q;
+  }
+
+  function wireIpCalc() {
+    var calc = document.querySelector(".rcalc.ipcalc");
+    if (!calc) return;
+    var g = function (s) { return calc.querySelector(s); };
+    function n(sel) { var e = g(sel); var v = parseFloat((e && e.value || "").replace(/[^0-9.]/g, "")); return isNaN(v) ? 0 : v; }
+    var btn = g("[data-p-run]"), res = calc.querySelector(".calc-result");
+
+    function run() {
+      var patrimonio = n("[data-p-patrimonio]");     // base imponible IP (patrimonio neto)
+      var minimo = n("[data-p-minimo]") || 700000;   // mínimo exento autonómico
+      var biIrpf = n("[data-p-birpf]");               // base imponible IRPF computable
+      var cuotaIrpf = n("[data-p-cirpf]");            // cuota íntegra IRPF computable
+      var pctImp = Math.min(100, n("[data-p-improd]")) / 100; // % de cuota IP de elementos improductivos
+      var bonif = Math.min(100, n("[data-p-bonif]")) / 100;   // bonificación autonómica
+
+      var baseLiq = Math.max(0, patrimonio - minimo);
+      var cuotaIP = tarifa(baseLiq, IP_ESCALA);
+
+      // ---- Límite conjunto art. 31 ----
+      var limite = 0.60 * biIrpf;
+      var ipComputable = cuotaIP * (1 - pctImp);     // se excluye la parte de improductivos
+      var ipImproductiva = cuotaIP - ipComputable;
+      var suma = cuotaIrpf + ipComputable;
+      var exceso = Math.max(0, suma - limite);
+      var topeReduccion = 0.80 * ipComputable;        // la reducción no puede exceder del 80 %
+      var reduccion = Math.min(exceso, topeReduccion);
+      var ipTrasLimite = cuotaIP - reduccion;
+      var ipFinal = ipTrasLimite * (1 - bonif);      // bonificación autonómica sobre la cuota resultante
+
+      // ---- ITSGF ----
+      var baseLiqG = Math.max(0, patrimonio - 700000);
+      var cuotaG = tarifa(baseLiqG, ITSGF_ESCALA);
+      var sumaG = cuotaIrpf + ipTrasLimite + cuotaG;
+      var excesoG = Math.max(0, sumaG - limite);
+      var redG = Math.min(excesoG, 0.80 * cuotaG);
+      var gTrasLimite = cuotaG - redG;
+      var gFinal = Math.max(0, gTrasLimite - ipFinal); // deduce la cuota de IP efectivamente satisfecha
+
+      var html = '<div class="seg"><span class="tag">Total a pagar (IP + Grandes Fortunas)</span><span class="name wine">' + eurE(ipFinal + gFinal) + '</span></div>';
+      html += '<div class="money">' +
+        '<div class="m"><div class="k">Cuota IP (antes de límite)</div><div class="v">' + eurE(cuotaIP) + '</div></div>' +
+        '<div class="m"><div class="k">Reducción por límite 60 %</div><div class="v wine">−' + eurE(reduccion) + '</div></div>' +
+        '<div class="m"><div class="k">Cuota IP final</div><div class="v">' + eurE(ipFinal) + '</div></div>' +
+        '</div>';
+      html += '<table class="tbl" style="margin:.9rem 0"><tbody>' +
+        '<tr><td>Base liquidable IP (patrimonio − mínimo exento)</td><td><strong>' + eurE(baseLiq) + '</strong></td></tr>' +
+        '<tr><td>Límite conjunto: 60 % de la base imponible del IRPF</td><td><strong>' + eurE(limite) + '</strong></td></tr>' +
+        '<tr><td>Suma computable (cuota IRPF + cuota IP productiva)</td><td>' + eurE(suma) + '</td></tr>' +
+        (pctImp > 0 ? '<tr><td>Cuota IP excluida por elementos improductivos (' + Math.round(pctImp * 100) + ' %)</td><td>' + eurE(ipImproductiva) + '</td></tr>' : '') +
+        '<tr><td>Exceso sobre el límite</td><td>' + eurE(exceso) + '</td></tr>' +
+        '<tr><td>Tope de reducción (80 % de la cuota computable)</td><td>' + eurE(topeReduccion) + '</td></tr>' +
+        (bonif > 0 ? '<tr><td>Bonificación autonómica aplicada (' + Math.round(bonif * 100) + ' %)</td><td>−' + eurE(ipTrasLimite * bonif) + '</td></tr>' : '') +
+        '<tr><td><strong>Cuota ITSGF (Grandes Fortunas) antes de deducir el IP</strong></td><td>' + eurE(gTrasLimite) + '</td></tr>' +
+        '<tr><td><strong>Cuota ITSGF a ingresar (tras deducir el IP satisfecho)</strong></td><td><strong>' + eurE(gFinal) + '</strong></td></tr>' +
+        '</tbody></table>';
+
+      if (exceso > 0 && reduccion === topeReduccion && exceso > topeReduccion) {
+        html += '<div class="flag">Atención: el exceso sobre el límite (' + eurE(exceso) + ') <strong>supera el tope del 80 %</strong>, así que la reducción se queda en ' + eurE(reduccion) + ' y siempre se paga al menos el 20 % de la cuota computable del IP (el llamado «suelo» del límite conjunto).</div>';
+      } else if (exceso > 0) {
+        html += '<div class="flag">El límite conjunto reduce la cuota del IP en ' + eurE(reduccion) + '. Revisa qué elementos son improductivos: aumentarlos reduce la parte computable, pero también la reducción posible.</div>';
+      } else {
+        html += '<div class="flag">No se supera el límite del 60 %: no procede reducción por el art. 31 de la Ley 19/1991.</div>';
+      }
+      if (bonif >= 0.99 && gFinal > 0) {
+        html += '<div class="flag">Ojo: la bonificación autonómica del IP <strong>no ahorra</strong> aquí — lo que se deja de pagar por IP lo recupera el Estado vía Grandes Fortunas (' + eurE(gFinal) + ').</div>';
+      }
+      html += '<p class="note" style="margin-top:.7rem">Estimación orientativa con la escala estatal del art. 30 de la Ley 19/1991 y la del art. 3.Once de la Ley 38/2022. Si la comunidad tiene escala propia, el resultado varía. Verifica siempre la normativa vigente.</p>';
+      res.innerHTML = html; res.classList.add("show"); actDone("calc_ip");
+    }
+    if (btn) btn.addEventListener("click", run);
+  }
+
   document.addEventListener("DOMContentLoaded", function () {
     buildSidebar();
     wireMenu();
@@ -898,6 +991,7 @@
     wireIrpf();
     wireAhorro();
     wireDeducciones();
+    wireIpCalc();
     refreshTracker();
     refreshProgressUI();
   });

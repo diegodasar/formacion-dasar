@@ -1,0 +1,463 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Módulo 3 · Patrimonio y Grandes Fortunas · DASAR</title>
+<meta name="description" content="Módulo 3 DASAR (parte IP e ITSGF): valoración de bienes, activos afectos, sociedad patrimonial, exención de empresa familiar, mapa autonómico y calculadora del límite conjunto IRPF-Patrimonio.">
+<link rel="icon" href="dasar-color.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Jost:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css?v=10">
+</head>
+<body data-current="mod3">
+
+<header class="topbar">
+  <button class="menu-toggle" aria-label="Menú"><span></span><span></span><span></span></button>
+  <a class="brand" href="index.html">
+    <img src="dasar-blanco.svg" alt="DASAR Gestión Patrimonial">
+    <span class="tag">Formación</span>
+  </a>
+  <span class="spacer"></span>
+  <div class="tprogress" title="Progreso del programa">
+    <span data-progress-text>0/7</span>
+    <span class="bar"><i data-progress-bar></i></span>
+  </div>
+  <a class="home-link" href="index.html">Inicio</a>
+</header>
+<div class="readprogress" aria-hidden="true"><i></i></div>
+
+<div class="layout">
+  <aside class="sidebar">
+    <div class="side-h">Módulos del programa</div>
+    <nav id="sidebar-list"></nav>
+  </aside>
+
+  <main class="content prose">
+
+    <div class="mod-head">
+      <div class="eyebrow">
+        <span class="mod-badge">Módulo 3 · Parte 2</span>
+        <span class="mod-meta">Patrimonio (IP) e Impuesto de Grandes Fortunas</span>
+      </div>
+      <h1>Patrimonio y Grandes Fortunas</h1>
+      <p class="lead">El impuesto que decide si un patrimonio está bien o mal estructurado. Aquí ves <strong>cómo se valora cada bien</strong> (norma y criterios), qué son los <strong>activos afectos</strong>, cuándo una sociedad es <strong>patrimonial</strong>, los requisitos exactos de la <strong>exención de empresa familiar</strong>, el <strong>mapa autonómico</strong> con sus exenciones propias y una <strong>calculadora del límite conjunto IRPF–Patrimonio</strong>.</p>
+      <p style="color:var(--muted-2);font-size:.9rem">Nivel: máster / especialización · Parte 2 de 5 del Módulo 3 · Lectura estimada: 70–90 min</p>
+    </div>
+
+    <div class="callout"><div class="ic">✓</div><div class="ct"><h4>Datos verificados en el BOE</h4><p>Las reglas, cifras y requisitos de esta parte se han extraído del <strong>texto consolidado de la Ley 19/1991</strong> (IP) y del <strong>art. 3 de la Ley 38/2022</strong> (ITSGF), y el mapa autonómico de la ley de tributos cedidos de cada comunidad. Enlaces al final.</p></div></div>
+
+    <div class="toc">
+      <h4>En esta parte</h4>
+      <a href="#s1"><span class="tri"></span>3.9 · Estructura del IP y del ITSGF</a>
+      <a href="#s2"><span class="tri"></span>3.10 · Valoración de los bienes</a>
+      <a href="#s3"><span class="tri"></span>3.11 · Criterios y jurisprudencia</a>
+      <a href="#s4"><span class="tri"></span>3.12 · Activos afectos y sociedad patrimonial</a>
+      <a href="#s5"><span class="tri"></span>3.13 · Exención de empresa familiar</a>
+      <a href="#s6"><span class="tri"></span>3.14 · Mapa autonómico</a>
+      <a href="#s7"><span class="tri"></span>3.15 · ITSGF: Grandes Fortunas</a>
+      <a href="#calc"><span class="tri"></span>Calculadora del límite conjunto</a>
+      <a href="#s8"><span class="tri"></span>3.16 · Checklist de planificación</a>
+      <a href="#casos"><span class="tri"></span>Casos y autoevaluación</a>
+    </div>
+
+    <!-- 3.9 -->
+    <section id="s1" class="reveal">
+      <span class="kicker">3.9 · Estructura</span>
+      <h2>Cómo funcionan el IP y el ITSGF</h2>
+      <p>El <strong>Impuesto sobre el Patrimonio</strong> es un tributo directo y personal que grava el <strong>patrimonio neto</strong> (bienes y derechos menos cargas y deudas) del que es titular la persona física a <strong>31 de diciembre</strong> <span class="ref-tag">art. 29</span>. Está <strong>cedido a las CCAA</strong>, que pueden fijar mínimo exento, escala y bonificaciones.</p>
+      <p>El <strong>Impuesto Temporal de Solidaridad de las Grandes Fortunas</strong> (ITSGF) es un tributo <strong>estatal complementario</strong> del IP que grava el patrimonio neto <strong>superior a 3.000.000 €</strong> y que <strong>no puede cederse a las CCAA</strong> <span class="ref-tag">art. 3.Uno y 3.Dos.2 Ley 38/2022</span>. Permite deducir la cuota del IP efectivamente satisfecha, de modo que actúa como un <strong>suelo estatal</strong>.</p>
+      <table class="tbl">
+        <thead><tr><th>&nbsp;</th><th>Impuesto sobre el Patrimonio</th><th>Grandes Fortunas (ITSGF)</th></tr></thead>
+        <tbody>
+          <tr><td><strong>Titular de la competencia</strong></td><td>Estatal, cedido a las CCAA</td><td>Estatal, no cedible</td></tr>
+          <tr><td><strong>Umbral</strong></td><td>Patrimonio neto (mínimo exento habitual 700.000 €)</td><td>Patrimonio neto &gt; 3.000.000 €</td></tr>
+          <tr><td><strong>Mínimo exento</strong></td><td>El que apruebe la CCAA; en su defecto <strong>700.000 €</strong> <span class="ref-tag">art. 28</span></td><td><strong>700.000 €</strong> para todos los sujetos pasivos <span class="ref-tag">art. 3.Nueve</span></td></tr>
+          <tr><td><strong>Escala estatal</strong></td><td>0,2 % → 3,5 % (8 tramos) <span class="ref-tag">art. 30</span></td><td>0 % / 1,7 % / 2,1 % / 3,5 % <span class="ref-tag">art. 3.Once</span></td></tr>
+          <tr><td><strong>Exenciones</strong></td><td>Art. 4 (vivienda, empresa familiar, pensiones…)</td><td>Las mismas del IP <span class="ref-tag">art. 3.Cuatro</span></td></tr>
+          <tr><td><strong>Límite conjunto</strong></td><td>60 % de la base imponible del IRPF <span class="ref-tag">art. 31</span></td><td>Mismo 60 %, con reducción máxima del 80 % <span class="ref-tag">art. 3.Doce</span></td></tr>
+          <tr><td><strong>Obligación de declarar</strong></td><td>Cuota a ingresar, o patrimonio &gt; <strong>2.000.000 €</strong> <span class="ref-tag">art. 37</span></td><td>Solo si la cuota <strong>resulta a ingresar</strong> <span class="ref-tag">art. 3.Diecinueve</span></td></tr>
+          <tr><td><strong>Vigencia</strong></td><td>Indefinida</td><td>Creado para 2 ejercicios, <strong>prorrogado</strong> hasta la revisión de la financiación autonómica (RDL 8/2023)</td></tr>
+        </tbody>
+      </table>
+      <div class="callout ref"><div class="ic">i</div><div class="ct"><h4>Escala estatal del IP (art. 30)</h4><p>0,2 % hasta 167.129,45 € · 0,3 % · 0,5 % · 0,9 % · 1,3 % · 1,7 % · 2,1 % y <strong>3,5 %</strong> desde 10.695.996,06 €. Constitucionalidad del ITSGF confirmada por el Tribunal Constitucional (STC 190/2023 y otras).</p></div></div>
+    </section>
+
+    <hr class="divider">
+
+    <!-- 3.10 VALORACIÓN -->
+    <section id="s2" class="reveal">
+      <span class="kicker">3.10 · Valoración</span>
+      <h2>Cómo se valora cada bien</h2>
+      <p>Esta es la parte más técnica y la que más errores genera. El IP <strong>no usa un único método</strong>: cada tipo de bien tiene su regla propia en los arts. 10 a 25. Dominar esta tabla es lo que permite calcular bien un patrimonio.</p>
+      <table class="tbl">
+        <thead><tr><th>Bien o derecho</th><th>Regla de valoración</th><th>Art.</th></tr></thead>
+        <tbody>
+          <tr><td><strong>Inmuebles</strong></td><td>El <strong>mayor</strong> de tres: valor catastral · valor determinado o comprobado por la Administración a efectos de otros tributos · precio, contraprestación o valor de adquisición</td><td>10.Uno</td></tr>
+          <tr><td>Inmuebles en construcción</td><td>Cantidades efectivamente invertidas hasta el devengo, más el valor del solar (parte proporcional según el título en propiedad horizontal)</td><td>10.Dos</td></tr>
+          <tr><td>Multipropiedad / tiempo compartido</td><td>Si da titularidad parcial, regla de inmuebles; si no, <strong>precio de adquisición</strong> de los certificados o títulos</td><td>10.Tres</td></tr>
+          <tr><td><strong>Bienes afectos a actividad</strong></td><td>Valor de la <strong>contabilidad</strong> (activo real menos pasivo exigible), si se ajusta al Código de Comercio. <em>Excepción:</em> los inmuebles afectos van siempre por la regla del art. 10, salvo que sean existencias de construcción o promoción inmobiliaria</td><td>11</td></tr>
+          <tr><td><strong>Cuentas y depósitos</strong></td><td>El <strong>mayor</strong> entre el saldo a 31-12 y el <strong>saldo medio del último trimestre</strong>. No se computan en el saldo medio los fondos retirados para comprar bienes o cancelar deudas, ni los importes de un préstamo ingresados en el trimestre (que tampoco se deducen como deuda)</td><td>12</td></tr>
+          <tr><td>Deuda cotizada (cesión a terceros)</td><td><strong>Valor de negociación medio del cuarto trimestre</strong></td><td>13</td></tr>
+          <tr><td>Deuda no cotizada</td><td>Valor <strong>nominal</strong>, incluidas primas de amortización o reembolso</td><td>14</td></tr>
+          <tr><td><strong>Acciones cotizadas</strong></td><td><strong>Valor de negociación medio del cuarto trimestre</strong> (salvo IIC). Acciones nuevas aún no cotizadas: última negociación de los títulos antiguos. Ampliaciones pendientes de desembolso: como desembolsadas, con la parte pendiente como deuda</td><td>15</td></tr>
+          <tr><td><strong>Participaciones NO cotizadas</strong></td><td>Si el balance está <strong>auditado con informe favorable</strong>: <strong>valor teórico</strong> del último balance aprobado. Si no: el <strong>mayor</strong> de tres — nominal · valor teórico · <strong>capitalización al 20 %</strong> del promedio de beneficios de los <strong>tres</strong> últimos ejercicios cerrados (dividendos distribuidos + dotaciones a reservas, excluidas las de regularización)</td><td>16.Uno</td></tr>
+          <tr><td>Fondos de inversión (IIC)</td><td><strong>Valor liquidativo</strong> a la fecha de devengo</td><td>16.Dos</td></tr>
+          <tr><td>Cooperativas</td><td>Aportaciones sociales desembolsadas del último balance, menos pérdidas no reintegradas</td><td>16.Tres</td></tr>
+          <tr><td><strong>Seguros de vida</strong></td><td><strong>Valor de rescate</strong>. Si el tomador <strong>no puede rescatar</strong> a la fecha de devengo: <strong>provisión matemática</strong> (en la base del tomador). No aplica a seguros temporales de solo fallecimiento o invalidez</td><td>17.Uno</td></tr>
+          <tr><td>Rentas temporales o vitalicias</td><td>Valor de capitalización con las reglas del ITP-AJD; si proceden de un seguro de vida, por el valor del art. 17.Uno</td><td>17.Dos</td></tr>
+          <tr><td>Joyas, pieles, vehículos (≥125 cc), embarcaciones y aeronaves</td><td><strong>Valor de mercado</strong>; pueden usarse las tablas oficiales de vehículos usados de ITP-AJD e ISD</td><td>18</td></tr>
+          <tr><td>Objetos de arte y antigüedades</td><td><strong>Valor de mercado</strong> (antigüedad &gt;100 años sin alteración sustancial)</td><td>19</td></tr>
+          <tr><td>Usufructo y nuda propiedad</td><td>Reglas del <strong>ITP-AJD</strong>, sobre el valor del bien determinado según esta Ley</td><td>20</td></tr>
+          <tr><td>Concesiones, propiedad intelectual/industrial, opciones</td><td>Concesiones y opciones: reglas del ITP-AJD. Propiedad intelectual e industrial adquirida de terceros: <strong>valor de adquisición</strong></td><td>21-23</td></tr>
+          <tr><td>Demás bienes y derechos</td><td><strong>Precio de mercado</strong> a la fecha de devengo</td><td>24</td></tr>
+          <tr><td><strong>Deudas</strong></td><td>Por su <strong>nominal</strong>, si están justificadas. <strong>No</strong> deducibles: cantidades avaladas hasta que el avalista deba pagar; la hipoteca que garantiza precio aplazado (sí el precio aplazado). <strong>Nunca</strong> son deducibles las deudas para adquirir bienes exentos (si la exención es parcial, la parte proporcional)</td><td>25</td></tr>
+        </tbody>
+      </table>
+      <div class="callout"><div class="ic">!</div><div class="ct"><h4>Tres reglas que se olvidan y cuestan dinero</h4><p>1) El <strong>saldo medio del trimestre</strong> puede superar el saldo a 31-12: cuidado con ingresar dinero en diciembre. 2) Las <strong>deudas de bienes exentos no se deducen</strong> (la hipoteca de la vivienda habitual solo en la parte no exenta). 3) En participaciones no cotizadas, <strong>auditar el balance</strong> con informe favorable evita el "mayor de tres" y suele reducir mucho la valoración.</p></div></div>
+    </section>
+
+    <hr class="divider">
+
+    <!-- 3.11 CRITERIOS -->
+    <section id="s3" class="reveal">
+      <span class="kicker">3.11 · Criterios</span>
+      <h2>Métodos, criterios administrativos y jurisprudencia</h2>
+      <div class="warnbox"><div class="ic">!</div><p>Las reglas de los arts. 4, 10-31 recogidas arriba están <strong>verificadas literalmente</strong> en el BOE. Los criterios interpretativos de este apartado responden a doctrina administrativa (DGT/TEAC) y jurisprudencia consolidada: <strong>confirma la consulta o sentencia concreta antes de apoyar en ella un informe</strong>, porque evolucionan.</p></div>
+      <div class="caso svc" data-act="criterios">
+        <div class="caso-h"><div class="ci">§</div><div class="cti"><div class="cl">Ampliar · criterios de interpretación</div><h4>Lo que dicen la Administración y los tribunales</h4><p>Valoración de inmuebles, no cotizadas, usufructos y el valor de referencia.</p></div><div class="chev">▾</div></div>
+        <div class="caso-body"><div class="caso-inner">
+          <div class="plano"><h5>El «valor de referencia» de Catastro y el IP</h5><p>El valor de referencia se introdujo como base mínima en <strong>ITP-AJD e ISD</strong>, no como una nueva regla del IP. En el IP sigue rigiendo el art. 10: el mayor de catastral, comprobado o de adquisición. El criterio administrativo es que el valor de referencia solo entra en el IP cuando ha operado como <strong>valor de adquisición o comprobado</strong> en una adquisición posterior a su implantación (2022), no para inmuebles antiguos.</p></div>
+          <div class="plano"><h5>«Determinado o comprobado por la Administración»</h5><p>Se refiere a un valor fijado en un procedimiento de comprobación de valores en otro tributo. La discusión práctica es si un valor comprobado en el pasado sigue vinculando: conviene documentar el origen de cada valor declarado y su antigüedad.</p></div>
+          <div class="plano"><h5>Participaciones no cotizadas: el peso de la auditoría</h5><p>La regla del art. 16.Uno premia la auditoría: con informe <strong>favorable</strong> se aplica el valor teórico; sin auditoría, el «mayor de tres» incluye la <strong>capitalización al 20 %</strong> de beneficios, que en compañías rentables dispara la valoración. Planificar la auditoría es una decisión con efecto fiscal directo. Ojo: el balance debe ser el <strong>último aprobado</strong> antes del devengo.</p></div>
+          <div class="plano"><h5>Usufructo y nuda propiedad</h5><p>Se valoran con las reglas del ITP-AJD: usufructo temporal, 2 % por año con máximo del 70 %; usufructo vitalicio, 70 % menos 1 % por cada año que exceda de 20 del usufructuario, con mínimo del 10 %. La nuda propiedad es el resto. Es una palanca clásica de planificación (donar nuda propiedad y reservar usufructo).</p></div>
+          <div class="plano"><h5>Titularidad y régimen matrimonial</h5><p>Cada cónyuge declara <strong>su</strong> patrimonio: los bienes gananciales se atribuyen por mitad. Un error de titularidad puede duplicar o eliminar la tributación de un patrimonio. Enlaza con el Módulo 1 (regímenes económicos) y el Módulo 2 (diagnóstico de titularidades).</p></div>
+          <div class="plano"><h5>Tasación pericial contradictoria</h5><p>Solo cabe para los bienes de los arts. 18, 19 y 24 (joyas, vehículos, arte y «demás bienes»), salvo cuando se hayan usado las tablas oficiales de vehículos <span class="ref-tag">art. 27</span>. Es un dato útil para saber dónde se puede discutir una valoración.</p></div>
+        </div></div>
+      </div>
+    </section>
+
+    <hr class="divider">
+
+    <!-- 3.12 AFECTOS -->
+    <section id="s4" class="reveal">
+      <span class="kicker">3.12 · Afectación</span>
+      <h2>Activos afectos y sociedad patrimonial</h2>
+      <p>La distinción entre activos <strong>afectos</strong> y <strong>no afectos</strong> es la bisagra de todo el impuesto: decide si una sociedad es patrimonial y, por tanto, si se pierde la exención de empresa familiar.</p>
+      <p>La Ley del IP remite al <strong>IRPF</strong> para determinar si existe actividad económica y si un elemento está afecto <span class="ref-tag">art. 4.Ocho.Dos.a</span>. De ahí la regla clave del arrendamiento: solo es actividad económica si se cuenta con una <strong>organización empresarial</strong> (al menos una persona empleada con contrato laboral y a jornada completa).</p>
+      <h3>Cuándo una entidad es «patrimonial» a efectos del IP</h3>
+      <p>La norma lo define con precisión: se entiende que gestiona un patrimonio mobiliario o inmobiliario —y por tanto <strong>no realiza actividad económica</strong>— cuando, <strong>durante más de 90 días del ejercicio social</strong>, concurra cualquiera de estas dos condiciones:</p>
+      <ul>
+        <li>Que <strong>más de la mitad de su activo</strong> esté constituido por <strong>valores</strong>, o</li>
+        <li>Que <strong>más de la mitad de su activo no esté afecto</strong> a actividades económicas.</li>
+      </ul>
+      <p>El valor del activo y de los elementos no afectos es el que se deduzca de la <strong>contabilidad</strong>, siempre que refleje fielmente la situación patrimonial.</p>
+
+      <div class="caso svc" data-act="afectos">
+        <div class="caso-h"><div class="ci">+</div><div class="cti"><div class="cl">Ampliar · reglas de cómputo</div><h4>Qué valores NO se computan (la letra pequeña que salva la exención)</h4><p>Las cuatro exclusiones y la regla de la tesorería de los últimos 10 años.</p></div><div class="chev">▾</div></div>
+        <div class="caso-body"><div class="caso-inner">
+          <div class="plano"><h5>Valores que NO se computan como «valores»</h5><p>Según el art. 4.Ocho.Dos.a.1.º: los poseídos para <strong>cumplir obligaciones legales y reglamentarias</strong>; los que incorporan <strong>derechos de crédito nacidos de relaciones contractuales</strong> de la actividad; los poseídos por <strong>sociedades de valores</strong> en el ejercicio de su objeto; y los que otorguen <strong>al menos el 5 % de los derechos de voto</strong> y se posean <strong>para dirigir y gestionar la participación</strong>, siempre que se disponga de la correspondiente <strong>organización de medios materiales y personales</strong> y la participada no sea a su vez patrimonial.</p></div>
+          <div class="plano"><h5>La regla de la tesorería y los beneficios no distribuidos <span class="cad">clave en holdings</span></h5><p>No se computan como valores ni como elementos no afectos aquellos <strong>cuyo precio de adquisición no supere el importe de los beneficios no distribuidos</strong> obtenidos por la entidad, siempre que provengan de <strong>actividades económicas</strong>, con el límite de los beneficios del propio año y de los <strong>10 años anteriores</strong>. Se asimilan a beneficios de actividad económica los <strong>dividendos</strong> de las participaciones del 5 % citadas, cuando los ingresos de la participada procedan <strong>al menos en el 90 %</strong> de actividades económicas.</p><p>Traducción práctica: la caja acumulada procedente del negocio no «contamina» la sociedad, pero solo hasta el importe de esos beneficios y con esa ventana temporal. Es lo primero que hay que calcular en un holding con tesorería alta.</p></div>
+          <div class="plano"><h5>Consecuencias de ser patrimonial</h5><p>Pierde la <strong>exención de empresa familiar</strong> en el IP y, en cascada, la reducción del 95 % en el ISD; en el Impuesto sobre Sociedades, la entidad patrimonial no accede a determinados incentivos. Es el escenario que más valor destruye en una sucesión.</p></div>
+        </div></div>
+      </div>
+    </section>
+
+    <hr class="divider">
+
+    <!-- 3.13 EMPRESA FAMILIAR -->
+    <section id="s5" class="reveal">
+      <span class="kicker">3.13 · Empresa familiar</span>
+      <h2>La exención de empresa familiar y sus requisitos</h2>
+      <p>Es la exención más valiosa del impuesto y la que más se pierde por descuido. Hay dos supuestos distintos.</p>
+
+      <h3>A) Empresario individual o profesional <span class="ref-tag">art. 4.Ocho.Uno</span></h3>
+      <ul>
+        <li>Bienes y derechos <strong>necesarios</strong> para el desarrollo de la actividad.</li>
+        <li>Ejercida de forma <strong>habitual, personal y directa</strong> por el sujeto pasivo.</li>
+        <li>Que constituya su <strong>principal fuente de renta</strong>. En ese cálculo <strong>no</strong> se computan las remuneraciones por funciones de dirección en las entidades del apartado Dos ni otras retribuciones derivadas de esa participación.</li>
+        <li>También exentos los bienes <strong>comunes a ambos cónyuges</strong> usados en la actividad de cualquiera de ellos.</li>
+      </ul>
+
+      <h3>B) Participaciones en entidades <span class="ref-tag">art. 4.Ocho.Dos</span></h3>
+      <p>Alcanza a la plena propiedad, la <strong>nuda propiedad</strong> y el <strong>usufructo vitalicio</strong> sobre participaciones, coticen o no, si concurren <strong>tres</strong> condiciones:</p>
+      <table class="tbl">
+        <thead><tr><th>Requisito</th><th>Contenido exacto</th><th>Dónde falla en la práctica</th></tr></thead>
+        <tbody>
+          <tr><td><strong>a) Actividad económica</strong></td><td>Que la entidad <strong>no</strong> tenga como actividad principal la gestión de un patrimonio mobiliario o inmobiliario (regla de los 90 días y del 50 % del activo)</td><td>Exceso de tesorería o de inmuebles no afectos; arrendamiento sin persona empleada</td></tr>
+          <tr><td><strong>b) Porcentaje de participación</strong></td><td><strong>≥ 5 %</strong> individual, o <strong>≥ 20 % con el grupo familiar</strong>: cónyuge, ascendientes, descendientes o colaterales de <strong>segundo grado</strong>, por consanguinidad, afinidad o adopción</td><td>Diluciones societarias; olvidar que los colaterales solo llegan al 2.º grado</td></tr>
+          <tr><td><strong>c) Funciones de dirección</strong></td><td>Ejercer <strong>efectivamente</strong> funciones de dirección percibiendo por ello una remuneración que represente <strong>más del 50 %</strong> de la totalidad de los rendimientos empresariales, profesionales y del trabajo personal. No se computan los rendimientos de la actividad del apartado Uno</td><td>Retribución simbólica o inexistente; alta proporción de rentas del trabajo ajenas; no documentar las funciones</td></tr>
+        </tbody>
+      </table>
+      <div class="callout idea"><div class="ic">✓</div><div class="ct"><h4>La regla que salva a la familia</h4><p>Cuando la participación es <strong>conjunta</strong> con el grupo familiar, las funciones de dirección y su remuneración deben cumplirse <strong>al menos en una</strong> de las personas del grupo de parentesco, <strong>sin perjuicio de que todas ellas tengan derecho a la exención</strong>. Es la clave para que padres jubilados o hijos sin sueldo mantengan la exención: basta con que uno del grupo cumpla.</p></div></div>
+      <div class="callout ref"><div class="ic">%</div><div class="ct"><h4>Exención proporcional: casi nadie está exento al 100 %</h4><p>La exención <strong>solo alcanza al valor de las participaciones</strong> (valoradas por el art. 16.Uno) <strong>en la proporción</strong> que exista entre los <strong>activos necesarios para la actividad</strong>, minorados en las deudas derivadas de ella, y el <strong>patrimonio neto</strong> de la entidad. Las mismas reglas se aplican a las participadas para valorar la tenedora. Es decir: si la sociedad tiene un 30 % de activos no afectos, ese 30 % del valor <strong>no está exento</strong>.</p></div></div>
+
+      <h3>Las demás exenciones del art. 4 que hay que tener presentes</h3>
+      <ul>
+        <li><strong>Vivienda habitual</strong>: exenta hasta <strong>300.000 €</strong> (art. 4.Nueve). Por encima, tributa el exceso.</li>
+        <li><strong>Previsión social</strong>: derechos consolidados en planes de pensiones, planes de previsión asegurados, PPSE, seguros colectivos de compromisos por pensiones, seguros de dependencia y productos paneuropeos (PEPP) — art. 4.Cinco. Es la exención que hace del plan de pensiones un activo eficiente en IP.</li>
+        <li><strong>Patrimonio Histórico</strong> (estatal y autonómico), <strong>objetos de arte y antigüedades</strong> por debajo de los umbrales, los cedidos en depósito ≥3 años a museos y la <strong>obra propia del artista</strong> — art. 4.Uno a Tres.</li>
+        <li><strong>Ajuar doméstico</strong>: exento, excepto joyas, pieles, vehículos, embarcaciones, aeronaves, arte y antigüedades — art. 4.Cuatro.</li>
+        <li><strong>Propiedad intelectual e industrial</strong> mientras permanezca en el patrimonio del autor (la industrial, además, no afecta a actividad) — art. 4.Seis.</li>
+      </ul>
+    </section>
+
+    <hr class="divider">
+
+    <!-- 3.14 MAPA AUTONÓMICO -->
+    <section id="s6" class="reveal">
+      <span class="kicker">3.14 · Mapa autonómico</span>
+      <h2>Tributación por comunidad: mínimo, tipos, bonificaciones y exenciones propias</h2>
+      <p>Aquí se decide cuánto paga realmente el cliente. Todo lo siguiente está leído del texto consolidado de la ley de tributos cedidos de cada comunidad.</p>
+      <div class="warnbox"><div class="ic">!</div><p>Verificado en el BOE, pero <strong>se modifica con frecuencia</strong>: confirma la norma vigente antes de una propuesta. Recuerda que las bonificaciones altas pierden eficacia por encima de 3 M€ debido al ITSGF.</p></div>
+      <table class="tbl">
+        <thead><tr><th>Comunidad</th><th>Mínimo exento</th><th>Tipos</th><th>Bonificación</th><th>Exenciones / deducciones propias</th></tr></thead>
+        <tbody>
+          <tr><td><strong>Madrid</strong></td><td>700.000 €</td><td>Escala estatal</td><td><strong>100 %</strong> de la cuota (no aplica si la cuota resultante es nula)</td><td>—</td></tr>
+          <tr><td><strong>Andalucía</strong></td><td>Estatal; con discapacidad <strong>1.250.000 €</strong> (≥33 %) o <strong>1.500.000 €</strong> (≥65 %)</td><td>Propia <strong>0,20 – 2,50 %</strong></td><td><strong>100 %</strong> si la cuota es positiva</td><td>—</td></tr>
+          <tr><td><strong>Cantabria</strong></td><td>700.000 €</td><td>Propia <strong>0,24 – 3,03 %</strong></td><td><strong>100 %</strong> de la cuota resultante</td><td>—</td></tr>
+          <tr><td><strong>Extremadura</strong></td><td><strong>500.000 €</strong>; discapacidad 600.000 / 700.000 / 800.000 € según grado</td><td>Propia <strong>0,30 – 3,75 %</strong></td><td><strong>100 %</strong> si es positiva</td><td>Requisitos de discapacidad: reconocimiento administrativo o judicial, incapacidad permanente o curatela</td></tr>
+          <tr><td><strong>La Rioja</strong></td><td>700.000 €</td><td>Escala estatal</td><td><strong>100 %</strong> (no si la cuota es nula)</td><td>La antigua deducción por aportaciones a fundaciones está <strong>suprimida</strong></td></tr>
+          <tr><td><strong>Cataluña</strong></td><td><strong>500.000 €</strong></td><td>Propia <strong>0,210 – 2,750 %</strong></td><td>Sin bonificación general</td><td><strong>99 %</strong> de la cuota de bienes del <strong>patrimonio protegido</strong>; <strong>95 %</strong> de <strong>propiedades forestales</strong> con instrumento de ordenación aprobado</td></tr>
+          <tr><td><strong>C. Valenciana</strong></td><td><strong>1.000.000 €</strong></td><td>Propia <strong>0,25 – 3,5 %</strong></td><td>Sin bonificación general</td><td><strong>Deducción 100 %</strong> por participaciones y préstamos en <strong>Empresas Emergentes</strong> de la CV: acciones mantenidas ≥3 años; préstamos con vencimiento ≥3 años y amortización ≤40 % anual</td></tr>
+          <tr><td><strong>Galicia</strong></td><td>700.000 €</td><td>Propia <strong>0,20 – 2,50 %</strong></td><td>Sin bonificación general</td><td>Deducciones muy potentes (art. 13 ter): <strong>75 %</strong> (límite 4.000 €) por bienes con deducción en IRPF por empresas nuevas; <strong>100 %</strong> por participaciones en sociedades de fomento forestal y entidades agrarias, por <strong>terrenos rústicos afectos</strong> a explotación inscrita, por <strong>inmuebles en centros históricos</strong> afectos a actividad, y por bienes en <strong>polígonos agroforestales o aldeas modelo</strong></td></tr>
+          <tr><td><strong>Baleares</strong></td><td><strong>3.000.000 €</strong></td><td>Propia <strong>0,28 – 3,45 %</strong></td><td>—</td><td><strong>90 %</strong> de la cuota de <strong>bienes de consumo cultural</strong> (art. 5 Ley 3/2015)</td></tr>
+          <tr><td><strong>Asturias</strong></td><td>Estatal (700.000 €)</td><td>Propia <strong>0,22 – 3,00 %</strong></td><td>—</td><td><strong>99 %</strong> de la cuota del <strong>patrimonio especialmente protegido</strong> (Ley 41/2003)</td></tr>
+          <tr><td><strong>Murcia</strong></td><td>Estatal</td><td>Propia <strong>0,2 – 3,5 %</strong> (desde 1-1-2025)</td><td>Sin bonificación general</td><td><strong>Deducción 100 %</strong> del dinero destinado, en el año siguiente al devengo, a <strong>proyectos de excepcional interés público regional</strong> (con certificación de la entidad beneficiaria)</td></tr>
+          <tr><td><strong>Aragón</strong></td><td>700.000 €</td><td>Escala estatal</td><td><strong>99 %</strong> solo del <strong>patrimonio protegido</strong>, con <strong>límite de 300.000 €</strong>; para el resto del patrimonio, ninguna</td><td>—</td></tr>
+          <tr><td><strong>Canarias</strong></td><td>700.000 €</td><td>Escala estatal</td><td>—</td><td><strong>Exención</strong> de los bienes del <strong>patrimonio especialmente protegido</strong></td></tr>
+          <tr><td><strong>Castilla y León</strong></td><td>Estatal</td><td>Escala estatal</td><td>—</td><td><strong>Exención</strong> del <strong>patrimonio especialmente protegido</strong> (art. 11)</td></tr>
+          <tr><td><strong>Castilla-La Mancha</strong></td><td>Estatal</td><td>Escala estatal</td><td>Ninguna</td><td>No regula el IP: se aplica íntegramente la normativa estatal</td></tr>
+        </tbody>
+      </table>
+      <p class="libnote">Régimen foral: <strong>País Vasco</strong> (Concierto) y <strong>Navarra</strong> (Convenio) tienen su propio impuesto sobre el patrimonio o la riqueza, con reglas y cifras distintas; el ITSGF se adapta a ellos por sus comisiones mixtas <span class="ref-tag">art. 3.Veinticuatro</span>.</p>
+    </section>
+
+    <hr class="divider">
+
+    <!-- 3.15 ITSGF -->
+    <section id="s7" class="reveal">
+      <span class="kicker">3.15 · Grandes Fortunas</span>
+      <h2>El ITSGF y por qué neutraliza las bonificaciones</h2>
+      <p>El ITSGF se diseñó precisamente para que las comunidades que bonifican el IP al 100 % no dejaran sin gravar los grandes patrimonios. Su mecánica es simple y devastadora para la planificación basada solo en residencia:</p>
+      <div class="flow" style="grid-template-columns:repeat(4,1fr)">
+        <div class="step"><div class="n">01</div><h4>Umbral</h4><p>Patrimonio neto &gt; 3.000.000 €, con mínimo exento de 700.000 €.</p></div>
+        <div class="step"><div class="n">02</div><h4>Escala</h4><p>0 % hasta 3 M€ · 1,7 % · 2,1 % · 3,5 % desde 10.695.996,06 €.</p></div>
+        <div class="step"><div class="n">03</div><h4>Límite 60 %</h4><p>Mismo límite conjunto que el IP, con reducción máxima del 80 %.</p></div>
+        <div class="step"><div class="n">04</div><h4>Deducción</h4><p>Se deduce la cuota del IP <strong>efectivamente satisfecha</strong>.</p></div>
+      </div>
+      <p>De ahí la conclusión práctica: en un patrimonio de más de 3 M€ residente en una comunidad que bonifica el IP al 100 %, <strong>lo que no se paga por IP se paga por ITSGF</strong>. La bonificación autonómica sigue siendo útil por debajo de ese umbral y, sobre todo, cuando existen exenciones (empresa familiar) que reducen la base de <em>los dos</em> impuestos.</p>
+      <div class="callout"><div class="ic">i</div><div class="ct"><h4>Dos detalles que importan</h4><p>El mínimo exento de 700.000 € se aplica hoy a <strong>todos</strong> los sujetos pasivos, incluidos no residentes (redacción vigente tras el RDL 8/2023, con efectos desde 29-12-2022). Y el impuesto, creado para dos ejercicios, está <strong>prorrogado</strong> hasta que se revise la tributación patrimonial en la reforma de la financiación autonómica.</p></div></div>
+    </section>
+
+    <hr class="divider">
+
+    <!-- CALCULADORA -->
+    <section id="calc" class="reveal">
+      <span class="kicker">Calculadora interactiva</span>
+      <h2>Límite conjunto IRPF – Patrimonio (art. 31)</h2>
+      <p>La regla: la cuota del IP más las cuotas del IRPF <strong>no pueden exceder del 60 % de la suma de las bases imponibles del IRPF</strong>. Si se supera, se reduce la cuota del IP, pero <strong>la reducción no puede exceder del 80 %</strong> — es decir, siempre se paga al menos el 20 % de la cuota computable. Y no se computa la parte del IP correspondiente a <strong>elementos improductivos</strong> (los que por su naturaleza o destino no pueden generar rendimientos gravados en IRPF: obra de arte, joyas, suelo sin explotar, oro…).</p>
+      <div class="calc rcalc ipcalc">
+        <div class="calc-head"><span class="tri"></span><h3>Calculadora del límite conjunto y del ITSGF</h3></div>
+        <div class="calc-grid">
+          <div class="fld"><label for="p-pat">Patrimonio neto sujeto (€)</label><small>Base imponible del IP, ya descontadas exenciones.</small><input id="p-pat" data-p-patrimonio type="number" min="0" step="10000" placeholder="p. ej. 8000000"></div>
+          <div class="fld"><label for="p-min">Mínimo exento (€)</label><small>700.000 € salvo que la CCAA fije otro.</small><input id="p-min" data-p-minimo type="number" min="0" step="50000" placeholder="700000"></div>
+        </div>
+        <div class="calc-grid" style="padding-top:0">
+          <div class="fld"><label for="p-bi">Base imponible del IRPF computable (€)</label><small>Sin las ganancias de más de un año.</small><input id="p-bi" data-p-birpf type="number" min="0" step="1000" placeholder="p. ej. 150000"></div>
+          <div class="fld"><label for="p-ci">Cuota íntegra del IRPF computable (€)</label><small>La correspondiente a esa base.</small><input id="p-ci" data-p-cirpf type="number" min="0" step="1000" placeholder="p. ej. 55000"></div>
+        </div>
+        <div class="calc-grid" style="padding-top:0">
+          <div class="fld"><label for="p-imp">% de la cuota IP de elementos improductivos</label><small>Arte, joyas, suelo sin explotar…</small><input id="p-imp" data-p-improd type="number" min="0" max="100" step="1" placeholder="p. ej. 10"></div>
+          <div class="fld"><label for="p-bon">Bonificación autonómica (%)</label><small>100 en Madrid, Andalucía, Cantabria…</small><input id="p-bon" data-p-bonif type="number" min="0" max="100" step="1" placeholder="p. ej. 0"></div>
+        </div>
+        <div class="calc-actions"><button class="btn btn-primary" data-p-run>Calcular límite conjunto</button></div>
+        <div class="calc-result"></div>
+      </div>
+    </section>
+
+    <hr class="divider">
+
+    <!-- 3.16 PLANIFICACIÓN -->
+    <section id="s8" class="reveal">
+      <span class="kicker">3.16 · Planificación</span>
+      <h2>Checklist de planificación en IP e ITSGF</h2>
+      <div class="caso svc" data-act="planif">
+        <div class="caso-h"><div class="ci">★</div><div class="cti"><div class="cl">Ampliar · lo que revisamos en cada cliente</div><h4>Las doce palancas del Impuesto sobre el Patrimonio</h4><p>De la exención de empresa familiar al límite conjunto.</p></div><div class="chev">▾</div></div>
+        <div class="caso-body"><div class="caso-inner">
+          <div class="plano"><h5>1 · Blindar la exención de empresa familiar</h5><p>Revisar cada año los tres requisitos (actividad, porcentaje, funciones de dirección con &gt;50 % de rentas) y documentarlos. Es lo que más valor protege, también en el ISD.</p></div>
+          <div class="plano"><h5>2 · Medir la exención proporcional</h5><p>Calcular el ratio de activos afectos sobre patrimonio neto. Depurar activos no afectos (inmuebles vacíos, carteras) aumenta la parte exenta.</p></div>
+          <div class="plano"><h5>3 · Controlar la tesorería del holding</h5><p>Aplicar la regla de los beneficios no distribuidos de los últimos 10 años; si la caja excede, valorar reparto, inversión afecta o reestructuración.</p></div>
+          <div class="plano"><h5>4 · Auditar el balance de las no cotizadas</h5><p>Con informe favorable se aplica el valor teórico y se evita la capitalización al 20 % de beneficios.</p></div>
+          <div class="plano"><h5>5 · Vigilar el saldo medio del cuarto trimestre</h5><p>Evitar movimientos que eleven el saldo medio y recordar que un préstamo ingresado en el trimestre no computa ni se deduce.</p></div>
+          <div class="plano"><h5>6 · Revisar la deducibilidad de las deudas</h5><p>Las deudas de bienes exentos no se deducen; con exención parcial, solo la parte proporcional.</p></div>
+          <div class="plano"><h5>7 · Aprovechar la exención de previsión social</h5><p>Planes de pensiones, PPA, PPSE y seguros de dependencia están exentos: son el activo más eficiente en IP.</p></div>
+          <div class="plano"><h5>8 · Usufructo y nuda propiedad</h5><p>Donar la nuda propiedad reservando el usufructo reparte la base entre generaciones y reduce el patrimonio del donante.</p></div>
+          <div class="plano"><h5>9 · Trabajar el límite conjunto del 60 %</h5><p>El límite premia tener renta baja frente a patrimonio alto. Cuidado: los elementos improductivos quedan fuera del cómputo, así que no siempre conviene concentrarlos.</p></div>
+          <div class="plano"><h5>10 · Elegir bien la comunidad… con realismo</h5><p>Por debajo de 3 M€, la bonificación autonómica ahorra de verdad. Por encima, el ITSGF la neutraliza: el ahorro real viene de las <em>exenciones</em>, no de la residencia.</p></div>
+          <div class="plano"><h5>11 · Explotar las exenciones autonómicas propias</h5><p>Patrimonio protegido de personas con discapacidad (Cataluña, Asturias, Aragón, Canarias, CyL), forestal y agrario (Cataluña, Galicia), consumo cultural (Baleares), empresas emergentes (C. Valenciana), proyectos de interés regional (Murcia).</p></div>
+          <div class="plano"><h5>12 · Vivienda habitual y titularidad</h5><p>Exenta hasta 300.000 € <strong>por contribuyente</strong>: en un matrimonio con vivienda ganancial, la exención puede alcanzar 600.000 € entre los dos. Revisar titularidades siempre.</p></div>
+        </div></div>
+      </div>
+    </section>
+
+    <hr class="divider">
+
+    <!-- BIBLIO -->
+    <section class="reveal">
+      <span class="kicker">Descargables</span>
+      <h2>Normativa de esta parte</h2>
+      <div class="lib">
+        <a class="libitem" href="https://www.boe.es/buscar/act.php?id=BOE-A-1991-14392" target="_blank" rel="noopener"><span class="pdf">BOE</span><span class="lt"><b>Ley 19/1991 · Patrimonio</b><span>Valoración (arts. 10-25) · exenciones (art. 4) · límite conjunto (art. 31)</span></span><span class="go">PDF ↗</span></a>
+        <a class="libitem" href="https://www.boe.es/buscar/act.php?id=BOE-A-2022-22684" target="_blank" rel="noopener"><span class="pdf">BOE</span><span class="lt"><b>Ley 38/2022 · Grandes Fortunas</b><span>Art. 3: umbral, escala, límite y deducción del IP</span></span><span class="go">PDF ↗</span></a>
+        <a class="libitem" href="https://www.boe.es/buscar/act.php?id=BOE-A-2006-20764" target="_blank" rel="noopener"><span class="pdf">BOE</span><span class="lt"><b>Ley 35/2006 · IRPF</b><span>Actividad económica y afectación (arts. 27-29)</span></span><span class="go">PDF ↗</span></a>
+        <a class="libitem" href="https://www.boe.es/buscar/act.php?id=BOE-A-2003-19960" target="_blank" rel="noopener"><span class="pdf">BOE</span><span class="lt"><b>Ley 41/2003 · Patrimonio protegido</b><span>Base de las exenciones autonómicas por discapacidad</span></span><span class="go">Ver ↗</span></a>
+      </div>
+    </section>
+
+    <hr class="divider">
+
+    <!-- CASOS -->
+    <section id="casos" class="reveal">
+      <span class="kicker">Práctica exigente</span>
+      <h2>Casos prácticos</h2>
+
+      <div class="caso" data-act="caso1">
+        <div class="caso-h"><div class="ci">1</div><div class="cti"><div class="cl">Empresa familiar</div><h4>El padre jubilado que sigue exento</h4><p>Un padre tiene el 60 % de la sociedad familiar; está jubilado y no cobra nada de ella. Su hija tiene el 10 %, es consejera delegada y el 80 % de sus rentas vienen de ese sueldo. ¿Está exento el padre?</p></div><div class="chev">▾</div></div>
+        <div class="caso-body"><div class="caso-inner">
+          <div class="sol"><div class="sol-l">Solución</div><p><strong>Sí</strong>, si la sociedad no es patrimonial. El grupo familiar (padre e hija) supera el 20 %, y las funciones de dirección con remuneración &gt;50 % se cumplen <strong>en una</strong> persona del grupo de parentesco (la hija), lo que da derecho a la exención <strong>a todos</strong> ellos <span class="ref-tag">art. 4.Ocho.Dos.c</span>. Ojo: la exención será <strong>proporcional</strong> a los activos afectos. Y si la hija dejara de cobrar o de dirigir, la exención caería para toda la familia: hay que revisarlo cada año.</p></div>
+        </div></div>
+      </div>
+
+      <div class="caso" data-act="caso2">
+        <div class="caso-h"><div class="ci">2</div><div class="cti"><div class="cl">Límite conjunto</div><h4>Mucho patrimonio, poca renta</h4><p>Patrimonio neto sujeto de 8 M€ en Cataluña (mínimo exento 500.000 €), base imponible del IRPF de 150.000 € y cuota íntegra de IRPF de 55.000 €. ¿Cuánto paga de IP?</p></div><div class="chev">▾</div></div>
+        <div class="caso-body"><div class="caso-inner">
+          <div class="sol"><div class="sol-l">Solución</div><p>El límite es el <strong>60 % de 150.000 € = 90.000 €</strong>. Con una cuota de IRPF de 55.000 €, solo "caben" 35.000 € de cuota de IP. Como la cuota del IP con la escala es muy superior, hay exceso y procede reducción… pero <strong>limitada al 80 %</strong> de la cuota computable: siempre se paga el 20 % restante. Compruébalo en la calculadora cambiando el mínimo exento a 500.000. <em>Lección: el límite conjunto es la principal palanca de los patrimonios grandes con rentas moderadas, pero tiene suelo.</em></p></div>
+        </div></div>
+      </div>
+
+      <div class="caso" data-act="caso3">
+        <div class="caso-h"><div class="ci">3</div><div class="cti"><div class="cl">Bonificación vs ITSGF</div><h4>¿Sirve mudarse a Madrid?</h4><p>Cliente con 12 M€ de patrimonio neto que valora trasladar su residencia a Madrid (bonificación del 100 % en IP). ¿Cuánto ahorra?</p></div><div class="chev">▾</div></div>
+        <div class="caso-body"><div class="caso-inner">
+          <div class="sol"><div class="sol-l">Solución</div><p>En IP no pagaría (bonificación 100 %), pero al no haber <strong>cuota de IP efectivamente satisfecha</strong> que deducir, el <strong>ITSGF</strong> se paga íntegro (tramos del 1,7 %, 2,1 % y 3,5 % sobre lo que exceda de 3 M€). El ahorro por mudarse es <strong>prácticamente nulo</strong> a este nivel de patrimonio. Donde sí se gana es reduciendo la <strong>base</strong>: exención de empresa familiar, previsión social, exenciones autonómicas propias y el límite conjunto. <em>Lección: en grandes patrimonios, la estructura vale más que el código postal.</em></p></div>
+        </div></div>
+      </div>
+    </section>
+
+    <section class="reveal">
+      <div class="quiz" data-quiz-mod="mod3ip">
+        <div class="q-head"><span class="tri"></span><h3>Autoevaluación · Patrimonio y Grandes Fortunas</h3><span class="q-meta">Necesitas ≥ 70 %</span></div>
+        <div class="q-body">
+          <div class="q-item" data-correct="1">
+            <div class="q-txt"><span class="qn">1.</span>¿Cómo se valora un inmueble en el IP?</div>
+            <label class="q-opt"><input type="radio" name="q1" value="0">Siempre por el valor de referencia de Catastro.</label>
+            <label class="q-opt"><input type="radio" name="q1" value="1">Por el mayor de tres: valor catastral, valor comprobado por la Administración o valor de adquisición.</label>
+            <label class="q-opt"><input type="radio" name="q1" value="2">Por el valor catastral en todo caso.</label>
+            <label class="q-opt"><input type="radio" name="q1" value="3">Por su valor de mercado.</label>
+            <div class="q-feedback">Art. 10.Uno: el mayor de los tres valores citados.</div>
+          </div>
+          <div class="q-item" data-correct="2">
+            <div class="q-txt"><span class="qn">2.</span>Participaciones no cotizadas con balance auditado e informe favorable:</div>
+            <label class="q-opt"><input type="radio" name="q2" value="0">Se valoran por el nominal.</label>
+            <label class="q-opt"><input type="radio" name="q2" value="1">Por capitalización al 20 % de los beneficios.</label>
+            <label class="q-opt"><input type="radio" name="q2" value="2">Por el valor teórico del último balance aprobado.</label>
+            <label class="q-opt"><input type="radio" name="q2" value="3">Están exentas siempre.</label>
+            <div class="q-feedback">Art. 16.Uno: con auditoría favorable, valor teórico; sin ella, el mayor de tres (incluida la capitalización al 20 %).</div>
+          </div>
+          <div class="q-item" data-correct="0">
+            <div class="q-txt"><span class="qn">3.</span>¿Cuándo se considera que una entidad gestiona patrimonio (es «patrimonial»)?</div>
+            <label class="q-opt"><input type="radio" name="q3" value="0">Cuando durante más de 90 días del ejercicio más de la mitad del activo son valores o no está afecto a actividades económicas.</label>
+            <label class="q-opt"><input type="radio" name="q3" value="1">Cuando tiene algún inmueble.</label>
+            <label class="q-opt"><input type="radio" name="q3" value="2">Cuando no reparte dividendos.</label>
+            <label class="q-opt"><input type="radio" name="q3" value="3">Cuando factura menos de 1 M€.</label>
+            <div class="q-feedback">Es la regla literal del art. 4.Ocho.Dos.a: 90 días y más de la mitad del activo.</div>
+          </div>
+          <div class="q-item" data-correct="1">
+            <div class="q-txt"><span class="qn">4.</span>Requisito de participación en la exención de empresa familiar:</div>
+            <label class="q-opt"><input type="radio" name="q4" value="0">10 % individual o 50 % familiar.</label>
+            <label class="q-opt"><input type="radio" name="q4" value="1">5 % individual o 20 % con cónyuge, ascendientes, descendientes o colaterales de segundo grado.</label>
+            <label class="q-opt"><input type="radio" name="q4" value="2">1 % en todo caso.</label>
+            <label class="q-opt"><input type="radio" name="q4" value="3">No hay requisito de porcentaje.</label>
+            <div class="q-feedback">Art. 4.Ocho.Dos.b: ≥5 % individual o ≥20 % con el grupo familiar hasta el segundo grado.</div>
+          </div>
+          <div class="q-item" data-correct="2">
+            <div class="q-txt"><span class="qn">5.</span>Las funciones de dirección con remuneración &gt;50 % de las rentas…</div>
+            <label class="q-opt"><input type="radio" name="q5" value="0">Deben cumplirse en todos los miembros del grupo familiar.</label>
+            <label class="q-opt"><input type="radio" name="q5" value="1">No son necesarias si se tiene más del 50 % del capital.</label>
+            <label class="q-opt"><input type="radio" name="q5" value="2">Basta que se cumplan en al menos una persona del grupo de parentesco, y todas tienen derecho a la exención.</label>
+            <label class="q-opt"><input type="radio" name="q5" value="3">Solo las puede cumplir el administrador único.</label>
+            <div class="q-feedback">Art. 4.Ocho.Dos.c, párrafo final: basta con una persona del grupo, sin perjuicio del derecho de todas.</div>
+          </div>
+          <div class="q-item" data-correct="1">
+            <div class="q-txt"><span class="qn">6.</span>El límite conjunto del art. 31 supone que…</div>
+            <label class="q-opt"><input type="radio" name="q6" value="0">La cuota del IP nunca puede superar el 60 % del patrimonio.</label>
+            <label class="q-opt"><input type="radio" name="q6" value="1">IP + IRPF no pueden exceder del 60 % de la base imponible del IRPF, y la reducción del IP no puede pasar del 80 %.</label>
+            <label class="q-opt"><input type="radio" name="q6" value="2">Se puede dejar la cuota del IP a cero.</label>
+            <label class="q-opt"><input type="radio" name="q6" value="3">Solo se aplica a no residentes.</label>
+            <div class="q-feedback">60 % de la base imponible del IRPF, con reducción máxima del 80 % de la cuota computable del IP.</div>
+          </div>
+          <div class="q-item" data-correct="0">
+            <div class="q-txt"><span class="qn">7.</span>Un patrimonio de 12 M€ en una comunidad que bonifica el IP al 100 %:</div>
+            <label class="q-opt"><input type="radio" name="q7" value="0">No paga IP, pero paga ITSGF, porque no hay cuota de IP satisfecha que deducir.</label>
+            <label class="q-opt"><input type="radio" name="q7" value="1">No paga nada.</label>
+            <label class="q-opt"><input type="radio" name="q7" value="2">Paga solo IP.</label>
+            <label class="q-opt"><input type="radio" name="q7" value="3">Está exento por el límite conjunto.</label>
+            <div class="q-feedback">Es el efecto neutralizador del ITSGF: la bonificación autonómica deja de ahorrar por encima de 3 M€.</div>
+          </div>
+          <div class="q-item" data-correct="2">
+            <div class="q-txt"><span class="qn">8.</span>La exención de empresa familiar…</div>
+            <label class="q-opt"><input type="radio" name="q8" value="0">Exime el 100 % del valor de las participaciones siempre.</label>
+            <label class="q-opt"><input type="radio" name="q8" value="1">Solo alcanza al 95 % del valor.</label>
+            <label class="q-opt"><input type="radio" name="q8" value="2">Es proporcional a la relación entre activos necesarios para la actividad (menos deudas de ella) y el patrimonio neto de la entidad.</label>
+            <label class="q-opt"><input type="radio" name="q8" value="3">No se aplica a la nuda propiedad.</label>
+            <div class="q-feedback">Es la regla de exención proporcional del último párrafo del art. 4.Ocho.Dos; y sí alcanza a nuda propiedad y usufructo vitalicio.</div>
+          </div>
+        </div>
+        <div class="q-foot">
+          <button class="btn btn-primary" data-quiz-check>Corregir test</button>
+          <button class="btn btn-outline" data-quiz-reset>Reintentar</button>
+          <span class="q-score" data-quiz-score></span>
+        </div>
+      </div>
+    </section>
+
+    <div class="tracker" data-mod="mod3ip">
+      <div class="tk-head"><span class="tri"></span><h3>Actividades de esta parte</h3><span class="tk-count" data-tk-count>0/8</span></div>
+      <div class="tk-body">
+        <div class="act" data-act="leer"><span class="box"></span><span class="lbl">Leer la parte de Patrimonio</span></div>
+        <div class="act" data-act="criterios"><span class="box"></span><span class="lbl">Desplegar criterios y jurisprudencia</span></div>
+        <div class="act" data-act="afectos"><span class="box"></span><span class="lbl">Desplegar las reglas de cómputo de activos</span></div>
+        <div class="act" data-act="calc_ip"><span class="box"></span><span class="lbl">Usar la calculadora del límite conjunto</span></div>
+        <div class="act" data-act="planif"><span class="box"></span><span class="lbl">Desplegar el checklist de planificación</span></div>
+        <div class="act" data-act="caso1"><span class="box"></span><span class="lbl">Abrir el caso 1</span></div>
+        <div class="act" data-act="caso2"><span class="box"></span><span class="lbl">Abrir los casos 2 y 3</span></div>
+        <div class="act" data-act="quiz"><span class="box"></span><span class="lbl">Superar la autoevaluación</span></div>
+        <div data-tk-done style="display:none;align-items:center;gap:.6rem;margin-top:.9rem;padding:.8rem 1rem;background:var(--wine-soft);border-radius:9px;color:var(--wine-dark);font-weight:600"><span class="tri"></span> ¡Parte completada!</div>
+      </div>
+    </div>
+
+    <nav class="modnav">
+      <a href="modulo-3.html"><div class="d">← Parte 1</div><div class="t">IRPF</div></a>
+      <a class="next" href="modulo-4.html"><div class="d">Siguiente →</div><div class="t">Módulo 4 · Estructuras complejas</div></a>
+    </nav>
+
+  </main>
+</div>
+
+<footer class="footer">
+  <div class="fwrap">
+    <img src="dasar-blanco.svg" alt="DASAR Gestión Patrimonial">
+    <nav class="fnav">
+      <a href="index.html">Inicio</a>
+      <a href="modulo-3.html">Parte 1 · IRPF</a>
+      <a href="#calc">Calculadora</a>
+    </nav>
+    <div class="fcopy">© <span data-year>2026</span> DASAR Gestión Patrimonial · Formación interna. No constituye asesoramiento fiscal ni legal. Verifica siempre la normativa vigente.</div>
+  </div>
+</footer>
+
+<script src="deducciones.js?v=10"></script>
+<script src="app.js?v=10"></script>
+</body>
+</html>
