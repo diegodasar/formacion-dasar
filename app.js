@@ -20,7 +20,7 @@
         { t: "Parte 2 · Patrimonio y Grandes Fortunas", file: "modulo-3-patrimonio.html", ready: true },
         { t: "Parte 3 · Sociedades", file: "modulo-3-sociedades.html", ready: true },
         { t: "Parte 4 · Sucesiones y Donaciones", file: "modulo-3-sucesiones.html", ready: true },
-        { t: "Parte 5 · Indirecta e interconexión", file: "", ready: false }
+        { t: "Parte 5 · Indirecta e interconexión", file: "modulo-3-indirecta.html", ready: true }
       ]
     },
     { id: "mod4", num: "4", title: "Estructuras y operaciones complejas", file: "modulo-4.html", ready: false, core: false },
@@ -1204,6 +1204,314 @@
     if (btn) btn.addEventListener("click", run);
   }
 
+
+  /* ======================================================================
+     PARTE 5 · IMPOSICIÓN INDIRECTA E INTERCONEXIÓN
+     ====================================================================== */
+
+  // Tipos verificados: AJD documentos notariales (general y agravado por renuncia
+  // a la exención del IVA, art. 20.Dos LIVA) + TPO general de inmuebles.
+  var IND_CCAA = {
+    andalucia:  { n: "Andalucía",        tpo: 7,    ajd: 1.2,  ajdR: null, norma: "Ley 5/2021, art. 49" },
+    aragon:     { n: "Aragón",           tpo: 8,    ajd: 1.5,  ajdR: 2,    norma: "DL 1/2005, arts. 122-1 y 122-2" },
+    asturias:   { n: "Asturias",         tpo: 8,    ajd: 1.2,  ajdR: 1.5,  norma: "DL 2/2014, arts. 34 y 36" },
+    baleares:   { n: "Baleares",         tpo: 8,    ajd: 1.5,  ajdR: 2.5,  norma: "DL 1/2014, arts. 15 y 19" },
+    canarias:   { n: "Canarias",         tpo: 6.5,  ajd: 1,    ajdR: null, norma: "DL 1/2009, art. 36 (IGIC)" },
+    cantabria:  { n: "Cantabria",        tpo: 9,    ajd: 1.5,  ajdR: 2,    norma: "DL 62/2008, art. 13" },
+    clm:        { n: "Castilla-La Mancha", tpo: 9,  ajd: 1.5,  ajdR: 2.5,  norma: "Ley 8/2013, art. 21" },
+    cyl:        { n: "Castilla y León",  tpo: 8,    ajd: 1.5,  ajdR: 2,    norma: "DL 1/2013, arts. 24 y 26" },
+    cataluna:   { n: "Cataluña",         tpo: 10,   ajd: null, ajdR: null, norma: "NO VERIFICADO en texto consolidado" },
+    extremadura:{ n: "Extremadura",      tpo: 8,    ajd: 1.5,  ajdR: 3,    norma: "DL 1/2018, arts. 46 y 51" },
+    galicia:    { n: "Galicia",          tpo: 8,    ajd: 1.5,  ajdR: 2,    norma: "DL 1/2011, art. 15" },
+    madrid:     { n: "Madrid",           tpo: 6,    ajd: 0.75, ajdR: 1.5,  norma: "DL 1/2010, arts. 35 y 36" },
+    murcia:     { n: "Murcia",           tpo: 8,    ajd: 1.5,  ajdR: 2.5,  norma: "DL 1/2010, art. 7" },
+    larioja:    { n: "La Rioja",         tpo: 7,    ajd: 1,    ajdR: 1.5,  norma: "Ley 10/2017, arts. 48 y 52" },
+    valencia:   { n: "C. Valenciana",    tpo: 10,   ajd: 1.4,  ajdR: 2,    norma: "Ley 13/1997, art. 14" }
+  };
+
+  // Catálogo de activos: régimen en IVA y tipo aplicable
+  var IND_ACTIVOS = {
+    viv_nueva:  { n: "Vivienda · 1.ª entrega del promotor", iva: 10, exento: false, viv: true,  art: "art. 20.Uno.22.º (no hay 2.ª entrega) · tipo art. 91.Uno.1.7.º" },
+    vpo:        { n: "VPO régimen especial o promoción pública (del promotor)", iva: 4, exento: false, viv: true, art: "tipo art. 91.Dos.1.6.º (máx. 2 plazas de garaje)" },
+    viv_usada:  { n: "Vivienda · 2.ª o ulterior entrega", iva: 10, exento: true, viv: true, art: "exenta art. 20.Uno.22.º" },
+    local_1:    { n: "Local, nave u oficina · 1.ª entrega", iva: 21, exento: false, viv: false, art: "sujeta y no exenta · tipo general art. 90.Uno" },
+    local_2:    { n: "Local, nave u oficina · 2.ª o ulterior entrega", iva: 21, exento: true, viv: false, art: "exenta art. 20.Uno.22.º" },
+    solar:      { n: "Solar o suelo urbanizado / en curso de urbanización", iva: 21, exento: false, viv: false, art: "excepción a la exención: art. 20.Uno.20.º a)" },
+    rustico:    { n: "Terreno rústico o no edificable", iva: 21, exento: true, viv: false, art: "exenta art. 20.Uno.20.º" },
+    demolicion: { n: "Edificación para demolición previa a nueva promoción", iva: 21, exento: false, viv: false, art: "excepción art. 20.Uno.22.º A) c)" },
+    rehab:      { n: "Edificación para rehabilitación por el adquirente", iva: 21, exento: false, viv: false, art: "excepción art. 20.Uno.22.º A) b)" }
+  };
+
+  function wireIndirecta() {
+    var calc = document.querySelector(".rcalc.indirecta");
+    if (!calc) return;
+    var g = function (s) { return calc.querySelector(s); };
+    function n(sel) { var e = g(sel); var v = parseFloat((e && e.value || "").replace(/[^0-9.]/g, "")); return isNaN(v) ? 0 : v; }
+    var btn = g("[data-x-run]"), res = calc.querySelector(".calc-result");
+
+    var selC = g("[data-x-ccaa]");
+    if (selC && !selC.options.length) {
+      Object.keys(IND_CCAA).forEach(function (k) {
+        var o = document.createElement("option"); o.value = k; o.textContent = IND_CCAA[k].n; selC.appendChild(o);
+      });
+      selC.value = "madrid";
+    }
+    var selA = g("[data-x-activo]");
+    if (selA && !selA.options.length) {
+      Object.keys(IND_ACTIVOS).forEach(function (k) {
+        var o = document.createElement("option"); o.value = k; o.textContent = IND_ACTIVOS[k].n; selA.appendChild(o);
+      });
+    }
+    var wrapPro = g("[data-x-wrap-prorrata]");
+    function toggle() {
+      var adq = g("[data-x-adq]").value;
+      if (wrapPro) wrapPro.style.display = (adq === "emp_parcial") ? "" : "none";
+    }
+    var selAdq = g("[data-x-adq]");
+    if (selAdq) selAdq.addEventListener("change", toggle);
+    toggle();
+
+    function run() {
+      var imp = n("[data-x-importe]");
+      var trans = g("[data-x-trans]").value;      // particular | empresario
+      var ak = selA.value, A = IND_ACTIVOS[ak];
+      var adq = selAdq.value;                     // particular | emp_total | emp_parcial
+      var pro = adq === "emp_total" ? 100 : (adq === "emp_parcial" ? Math.min(100, Math.max(0, n("[data-x-prorrata]"))) : 0);
+      var ck = selC.value, C = IND_CCAA[ck];
+      var quiere = g("[data-x-renuncia]").value === "si";
+
+      var rows = [], titulo = "", avisos = [], costeNoRec = 0, salida = 0;
+      var ajdGen = C.ajd, ajdRen = C.ajdR;
+
+      function fila(k, v, nota) { rows.push({ k: k, v: v, nota: nota || "" }); }
+
+      if (trans === "particular") {
+        // Fuera del ámbito del IVA: no hay entrega empresarial (art. 5.Uno LIVA)
+        titulo = "TPO — Transmisiones Patrimoniales Onerosas";
+        var tpo = imp * C.tpo / 100;
+        fila("IVA", "No procede", "El transmitente no es empresario ni profesional (art. 5.Uno LIVA): la operación queda fuera del IVA.");
+        fila("TPO al " + C.tpo.toString().replace(".", ",") + " %", eurE(tpo), "Art. 7.1.A) TRLITPAJD. Paga el <strong>adquirente</strong> (art. 8.a). Tipo general de " + C.n + ".");
+        fila("AJD cuota gradual", "Incompatible", "El acto está sujeto a TPO, así que no se devenga la cuota gradual (art. 31.2, requisito de no sujeción a TPO). Sí se paga la cuota fija por folio (art. 31.1).");
+        costeNoRec = tpo; salida = tpo;
+        avisos.push("Base imponible: el <strong>valor de referencia</strong> del Catastro salvo que el declarado o el precio sean superiores (art. 10.2 TRLITPAJD). Si la base es el valor de referencia, la Administración <strong>no puede comprobar valores</strong> (art. 46.1).");
+      } else if (!A.exento) {
+        // IVA sujeto y no exento + AJD gradual
+        titulo = "IVA sujeto y no exento + AJD cuota gradual";
+        var iva = imp * A.iva / 100;
+        var ivaDed = iva * pro / 100, ivaCoste = iva - ivaDed;
+        var ajd = (ajdGen === null) ? null : imp * ajdGen / 100;
+        fila("IVA al " + A.iva + " %", eurE(iva), A.art + ". Lo repercute el transmitente y lo <strong>paga en efectivo</strong> el adquirente.");
+        fila("IVA deducible", eurE(ivaDed) + (pro < 100 ? " (prorrata " + pro + " %)" : ""), pro === 0 ? "El adquirente no es empresario: el IVA es <strong>coste puro</strong>." : "Arts. 92 y ss. LIVA. Sólo es coste la parte no deducible.");
+        fila("AJD cuota gradual" + (ajdGen === null ? "" : " al " + ajdGen.toString().replace(".", ",") + " %"), ajd === null ? "NO VERIFICADO" : eurE(ajd), "Art. 31.2: primera copia, cantidad valuable, inscribible y no sujeta a TPO ni a OS. " + C.norma + ".");
+        costeNoRec = ivaCoste + (ajd || 0); salida = iva + (ajd || 0);
+        if (pro === 100) avisos.push("Con derecho a deducción plena, el IVA es <strong>financiación, no coste</strong>: sale y vuelve. El coste real de la operación es sólo el AJD.");
+      } else {
+        // Exenta: TPO por defecto, o renuncia
+        var puedeRenunciar = (adq !== "particular") && pro > 0;
+        var tipoRen = A.viv ? 10 : 21;
+        var tpo2 = imp * C.tpo / 100;
+        var ivaR = imp * tipoRen / 100, ivaRDed = ivaR * pro / 100, ivaRCoste = ivaR - ivaRDed;
+        var ajdR = (ajdRen === null ? ajdGen : ajdRen);
+        var ajdRCuota = (ajdR === null) ? null : imp * ajdR / 100;
+        var costeSin = tpo2, costeCon = ivaRCoste + (ajdRCuota || 0);
+
+        if (quiere && puedeRenunciar) {
+          titulo = "Renuncia a la exención: IVA con inversión del sujeto pasivo + AJD agravado";
+          fila("IVA al " + tipoRen + " %", eurE(ivaR), "Renuncia del art. 20.Dos LIVA. Con <strong>inversión del sujeto pasivo</strong> (art. 84.Uno.2.º e): lo autoliquida el adquirente, sin pago al vendedor.");
+          fila("IVA deducible", eurE(ivaRDed) + (pro < 100 ? " (prorrata " + pro + " %)" : ""), pro === 100 ? "Deducción íntegra: el IVA no es coste." : "Sólo se recupera la parte deducible; el resto es coste definitivo.");
+          fila("AJD " + (ajdRen === null ? "general" : "agravado") + (ajdR === null ? "" : " al " + ajdR.toString().replace(".", ",") + " %"), ajdRCuota === null ? "NO VERIFICADO" : eurE(ajdRCuota), ajdRen === null ? C.n + " no regula un tipo agravado por renuncia: se aplica el general. " + C.norma + "." : "Tipo incrementado por renuncia. " + C.norma + ".");
+          fila("TPO", "No procede", "Al renunciar, la operación es una entrega sujeta y no exenta de IVA: no hay TPO (art. 18.1 TRLITPAJD).");
+          costeNoRec = costeCon; salida = ivaR + (ajdRCuota || 0);
+        } else {
+          titulo = "Entrega exenta de IVA → TPO";
+          fila("IVA", "Exento", A.art + ". La exención es la que abre la puerta al TPO (art. 4.Cuatro LIVA y art. 7.5 TRLITPAJD).");
+          fila("TPO al " + C.tpo.toString().replace(".", ",") + " %", eurE(tpo2), "Coste <strong>no recuperable</strong> para el adquirente, aunque sea empresario. " + C.n + ".");
+          fila("AJD cuota gradual", "Incompatible", "Sujeto a TPO: no se devenga la cuota gradual (art. 31.2).");
+          costeNoRec = costeSin; salida = tpo2;
+          if (quiere && !puedeRenunciar) avisos.push("<strong>No se puede renunciar</strong>: el art. 20.Dos exige que el adquirente sea sujeto pasivo con derecho a la deducción total o parcial, o que por su destino previsible vaya a usar el bien en operaciones con derecho a deducción.");
+        }
+
+        if (puedeRenunciar && ajdR !== null) {
+          var mejor = costeCon < costeSin ? "renunciar" : "no renunciar";
+          var dif = Math.abs(costeCon - costeSin);
+          avisos.push("<strong>Comparativa de la renuncia:</strong> sin renuncia el coste fiscal no recuperable es " + eurE(costeSin) + " (TPO); con renuncia, " + eurE(costeCon) + " (IVA no deducible + AJD). Con estos datos interesa <strong>" + mejor + "</strong>: diferencia de " + eurE(dif) + ".");
+          if (pro < 100 && pro > 0) avisos.push("Ojo a la prorrata: con un porcentaje de deducción del " + pro + " %, cada punto de prorrata mueve " + eurE(ivaR / 100) + " de coste. La renuncia sólo compensa cuando la prorrata es alta.");
+        }
+        if (A.viv) avisos.push("En vivienda usada la renuncia rara vez es viable: si el destino es el <strong>arrendamiento de vivienda</strong>, esa actividad está exenta (art. 20.Uno.23.º b) y no genera derecho a deducción.");
+      }
+
+      avisos.push("La cuota fija de AJD (0,30 € por pliego o 0,15 € por folio, art. 31.1) se devenga <strong>siempre</strong> y ningún beneficio fiscal la alcanza (art. 45.II).");
+
+      var html = '<div class="seg"><span class="tag">Régimen aplicable</span><span class="name wine">' + titulo + '</span></div>';
+      html += '<div class="money">' +
+        '<div class="m"><div class="k">Coste fiscal no recuperable</div><div class="v wine">' + eurE(costeNoRec) + '</div></div>' +
+        '<div class="m"><div class="k">Sobre el importe</div><div class="v">' + pctE(imp > 0 ? costeNoRec / imp : 0) + '</div></div>' +
+        '<div class="m"><div class="k">Salida de caja inicial</div><div class="v">' + eurE(salida) + '</div></div>' +
+        '</div>';
+      html += '<table class="tbl"><thead><tr><th>Concepto</th><th>Importe</th><th>Fundamento</th></tr></thead><tbody>';
+      rows.forEach(function (r) { html += '<tr><td><strong>' + r.k + '</strong></td><td>' + r.v + '</td><td>' + r.nota + '</td></tr>'; });
+      html += '</tbody></table>';
+      avisos.forEach(function (a) { html += '<div class="flag">' + a + '</div>'; });
+      if (C.ajd === null) html += '<div class="flag"><strong>Cataluña:</strong> no he podido verificar el tipo de AJD en texto consolidado, por lo que el cálculo de AJD no se muestra. Consulta la norma catalana vigente antes de usar el dato.</div>';
+      html += '<p class="note" style="margin-top:.7rem">Estimación orientativa sobre el importe declarado. No incluye tipos reducidos por vivienda habitual, edad, familia numerosa o discapacidad, ni los tipos agravados por valor elevado (Baleares, Cataluña). Verifica siempre la norma autonómica vigente.</p>';
+      res.innerHTML = html; res.classList.add("show"); actDone("calc_indirecta");
+    }
+    if (btn) btn.addEventListener("click", run);
+  }
+
+  /* ---------- Simulador de cadena fiscal (interconexión) ---------- */
+
+  var CADENA_OPS = {
+    venta_pf:   "Persona física vende un inmueble usado",
+    venta_soc:  "Sociedad vende un inmueble y reparte el beneficio al socio",
+    donacion:   "Donación de un inmueble a un hijo",
+    herencia:   "El hijo hereda el mismo inmueble",
+    aportacion: "Aportar un inmueble a una sociedad",
+    venta_part: "Vender las participaciones de una sociedad con inmuebles",
+    disolucion: "Disolver la sociedad y adjudicar el inmueble al socio"
+  };
+
+  function wireCadena() {
+    var calc = document.querySelector(".rcalc.cadena");
+    if (!calc) return;
+    var g = function (s) { return calc.querySelector(s); };
+    function n(sel) { var e = g(sel); var v = parseFloat((e && e.value || "").replace(/[^0-9.]/g, "")); return isNaN(v) ? 0 : v; }
+    var btn = g("[data-k-run]"), res = calc.querySelector(".calc-result");
+
+    var selOp = g("[data-k-op]");
+    if (selOp && !selOp.options.length) {
+      Object.keys(CADENA_OPS).forEach(function (k) {
+        var o = document.createElement("option"); o.value = k; o.textContent = CADENA_OPS[k]; selOp.appendChild(o);
+      });
+    }
+    var selC = g("[data-k-ccaa]");
+    if (selC && !selC.options.length) {
+      Object.keys(IND_CCAA).forEach(function (k) {
+        var o = document.createElement("option"); o.value = k; o.textContent = IND_CCAA[k].n; selC.appendChild(o);
+      });
+      selC.value = "madrid";
+    }
+
+    function run() {
+      var op = selOp.value;
+      var vt = n("[data-k-valor]");        // valor de mercado / transmisión
+      var va = n("[data-k-adq]");          // valor de adquisición
+      var pl = n("[data-k-plus]");         // cuota estimada de plusvalía municipal
+      var afecto = g("[data-k-afecto]").value === "si";
+      var ck = selC.value, C = IND_CCAA[ck];
+      var ganancia = Math.max(0, vt - va);
+      var filas = [], notas = [], costeAhora = 0, costeDiferido = 0;
+
+      function f(imp, quien, base, cuota, art, nota, cuenta) {
+        filas.push({ imp: imp, quien: quien, base: base, cuota: cuota, art: art, nota: nota || "" });
+        if (cuenta !== false && typeof cuota === "number") costeAhora += cuota;
+      }
+      var IS = 0.25;
+
+      if (op === "venta_pf") {
+        var irpf = escalaAhorro(ganancia);
+        f("IRPF · ganancia patrimonial", "Transmitente", ganancia, irpf, "arts. 33, 35 y 46 LIRPF", "Base del ahorro: 19 %–28 %. Los gastos y tributos inherentes suman al valor de adquisición y restan del de transmisión (art. 35).");
+        f("TPO", "Adquirente", vt, vt * C.tpo / 100, "art. 7.1.A) y 11 TRLITPAJD", "Tipo general de " + C.n + " (" + C.tpo.toString().replace(".", ",") + " %). Base: valor de referencia salvo precio superior (art. 10.2).");
+        f("Plusvalía municipal (IIVTNU)", "Transmitente", "Valor del suelo", pl, "arts. 104 y 107 TRLRHL", pl ? "Cuota que has introducido." : "No la has estimado: pídela al ayuntamiento o calcúlala con la ordenanza. Si no hay incremento real, no hay sujeción (art. 104.5).");
+        f("IVA / AJD gradual", "—", "—", 0, "art. 5.Uno LIVA", "El vendedor particular está fuera del IVA y, al haber TPO, no hay cuota gradual de AJD.", false);
+        notas.push("Si el transmitente tiene <strong>más de 65 años</strong> y es su vivienda habitual, la ganancia está exenta (art. 33.4.b). Si no lo es, puede excluirse constituyendo una <strong>renta vitalicia asegurada</strong> en 6 meses, con un máximo de 240.000 € (art. 38.3).");
+        notas.push("Reinversión en vivienda habitual: exención total o parcial del art. 38.1. Es la palanca más barata y la más olvidada.");
+      }
+
+      if (op === "venta_soc") {
+        var is = ganancia * IS;
+        f("Impuesto sobre Sociedades", "Sociedad", ganancia, is, "arts. 10 y 29 LIS", "Tipo general 25 % sobre el beneficio contable de la venta. Si la sociedad es patrimonial no accede al tipo reducido de micro/ERD.");
+        var neto = vt - is;
+        var divid = escalaAhorro(Math.max(0, neto));
+        f("IRPF del socio al repartir el dividendo", "Socio", neto, divid, "art. 25.1 LIRPF", "Segunda capa. Sin exención del art. 21 LIS: esa exención es para dividendos entre sociedades, no para el socio persona física.", false);
+        costeDiferido += divid;
+        f("TPO o IVA + AJD del comprador", "Adquirente", vt, null, "arts. 20.Uno.22.º LIVA / 7.5 y 31.2 TRLITPAJD", "Depende de si es 1.ª o 2.ª entrega y de si se renuncia a la exención: usa la calculadora de delimitación.", false);
+        f("Plusvalía municipal", "Sociedad", "Valor del suelo", pl, "art. 104 TRLRHL", "");
+        notas.push("El coste total hasta el bolsillo del socio es <strong>" + eurE(is + divid + pl) + "</strong>: " + eurE(is) + " de IS, " + eurE(divid) + " de IRPF del dividendo y " + eurE(pl) + " de plusvalía. La doble capa es la razón por la que muchas veces conviene <strong>no sacar el dinero</strong> de la sociedad y reinvertir dentro.");
+      }
+
+      if (op === "donacion") {
+        var irpfD = escalaAhorro(ganancia);
+        f("IRPF del donante · ganancia patrimonial", "Donante", ganancia, irpfD, "arts. 33.5.c) y 36 LIRPF", "El donante tributa por la plusvalía aunque no cobre nada. Y si hubiera pérdida, <strong>no es computable</strong> (art. 33.5.c).");
+        var baseISD = vt;
+        var isd = tarifa(baseISD, ISD_ESCALA) * coefISD(2, 0);
+        f("ISD · donación", "Donatario", baseISD, isd, "arts. 9.3, 20.6 y 21 LISD", "Cálculo con la <strong>escala estatal</strong> y coeficiente del Grupo II, sin reducciones: en muchas comunidades hay bonificaciones del 95 %–99 % o tarifas propias, así que el resultado real puede ser mucho menor. Base: valor de referencia (art. 9.3).");
+        f("Plusvalía municipal", "Donante", "Valor del suelo", pl, "art. 104 TRLRHL", "En donación sí se devenga y no hay bonificación estatal por mortis causa.");
+        notas.push("El valor declarado a efectos del ISD será el <strong>valor de adquisición</strong> del donatario en un IRPF futuro (art. 36): declarar bajo ahorra ISD hoy y encarece el IRPF de mañana. Es el nudo de la valoración.");
+        notas.push("Si lo donado fuera una empresa o participaciones con derecho a la reducción del art. 20.6 LISD, el donante <strong>no tributaría</strong> en IRPF (art. 33.3.c) y el donatario se subrogaría en su valor y fecha de adquisición (art. 36). El diferencial frente a este cálculo es la mejor demostración de por qué la estructura importa.");
+      }
+
+      if (op === "herencia") {
+        f("IRPF del causante", "—", ganancia, 0, "art. 33.3.b) LIRPF", "<strong>Plusvalía del muerto</strong>: no existe ganancia ni pérdida. La plusvalía histórica desaparece.");
+        var isdH = tarifa(Math.max(0, vt - 15956.87), ISD_ESCALA) * coefISD(2, 0);
+        f("ISD · sucesión", "Heredero", Math.max(0, vt - 15956.87), isdH, "arts. 9.3, 20.2 y 21 LISD", "Escala estatal con la reducción de parentesco del Grupo II (15.956,87 €) y sin mejoras autonómicas: usa la calculadora de la Parte 4 para el dato por comunidad.");
+        var plH = pl * 0.05;
+        f("Plusvalía municipal", "Heredero", "Valor del suelo", plH, "art. 108.4 TRLRHL", "Las ordenanzas pueden bonificar <strong>hasta el 95 %</strong> en transmisiones mortis causa a descendientes, cónyuge y ascendientes. Aquí se ha aplicado la bonificación máxima sobre la cuota que has introducido: comprueba tu ordenanza.");
+        var stepUp = ganancia * 0.21;
+        notas.push("<strong>Step-up:</strong> el heredero parte del valor declarado en el ISD. Sobre una plusvalía latente de " + eurE(ganancia) + ", el ahorro de IRPF futuro ronda " + eurE(stepUp) + " (al 21 % de la base del ahorro). Ese ahorro es el argumento técnico que compara herencia contra donación.");
+        notas.push("Comparación directa con la donación de arriba: mismos valores, tres impuestos distintos moviéndose en sentidos opuestos. Cambia sólo el momento y el título.");
+      }
+
+      if (op === "aportacion") {
+        var mayor = Math.max(vt, va);
+        var irpfA = escalaAhorro(Math.max(0, mayor - va));
+        f("IRPF del aportante", "Socio aportante", Math.max(0, mayor - va), irpfA, "art. 37.1.d) LIRPF", "Aportar no es gratis: hay ganancia por la diferencia entre el valor de adquisición y el mayor de (nominal + prima, cotización, valor de mercado del bien).");
+        f("Operaciones Societarias", "Sociedad", vt, 0, "arts. 19.1.1.º y 45.I.B).11 TRLITPAJD", "Constitución y aumento de capital están <strong>exentos</strong> de OS desde 2010. Cuota: 0 €.");
+        f("TPO", "—", "—", 0, "art. 1.2 TRLITPAJD", "Incompatible con OS: no hay TPO en la aportación.", false);
+        f("AJD cuota gradual", "—", "—", 0, "art. 31.2 TRLITPAJD", "No se devenga: el acto está sujeto a OS (aunque exento).", false);
+        f("Plusvalía municipal", "Aportante", "Valor del suelo", pl, "art. 104 TRLRHL", "Sí se devenga: la aportación es transmisión a efectos del IIVTNU.");
+        notas.push("Aportar es <strong>baratísimo en imposición indirecta</strong> y caro en IRPF y plusvalía municipal. El error clásico es mirar sólo el ITPAJD.");
+        notas.push("<strong>Trampa de los tres años:</strong> si en los 3 años siguientes se venden las participaciones recibidas por la aportación del inmueble y éste no está afecto a una actividad, se presume elusión y la venta tributa como transmisión de inmuebles (art. 338.2.c) de la Ley 6/2023).");
+        if (!afecto) notas.push("Has indicado que el inmueble <strong>no está afecto</strong> a actividad económica: la sociedad será probablemente <strong>patrimonial</strong> (art. 5.2 LIS), lo que arrastra la pérdida de la exención de empresa familiar en IP, de la reducción del 95 % en ISD y de los tipos reducidos en IS. Un solo hecho, cuatro impuestos.");
+      }
+
+      if (op === "venta_part") {
+        var irpfP = escalaAhorro(ganancia);
+        f("IRPF · ganancia por venta de participaciones", "Socio", ganancia, irpfP, "art. 37.1.b) LIRPF", "Si no cotizan, el valor de transmisión no puede ser inferior al mayor de: patrimonio neto del último balance cerrado, o capitalización al 20 % del promedio de resultados de los tres últimos ejercicios (salvo prueba de valor de mercado).");
+        if (!afecto) {
+          var tpoP = vt * C.tpo / 100;
+          f("TPO por la norma antielusiva", "Adquirente", vt, tpoP, "art. 338.2 Ley 6/2023", "Al ser un activo mayoritariamente inmobiliario <strong>no afecto</strong> y transmitirse el control, se presume elusión (salvo prueba en contrario) y tributa como transmisión de inmuebles. Base proporcional según el art. 338.3.");
+          notas.push("Control = participación directa o indirecta <strong>superior al 50 %</strong>, computando el grupo (art. 338.3.2.ª). La presunción es <em>iuris tantum</em>: se puede probar que no hay ánimo elusorio, pero la carga es del contribuyente.");
+        } else {
+          f("TPO / IVA", "—", "—", 0, "art. 338.1 Ley 6/2023", "Transmisión de valores <strong>exenta</strong> de IVA y de ITPAJD. Al estar los inmuebles afectos a una actividad económica, no entra la excepción antielusiva del art. 338.2.");
+          notas.push("Aquí se ve el valor de la afectación: el mismo paquete de participaciones puede pasar de exento a tributar como transmisión de inmuebles sólo por cómo estén los activos.");
+        }
+        f("Plusvalía municipal", "—", "—", 0, "art. 104 TRLRHL", "No hay transmisión del inmueble: no se devenga. Ventaja estructural de vender la sociedad en lugar del activo.", false);
+        notas.push("Cuidado con la <strong>referencia normativa</strong>: la clásica cita del art. 108 de la Ley del Mercado de Valores y el posterior art. 314 del TRLMV han quedado sustituidas por el <strong>art. 338 de la Ley 6/2023</strong>. Citar la norma derogada en un informe es un error que se ve.");
+      }
+
+      if (op === "disolucion") {
+        var isD = ganancia * IS;
+        f("Impuesto sobre Sociedades", "Sociedad", ganancia, isD, "art. 17.4 y 5 LIS", "La adjudicación a los socios se valora a <strong>valor de mercado</strong>: la sociedad tributa por la plusvalía latente aunque no venda a un tercero.");
+        var osD = vt * 0.01;
+        f("Operaciones Societarias al 1 %", "Socio adjudicatario", vt, osD, "arts. 19.1.1.º, 23.b), 25.4 y 26 TRLITPAJD", "La disolución y la reducción de capital <strong>no están exentas</strong> (a diferencia de la constitución y el aumento). Base: valor de los bienes entregados, sin deducir deudas.");
+        var irpfL = escalaAhorro(Math.max(0, vt - va));
+        f("IRPF del socio por la liquidación", "Socio", Math.max(0, vt - va), irpfL, "art. 37.1.e) LIRPF", "Ganancia por la diferencia entre el valor de mercado de lo recibido y el valor de adquisición de las participaciones.");
+        f("Plusvalía municipal", "Sociedad", "Valor del suelo", pl, "art. 104 TRLRHL", "");
+        notas.push("Deshacer una estructura cuesta mucho más que crearla: constituir y aportar está exento de OS; disolver paga el 1 % <strong>más</strong> IS <strong>más</strong> IRPF del socio <strong>más</strong> plusvalía. Antes de montar una sociedad, calcula siempre el coste de salida.");
+        notas.push("Si el objetivo es reorganizar y no liquidar, mira las <strong>operaciones de reestructuración</strong>: no sujetas a OS (art. 19.2.1.º) y además exentas de TPO y AJD (art. 45.I.B).10), con el régimen de neutralidad del IS.");
+      }
+
+      var html = '<div class="seg"><span class="tag">' + CADENA_OPS[op] + '</span><span class="name wine">' + eurE(costeAhora) + ' de coste fiscal inmediato</span></div>';
+      html += '<div class="money">' +
+        '<div class="m"><div class="k">Impuestos que se activan</div><div class="v">' + filas.filter(function (r) { return typeof r.cuota === "number" && r.cuota > 0; }).length + ' de ' + filas.length + '</div></div>' +
+        '<div class="m"><div class="k">Coste inmediato</div><div class="v wine">' + eurE(costeAhora) + '</div></div>' +
+        '<div class="m"><div class="k">Coste diferido estimado</div><div class="v">' + (costeDiferido > 0 ? eurE(costeDiferido) : "—") + '</div></div>' +
+        '</div>';
+      html += '<table class="tbl"><thead><tr><th>Impuesto</th><th>Quién paga</th><th>Base</th><th>Cuota</th><th>Norma y por qué</th></tr></thead><tbody>';
+      filas.forEach(function (r) {
+        var b = (typeof r.base === "number") ? eurE(r.base) : r.base;
+        var c = (r.cuota === null) ? "según caso" : (typeof r.cuota === "number" ? eurE(r.cuota) : r.cuota);
+        html += '<tr><td><strong>' + r.imp + '</strong></td><td>' + r.quien + '</td><td>' + b + '</td><td class="wine"><strong>' + c + '</strong></td><td>' + r.art + (r.nota ? ' · ' + r.nota : '') + '</td></tr>';
+      });
+      html += '</tbody></table>';
+      notas.forEach(function (x) { html += '<div class="flag">' + x + '</div>'; });
+      html += '<p class="note" style="margin-top:.7rem">Estimación orientativa y didáctica: usa la escala estatal del ahorro para el IRPF, el 25 % en IS, la escala estatal del ISD sin mejoras autonómicas y el tipo general de TPO de la comunidad. Sirve para <strong>ver la cadena y su orden de magnitud</strong>, no para liquidar. Cada impuesto tiene su calculadora específica en las Partes 1 a 4.</p>';
+      res.innerHTML = html; res.classList.add("show"); actDone("calc_cadena");
+    }
+    if (btn) btn.addEventListener("click", run);
+  }
+
   document.addEventListener("DOMContentLoaded", function () {
     buildSidebar();
     wireMenu();
@@ -1221,6 +1529,8 @@
     wireIpCalc();
     wireIsCalc();
     wireIsdCalc();
+    wireIndirecta();
+    wireCadena();
     refreshTracker();
     refreshProgressUI();
   });

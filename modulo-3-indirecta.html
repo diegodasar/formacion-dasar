@@ -1,0 +1,845 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+<meta http-equiv="Pragma" content="no-cache">
+<meta http-equiv="Expires" content="0">
+<title>Módulo 3 · Imposición indirecta e interconexión · DASAR</title>
+<meta name="description" content="Módulo 3 DASAR (parte 5): delimitación IVA-ITP-AJD con calculadora, renuncia a la exención, prorrata, operaciones societarias, art. 338 Ley 6/2023, y los seis nudos donde un impuesto decide otro, con simulador de cadena fiscal.">
+<link rel="icon" href="dasar-color.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Jost:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css?v=15">
+</head>
+<body data-current="mod3">
+
+<header class="topbar">
+  <button class="menu-toggle" aria-label="Menú"><span></span><span></span><span></span></button>
+  <a class="brand" href="index.html">
+    <img src="dasar-blanco.svg" alt="DASAR Gestión Patrimonial">
+    <span class="tag">Formación</span>
+  </a>
+  <span class="spacer"></span>
+  <div class="tprogress" title="Progreso del programa">
+    <span data-progress-text>0/7</span>
+    <span class="bar"><i data-progress-bar></i></span>
+  </div>
+  <a class="home-link" href="index.html">Inicio</a>
+</header>
+<div class="readprogress" aria-hidden="true"><i></i></div>
+
+<div class="layout">
+  <aside class="sidebar">
+    <div class="side-h">Módulos del programa</div>
+    <nav id="sidebar-list"></nav>
+  </aside>
+
+  <main class="content prose">
+
+    <div class="mod-head">
+      <div class="eyebrow">
+        <span class="mod-badge">Módulo 3 · Parte 5</span>
+        <span class="mod-meta">Imposición indirecta e interconexión</span>
+      </div>
+      <h1>Imposición indirecta e interconexión</h1>
+      <p class="lead">La parte que cierra el módulo y la que separa a un técnico de un consultor. Primero, el <strong>sistema</strong> de la imposición indirecta: quién es empresario, cuándo una entrega va por IVA y cuándo por Transmisiones, qué gana y qué pierde quien <strong>renuncia a la exención</strong>, cómo funcionan la prorrata y los sectores diferenciados, qué cuesta montar y deshacer una sociedad y cuándo vender participaciones tributa como vender ladrillo. Después, lo que ningún manual ordena: los <strong>seis nudos</strong> donde un impuesto decide el resultado de otro, con un <strong>simulador de la cadena fiscal</strong> de cada operación.</p>
+      <p style="color:var(--muted-2);font-size:.9rem">Nivel: máster / especialización · Parte 5 de 5 del Módulo 3 · Lectura estimada: 110–130 min</p>
+    </div>
+
+    <nav class="partnav" aria-label="Partes del Módulo 3">
+      <a class="p" href="modulo-3.html">← Parte 1 · IRPF</a>
+      <a class="p" href="modulo-3-patrimonio.html">← Parte 2 · Patrimonio</a>
+      <a class="p" href="modulo-3-sociedades.html">← Parte 3 · Sociedades</a>
+      <a class="p" href="modulo-3-sucesiones.html">← Parte 4 · Sucesiones</a>
+      <span class="p on">Parte 5 · Indirecta e interconexión</span>
+    </nav>
+
+    <div class="callout"><div class="ic">✓</div><div class="ct"><h4>Datos verificados en el BOE</h4><p>Extraído de los textos consolidados de la <strong>Ley 37/1992 (IVA)</strong>, el <strong>RDL 1/1993 (ITP y AJD)</strong>, la <strong>Ley 6/2023 de los Mercados de Valores</strong>, el <strong>RDL 2/2004 (Haciendas Locales)</strong>, la Ley 35/2006, la Ley 19/1991 y la Ley 29/1987, más las leyes de tributos cedidos de cada comunidad para los tipos de AJD. Los tipos autonómicos cambian cada año: verifica antes de una propuesta.</p></div></div>
+
+    <div class="warnbox"><div class="ic">!</div><p><strong>Esta parte no repite nada.</strong> La compra de vivienda, los tipos de TPO por comunidad y la plusvalía municipal están en el Módulo 1; el IRPF en la Parte 1; Patrimonio en la 2; Sociedades en la 3; Sucesiones en la 4. Aquí sólo hay <strong>sistema, casuística avanzada y conexiones</strong>.</p></div>
+
+    <div class="toc">
+      <h4>En esta parte</h4>
+      <a href="#s1"><span class="tri"></span>3.41 · El mapa de la imposición indirecta</a>
+      <a href="#s2"><span class="tri"></span>3.42 · ¿Quién es empresario a efectos de IVA?</a>
+      <a href="#calc1"><span class="tri"></span>Calculadora: delimitación IVA / TPO / AJD</a>
+      <a href="#s3"><span class="tri"></span>3.43 · Tipos de AJD y renuncia por comunidad</a>
+      <a href="#s4"><span class="tri"></span>3.44 · Primera y segunda entrega. Rehabilitación</a>
+      <a href="#s5"><span class="tri"></span>3.45 · Arrendamientos: IVA e ITP</a>
+      <a href="#s6"><span class="tri"></span>3.46 · Prorrata, sectores diferenciados y autoconsumo</a>
+      <a href="#s7"><span class="tri"></span>3.47 · Vender activos, negocio o acciones</a>
+      <a href="#s8"><span class="tri"></span>3.48 · Operaciones societarias: montar y deshacer</a>
+      <a href="#s9"><span class="tri"></span>3.49 · Condominio, excesos y gananciales</a>
+      <a href="#s10"><span class="tri"></span>3.50 · Exenciones de AJD y los dos límites</a>
+      <a href="#s11"><span class="tri"></span>3.51 · Valor de referencia y la asimetría del IP</a>
+      <a href="#nudos"><span class="tri"></span>3.52 · Los seis nudos de la interconexión</a>
+      <a href="#calc2"><span class="tri"></span>Simulador de la cadena fiscal</a>
+      <a href="#s12"><span class="tri"></span>3.53 · Matriz: una operación, todos los impuestos</a>
+      <a href="#s13"><span class="tri"></span>3.54 · Riesgo: economía de opción, conflicto y simulación</a>
+      <a href="#s14"><span class="tri"></span>3.55 · Checklist de interconexión</a>
+      <a href="#casos"><span class="tri"></span>Casos prácticos</a>
+      <a href="#quiz"><span class="tri"></span>Autoevaluación</a>
+    </div>
+
+    <hr class="divider">
+
+    <!-- 3.41 -->
+    <section id="s1" class="reveal">
+      <span class="kicker">3.41 · El sistema</span>
+      <h2>El mapa de la imposición indirecta</h2>
+      <p>La imposición indirecta grava el <strong>tráfico</strong> de bienes y derechos, no la renta ni la tenencia. En gestión patrimonial aparece siempre que algo se mueve: se compra, se aporta, se reparte, se hipoteca o se disuelve. Y es el único bloque donde el impuesto depende menos de <em>qué</em> se transmite que de <strong>quién</strong> transmite.</p>
+      <div class="grid grid-3">
+        <div class="card"><div class="num">IVA</div><h3>Armonizado</h3><p>Norma estatal y europea. Grava las entregas y servicios de <strong>empresarios y profesionales</strong>. Es neutral cuando el adquirente deduce: entra y sale. Se convierte en coste sólo cuando no hay derecho a deducción.</p></div>
+        <div class="card"><div class="num">ITP</div><h3>Cedido y autonómico</h3><p>Tres modalidades independientes: <strong>TPO</strong> (tráfico entre particulares), <strong>OS</strong> (operaciones societarias) y <strong>AJD</strong> (el documento). Nunca es deducible: es coste puro que se incorpora al valor de adquisición.</p></div>
+        <div class="card"><div class="num">Local</div><h3>Municipal</h3><p>La plusvalía municipal (IIVTNU) se devenga en paralelo, la pague quien la pague. Es el impuesto que más se olvida en la simulación de una operación y el que más veces la desbarata.</p></div>
+      </div>
+
+      <h3>Las reglas de reparto que hay que saber de memoria</h3>
+      <table class="tbl">
+        <thead><tr><th>Regla</th><th>Qué dice</th><th>Norma</th></tr></thead>
+        <tbody>
+          <tr><td><strong>IVA excluye TPO</strong></td><td>Lo sujeto a IVA no tributa por TPO. <em>Excepción capital:</em> las entregas y arrendamientos de inmuebles y los derechos reales de goce sobre ellos <strong>cuando están exentos de IVA</strong> sí van a TPO, salvo que se renuncie a la exención.</td><td>art. 4.Cuatro LIVA y art. 7.5 TRLITPAJD</td></tr>
+          <tr><td><strong>TPO y OS son incompatibles</strong></td><td>«En ningún caso, un mismo acto podrá ser liquidado por el concepto de transmisiones patrimoniales onerosas y por el de operaciones societarias.»</td><td>art. 1.2 TRLITPAJD</td></tr>
+          <tr><td><strong>AJD sí es compatible</strong></td><td>La ley no declara incompatible AJD con TPO ni con OS. Lo que hace el art. 31.2 es <strong>exigir</strong>, para la cuota gradual, que el acto no esté sujeto a TPO ni a OS. Efecto práctico: si hay TPO, no hay cuota gradual; si hay IVA, sí.</td><td>arts. 1.2 y 31.2 TRLITPAJD</td></tr>
+          <tr><td><strong>Convención múltiple</strong></td><td>Una sola convención, un solo derecho. Pero si un mismo documento comprende varias convenciones sujetas separadamente, <strong>se exige el derecho de cada una</strong>.</td><td>art. 4 TRLITPAJD</td></tr>
+          <tr><td><strong>Cuota fija y cuota gradual</strong></td><td>El AJD se paga por cuota fija (0,30 € por pliego o 0,15 € por folio, a elección del fedatario) y, si procede, por cuota gradual. Las copias simples no están sujetas.</td><td>art. 31.1 TRLITPAJD</td></tr>
+          <tr><td><strong>Requisitos de la cuota gradual</strong></td><td>Primera copia de escritura o acta notarial + objeto de cantidad o cosa valuable + acto <strong>inscribible</strong> en el Registro de la Propiedad, Mercantil, de la Propiedad Industrial o de Bienes Muebles + no sujeto a ISD ni a TPO ni a OS. Tipo supletorio estatal: 0,50 %.</td><td>art. 31.2 TRLITPAJD</td></tr>
+        </tbody>
+      </table>
+      <p class="libnote">Los cuatro requisitos de la cuota gradual son acumulativos: basta que falle uno para que no se devengue. Es la primera comprobación que se hace al valorar el coste de una escritura, y es donde se cometen más errores en las simulaciones.</p>
+    </section>
+
+    <hr class="divider">
+
+    <!-- 3.42 -->
+    <section id="s2" class="reveal">
+      <span class="kicker">3.42 · La pregunta previa</span>
+      <h2>¿Quién es empresario a efectos de IVA?</h2>
+      <p>Antes de mirar el activo hay que mirar al transmitente. La misma nave, el mismo precio y el mismo comprador pueden generar un 21 % de IVA deducible o un 8 % de TPO irrecuperable sólo por la condición de quien vende. El art. 5 de la LIVA es, por eso, una norma de planificación patrimonial.</p>
+      <table class="tbl">
+        <thead><tr><th>Sujeto</th><th>¿Es empresario a efectos de IVA?</th><th>Consecuencia práctica</th></tr></thead>
+        <tbody>
+          <tr><td><strong>Sociedad mercantil</strong></td><td>Sí, «salvo prueba en contrario» (art. 5.Uno.b). La antigua presunción incondicionada ya no existe.</td><td>Una sociedad puramente tenedora sin actividad puede quedar fuera del IVA: la transmisión iría por TPO. No se puede dar por hecho.</td></tr>
+          <tr><td><strong>Arrendador de bienes</strong></td><td>Sí. La ley lo dice expresamente: «En particular, tendrán dicha consideración los arrendadores de bienes» (art. 5.Uno.c).</td><td>Un particular que alquila un local <strong>es empresario</strong> en IVA: al venderlo puede haber renuncia a la exención. Alquilar vivienda también le convierte en empresario, pero con actividad exenta.</td></tr>
+          <tr><td><strong>Urbanizador o promotor ocasional</strong></td><td>Sí, «aunque sea ocasionalmente» (art. 5.Uno.d), si urbaniza terrenos o promueve, construye o rehabilita para vender.</td><td>El particular que aporta un terreno a una junta de compensación y sufraga la urbanización se convierte en empresario. La venta del solar pasa a llevar IVA al 21 %.</td></tr>
+          <tr><td><strong>Quien transmite gratis</strong></td><td>No, si realiza <em>exclusivamente</em> entregas o servicios a título gratuito (art. 5.Uno.a).</td><td>Los actos gratuitos se resuelven en ISD e IRPF, no en IVA.</td></tr>
+          <tr><td><strong>Quien aún no ha empezado</strong></td><td>Sí, desde la adquisición de bienes o servicios «con la intención, confirmada por elementos objetivos» de destinarlos a la actividad (art. 5.Dos).</td><td>Permite deducir el IVA soportado antes de facturar. Los elementos objetivos hay que construirlos y guardarlos: licencias, proyectos, contratos.</td></tr>
+        </tbody>
+      </table>
+      <div class="flag">Regla mental para el diagnóstico: <strong>¿el que vende actúa como empresario y el bien está en su patrimonio empresarial?</strong> Si la respuesta es no, el camino es TPO y se acaba la discusión. Si es sí, empieza el árbol de decisión del IVA.</div>
+    </section>
+
+    <hr class="divider">
+
+    <!-- CALCULADORA 1 -->
+    <section id="calc1" class="reveal">
+      <span class="kicker">Calculadora interactiva</span>
+      <h2>Delimitación IVA / TPO / AJD y coste real de la renuncia</h2>
+      <p>Introduce la operación y la calculadora determina el régimen aplicable, las cuotas de cada impuesto, <strong>cuánto es coste y cuánto es sólo financiación</strong>, y si conviene o no renunciar a la exención comparando las dos alternativas con el tipo de AJD agravado de la comunidad.</p>
+      <div class="calc rcalc indirecta">
+        <div class="calc-head"><span class="tri"></span><h3>Motor de delimitación</h3></div>
+        <div class="calc-grid">
+          <div class="fld"><label for="x-importe">Importe de la operación (€)</label><small>Base imponible: precio o valor de referencia, el mayor.</small><input id="x-importe" data-x-importe type="number" min="0" step="10000" placeholder="p. ej. 1000000"></div>
+          <div class="fld"><label for="x-ccaa">Comunidad del inmueble</label><select id="x-ccaa" data-x-ccaa></select></div>
+        </div>
+        <div class="calc-grid" style="padding-top:0">
+          <div class="fld"><label for="x-trans">Quién transmite</label>
+            <select id="x-trans" data-x-trans>
+              <option value="empresario">Empresario o sociedad, actuando como tal</option>
+              <option value="particular">Particular (fuera de actividad económica)</option>
+            </select>
+          </div>
+          <div class="fld"><label for="x-activo">Qué se transmite</label><select id="x-activo" data-x-activo></select></div>
+        </div>
+        <div class="calc-grid" style="padding-top:0">
+          <div class="fld"><label for="x-adq">Quién adquiere</label>
+            <select id="x-adq" data-x-adq>
+              <option value="emp_total">Empresario con derecho a deducción plena</option>
+              <option value="emp_parcial">Empresario con prorrata (deducción parcial)</option>
+              <option value="particular">Particular o entidad sin derecho a deducción</option>
+            </select>
+          </div>
+          <div class="fld" data-x-wrap-prorrata style="display:none"><label for="x-prorrata">Porcentaje de prorrata (%)</label><small>Porcentaje de deducción del art. 104.</small><input id="x-prorrata" data-x-prorrata type="number" min="0" max="100" step="5" placeholder="p. ej. 40"></div>
+        </div>
+        <div class="calc-grid" style="padding-top:0">
+          <div class="fld"><label for="x-renuncia">¿Se renuncia a la exención del IVA?</label><small>Sólo posible en las exenciones de los arts. 20.Uno.20.º y 22.º.</small>
+            <select id="x-renuncia" data-x-renuncia>
+              <option value="no">No</option>
+              <option value="si">Sí, se renuncia (art. 20.Dos)</option>
+            </select>
+          </div>
+        </div>
+        <div class="calc-actions"><button class="btn btn-primary" data-x-run>Determinar régimen y coste</button></div>
+        <div class="calc-result"></div>
+      </div>
+      <div class="flag">Lo que enseña la calculadora: el IVA repercutido <strong>no es coste</strong> cuando hay deducción plena; es financiación. El TPO <strong>siempre</strong> es coste. El AJD también, pero es entre cuatro y ocho veces menor. De ahí que la renuncia a la exención sea, en operaciones entre empresas, la palanca de ahorro más rentable de toda la imposición indirecta.</div>
+    </section>
+
+    <hr class="divider">
+
+    <!-- 3.43 -->
+    <section id="s3" class="reveal">
+      <span class="kicker">3.43 · Mapa autonómico</span>
+      <h2>AJD: tipo general y tipo agravado por renuncia</h2>
+      <p>La cuota gradual de AJD está cedida y cada comunidad fija su tipo. Casi todas <strong>penalizan la renuncia a la exención del IVA</strong> con un tipo incrementado, precisamente porque la renuncia les quita el TPO. Ese diferencial es el que hay que comparar contra el ahorro del IVA deducible.</p>
+      <table class="tbl">
+        <thead><tr><th>Comunidad</th><th>AJD general</th><th>AJD con renuncia</th><th>Norma y artículo</th></tr></thead>
+        <tbody>
+          <tr><td>Madrid</td><td><strong>0,75 %</strong></td><td>1,5 %</td><td>DL 1/2010, arts. 35 y 36</td></tr>
+          <tr><td>Canarias</td><td>0,75 % (1 % si el documento se refiere a operaciones sujetas a IGIC o IVA)</td><td>—</td><td>DL 1/2009, art. 36</td></tr>
+          <tr><td>La Rioja</td><td><strong>1 %</strong></td><td>1,5 %</td><td>Ley 10/2017, arts. 48 y 52</td></tr>
+          <tr><td>Andalucía</td><td>1,2 %</td><td>— (no regula tipo por renuncia)</td><td>Ley 5/2021, art. 49</td></tr>
+          <tr><td>Asturias</td><td>1,2 %</td><td>1,5 %</td><td>DL 2/2014, arts. 34 y 36</td></tr>
+          <tr><td>C. Valenciana</td><td>1,4 %</td><td>2 %</td><td>Ley 13/1997, art. 14</td></tr>
+          <tr><td>Aragón</td><td>1,5 %</td><td>2 %</td><td>DL 1/2005, arts. 122-1 y 122-2</td></tr>
+          <tr><td>Cantabria</td><td>1,5 % (1 % vivienda habitual)</td><td>2 %</td><td>DL 62/2008, art. 13</td></tr>
+          <tr><td>Castilla y León</td><td>1,5 %</td><td>2 %</td><td>DL 1/2013, arts. 24 y 26</td></tr>
+          <tr><td>Galicia</td><td>1,5 %</td><td>2 %</td><td>DL 1/2011, art. 15</td></tr>
+          <tr><td>Baleares</td><td>1,5 % (2 % en inmuebles ≥ 1.000.000 €, art. 17 bis)</td><td><strong>2,5 %</strong></td><td>DL 1/2014, arts. 15, 17 bis y 19</td></tr>
+          <tr><td>Castilla-La Mancha</td><td>1,5 %</td><td><strong>2,5 %</strong></td><td>Ley 8/2013, art. 21</td></tr>
+          <tr><td>Murcia</td><td>1,5 % (también en transmisiones sujetas y no exentas de IVA)</td><td><strong>2,5 %</strong></td><td>DL 1/2010, art. 7</td></tr>
+          <tr><td>Extremadura</td><td>1,5 %</td><td><strong>3 %</strong> (el más alto de España)</td><td>DL 1/2018, arts. 46 y 51</td></tr>
+          <tr><td>Cataluña</td><td colspan="2">NO VERIFICADO en texto consolidado accesible</td><td>Consultar norma catalana vigente</td></tr>
+        </tbody>
+      </table>
+      <div class="warnbox"><div class="ic">!</div><p>Dos comunidades verificadas <strong>no regulan tipo agravado</strong>: Andalucía y Canarias (en Canarias no opera el mecanismo del art. 20.Dos LIVA, sino su equivalente en el IGIC). Y en Cataluña no he podido leer el tipo en un texto consolidado fiable, así que <strong>no se publica el dato</strong>: preferimos un hueco a un número inventado.</p></div>
+      <p class="libnote">Cómo se usa esta tabla: el ahorro de renunciar es, aproximadamente, <em>TPO − (IVA no deducible + AJD agravado)</em>. En Madrid, sobre 1.000.000 € y con deducción plena, renunciar cuesta 15.000 € de AJD frente a 60.000 € de TPO: <strong>45.000 € de ahorro</strong>. En Extremadura, 30.000 € frente a 80.000 €: 50.000 €. Pero si la prorrata del comprador es baja, la ecuación se invierte.</p>
+    </section>
+
+    <hr class="divider">
+
+    <!-- 3.44 -->
+    <section id="s4" class="reveal">
+      <span class="kicker">3.44 · Casuística avanzada</span>
+      <h2>Primera entrega, segunda entrega y rehabilitación</h2>
+      <p>La frontera entre «sujeta y no exenta» y «exenta» se juega en el art. 20.Uno.22.º, y es puro detalle técnico. Aquí es donde un consultor gana o pierde credibilidad delante de un promotor.</p>
+      <table class="tbl">
+        <thead><tr><th>Concepto</th><th>Regla verificada</th></tr></thead>
+        <tbody>
+          <tr><td><strong>Primera entrega</strong></td><td>La realizada por el <strong>promotor</strong> de una edificación cuya construcción o rehabilitación esté <strong>terminada</strong>.</td></tr>
+          <tr><td><strong>La regla de los dos años</strong></td><td>No es primera entrega la del promotor tras la <strong>utilización ininterrumpida por dos años o más</strong> (por el propietario, por titulares de derechos reales de goce o por arrendamiento sin opción de compra), <strong>salvo que el adquirente sea quien la utilizó</strong> durante ese plazo. El promotor que alquila su stock tres años y luego vende hace una <em>segunda</em> entrega: exenta, y el comprador paga TPO.</td></tr>
+          <tr><td><strong>Terrenos accesorios</strong></td><td>Se incluyen los terrenos urbanizados accesorios; en <strong>viviendas unifamiliares no pueden exceder de 5.000 m²</strong>.</td></tr>
+          <tr><td><strong>Transmisión de negocio</strong></td><td>Las transmisiones <strong>no sujetas por el art. 7.1.º</strong> no tienen la consideración de primera entrega: el adquirente hereda el «contador» del transmitente.</td></tr>
+          <tr><td><strong>Tres excepciones a la exención</strong></td><td>a) Entregas en ejercicio de la <strong>opción de compra de un arrendamiento financiero</strong> por empresas dedicadas habitualmente a ello (duración mínima del contrato: 10 años). b) Entregas para <strong>rehabilitación por el adquirente</strong>. c) Entregas de edificaciones objeto de <strong>demolición previa a una nueva promoción urbanística</strong>.</td></tr>
+        </tbody>
+      </table>
+      <div class="caso svc" data-act="rehab">
+        <div class="caso-h"><div class="ci">+</div><div class="cti"><div class="cl">Ampliar · el test de rehabilitación</div><h4>Los dos requisitos que hay que cumplir a la vez</h4><p>Con los porcentajes exactos y qué obras cuentan.</p></div><div class="chev">▾</div></div>
+        <div class="caso-body"><div class="caso-inner">
+          <div class="plano"><h5>Requisito 1 · objeto principal la reconstrucción</h5><p>Se cumple cuando <strong>más del 50 % del coste total del proyecto</strong> se corresponde con obras de <strong>consolidación o tratamiento de elementos estructurales, fachadas o cubiertas</strong>, o con obras <strong>análogas o conexas</strong> a las de rehabilitación.</p></div>
+          <div class="plano"><h5>Requisito 2 · umbral cuantitativo</h5><p>El coste total de las obras debe <strong>superar el 25 %</strong> del precio de adquisición si la edificación se compró en los <strong>dos años</strong> anteriores al inicio de las obras, o del <strong>valor de mercado</strong> en el momento de inicio en otro caso. En ambos casos <strong>descontando la parte proporcional del suelo</strong>. Ese descuento del suelo es lo que más veces se olvida y lo que hace fallar el test.</p></div>
+          <div class="plano"><h5>Obras análogas</h5><p>Adecuación estructural (seguridad, estabilidad y resistencia mecánica); refuerzo de cimentación, pilares o forjados; ampliación de superficie construida sobre y bajo rasante; reconstrucción de fachadas y patios interiores; instalación de elementos elevadores, incluidos los de supresión de barreras arquitectónicas.</p></div>
+          <div class="plano"><h5>Obras conexas</h5><p>Albañilería, fontanería y carpintería; cerramientos, instalaciones eléctricas, agua, climatización y protección contra incendios; y <strong>rehabilitación energética</strong>. Pero sólo cuentan si su coste total es <strong>inferior</strong> al de las obras estructurales, están <strong>vinculadas a ellas de forma indisociable</strong> y no son mero acabado, ornato, mantenimiento o pintura de fachada.</p></div>
+          <div class="plano"><h5>Por qué importa en planificación</h5><p>Si la obra califica como rehabilitación, la entrega posterior es <strong>primera entrega</strong>: IVA deducible en lugar de TPO irrecuperable, y el promotor recupera todo el IVA soportado de la obra. Si no califica, el mismo proyecto arrastra TPO en la compra y IVA no deducible en la obra. La diferencia en una operación de 2 millones ronda fácilmente los 300.000 €.</p></div>
+        </div></div>
+      </div>
+    </section>
+
+    <hr class="divider">
+
+    <!-- 3.45 -->
+    <section id="s5" class="reveal">
+      <span class="kicker">3.45 · Rentas inmobiliarias</span>
+      <h2>Arrendamientos: cuándo llevan IVA y cuándo ITP</h2>
+      <p>El arrendamiento es la operación más repetida en las carteras que gestionamos y la que peor se documenta. Dos avisos previos: el arrendamiento <strong>es hecho imponible de TPO</strong> (art. 7.1.B) con su propia escala (art. 12.1), y el arrendador de cualquier bien <strong>es empresario</strong> a efectos de IVA.</p>
+      <table class="tbl">
+        <thead><tr><th>Supuesto</th><th>IVA</th><th>Fundamento</th></tr></thead>
+        <tbody>
+          <tr><td>Vivienda a un particular como vivienda</td><td><strong>Exento</strong> (y arrastra garajes, anexos y muebles arrendados conjuntamente)</td><td>art. 20.Uno.23.º b)</td></tr>
+          <tr><td>Terreno rústico y construcciones agrarias de la explotación</td><td>Exento, salvo construcciones de <strong>ganadería independiente</strong> del suelo</td><td>art. 20.Uno.23.º a)</td></tr>
+          <tr><td>Local, oficina o nave</td><td><strong>21 %</strong>: no está entre los supuestos exentos</td><td>art. 90.Uno</td></tr>
+          <tr><td>Terreno para estacionamiento de vehículos, depósito o almacenaje, exposiciones o publicidad</td><td>21 %: excepciones expresas a´), b´) y c´)</td><td>art. 20.Uno.23.º</td></tr>
+          <tr><td>Arrendamiento con opción de compra de terrenos o viviendas cuya entrega estaría sujeta y no exenta</td><td>21 %: excepción d´)</td><td>art. 20.Uno.23.º</td></tr>
+          <tr><td>Apartamento o vivienda amueblada <strong>con servicios propios de la industria hotelera</strong> (restaurante, limpieza, lavado de ropa u otros análogos)</td><td>Sujeto y no exento: excepción e´). Es la frontera del alquiler turístico</td><td>art. 20.Uno.23.º</td></tr>
+          <tr><td>Arrendamiento a una empresa para <strong>subarrendar</strong></td><td>21 %: excepción f´), salvo el caso de la letra b)</td><td>art. 20.Uno.23.º</td></tr>
+          <tr><td>Constitución o transmisión de un <strong>derecho de superficie</strong></td><td>Nunca exento: excepción j´)</td><td>art. 20.Uno.23.º</td></tr>
+          <tr><td>Vivienda arrendada a una sociedad acogida al régimen de entidades dedicadas al arrendamiento de viviendas, o a gestoras de programas públicos</td><td>Exento por extensión</td><td>art. 20.Uno.23.º b)</td></tr>
+        </tbody>
+      </table>
+      <div class="caso svc" data-act="arrend">
+        <div class="caso-h"><div class="ci">+</div><div class="cti"><div class="cl">Ampliar · las cuatro trampas del arrendamiento</div><h4>Dónde se pierde dinero sin darse cuenta</h4><p>Arrendamiento de industria, TPO del contrato, alquiler turístico y el arrendamiento como actividad habitual.</p></div><div class="chev">▾</div></div>
+        <div class="caso-body"><div class="caso-inner">
+          <div class="plano"><h5>1 · Arrendamiento de vivienda ≠ arrendamiento de industria</h5><p>La exención del 23.º b) exige que el destino sea <strong>exclusivamente vivienda</strong>. Cuando lo que se cede es un negocio en marcha (local, licencias, mobiliario, clientela), no hay arrendamiento de vivienda ni de terreno: hay una prestación de servicios sujeta al 21 %. La ley no lo dice con esas palabras — no aparece la expresión «arrendamiento de industria» en el precepto —, pero el resultado se sigue de que no encaja en ninguna de las dos letras exentas.</p></div>
+          <div class="plano"><h5>2 · El contrato de arrendamiento paga TPO</h5><p>Hecho imponible del art. 7.1.B), sujeto pasivo el <strong>arrendatario</strong> (art. 8.f), responsable subsidiario el arrendador (art. 9), base la cantidad total del período (6 años si no consta, mínimo 3 en urbanas con prórroga forzosa, art. 10.5.e) y escala del art. 12.1, que puede pagarse con efectos timbrados. <strong>Los arrendamientos de vivienda para uso estable y permanente están exentos</strong> (art. 45.I.B).26). Los de local, no: es una liquidación pequeña que casi nadie presenta y que aparece en las comprobaciones.</p></div>
+          <div class="plano"><h5>3 · El alquiler turístico y la línea de los servicios hoteleros</h5><p>Sin servicios complementarios propios de la hostelería, el arrendamiento de vivienda amueblada sigue exento; con ellos, pasa a sujeto y no exento. La diferencia no la marca la duración ni la plataforma, sino <strong>qué servicios se prestan</strong>. Y arrastra consecuencias en IRPF (rendimiento del capital inmobiliario con reducción o actividad económica) y en IP (afectación).</p></div>
+          <div class="plano"><h5>4 · El arrendamiento sí computa en prorrata</h5><p>El art. 104.Tres.4.º excluye del cálculo de la prorrata las operaciones inmobiliarias o financieras que no sean actividad habitual, pero añade: «En todo caso se reputará actividad empresarial o profesional habitual del sujeto pasivo la de arrendamiento». Traducción: en una sociedad que alquila viviendas (exento) y locales (sujeto), <strong>los ingresos de vivienda entran en el denominador</strong> y bajan el porcentaje de deducción.</p></div>
+        </div></div>
+      </div>
+    </section>
+
+    <hr class="divider">
+
+    <!-- 3.46 -->
+    <section id="s6" class="reveal">
+      <span class="kicker">3.46 · Deducción</span>
+      <h2>Prorrata, sectores diferenciados y autoconsumo</h2>
+      <p>Es la parte del IVA que casi nunca se explica en formación patrimonial y la que más dinero mueve en las sociedades familiares con inmuebles mixtos. La lógica es simple: <strong>sólo se deduce el IVA de lo que se usa en operaciones que dan derecho a deducir</strong>. El problema es medirlo.</p>
+      <table class="tbl">
+        <thead><tr><th>Concepto</th><th>Regla verificada</th><th>Norma</th></tr></thead>
+        <tbody>
+          <tr><td><strong>Sectores diferenciados</strong></td><td>Actividades en <strong>grupos distintos de la CNAE</strong> cuyos porcentajes de deducción difieran en <strong>más de 50 puntos porcentuales</strong>. La principal (mayor volumen del año anterior), sus accesorias y las que no difieran en más de 50 puntos forman <strong>un sector</strong>; las demás, otro.</td><td>art. 9.1.º c) a´) LIVA</td></tr>
+          <tr><td><strong>Actividad accesoria</strong></td><td>No se reputa distinta si en el año precedente su volumen <strong>no excedió del 15 %</strong> del de la principal <strong>y</strong> contribuye a su realización.</td><td>art. 9.1.º c) a´)</td></tr>
+          <tr><td><strong>Régimen de deducción separado</strong></td><td>Cada sector liquida su deducción por separado. Los bienes de uso común se reparten con el porcentaje del art. 104. Cabe pedir un <strong>régimen de deducción común</strong>, que pierde efectos si las cuotas deducibles exceden en un <strong>20 %</strong> de las que resultarían del régimen separado.</td><td>art. 101</td></tr>
+          <tr><td><strong>Prorrata general</strong></td><td>Porcentaje = operaciones con derecho a deducción / total de operaciones, <strong>redondeado a la unidad superior</strong>. Provisional el del año anterior; definitiva en la última declaración del año, con regularización.</td><td>arts. 104 y 105</td></tr>
+          <tr><td><strong>Prorrata especial</strong></td><td>Por opción, u <strong>obligatoria</strong> cuando las cuotas deducibles por la general excedan <strong>en un 10 % o más</strong> de las que resultarían por la especial. Deduce el 100 % de lo usado sólo en operaciones con derecho, 0 % de lo usado sólo en operaciones sin derecho, y aplica el porcentaje al uso mixto.</td><td>arts. 103.Dos y 106</td></tr>
+          <tr><td><strong>Autoconsumo por cambio de sector</strong></td><td>El <strong>cambio de afectación de bienes de un sector diferenciado a otro</strong> es autoconsumo sujeto. Reorganizar internamente puede devengar IVA sin que salga nada de la empresa.</td><td>art. 9.1.º c)</td></tr>
+          <tr><td><strong>Autoconsumo de servicios</strong></td><td>Aplicar bienes del patrimonio empresarial al <strong>uso particular</strong> o a fines ajenos a la actividad es autoconsumo de servicios. Es el fundamento técnico del uso privado de inmuebles societarios.</td><td>art. 12.1.º y 2.º</td></tr>
+          <tr><td><strong>Límite de la sujeción</strong></td><td>No hay autoconsumo sujeto cuando <strong>no se atribuyó derecho a deducir</strong> el IVA soportado en la adquisición.</td><td>art. 7.7.º</td></tr>
+        </tbody>
+      </table>
+      <div class="caso svc" data-act="prorrata">
+        <div class="caso-h"><div class="ci">+</div><div class="cti"><div class="cl">Ampliar · la trampa de la sociedad patrimonial mixta</div><h4>Cómo una cartera de viviendas destruye el IVA de los locales</h4><p>Ejemplo numérico completo y las tres salidas.</p></div><div class="chev">▾</div></div>
+        <div class="caso-body"><div class="caso-inner">
+          <div class="plano"><h5>El caso</h5><p>Sociedad familiar con 600.000 € de ingresos por <strong>alquiler de viviendas</strong> (exento) y 400.000 € por <strong>alquiler de locales</strong> (21 %). Reforma la fachada del edificio de locales: 300.000 € + 63.000 € de IVA.</p></div>
+          <div class="plano"><h5>Con prorrata general</h5><p>Porcentaje = 400.000 / 1.000.000 = 40 % (y el arrendamiento de vivienda <strong>sí</strong> computa en el denominador, art. 104.Tres.4.º). Deduce 25.200 € de los 63.000 €. <strong>Pierde 37.800 €</strong> de una obra que sólo beneficia a los locales.</p></div>
+          <div class="plano"><h5>Con prorrata especial</h5><p>La obra se usa <strong>exclusivamente</strong> en la actividad con derecho a deducción: deduce el 100 %, 63.000 €. La diferencia con la general es del 150 %, muy por encima del umbral del 10 %: la especial no sólo interesa, es <strong>obligatoria</strong> (art. 103.Dos.2.º). Nadie devuelve ese dinero de oficio: hay que optar y aplicarla.</p></div>
+          <div class="plano"><h5>Tercera salida: separar</h5><p>Estructurar las viviendas y los locales en <strong>sociedades distintas</strong> elimina la contaminación de la prorrata de raíz, pero abre otros frentes: coste de la reorganización (revísala como operación de reestructuración, no como compraventa), gastos de estructura, y consecuencias en la exención de empresa familiar. Es exactamente el tipo de decisión que exige mirar cinco impuestos a la vez.</p></div>
+          <div class="plano"><h5>El detalle que se olvida</h5><p>Los bienes de inversión llevan un <strong>período de regularización</strong>: si el uso cambia en los años siguientes, hay que regularizar la deducción practicada. Una decisión de prorrata no se cierra en el ejercicio en que se toma.</p></div>
+        </div></div>
+      </div>
+    </section>
+
+    <hr class="divider">
+
+    <!-- 3.47 -->
+    <section id="s7" class="reveal">
+      <span class="kicker">3.47 · Tres caminos</span>
+      <h2>Vender activos, vender el negocio o vender las acciones</h2>
+      <p>La misma realidad económica —cambiar de dueño un patrimonio empresarial— tiene tres vestidos jurídicos con costes indirectos radicalmente distintos. Elegir mal cuesta cientos de miles de euros; elegir bien y documentarlo mal, lo mismo.</p>
+      <table class="tbl">
+        <thead><tr><th>Camino</th><th>Imposición indirecta</th><th>Requisitos y riesgos</th></tr></thead>
+        <tbody>
+          <tr><td><strong>1 · Vender los activos uno a uno</strong></td><td>Cada activo con su régimen: IVA o TPO según la casuística de arriba, más AJD si hay escritura inscribible.</td><td>Es el camino más caro y el más transparente. El comprador elige qué compra y deja fuera los pasivos.</td></tr>
+          <tr><td><strong>2 · Vender la unidad económica autónoma</strong></td><td><strong>No sujeta a IVA</strong> (art. 7.1.º). Pero los inmuebles incluidos en una transmisión no sujeta <strong>quedan sujetos a TPO</strong> (art. 7.5 TRLITPAJD).</td><td>Exige un <strong>conjunto de elementos que constituya o pueda constituir una unidad económica autónoma en el transmitente</strong>, capaz de desarrollar la actividad por sus propios medios. Se excluye la <strong>mera cesión de bienes</strong> (sin estructura organizativa de factores materiales y humanos), lo transmitido por quien es empresario sólo por arrendar, y lo transmitido por el urbanizador ocasional.</td></tr>
+          <tr><td><strong>3 · Vender las participaciones</strong></td><td><strong>Exenta</strong> de IVA y de ITPAJD (art. 338.1 Ley 6/2023). Y no hay plusvalía municipal, porque el inmueble no cambia de titular.</td><td>Salvo que entre la <strong>norma antielusiva</strong> del art. 338.2. Además, el comprador asume todo el pasivo fiscal histórico de la sociedad: la <em>due diligence</em> deja de ser un lujo.</td></tr>
+        </tbody>
+      </table>
+      <div class="flag">Consecuencia técnica del art. 7.1.º que conviene memorizar: es <strong>irrelevante que el adquirente desarrolle la misma actividad</strong>, siempre que acredite la intención de mantener la afectación. Y el adquirente <strong>se subroga</strong> en la posición del transmitente respecto del art. 20.Uno.22.º (primera/segunda entrega) y de todo el régimen de deducciones de los arts. 92 a 114. Compras el activo y compras también su historial de IVA.</div>
+
+      <div class="caso svc" data-act="antielusion">
+        <div class="caso-h"><div class="ci">+</div><div class="cti"><div class="cl">Ampliar · la norma antielusiva de la transmisión de valores</div><h4>Art. 338 de la Ley 6/2023 (antes art. 108 LMV y art. 314 TRLMV)</h4><p>Cuándo vender acciones tributa como vender ladrillo.</p></div><div class="chev">▾</div></div>
+        <div class="caso-body"><div class="caso-inner">
+          <div class="plano"><h5>Cuidado con la cita</h5><p>La regla histórica del <strong>art. 108 de la Ley 24/1988</strong> pasó al <strong>art. 314 del TRLMV</strong> y hoy está en el <strong>art. 338 de la Ley 6/2023</strong>, de los Mercados de Valores y de los Servicios de Inversión (el TRLMV está derogado). Citar la norma derogada en un informe es un error que un buen abogado de la otra parte detecta en treinta segundos. El art. 339 añade la obligación de comunicar estas operaciones a la Administración tributaria.</p></div>
+          <div class="plano"><h5>La regla y la excepción</h5><p>Regla: la transmisión de valores, admitidos o no a negociación, está <strong>exenta de IVA y de ITPAJD</strong>. Excepción: las transmisiones de valores <strong>no admitidos a negociación</strong> tributan «en el impuesto al que estén sujetas <strong>como transmisiones onerosas de bienes inmuebles</strong>» cuando mediante ellas se hubiera pretendido <strong>eludir</strong> el pago de los tributos que habrían gravado la transmisión de los inmuebles.</p></div>
+          <div class="plano"><h5>Los tres supuestos de presunción</h5><p>Se entiende, <strong>salvo prueba en contrario</strong>, que se actúa con ánimo de elusión cuando: <strong>a)</strong> se obtiene el <strong>control</strong> de una entidad cuyo activo esté formado <strong>en al menos el 50 %</strong> por inmuebles situados en España <strong>no afectos</strong> a actividades empresariales o profesionales, o se aumenta la participación una vez obtenido el control; <strong>b)</strong> lo mismo por vía indirecta, controlando una entidad que a su vez controla otra; <strong>c)</strong> se transmiten valores <strong>recibidos por aportaciones de inmuebles</strong> en constitución o ampliación de capital, si no están afectos y <strong>no han transcurrido tres años</strong> entre la aportación y la transmisión.</p></div>
+          <div class="plano"><h5>Cómo se liquida</h5><p>Los valores netos contables se <strong>sustituyen por valores de mercado</strong> a la fecha de transmisión, y en los inmuebles por la base imponible del ITPAJD. <strong>Control = más del 50 %</strong> del capital, directa o indirectamente, computando el grupo. Si tributa por IVA se considera <strong>entrega de bienes</strong>; si tributa por TPO, la base es la parte proporcional.</p></div>
+          <div class="plano"><h5>Lectura de planificación</h5><p>Las dos palabras que deciden todo son <strong>«no afectos»</strong> y <strong>«control»</strong>. Un patrimonio inmobiliario realmente afecto a una actividad económica (con estructura, medios y gestión) queda fuera de la presunción. Y una transmisión que no da el control tampoco entra. Ambas cosas se construyen antes, no el día de la firma. Y ojo: la presunción es <em>iuris tantum</em>, pero <strong>la carga de la prueba es del contribuyente</strong>.</p></div>
+        </div></div>
+      </div>
+    </section>
+
+    <hr class="divider">
+
+    <!-- 3.48 -->
+    <section id="s8" class="reveal">
+      <span class="kicker">3.48 · Operaciones societarias</span>
+      <h2>Montar es gratis; deshacer, no</h2>
+      <p>La modalidad de Operaciones Societarias está prácticamente vacía de recaudación en la entrada y muy viva en la salida. Esa asimetría es la que hay que explicar a un cliente <strong>antes</strong> de constituir una estructura.</p>
+      <table class="tbl">
+        <thead><tr><th>Operación</th><th>OS</th><th>Coste real</th><th>Norma</th></tr></thead>
+        <tbody>
+          <tr><td>Constitución de sociedad</td><td>Sujeta pero <strong>exenta</strong></td><td>0 € (sólo cuota fija de AJD y aranceles)</td><td>arts. 19.1.1.º y 45.I.B).11</td></tr>
+          <tr><td>Aumento de capital y aportaciones de socios sin aumento</td><td>Sujeta pero <strong>exenta</strong></td><td>0 €</td><td>arts. 19.1.1.º y 2.º, y 45.I.B).11</td></tr>
+          <tr><td>Ampliación con cargo a <strong>prima de emisión</strong></td><td><strong>No sujeta</strong></td><td>0 €</td><td>art. 19.2.4.º</td></tr>
+          <tr><td>Cambio de objeto social, transformación, prórroga, modificación de estatutos</td><td><strong>No sujeta</strong></td><td>0 €</td><td>art. 19.2.3.º</td></tr>
+          <tr><td><strong>Operaciones de reestructuración</strong> (fusión, escisión, aportación de activos, canje de valores)</td><td><strong>No sujetas</strong>… y además <strong>exentas de TPO y de AJD</strong></td><td>0 € de ITPAJD. Es la puerta grande de la reorganización patrimonial</td><td>arts. 19.2.1.º, 21 y <strong>45.I.B).10</strong></td></tr>
+          <tr><td><strong>Reducción de capital</strong></td><td>Sujeta y <strong>no exenta: 1 %</strong></td><td>1 % sobre el valor de los bienes entregados a los socios, <strong>sin deducir gastos ni deudas</strong>. Paga el socio</td><td>arts. 19.1.1.º, 23.b), 25.4 y 26</td></tr>
+          <tr><td><strong>Disolución y liquidación</strong></td><td>Sujeta y <strong>no exenta: 1 %</strong></td><td>Igual que la reducción. Y encima se suma IS, IRPF del socio y plusvalía municipal</td><td>arts. 19.1.1.º, 23.b), 25.4 y 26</td></tr>
+          <tr><td>Traslado a España de la sede o el domicilio desde <strong>fuera</strong> de la UE</td><td>Sujeta pero exenta</td><td>0 €</td><td>arts. 19.1.3.º y 45.I.B).11</td></tr>
+          <tr><td>Traslado <strong>entre</strong> Estados de la UE</td><td>No sujeta</td><td>0 €</td><td>art. 19.2.2.º</td></tr>
+        </tbody>
+      </table>
+      <div class="flag">Detalle poco conocido: la <strong>comunidad de bienes constituida <em>mortis causa</em></strong> que continúa la explotación en indivisión <strong>por más de tres años</strong> se equipara a sociedad y tributa por OS (art. 22.5.º), con devolución si se disuelve antes de ese plazo. Los proindivisos hereditarios que nadie quiere tocar tienen fecha de caducidad fiscal.</div>
+      <p class="libnote">La lectura de planificación: la reorganización de un patrimonio empresarial debe ir <strong>por la vía de la reestructuración</strong> (no sujeta a OS, exenta de TPO y AJD, con neutralidad en el IS), no por la vía de comprar, vender o liquidar. La diferencia no es de matiz: es del 1 % más el IS más el IRPF frente a cero.</p>
+    </section>
+
+    <hr class="divider">
+
+    <!-- 3.49 -->
+    <section id="s9" class="reveal">
+      <span class="kicker">3.49 · Familia y copropiedad</span>
+      <h2>Condominio, excesos de adjudicación y gananciales</h2>
+      <p>Aquí se cruzan cuatro impuestos en operaciones que el cliente percibe como puramente domésticas: repartir una herencia, separar un proindiviso, disolver gananciales. Son las que más liquidaciones sorpresa generan.</p>
+      <table class="tbl">
+        <thead><tr><th>Operación</th><th>ITPAJD</th><th>IRPF</th><th>Plusvalía municipal</th></tr></thead>
+        <tbody>
+          <tr><td><strong>Extinción de condominio</strong> con adjudicación a un comunero que compensa en dinero</td><td>No hay TPO si la adjudicación respeta las cuotas y el bien es indivisible (art. 7.2.B) en relación con el art. 1.062 CC). Sí <strong>AJD por la cuota gradual</strong> sobre el valor total del bien</td><td><strong>No hay alteración</strong> patrimonial (art. 33.2.a), pero «no podrán dar lugar, en ningún caso, a la actualización de los valores»</td><td>No sujeta si sólo se especifica la cuota; sujeta en la parte que exceda</td></tr>
+          <tr><td><strong>Exceso de adjudicación declarado</strong> no amparado en los arts. 821, 829, 1.056.2.º y 1.062.1.º CC</td><td><strong>TPO</strong> por el exceso (art. 7.2.B)</td><td>Puede generar ganancia patrimonial por la parte que se transmite</td><td>Sujeta por el exceso</td></tr>
+          <tr><td><strong>Exceso en herencia</strong> cuando el valor comprobado de lo adjudicado a un heredero <strong>excede del 50 %</strong> del que le correspondería</td><td>TPO, salvo que los valores declarados sean iguales o superiores a los que resultarían de las reglas del <strong>Impuesto sobre el Patrimonio</strong></td><td>—</td><td>Según el reparto</td></tr>
+          <tr><td><strong>Aportación de bienes a la sociedad conyugal</strong>, adjudicaciones en pago y transmisiones en pago del haber de gananciales</td><td><strong>Exentas</strong> (art. 45.I.B).3)</td><td>No hay alteración en la disolución de gananciales (art. 33.2.b)</td><td><strong>No sujeta</strong> (art. 104.3 TRLRHL)</td></tr>
+          <tr><td><strong>Transmisiones entre cónyuges o a favor de los hijos</strong> por sentencia de nulidad, separación o divorcio</td><td>Depende del negocio: la extinción del condominio sigue sus reglas</td><td>Sin alteración si es adjudicación de la comunidad</td><td><strong>No sujeta</strong>, sea cual sea el régimen económico (art. 104.3, párrafo 2.º)</td></tr>
+          <tr><td><strong>Expediente de dominio, acta de notoriedad, reconocimiento de dominio</strong></td><td>TPO (art. 7.2.C) y D), salvo que se acredite haber pagado el impuesto de la transmisión que se suple. <strong>La prescripción se computa desde la fecha del expediente</strong>, no desde la transmisión original</td><td>—</td><td>Según el título</td></tr>
+        </tbody>
+      </table>
+      <div class="flag">El aviso del art. 33.2 de la Ley del IRPF es una de las frases más rentables de la formación: dividir la cosa común o disolver gananciales <strong>no permite actualizar valores</strong>. Muchos clientes creen que al «comprar» la mitad de su hermano actualizan el coste de adquisición. No: la plusvalía latente sigue ahí y aparecerá íntegra en la venta futura.</div>
+    </section>
+
+    <hr class="divider">
+
+    <!-- 3.50 -->
+    <section id="s10" class="reveal">
+      <span class="kicker">3.50 · Exenciones</span>
+      <h2>Las exenciones de AJD que hay que tener en la cabeza</h2>
+      <p>El art. 45.I.B) tiene hoy 37 números. Estos son los que aparecen de verdad en una cartera patrimonial, con su número exacto para poder citarlos.</p>
+      <table class="tbl">
+        <thead><tr><th>N.º</th><th>Exención</th><th>Uso en planificación</th></tr></thead>
+        <tbody>
+          <tr><td><strong>3</strong></td><td>Aportaciones a la sociedad conyugal, adjudicaciones a su disolución y transmisiones en pago del haber de gananciales</td><td>Permite reordenar la titularidad entre cónyuges sin coste indirecto. Base de muchas reorganizaciones previas a una sucesión</td></tr>
+          <tr><td><strong>7</strong></td><td>Aportaciones de terrenos a <strong>juntas de compensación</strong> y adjudicación de solares en proporción; igual en reparcelación</td><td>Condicionada al cumplimiento de los requisitos urbanísticos. Ojo: no evita convertirse en empresario a efectos de IVA</td></tr>
+          <tr><td><strong>10</strong></td><td>Operaciones de <strong>reestructuración</strong> y traslados intracomunitarios: exentas en TPO y AJD</td><td>La pieza clave de cualquier reorganización de estructura familiar</td></tr>
+          <tr><td><strong>11</strong></td><td>Constitución, aumento de capital, aportaciones sin aumento y traslado a España desde fuera de la UE</td><td>No alcanza a la reducción de capital ni a la disolución: ahí sigue el 1 %</td></tr>
+          <tr><td><strong>12</strong></td><td>VPO, en cinco letras: terrenos y derecho de superficie, escrituras de construcción, primera transmisión, préstamos hipotecarios para su adquisición y sociedades con objeto exclusivo de promoverlas</td><td>El reconocimiento provisional caduca si pasan <strong>3 años</strong> sin calificación (<strong>4</strong> en terrenos)</td></tr>
+          <tr><td><strong>15</strong></td><td><strong>Depósitos en efectivo y préstamos</strong>, cualquiera que sea su forma, incluidos pagarés, bonos y obligaciones</td><td>Es la razón por la que un préstamo entre particulares no paga TPO. Sigue habiendo obligación de declararlo</td></tr>
+          <tr><td><strong>18</strong></td><td><strong>Cancelación de hipotecas</strong> de cualquier clase, en cuanto a la cuota gradual</td><td>Cancelar registralmente no cuesta AJD. Dejar cargas vivas en el Registro sí cuesta en la venta</td></tr>
+          <tr><td><strong>21</strong></td><td>Aportaciones a <strong>patrimonios protegidos de personas con discapacidad</strong></td><td>Se combina con las reducciones en ISD e IRPF: uno de los pocos casos donde tres impuestos empujan en la misma dirección</td></tr>
+          <tr><td><strong>26</strong></td><td><strong>Arrendamientos de vivienda</strong> para uso estable y permanente (art. 2 LAU)</td><td>Los de local no están exentos: hay que liquidar la escala del art. 12.1</td></tr>
+          <tr><td><strong>20 y 22</strong></td><td>SICAV, fondos, IIC inmobiliarias de arrendamiento y <strong>SOCIMI</strong>: exención en OS y <strong>bonificación del 95 %</strong> por adquisición de viviendas y terrenos para arrendar</td><td>La bonificación del 95 % en la compra es la ventaja indirecta más potente del vehículo</td></tr>
+          <tr><td><strong>25</strong></td><td>Escrituras de préstamo hipotecario cuando el <strong>prestatario</strong> es una entidad del art. 45.I.A) (exenciones subjetivas)</td><td>Existe porque desde 2018 el sujeto pasivo es el prestamista: sin esta norma la exención subjetiva no serviría</td></tr>
+        </tbody>
+      </table>
+      <div class="warnbox"><div class="ic">!</div><p><strong>Los dos límites del art. 45.II</strong>, que anulan muchas exenciones en la práctica: <strong>1)</strong> ningún beneficio fiscal se aplica a las letras de cambio, documentos que las suplan o realicen función de giro, ni a la <strong>cuota fija</strong> del art. 31.1. <strong>2)</strong> los beneficios y exenciones subjetivas <strong>no son aplicables en la cuota variable de documentos notariales cuando el sujeto pasivo se determina por el párrafo segundo del art. 29</strong>, es decir, cuando paga el prestamista. Una fundación exenta no traslada su exención al AJD de su hipoteca.</p></div>
+      <p class="libnote">Recuerda también el art. 57: si se declara <strong>judicial o administrativamente por resolución firme</strong> la nulidad, rescisión o resolución de un contrato, hay derecho a devolución siempre que no haya habido efecto lucrativo y se reclame en plazo. Pero <strong>si el contrato queda sin efecto por mutuo acuerdo no hay devolución</strong> y además se considera un acto nuevo sujeto. Deshacer una operación de común acuerdo puede costar el impuesto dos veces.</p>
+    </section>
+
+    <hr class="divider">
+
+    <!-- 3.51 -->
+    <section id="s11" class="reveal">
+      <span class="kicker">3.51 · Valoración</span>
+      <h2>Valor de referencia: la misma finca, tres valores distintos</h2>
+      <p>Desde la Ley 11/2021 el <strong>valor de referencia</strong> del Catastro es la base imponible en ITP y en ISD. Pero no en Patrimonio. Esa asimetría, verificada literalmente en las tres leyes, es una de las fuentes de error más frecuentes en los informes.</p>
+      <table class="tbl">
+        <thead><tr><th>Impuesto</th><th>Cómo se valora un inmueble</th><th>Norma</th></tr></thead>
+        <tbody>
+          <tr><td><strong>ITP y AJD</strong></td><td><strong>Valor de referencia</strong> a la fecha de devengo; si el declarado o el precio pactado son superiores, la <strong>mayor</strong> de esas magnitudes. Si no existe valor de referencia o no puede certificarse: la mayor entre declarado, precio o valor de mercado</td><td>art. 10.2 TRLITPAJD</td></tr>
+          <tr><td><strong>ISD</strong></td><td>Idéntica regla: valor de referencia, y si el declarado es superior, el declarado</td><td>art. 9.3 LISD</td></tr>
+          <tr><td><strong>Patrimonio</strong></td><td>El <strong>mayor de tres</strong>: valor catastral, valor determinado o comprobado por la Administración a efectos de otros tributos, o precio o valor de adquisición. <strong>La expresión «valor de referencia» no aparece en la Ley 19/1991</strong></td><td>art. 10.Uno LIP</td></tr>
+          <tr><td><strong>IRPF</strong></td><td>En transmisiones lucrativas, el valor que resulte de las normas del <strong>ISD, sin exceder del valor de mercado</strong>. En onerosas, importe real, con las mejoras y los gastos, minorado en las amortizaciones</td><td>arts. 35 y 36 LIRPF</td></tr>
+        </tbody>
+      </table>
+      <div class="grid grid-3">
+        <div class="card"><h4>No hay comprobación de valores</h4><p>Si la base declarada es el valor de referencia o una magnitud superior, <strong>la Administración no puede comprobar el valor</strong> (art. 46.1 TRLITPAJD). Declarar por referencia compra seguridad jurídica.</p></div>
+        <div class="card"><h4>Impugnación tasada</h4><p>El valor de referencia sólo se impugna <strong>al recurrir la liquidación o al pedir la rectificación de la autoliquidación</strong>, y la Administración resuelve previo <strong>informe preceptivo y vinculante de la Dirección General del Catastro</strong> (arts. 10.3, 10.4).</p></div>
+        <div class="card"><h4>Efecto cruzado</h4><p>El nuevo valor comprobado en ITP <strong>tiene efectos en el Impuesto sobre el Patrimonio del adquirente</strong> (art. 46.4). Una comprobación de valores en una compra sube la base del IP durante los años siguientes.</p></div>
+      </div>
+      <div class="flag">Dato de actualidad verificado: la <strong>STC 13/2026, de 12 de febrero</strong> desestimó la cuestión de inconstitucionalidad planteada contra los arts. 10.2, 10.3, 10.4 y 46.1 en su redacción de la Ley 11/2021. El valor de referencia ha superado el control de constitucionalidad: dejemos de plantear estrategias basadas en su caída.</div>
+    </section>
+
+    <hr class="divider">
+
+    <!-- NUDOS -->
+    <section id="nudos" class="reveal">
+      <span class="kicker">3.52 · El corazón de esta parte</span>
+      <h2>Los seis nudos de la interconexión</h2>
+      <p class="lead" style="color:var(--muted)">Un impuesto casi nunca se decide solo. En seis puntos concretos, lo que se hace en un tributo determina el resultado de otros tres o cuatro. Saber localizar esos nudos es lo que convierte a un consultor en imprescindible: no se trata de conocer cada impuesto, sino de <strong>saber en qué orden se miran</strong>.</p>
+      <div class="grid grid-3">
+        <div class="card hoverable"><div class="num">01</div><h3>Empresa familiar</h3><p>Un solo test de requisitos gobierna IRPF, Patrimonio, Sucesiones y Sociedades. Si se rompe en uno, se rompe en todos.</p></div>
+        <div class="card hoverable"><div class="num">02</div><h3>Valoración</h3><p>El valor que se declara hoy en un impuesto es el coste de adquisición de mañana en otro. Ahorrar ahora suele ser pagar después.</p></div>
+        <div class="card hoverable"><div class="num">03</div><h3>Calendario</h3><p>Cada impuesto tiene su devengo. Mover una operación de diciembre a enero cambia tres liquidaciones distintas.</p></div>
+        <div class="card hoverable"><div class="num">04</div><h3>Forma jurídica</h3><p>El mismo activo, en persona física o en sociedad, recorre impuestos distintos en la tenencia, en la renta y en la transmisión.</p></div>
+        <div class="card hoverable"><div class="num">05</div><h3>Liquidez</h3><p>El impuesto se paga en dinero. Cómo se consigue ese dinero genera, a su vez, más impuesto.</p></div>
+        <div class="card hoverable"><div class="num">06</div><h3>Generaciones</h3><p>Donar, heredar o pactar mueve IRPF, ISD y plusvalía municipal en sentidos opuestos. El título elegido lo cambia todo.</p></div>
+      </div>
+    </section>
+
+    <hr class="divider">
+
+    <section id="n1" class="reveal">
+      <span class="kicker">Nudo 1</span>
+      <h2>La empresa familiar: un test, cuatro impuestos</h2>
+      <p>Es el nudo más importante de toda la formación. Los requisitos de la exención de empresa familiar en Patrimonio no viven en Patrimonio: se construyen con datos de <strong>IRPF</strong>, se comprueban en el <strong>balance</strong> de la sociedad y se cobran en <strong>Sucesiones</strong>. Todo cuelga del mismo hilo.</p>
+      <table class="tbl">
+        <thead><tr><th>Eslabón</th><th>Qué se comprueba</th><th>Qué pasa si falla</th></tr></thead>
+        <tbody>
+          <tr><td><strong>1 · IRPF del socio</strong></td><td>Que ejerce <strong>funciones de dirección</strong> y que su retribución por ellas representa <strong>más del 50 % de sus rentas</strong> empresariales, profesionales y de trabajo personal</td><td>Sin retribución suficiente, no hay exención. Y la retribución tiene que <strong>declararse</strong> en IRPF: no vale «cobrar poco para pagar poco»</td></tr>
+          <tr><td><strong>2 · Actividad de la entidad</strong></td><td>Que la sociedad <strong>no gestione un patrimonio mobiliario o inmobiliario</strong>: más de la mitad de su activo debe estar afecto a una actividad económica</td><td>Entidad patrimonial. Se cae la exención del IP, se cae la reducción del ISD y se pierden los tipos reducidos e incentivos del IS</td></tr>
+          <tr><td><strong>3 · Patrimonio (IP e ITSGF)</strong></td><td>La exención del art. 4.Ocho, con el porcentaje de participación individual o de grupo familiar</td><td>Sin exención, el valor entra en la base del IP y del Impuesto de Grandes Fortunas cada 31 de diciembre, para siempre</td></tr>
+          <tr><td><strong>4 · Sucesiones y Donaciones</strong></td><td>La reducción del <strong>95 %</strong> exige expresamente que resulte aplicable la exención del IP</td><td>El coste de fallar aquí es el más caro de todos: se liquida el ISD sobre el 100 % del valor de la empresa</td></tr>
+          <tr><td><strong>5 · IRPF del donante</strong></td><td>En la donación de empresa del art. 20.6 LISD, el donante <strong>no tributa</strong> por la ganancia (art. 33.3.c LIRPF) y el donatario se subroga en su valor y fecha de adquisición (art. 36)</td><td>Si la donación no cumple los requisitos, el donante tributa por toda la plusvalía histórica sin haber cobrado nada</td></tr>
+          <tr><td><strong>6 · Mantenimiento</strong></td><td>Los elementos afectados con posterioridad a su adquisición deben haber estado afectos <strong>ininterrumpidamente los cinco años anteriores</strong> a la transmisión (art. 33.3.c LIRPF), y la adquisición debe mantenerse en los plazos del ISD</td><td>El incumplimiento obliga a devolver lo dejado de ingresar <strong>con intereses</strong>: en ISD, en IRPF, o en los dos</td></tr>
+        </tbody>
+      </table>
+      <div class="caso svc" data-act="nudo1">
+        <div class="caso-h"><div class="ci">+</div><div class="cti"><div class="cl">Ampliar · el diagnóstico de los diez minutos</div><h4>Diez preguntas que revelan si el nudo está bien atado</h4><p>Es el guion que usamos en la primera reunión con un cliente empresario.</p></div><div class="chev">▾</div></div>
+        <div class="caso-body"><div class="caso-inner">
+          <div class="plano"><h5>Sobre la persona</h5><p>1) ¿Quién ejerce funciones de dirección y cómo se acredita (cargo, poderes, actas)? 2) ¿Cuánto cobra por esas funciones y qué peso tiene en el total de sus rentas del año? 3) ¿Hay otros miembros del grupo familiar que puedan sostener el requisito si él deja de cobrar?</p></div>
+          <div class="plano"><h5>Sobre el balance</h5><p>4) ¿Qué porcentaje del activo está afecto? 5) ¿Hay tesorería o inversiones acumuladas que provengan de beneficios no distribuidos y que puedan considerarse no afectas? 6) ¿Hay inmuebles arrendados con o sin estructura de gestión?</p></div>
+          <div class="plano"><h5>Sobre la estructura</h5><p>7) ¿Existe holding? ¿Cumple los requisitos de dirección y medios? 8) ¿Los dividendos suben con exención del art. 21 LIS? 9) ¿La participación familiar alcanza los porcentajes exigidos y está documentada?</p></div>
+          <div class="plano"><h5>Sobre el futuro</h5><p>10) Si el socio falleciera mañana, ¿tenemos por escrito el cálculo del ISD con y sin reducción del 95 %? Esa cifra es la que convierte una conversación técnica en una decisión.</p></div>
+          <div class="plano"><h5>El principio</h5><p>Ninguna de estas diez preguntas es «de un impuesto». Todas alimentan cuatro a la vez. Por eso el diagnóstico patrimonial del Módulo 2 se hace <strong>antes</strong> de cualquier propuesta fiscal: sin el mapa completo, optimizar un tributo suele romper otro.</p></div>
+        </div></div>
+      </div>
+    </section>
+
+    <hr class="divider">
+
+    <section id="n2" class="reveal">
+      <span class="kicker">Nudo 2</span>
+      <h2>La valoración: lo que ahorras hoy lo pagas mañana</h2>
+      <p>Un valor declarado no muere en su impuesto: viaja. Esta cadena es la que hay que dibujar en la pizarra delante del cliente que quiere «poner poco» en la escritura.</p>
+      <table class="tbl">
+        <thead><tr><th>Momento</th><th>Valor que se fija</th><th>Efecto en el siguiente impuesto</th></tr></thead>
+        <tbody>
+          <tr><td>Compra</td><td>Precio y valor de referencia (base de TPO o IVA)</td><td>Es el <strong>valor de adquisición</strong> en un IRPF futuro y uno de los tres valores del <strong>IP</strong> (art. 10.Uno LIP)</td></tr>
+          <tr><td>Comprobación de valores en ITP</td><td>Valor comprobado por la Administración</td><td>Sube la base del <strong>IP del adquirente</strong> (art. 46.4 TRLITPAJD) y, con ella, el ITSGF</td></tr>
+          <tr><td>Donación</td><td>Valor a efectos del ISD</td><td>Es el valor de adquisición del donatario y el valor de transmisión del donante (art. 36 LIRPF): <strong>declarar bajo ahorra ISD y encarece el IRPF de los dos</strong></td></tr>
+          <tr><td>Herencia</td><td>Valor a efectos del ISD</td><td><strong>Step-up completo</strong>: la plusvalía histórica desaparece (art. 33.3.b) y el heredero parte del valor declarado. Declarar alto puede ser la mejor decisión si el ISD está bonificado</td></tr>
+          <tr><td>Aportación a sociedad</td><td>El mayor de: nominal más prima, cotización o valor de mercado</td><td>Es el valor de adquisición de las participaciones recibidas (art. 37.1.d LIRPF) y el valor contable del activo en la sociedad</td></tr>
+          <tr><td>Venta de participaciones no cotizadas</td><td>Suelo legal: el mayor entre <strong>patrimonio neto</strong> del último balance cerrado y la <strong>capitalización al 20 % del promedio de resultados de los tres últimos ejercicios</strong>, salvo prueba de valor de mercado</td><td>Ese valor se convierte en valor de adquisición para el comprador (art. 37.1.b LIRPF)</td></tr>
+        </tbody>
+      </table>
+      <div class="flag">La regla de oro: <strong>en transmisiones lucrativas con ISD bonificado, valorar alto es casi siempre mejor</strong>, porque el coste marginal en ISD es cero o casi cero y el ahorro futuro en IRPF es del 19 % al 28 %. En comunidades sin bonificación, la decisión se invierte y hay que calcular las dos ramas. Ese cálculo es exactamente lo que hace el simulador de abajo.</div>
+    </section>
+
+    <hr class="divider">
+
+    <section id="n3" class="reveal">
+      <span class="kicker">Nudo 3</span>
+      <h2>El calendario: el mismo acto en dos fechas distintas</h2>
+      <table class="tbl">
+        <thead><tr><th>Impuesto</th><th>Cuándo se devenga</th><th>Consecuencia de planificación</th></tr></thead>
+        <tbody>
+          <tr><td><strong>TPO</strong></td><td>El día en que se realiza el acto o contrato (art. 49.1.a TRLITPAJD)</td><td>Las adquisiciones suspendidas por condición o término se entienden realizadas cuando desaparece la limitación (art. 49.2)</td></tr>
+          <tr><td><strong>OS y AJD</strong></td><td>El día en que se formaliza el acto sujeto (art. 49.1.b)</td><td>La fecha de la escritura, no la del acuerdo social</td></tr>
+          <tr><td><strong>Patrimonio e ITSGF</strong></td><td>31 de diciembre, fotografía instantánea</td><td>Una venta el 30 de diciembre saca el activo de la base; el 2 de enero, no. Y el dinero cobrado también es patrimonio: lo que cambia es <em>qué</em> se tiene, no <em>cuánto</em></td></tr>
+          <tr><td><strong>IRPF</strong></td><td>Devengo anual; la ganancia se imputa al período de la <strong>alteración patrimonial</strong></td><td>Partir una venta en dos ejercicios reparte la base del ahorro entre dos escalas. En operaciones a plazo, la imputación puede seguir el criterio de cobro</td></tr>
+          <tr><td><strong>Sociedades</strong></td><td>Cierre del ejercicio</td><td>Permite planificar reservas, provisiones y reinversiones antes del cierre, no después</td></tr>
+          <tr><td><strong>ISD</strong></td><td>Fallecimiento (o el día del contrato en donaciones)</td><td>Es el único devengo que no se elige. Todo lo demás debe estar hecho antes</td></tr>
+          <tr><td><strong>Plusvalía municipal</strong></td><td>La transmisión</td><td>Si no hay incremento real de valor, <strong>no hay sujeción</strong> (art. 104.5 TRLRHL), pero hay que declararlo y aportar los títulos</td></tr>
+        </tbody>
+      </table>
+      <div class="flag">Los plazos que encadenan operaciones y que hay que anotar en el expediente del cliente: <strong>2 años</strong> de utilización para que una entrega deje de ser primera (IVA); <strong>2 años</strong> para el adjudicatario para pago de deudas (art. 7.2.A); <strong>3 años</strong> de la trampa de la aportación de inmuebles (art. 338.2.c Ley 6/2023); <strong>3 años</strong> de la comunidad hereditaria antes de tributar como sociedad (art. 22.5.º); <strong>3 y 4 años</strong> del reconocimiento provisional de VPO; <strong>5 años</strong> de afectación previa en la donación de empresa (art. 33.3.c LIRPF); <strong>5 años</strong> del pacto sucesorio (art. 36 LIRPF); <strong>6 meses</strong> para la renta vitalicia de mayores de 65 (art. 38.3); <strong>10 años</strong> de mantenimiento estatal en el ISD.</div>
+    </section>
+
+    <hr class="divider">
+
+    <section id="n4" class="reveal">
+      <span class="kicker">Nudo 4</span>
+      <h2>Forma jurídica: el mismo inmueble por dos caminos</h2>
+      <table class="tbl">
+        <thead><tr><th>Fase</th><th>Persona física</th><th>Sociedad</th></tr></thead>
+        <tbody>
+          <tr><td><strong>Compra</strong></td><td>TPO 6 %–11 % irrecuperable, o IVA no deducible</td><td>Igual… salvo que pueda <strong>renunciar a la exención</strong> y deducir el IVA: la ventaja indirecta es exclusiva del empresario</td></tr>
+          <tr><td><strong>Renta</strong></td><td>IRPF: 19 %–28 % en el ahorro, hasta 47 %–54 % en la base general para alquileres</td><td>IS: 25 % (o el tipo reducido si no es patrimonial), pero con <strong>segunda capa</strong> al repartir</td></tr>
+          <tr><td><strong>Gasto deducible</strong></td><td>Limitado y tasado</td><td>Más amplio, con el filtro de los arts. 15 y 18 LIS (liberalidades y operaciones vinculadas)</td></tr>
+          <tr><td><strong>Tenencia</strong></td><td>IP e ITSGF sobre el mayor de los tres valores del art. 10.Uno</td><td>Se valora la participación; con exención de empresa familiar puede quedar <strong>fuera</strong> del IP. Si es patrimonial, no</td></tr>
+          <tr><td><strong>Venta</strong></td><td>Ganancia en la base del ahorro; posible exención por reinversión o por mayores de 65 años</td><td>IS al 25 % en la sociedad más IRPF del socio al sacar el dinero. O venta de participaciones exenta de indirecta… con el filtro del art. 338</td></tr>
+          <tr><td><strong>Sucesión</strong></td><td>ISD sobre el inmueble, sin reducción de empresa</td><td>ISD sobre participaciones, con <strong>reducción del 95 %</strong> si se cumplen los requisitos del nudo 1</td></tr>
+          <tr><td><strong>Salida de la estructura</strong></td><td>No aplica</td><td><strong>1 % de OS</strong> más IS más IRPF del socio más plusvalía municipal. El coste de deshacer se calcula antes de montar</td></tr>
+        </tbody>
+      </table>
+      <div class="flag">No existe una respuesta general. Existe una regla de decisión: la sociedad gana cuando hay <strong>actividad económica real</strong>, reinversión y vocación de permanencia; la persona física gana cuando el activo es de disfrute, la renta es baja o el horizonte es la venta a corto plazo. La peor combinación posible es la sociedad patrimonial sin actividad con vocación de liquidarse: paga en la entrada, en la tenencia, en la renta y en la salida.</div>
+    </section>
+
+    <hr class="divider">
+
+    <section id="n5" class="reveal">
+      <span class="kicker">Nudo 5</span>
+      <h2>Liquidez: el impuesto se paga en dinero</h2>
+      <p>Un patrimonio puede ser solvente y a la vez incapaz de pagar sus impuestos. Es el fallo de diseño más frecuente en las familias con empresa e inmuebles y el que provoca ventas forzadas.</p>
+      <div class="grid grid-3">
+        <div class="card"><h4>El ISD y los seis meses</h4><p>Se paga en seis meses desde el fallecimiento, cuando los bienes todavía no son disponibles y las cuentas pueden estar bloqueadas. Hay aplazamientos y fraccionamientos, pero exigen solicitarlos y a veces garantías.</p></div>
+        <div class="card"><h4>El IP se paga con renta</h4><p>El impuesto grava el patrimonio pero se paga con los ingresos del año. Cuando el patrimonio es improductivo, el límite conjunto del 60 % del art. 31 LIP es el único freno: revísalo siempre junto al IRPF, nunca por separado.</p></div>
+        <div class="card"><h4>Vender para pagar genera impuesto</h4><p>La venta que financia el ISD produce ganancia en IRPF y plusvalía municipal. Un impuesto se paga con otro impuesto. Cuantificarlo <strong>antes</strong> es la diferencia entre planificar y reaccionar.</p></div>
+      </div>
+      <div class="flag">Palancas de liquidez que hay que tener siempre sobre la mesa: seguros de vida a favor de los herederos (con su propia reducción en el ISD), tesorería y dividendos programados en la sociedad antes del evento, distribución de la propiedad para reducir el ISD individual, y aplazamiento con garantía frente a venta forzada. La secuencia importa: primero se calcula la factura, después se diseña de dónde sale el dinero.</div>
+    </section>
+
+    <hr class="divider">
+
+    <section id="n6" class="reveal">
+      <span class="kicker">Nudo 6</span>
+      <h2>Generaciones: tres impuestos moviéndose en sentidos opuestos</h2>
+      <p>La Parte 4 comparó donación y sucesión comunidad por comunidad. Aquí sólo importa el mecanismo: <strong>por qué</strong> se mueven en sentidos opuestos.</p>
+      <table class="tbl">
+        <thead><tr><th></th><th>Donación en vida</th><th>Sucesión</th><th>Pacto sucesorio</th></tr></thead>
+        <tbody>
+          <tr><td><strong>IRPF del transmitente</strong></td><td>Tributa la ganancia aunque no cobre; la pérdida <strong>no es computable</strong> (art. 33.5.c)</td><td><strong>No existe ganancia ni pérdida</strong> (art. 33.3.b): la plusvalía histórica desaparece</td><td>Con efectos de presente: si el beneficiario transmite antes de <strong>5 años</strong>, se subroga en el valor y la fecha del causante cuando sea inferior (art. 36)</td></tr>
+          <tr><td><strong>ISD</strong></td><td>Sin reducción de parentesco estatal; depende de las bonificaciones autonómicas de donaciones</td><td>Con reducciones de parentesco, seguros, vivienda habitual y empresa familiar</td><td>Tributa como sucesión en los territorios que lo admiten</td></tr>
+          <tr><td><strong>Plusvalía municipal</strong></td><td>Se devenga en el donante, sin bonificación</td><td>Se devenga en el heredero, con <strong>bonificación potestativa de hasta el 95 %</strong> en ordenanza para descendientes, cónyuge y ascendientes (art. 108.4 TRLRHL)</td><td>Según el título y la ordenanza</td></tr>
+          <tr><td><strong>Excepción que lo cambia todo</strong></td><td>Donación de empresa o participaciones del art. 20.6 LISD: el donante <strong>no tributa</strong> en IRPF (art. 33.3.c) y hay reducción en ISD</td><td>—</td><td>Herramienta clave en Baleares, Cataluña, Galicia, Aragón, Navarra y País Vasco</td></tr>
+        </tbody>
+      </table>
+      <div class="warnbox"><div class="ic">!</div><p>Cuidado con la letra pequeña del art. 108.4 TRLRHL: la ley <strong>no menciona</strong> vivienda habitual ni empresa familiar; habilita una bonificación de hasta el 95 % en transmisiones mortis causa a descendientes, cónyuge y ascendientes, y es <strong>cada ordenanza municipal</strong> la que decide el porcentaje y los requisitos. Antes de prometer un ahorro, lee la ordenanza del municipio concreto.</p></div>
+    </section>
+
+    <hr class="divider">
+
+    <!-- CALCULADORA 2 -->
+    <section id="calc2" class="reveal">
+      <span class="kicker">Calculadora interactiva</span>
+      <h2>Simulador de la cadena fiscal</h2>
+      <p>Elige una operación y el simulador despliega <strong>todos los impuestos que se activan</strong>, quién paga cada uno, sobre qué base, el orden de magnitud de la cuota y la advertencia de planificación asociada. Es la herramienta de esta parte: no sustituye a las calculadoras específicas de las Partes 1 a 4, las <em>conecta</em>.</p>
+      <div class="calc rcalc cadena">
+        <div class="calc-head"><span class="tri"></span><h3>Cadena fiscal de una operación</h3></div>
+        <div class="calc-grid">
+          <div class="fld"><label for="k-op">Operación</label><select id="k-op" data-k-op></select></div>
+          <div class="fld"><label for="k-ccaa">Comunidad</label><select id="k-ccaa" data-k-ccaa></select></div>
+        </div>
+        <div class="calc-grid" style="padding-top:0">
+          <div class="fld"><label for="k-valor">Valor de mercado o de transmisión (€)</label><input id="k-valor" data-k-valor type="number" min="0" step="10000" placeholder="p. ej. 600000"></div>
+          <div class="fld"><label for="k-adq">Valor de adquisición (€)</label><small>Lo que costó en su día, con gastos y mejoras.</small><input id="k-adq" data-k-adq type="number" min="0" step="10000" placeholder="p. ej. 200000"></div>
+        </div>
+        <div class="calc-grid" style="padding-top:0">
+          <div class="fld"><label for="k-plus">Cuota estimada de plusvalía municipal (€)</label><small>Pídela al ayuntamiento o calcúlala con la ordenanza. Déjalo en 0 si aún no la tienes.</small><input id="k-plus" data-k-plus type="number" min="0" step="500" placeholder="p. ej. 6000"></div>
+          <div class="fld"><label for="k-afecto">¿El inmueble está afecto a una actividad económica?</label>
+            <select id="k-afecto" data-k-afecto>
+              <option value="no">No (patrimonial)</option>
+              <option value="si">Sí, afecto y con estructura de gestión</option>
+            </select>
+          </div>
+        </div>
+        <div class="calc-actions"><button class="btn btn-primary" data-k-run>Ver la cadena completa</button></div>
+        <div class="calc-result"></div>
+      </div>
+      <div class="flag">Prueba a lanzar la misma operación con los mismos valores en <strong>«Donación de un inmueble a un hijo»</strong> y en <strong>«El hijo hereda el mismo inmueble»</strong>. Y después «Vender las participaciones» con el inmueble afecto y sin afectar. Esas dos comparaciones, con números del cliente delante, son la mejor presentación comercial que existe de nuestro trabajo.</div>
+    </section>
+
+    <hr class="divider">
+
+    <!-- 3.53 MATRIZ -->
+    <section id="s12" class="reveal">
+      <span class="kicker">3.53 · Mapa maestro</span>
+      <h2>Matriz: una operación, todos los impuestos</h2>
+      <p>La tabla que conviene tener impresa al lado del teclado. Cada fila es una operación real; cada columna, un impuesto que puede activarse.</p>
+      <table class="tbl">
+        <thead><tr><th>Operación</th><th>IRPF</th><th>IS</th><th>IVA / ITP / AJD</th><th>IP / ITSGF</th><th>ISD</th><th>IIVTNU</th></tr></thead>
+        <tbody>
+          <tr><td><strong>Comprar inmueble usado a un particular</strong></td><td>—</td><td>—</td><td>TPO. Sin AJD gradual</td><td>Entra en base por el mayor de los tres valores</td><td>—</td><td>Lo paga el vendedor</td></tr>
+          <tr><td><strong>Comprar nave a una sociedad con renuncia</strong></td><td>—</td><td>Plusvalía en el vendedor</td><td>IVA con inversión del sujeto pasivo + <strong>AJD agravado</strong></td><td>Igual</td><td>—</td><td>Vendedor</td></tr>
+          <tr><td><strong>Alquilar vivienda</strong></td><td>Capital inmobiliario con reducción</td><td>—</td><td>IVA exento; ITP del contrato exento (45.I.B.26)</td><td>Sin afectación: no exento</td><td>—</td><td>—</td></tr>
+          <tr><td><strong>Alquilar local</strong></td><td>Capital inmobiliario, sin reducción de vivienda</td><td>—</td><td>IVA 21 % + <strong>TPO del contrato</strong> (escala art. 12.1)</td><td>Igual</td><td>—</td><td>—</td></tr>
+          <tr><td><strong>Aportar inmueble a sociedad</strong></td><td>Ganancia por art. 37.1.d)</td><td>Entra en balance a valor de aportación</td><td>OS exenta; sin TPO ni AJD gradual</td><td>Cambia inmueble por participaciones</td><td>—</td><td><strong>Sí</strong></td></tr>
+          <tr><td><strong>Vender participaciones de sociedad inmobiliaria</strong></td><td>Ganancia con suelo del art. 37.1.b)</td><td>—</td><td>Exenta… salvo art. 338 Ley 6/2023</td><td>Se sustituye por dinero</td><td>—</td><td>No</td></tr>
+          <tr><td><strong>Reparto de dividendo</strong></td><td>Base del ahorro</td><td>Exención del art. 21 si el perceptor es sociedad</td><td>—</td><td>Cambia la composición</td><td>—</td><td>—</td></tr>
+          <tr><td><strong>Reducción de capital con devolución de aportaciones</strong></td><td>Régimen específico según el valor de los fondos propios</td><td>—</td><td><strong>OS 1 %</strong>, paga el socio</td><td>Sí</td><td>—</td><td>Si se entregan inmuebles</td></tr>
+          <tr><td><strong>Fusión, escisión, canje (reestructuración)</strong></td><td>Diferimiento con el régimen de neutralidad</td><td>Neutralidad fiscal</td><td><strong>No sujeta a OS y exenta de TPO y AJD</strong> (45.I.B.10)</td><td>Continuidad</td><td>—</td><td>Régimen especial</td></tr>
+          <tr><td><strong>Disolución con adjudicación de inmueble</strong></td><td>Ganancia del socio (37.1.e)</td><td>Plusvalía a valor de mercado</td><td><strong>OS 1 %</strong></td><td>Vuelve el inmueble</td><td>—</td><td><strong>Sí</strong></td></tr>
+          <tr><td><strong>Donar inmueble a un hijo</strong></td><td>Ganancia del donante; pérdida no computable</td><td>—</td><td>—</td><td>Sale de su base, entra en la del hijo</td><td><strong>Sí</strong>, según comunidad</td><td><strong>Sí</strong>, sin bonificación</td></tr>
+          <tr><td><strong>Heredar</strong></td><td><strong>No hay ganancia</strong> (33.3.b) y hay step-up</td><td>—</td><td>—</td><td>Entra en la base del heredero</td><td><strong>Sí</strong></td><td>Sí, bonificable hasta el 95 %</td></tr>
+          <tr><td><strong>Extinguir un condominio compensando en dinero</strong></td><td>Sin alteración, <strong>sin actualizar valores</strong></td><td>—</td><td><strong>AJD</strong> sobre el valor total; TPO si hay exceso</td><td>Cambia el porcentaje</td><td>—</td><td>Por el exceso</td></tr>
+          <tr><td><strong>Disolver gananciales</strong></td><td>Sin alteración</td><td>—</td><td><strong>Exento</strong> (45.I.B.3)</td><td>Se reparte por titularidad</td><td>—</td><td><strong>No sujeta</strong> (104.3)</td></tr>
+          <tr><td><strong>Constituir hipoteca</strong></td><td>—</td><td>—</td><td>AJD: <strong>paga el prestamista</strong> (art. 29, párrafo 2.º); préstamo exento (45.I.B.15)</td><td>La deuda resta en la base</td><td>—</td><td>—</td></tr>
+        </tbody>
+      </table>
+    </section>
+
+    <hr class="divider">
+
+    <!-- 3.54 RIESGO -->
+    <section id="s13" class="reveal">
+      <span class="kicker">3.54 · El límite</span>
+      <h2>Economía de opción, conflicto y simulación</h2>
+      <p>Toda esta parte trata de elegir entre caminos legales. Conviene saber dónde está la frontera, porque es la pregunta que nos hará el cliente y la que nos hará la Inspección.</p>
+      <div class="grid grid-3">
+        <div class="card"><h4>Economía de opción</h4><p>El ordenamiento ofrece varias vías con distinta carga fiscal y el contribuyente puede elegir la menos gravosa. Renunciar a la exención del IVA, articular una reestructuración o elegir el momento de una venta son opciones legítimas <strong>cuando responden a una razón económica y se documentan</strong>.</p></div>
+        <div class="card"><h4>Conflicto en la aplicación de la norma</h4><p>Actos notoriamente artificiosos, sin efectos jurídicos o económicos relevantes distintos del ahorro fiscal. Su declaración exige el informe favorable de una <strong>Comisión consultiva</strong> y permite exigir el tributo con intereses; desde 2015 puede además sancionarse cuando existe criterio administrativo previo publicado en supuestos sustancialmente iguales.</p></div>
+        <div class="card"><h4>Simulación</h4><p>El negocio declarado no es el real. Se exige el tributo del negocio efectivamente realizado <strong>y se sanciona</strong>. Aquí no hay debate técnico: hay hechos.</p></div>
+      </div>
+      <div class="flag">Cómo se trabaja en DASAR para quedarse del lado correcto: <strong>1)</strong> cada operación tiene una razón económica escrita antes de ejecutarse; <strong>2)</strong> los valores se soportan con informe o con valor de referencia; <strong>3)</strong> las formas se cumplen en plazo (renuncia comunicada, escrituras, comunicaciones del art. 339); <strong>4)</strong> se conserva la trazabilidad de los requisitos temporales (dirección, afectación, mantenimiento); <strong>5)</strong> si el ahorro sólo se explica por el ahorro, no se propone.</div>
+      <p class="libnote">Una advertencia final sobre las presunciones: el art. 338.2 de la Ley 6/2023 y varios preceptos del ITPAJD invierten la carga de la prueba. Cuando eso ocurre, la calidad de la documentación deja de ser un detalle formal y se convierte en la única defensa. La prueba se construye <strong>antes</strong>, cuando no hace falta.</p>
+    </section>
+
+    <hr class="divider">
+
+    <!-- 3.55 CHECKLIST -->
+    <section id="s14" class="reveal">
+      <span class="kicker">3.55 · Aplicación</span>
+      <h2>Checklist de interconexión: 12 comprobaciones</h2>
+      <div class="caso svc" data-act="checkinter">
+        <div class="caso-h"><div class="ci">+</div><div class="cti"><div class="cl">Desplegar · las 12 comprobaciones</div><h4>Lo que se revisa en toda propuesta antes de enviarla</h4><p>Ninguna propuesta sale de DASAR sin pasar por aquí.</p></div><div class="chev">▾</div></div>
+        <div class="caso-body"><div class="caso-inner">
+          <div class="plano"><h5>1 · ¿Quién transmite y en qué condición?</h5><p>Determina IVA o TPO antes que cualquier otra cosa. Revisa si el cliente se ha convertido en empresario sin saberlo (arrendador, urbanizador).</p></div>
+          <div class="plano"><h5>2 · ¿Cabe renunciar a la exención y compensa?</h5><p>Compara TPO contra IVA no deducible más AJD agravado de la comunidad. Depende de la prorrata del adquirente.</p></div>
+          <div class="plano"><h5>3 · ¿Se devenga la cuota gradual de AJD?</h5><p>Los cuatro requisitos del art. 31.2 son acumulativos. Y la cuota fija se paga siempre.</p></div>
+          <div class="plano"><h5>4 · ¿Hay plusvalía municipal y quién la paga?</h5><p>Comprueba la ordenanza, la no sujeción por inexistencia de incremento y la bonificación mortis causa.</p></div>
+          <div class="plano"><h5>5 · ¿Qué valor se declara y a qué otros impuestos viaja?</h5><p>Valor de referencia, efecto en IP del adquirente y valor de adquisición futuro en IRPF.</p></div>
+          <div class="plano"><h5>6 · ¿La operación rompe la exención de empresa familiar?</h5><p>Afectación, porcentaje de activo, funciones de dirección y retribución. Cuatro impuestos cuelgan de aquí.</p></div>
+          <div class="plano"><h5>7 · ¿Hay prorrata o sectores diferenciados afectados?</h5><p>Y si la hay, ¿la prorrata especial es obligatoria? ¿Hay bienes de inversión en período de regularización?</p></div>
+          <div class="plano"><h5>8 · ¿Encaja como operación de reestructuración?</h5><p>Si el objetivo es reorganizar, casi nunca hay que comprar, vender ni liquidar.</p></div>
+          <div class="plano"><h5>9 · ¿Se activa alguna presunción antielusiva?</h5><p>Art. 338 Ley 6/2023, excesos de adjudicación, expedientes de dominio, plazos de tres y cinco años.</p></div>
+          <div class="plano"><h5>10 · ¿Cuál es el coste de deshacer?</h5><p>1 % de OS, IS por valor de mercado, IRPF del socio y plusvalía. Se calcula antes de montar la estructura.</p></div>
+          <div class="plano"><h5>11 · ¿De dónde sale el dinero para pagar?</h5><p>Y qué impuesto genera conseguirlo. Incluye el ISD futuro en el cálculo, no sólo el de hoy.</p></div>
+          <div class="plano"><h5>12 · ¿Está escrita la razón económica y guardada la prueba?</h5><p>Sin esto, la mejor planificación es la más vulnerable.</p></div>
+        </div></div>
+      </div>
+    </section>
+
+    <hr class="divider">
+
+    <section class="reveal">
+      <span class="kicker">Descargables</span>
+      <h2>Normativa de esta parte</h2>
+      <div class="lib">
+        <a class="libitem" href="https://www.boe.es/buscar/act.php?id=BOE-A-1992-28740" target="_blank" rel="noopener"><span class="pdf">BOE</span><span class="lt"><b>Ley 37/1992 · IVA</b><span>Empresario (5), unidad económica (7.1.º), exenciones inmobiliarias (20.Uno.20.º, 22.º y 23.º), renuncia (20.Dos), inversión del sujeto pasivo (84.Uno.2.º), prorrata (101-106)</span></span><span class="go">Texto consolidado ↗</span></a>
+        <a class="libitem" href="https://www.boe.es/buscar/act.php?id=BOE-A-1993-25359" target="_blank" rel="noopener"><span class="pdf">BOE</span><span class="lt"><b>RDL 1/1993 · ITP y AJD</b><span>Incompatibilidad (1.2 y 4), TPO (7, 8, 10, 11), operaciones societarias (19-26), AJD (27-31), exenciones (45), comprobación de valores (46-48), devolución (57)</span></span><span class="go">Texto consolidado ↗</span></a>
+        <a class="libitem" href="https://www.boe.es/buscar/act.php?id=BOE-A-2023-7053" target="_blank" rel="noopener"><span class="pdf">BOE</span><span class="lt"><b>Ley 6/2023 · Mercados de Valores</b><span>Art. 338: exención de la transmisión de valores y norma antielusiva (sustituye al art. 108 LMV y al art. 314 TRLMV). Art. 339: comunicación a la Administración</span></span><span class="go">Texto consolidado ↗</span></a>
+        <a class="libitem" href="https://www.boe.es/buscar/act.php?id=BOE-A-2004-4214" target="_blank" rel="noopener"><span class="pdf">BOE</span><span class="lt"><b>RDL 2/2004 · Haciendas Locales</b><span>Plusvalía municipal: hecho imponible y no sujeciones (104), exenciones (105), tipo y bonificación mortis causa (108)</span></span><span class="go">Texto consolidado ↗</span></a>
+      </div>
+    </section>
+
+    <hr class="divider">
+
+    <!-- CASOS -->
+    <section id="casos" class="reveal">
+      <span class="kicker">Casos prácticos</span>
+      <h2>Tres decisiones con números</h2>
+      <p>Trabájalos con la calculadora de delimitación y con el simulador de cadena antes de abrir la solución.</p>
+
+      <div class="caso" data-act="caso1">
+        <div class="caso-h"><div class="ci">1</div><div class="cti"><div class="cl">Caso 1 · La renuncia que no siempre compensa</div><h4>Nave de 1.000.000 € en Madrid: dos compradores distintos</h4><p>Una sociedad vende una nave (segunda entrega, exenta). Comprador A: industrial con deducción plena. Comprador B: entidad con prorrata del 30 %. ¿Renunciamos a la exención en cada caso?</p></div><div class="chev">▾</div></div>
+        <div class="caso-body"><div class="caso-inner">
+          <div class="plano"><h5>Sin renuncia (los dos compradores)</h5><p>Entrega exenta por el art. 20.Uno.22.º → <strong>TPO al 6 %</strong> en Madrid = <strong>60.000 €</strong> de coste irrecuperable. Sin cuota gradual de AJD (art. 31.2).</p></div>
+          <div class="plano"><h5>Comprador A · deducción plena</h5><p>Con renuncia: IVA 21 % = 210.000 €, íntegramente deducible y además con <strong>inversión del sujeto pasivo</strong> (art. 84.Uno.2.º e), así que ni siquiera hay salida de caja. AJD agravado de Madrid al 1,5 % = <strong>15.000 €</strong>. Coste real: 15.000 € frente a 60.000 €. <strong>Ahorro: 45.000 €.</strong> Renunciar es claramente mejor.</p></div>
+          <div class="plano"><h5>Comprador B · prorrata del 30 %</h5><p>Con renuncia: IVA 210.000 €, deducible sólo 63.000 € → <strong>147.000 € de coste</strong>, más 15.000 € de AJD = <strong>162.000 €</strong>. Frente a 60.000 € de TPO. <strong>Renunciar cuesta 102.000 € más.</strong> Aquí la respuesta correcta es no renunciar.</p></div>
+          <div class="plano"><h5>El punto de indiferencia</h5><p>Renunciar compensa cuando <em>IVA × (1 − prorrata) + AJD ≤ TPO</em>. Con estos datos: 210.000 × (1 − p) + 15.000 ≤ 60.000 → p ≥ 78,6 %. <strong>Por debajo de una prorrata del 79 %, no interesa.</strong> Ese umbral cambia con cada comunidad: en Extremadura (AJD 3 %) el listón sube; en Madrid, baja.</p></div>
+          <div class="plano"><h5>Lección</h5><p>La renuncia no es una buena práctica automática: es un cálculo. Y el dato que lo decide no está en el vendedor, sino en el <strong>porcentaje de deducción del comprador</strong>. Pregúntalo siempre antes de redactar la escritura, porque la renuncia hay que hacerla en el momento de la operación.</p></div>
+        </div></div>
+      </div>
+
+      <div class="caso" data-act="caso2">
+        <div class="caso-h"><div class="ci">2</div><div class="cti"><div class="cl">Caso 2 · Vender la sociedad o vender el edificio</div><h4>Sociedad con un edificio de 4.000.000 € y participaciones que valen lo mismo</h4><p>El 100 % de la sociedad se vende por 4.000.000 €. El activo es el edificio, arrendado a terceros. ¿Cambia algo si el arrendamiento se gestiona con estructura propia?</p></div><div class="chev">▾</div></div>
+        <div class="caso-body"><div class="caso-inner">
+          <div class="plano"><h5>Escenario A · edificio no afecto (mera tenencia)</h5><p>El activo está formado en más del 50 % por inmuebles en España no afectos y el comprador obtiene el <strong>control</strong> (más del 50 %). Se presume elusión, salvo prueba en contrario: la venta de participaciones tributa <strong>como transmisión de inmuebles</strong> (art. 338.2.a Ley 6/2023). En una comunidad con TPO al 8 %: <strong>320.000 €</strong> que nadie había presupuestado.</p></div>
+          <div class="plano"><h5>Escenario B · arrendamiento con actividad económica real</h5><p>Si los inmuebles están <strong>afectos</strong> a una actividad económica (medios, personal, gestión), no se cumple el presupuesto de la presunción y la transmisión de valores queda <strong>exenta</strong> de IVA y de ITPAJD (art. 338.1). Ahorro: los 320.000 € completos. Y sin plusvalía municipal, porque el inmueble no cambia de titular.</p></div>
+          <div class="plano"><h5>Y si en lugar de la sociedad vendiéramos el edificio</h5><p>Segunda entrega exenta → TPO al 8 % (320.000 €) o renuncia con IVA e IVA deducible más AJD; más plusvalía municipal; más IS del 25 % sobre la plusvalía de la sociedad; y una segunda capa de IRPF cuando el socio quiera sacar el dinero. La venta de participaciones evita la doble capa: el socio cobra directamente y tributa una sola vez.</p></div>
+          <div class="plano"><h5>El detalle que decide</h5><p>La afectación no se declara: se construye y se prueba. Y no vale hacerlo el mes anterior a la venta. Este caso es la mejor justificación de por qué el diagnóstico patrimonial se hace años antes de la operación.</p></div>
+          <div class="plano"><h5>Riesgo del comprador</h5><p>Quien compra participaciones compra también las contingencias fiscales de la sociedad. La <em>due diligence</em> y las garantías del contrato son parte del precio: si el vendedor no las acepta, el descuento aparece por otro lado.</p></div>
+        </div></div>
+      </div>
+
+      <div class="caso" data-act="caso3">
+        <div class="caso-h"><div class="ci">3</div><div class="cti"><div class="cl">Caso 3 · Dos hermanos y un piso heredado</div><h4>Piso valorado en 300.000 €, heredado al 50 %, que se adjudica a uno compensando en dinero</h4><p>Valor declarado en la herencia: 240.000 €. Ahora uno se queda el piso y paga 150.000 € al otro. ¿Qué se activa?</p></div><div class="chev">▾</div></div>
+        <div class="caso-body"><div class="caso-inner">
+          <div class="plano"><h5>ITPAJD</h5><p>La adjudicación de un bien indivisible a un comunero compensando en dinero no es transmisión a efectos de TPO (art. 7.2.B) en relación con el art. 1.062 CC): la comunidad se disuelve, no se transmite. Pero la escritura es inscribible, valuable y no está sujeta a TPO ni a OS: se devenga la <strong>cuota gradual de AJD sobre el valor total del bien</strong>, no sobre la mitad. En Madrid, 0,75 % de 300.000 € = <strong>2.250 €</strong>; en Extremadura, 1,5 % = 4.500 €.</p></div>
+          <div class="plano"><h5>IRPF</h5><p>No hay alteración patrimonial (art. 33.2.a). Y aquí está el aviso: «no podrán dar lugar, en ningún caso, a la actualización de los valores». El hermano que se queda el piso <strong>no</strong> tiene un valor de adquisición de 300.000 €: conserva los 240.000 € de la herencia. Si lo vende mañana por 300.000 €, tributa por 60.000 € de ganancia aunque económicamente haya pagado el valor completo.</p></div>
+          <div class="plano"><h5>Plusvalía municipal</h5><p>La disolución de la comunidad especificando cuotas no está sujeta; sí lo estaría un exceso de adjudicación no compensado. Como la compensación es en dinero y proporcional, no hay hecho imponible por esta operación.</p></div>
+          <div class="plano"><h5>El error de 15.000 €</h5><p>Si en lugar de disolver la comunidad se documenta como <strong>compraventa de la mitad indivisa</strong>, aparece TPO: 6 % de 150.000 € = 9.000 € en Madrid, y hasta 15.000 € en comunidades al 10 %. Misma realidad económica, distinto vestido jurídico, cuatro veces más impuesto. La redacción de la escritura es una decisión fiscal.</p></div>
+          <div class="plano"><h5>Comprobación previa</h5><p>Antes de firmar: ¿el valor declarado en la herencia era el valor de referencia? Si se declaró por debajo, la Administración pudo comprobar y ese valor comprobado afecta también al IP del adjudicatario (art. 46.4). Todo empieza y acaba en el nudo de la valoración.</p></div>
+        </div></div>
+      </div>
+    </section>
+
+    <hr class="divider">
+
+    <section id="quiz" class="reveal">
+      <div class="quiz" data-quiz-mod="mod3ind">
+        <div class="q-head"><span class="tri"></span><h3>Autoevaluación · Indirecta e interconexión</h3><span class="q-meta">Necesitas ≥ 70 %</span></div>
+        <div class="q-body">
+          <div class="q-item" data-correct="2">
+            <div class="q-txt"><span class="qn">1.</span>Una sociedad vende una nave usada a otra sociedad con derecho a deducción plena. Sin renuncia a la exención, ¿qué se paga?</div>
+            <label class="q-opt"><input type="radio" name="q1" value="0">IVA al 21 % y AJD.</label>
+            <label class="q-opt"><input type="radio" name="q1" value="1">Nada, porque la operación está exenta.</label>
+            <label class="q-opt"><input type="radio" name="q1" value="2">TPO al tipo de la comunidad, coste irrecuperable, y sin cuota gradual de AJD.</label>
+            <label class="q-opt"><input type="radio" name="q1" value="3">IVA al 10 % con inversión del sujeto pasivo.</label>
+            <div class="q-feedback">La exención de IVA abre la puerta al TPO (art. 4.Cuatro LIVA y art. 7.5 TRLITPAJD), y al haber TPO no se devenga la cuota gradual (art. 31.2).</div>
+          </div>
+          <div class="q-item" data-correct="1">
+            <div class="q-txt"><span class="qn">2.</span>¿Cuál es el requisito clave para poder renunciar a la exención?</div>
+            <label class="q-opt"><input type="radio" name="q2" value="0">Que el transmitente sea una sociedad mercantil.</label>
+            <label class="q-opt"><input type="radio" name="q2" value="1">Que el adquirente sea sujeto pasivo con derecho a deducción total o parcial, o que por su destino previsible vaya a usar el bien en operaciones con derecho a deducir.</label>
+            <label class="q-opt"><input type="radio" name="q2" value="2">Que la operación supere el millón de euros.</label>
+            <label class="q-opt"><input type="radio" name="q2" value="3">Que el inmueble sea una vivienda.</label>
+            <div class="q-feedback">Art. 20.Dos LIVA. La redacción vigente ya no exige deducción total e incorpora el criterio del destino previsible.</div>
+          </div>
+          <div class="q-item" data-correct="3">
+            <div class="q-txt"><span class="qn">3.</span>Un promotor alquila sin opción de compra las viviendas que no ha vendido durante tres años y luego las vende. Esa venta es…</div>
+            <label class="q-opt"><input type="radio" name="q3" value="0">Primera entrega: IVA al 10 %.</label>
+            <label class="q-opt"><input type="radio" name="q3" value="1">Primera entrega: IVA al 21 %.</label>
+            <label class="q-opt"><input type="radio" name="q3" value="2">No sujeta.</label>
+            <label class="q-opt"><input type="radio" name="q3" value="3">Segunda entrega, exenta: el comprador pagará TPO (salvo que el comprador sea quien las utilizó).</label>
+            <div class="q-feedback">Art. 20.Uno.22.º: la utilización ininterrumpida por dos años o más hace que la entrega del promotor deje de ser primera entrega, salvo que el adquirente sea el propio usuario.</div>
+          </div>
+          <div class="q-item" data-correct="0">
+            <div class="q-txt"><span class="qn">4.</span>¿Qué operación societaria NO está exenta y paga el 1 %?</div>
+            <label class="q-opt"><input type="radio" name="q4" value="0">La disolución de la sociedad y la reducción de capital.</label>
+            <label class="q-opt"><input type="radio" name="q4" value="1">La constitución de la sociedad.</label>
+            <label class="q-opt"><input type="radio" name="q4" value="2">El aumento de capital.</label>
+            <label class="q-opt"><input type="radio" name="q4" value="3">Una fusión por absorción.</label>
+            <div class="q-feedback">La exención del art. 45.I.B).11 no alcanza a la reducción ni a la disolución: arts. 19.1.1.º, 23.b), 25.4 y 26. Las reestructuraciones, además de no sujetas, están exentas de TPO y AJD (45.I.B).10).</div>
+          </div>
+          <div class="q-item" data-correct="2">
+            <div class="q-txt"><span class="qn">5.</span>La norma antielusiva de la transmisión de valores está hoy en…</div>
+            <label class="q-opt"><input type="radio" name="q5" value="0">El art. 108 de la Ley 24/1988.</label>
+            <label class="q-opt"><input type="radio" name="q5" value="1">El art. 314 del TRLMV.</label>
+            <label class="q-opt"><input type="radio" name="q5" value="2">El art. 338 de la Ley 6/2023.</label>
+            <label class="q-opt"><input type="radio" name="q5" value="3">El art. 15 de la LGT.</label>
+            <div class="q-feedback">El TRLMV está derogado por la Ley 6/2023. Citar la norma antigua en un informe es un error evitable.</div>
+          </div>
+          <div class="q-item" data-correct="1">
+            <div class="q-txt"><span class="qn">6.</span>Sociedad con 600.000 € de alquiler de viviendas (exento) y 400.000 € de locales. Reforma sólo el edificio de locales. Con prorrata general deduciría el 40 %. ¿Qué procede?</div>
+            <label class="q-opt"><input type="radio" name="q6" value="0">Aplicar la prorrata general: es la regla por defecto.</label>
+            <label class="q-opt"><input type="radio" name="q6" value="1">Aplicar la prorrata especial: deduce el 100 % y además es obligatoria, porque la general excede en más de un 10 %.</label>
+            <label class="q-opt"><input type="radio" name="q6" value="2">No deducir nada, porque hay actividad exenta.</label>
+            <label class="q-opt"><input type="radio" name="q6" value="3">Deducir el 50 % en todo caso.</label>
+            <div class="q-feedback">Arts. 103.Dos.2.º y 106: la especial es obligatoria cuando las cuotas deducibles por la general exceden en un 10 % o más de las que resultarían por la especial.</div>
+          </div>
+          <div class="q-item" data-correct="3">
+            <div class="q-txt"><span class="qn">7.</span>Dos hermanos disuelven el condominio de un piso: uno se lo queda y compensa en dinero. ¿Cuál es la consecuencia en IRPF?</div>
+            <label class="q-opt"><input type="radio" name="q7" value="0">Ganancia patrimonial para el que sale.</label>
+            <label class="q-opt"><input type="radio" name="q7" value="1">Ganancia para los dos.</label>
+            <label class="q-opt"><input type="radio" name="q7" value="2">No hay alteración y el adjudicatario actualiza su valor de adquisición.</label>
+            <label class="q-opt"><input type="radio" name="q7" value="3">No hay alteración, pero tampoco se actualizan los valores: la plusvalía latente sigue viva.</label>
+            <div class="q-feedback">Art. 33.2: «no podrán dar lugar, en ningún caso, a la actualización de los valores». Es uno de los avisos más rentables que se le pueden dar a un cliente.</div>
+          </div>
+          <div class="q-item" data-correct="0">
+            <div class="q-txt"><span class="qn">8.</span>¿Qué valor se usa para un inmueble en el Impuesto sobre el Patrimonio?</div>
+            <label class="q-opt"><input type="radio" name="q8" value="0">El mayor de: valor catastral, valor comprobado por la Administración a efectos de otros tributos, o precio de adquisición.</label>
+            <label class="q-opt"><input type="radio" name="q8" value="1">El valor de referencia del Catastro, igual que en ITP e ISD.</label>
+            <label class="q-opt"><input type="radio" name="q8" value="2">Siempre el valor catastral.</label>
+            <label class="q-opt"><input type="radio" name="q8" value="3">El valor de mercado a 31 de diciembre.</label>
+            <div class="q-feedback">Art. 10.Uno LIP. La expresión «valor de referencia» no aparece en la Ley 19/1991: es la asimetría clave frente a ITP (art. 10.2) e ISD (art. 9.3).</div>
+          </div>
+        </div>
+        <div class="q-actions">
+          <button class="btn btn-primary" data-quiz-check>Corregir test</button>
+          <button class="btn btn-outline" data-quiz-reset>Reintentar</button>
+          <span class="q-score" data-quiz-score></span>
+        </div>
+      </div>
+    </section>
+
+    <div class="tracker" data-mod="mod3ind">
+      <div class="tk-head"><span class="tri"></span><h3>Actividades de esta parte</h3><span class="tk-count" data-tk-count>0/9</span></div>
+      <div class="tk-body">
+        <div class="act" data-act="leer"><span class="box"></span><span class="lbl">Leer la parte de indirecta e interconexión</span></div>
+        <div class="act" data-act="calc_indirecta"><span class="box"></span><span class="lbl">Usar el motor de delimitación IVA / TPO / AJD</span></div>
+        <div class="act" data-act="calc_cadena"><span class="box"></span><span class="lbl">Usar el simulador de la cadena fiscal</span></div>
+        <div class="act" data-act="rehab"><span class="box"></span><span class="lbl">Desplegar el test de rehabilitación</span></div>
+        <div class="act" data-act="arrend"><span class="box"></span><span class="lbl">Desplegar las trampas del arrendamiento</span></div>
+        <div class="act" data-act="prorrata"><span class="box"></span><span class="lbl">Desplegar la trampa de la prorrata</span></div>
+        <div class="act" data-act="antielusion"><span class="box"></span><span class="lbl">Desplegar la norma antielusiva del art. 338</span></div>
+        <div class="act" data-act="nudo1"><span class="box"></span><span class="lbl">Desplegar el diagnóstico de la empresa familiar</span></div>
+        <div class="act" data-act="quiz"><span class="box"></span><span class="lbl">Superar la autoevaluación</span></div>
+        <div data-tk-done style="display:none;align-items:center;gap:.6rem;margin-top:.9rem;padding:.8rem 1rem;background:var(--wine-soft);border-radius:9px;color:var(--wine-dark);font-weight:600"><span class="tri"></span> ¡Módulo 3 completado!</div>
+      </div>
+    </div>
+
+    <nav class="modnav">
+      <a href="modulo-3-sucesiones.html"><div class="d">← Anterior</div><div class="t">Parte 4 · Sucesiones y Donaciones</div></a>
+      <a class="next" href="modulo-4.html"><div class="d">Siguiente →</div><div class="t">Módulo 4 · Estructuras y operaciones complejas</div></a>
+    </nav>
+
+  </main>
+</div>
+
+<footer class="footer">
+  <div class="fwrap">
+    <img src="dasar-blanco.svg" alt="DASAR Gestión Patrimonial">
+    <nav class="fnav">
+      <a href="index.html">Inicio</a>
+      <a href="#calc1">Delimitación IVA/TPO/AJD</a>
+      <a href="#calc2">Cadena fiscal</a>
+      <a href="#nudos">Los seis nudos</a>
+    </nav>
+    <div class="fcopy">© <span data-year>2026</span> DASAR Gestión Patrimonial · Formación interna. No constituye asesoramiento fiscal ni legal. Verifica siempre la normativa vigente.</div>
+  </div>
+</footer>
+
+<script src="deducciones.js?v=15"></script>
+<script src="app.js?v=15"></script>
+</body>
+</html>
