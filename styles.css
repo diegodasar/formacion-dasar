@@ -632,3 +632,61 @@ table.dedtbl td:last-child{white-space:nowrap;color:var(--muted-2);font-size:.8r
   .finding{break-inside:avoid}
   a[href]:after{content:""}
 }
+
+/* ============================================================
+   v9 · MÓDULO 4 · IRL interactiva, due diligence y cronograma
+   ============================================================ */
+.irl{border:1.5px solid var(--ink);border-radius:var(--radius);overflow:hidden;margin:1.8rem 0;background:#fff}
+.irl .irl-head{background:var(--ink);color:#fff;padding:1.1rem 1.3rem;display:flex;align-items:center;gap:.8rem;flex-wrap:wrap}
+.irl .irl-head .tri{border-bottom-color:var(--wine)}
+.irl .irl-head h3{color:#fff;margin:0;font-size:1.15rem}
+.irl .irl-head .irl-meta{margin-left:auto;font-size:.82rem;color:rgba(255,255,255,.75)}
+.irl .irl-bar{display:flex;gap:.5rem;flex-wrap:wrap;padding:.9rem 1.3rem;border-bottom:1px solid var(--line);background:var(--paper-2)}
+.irl .achip{border:1px solid var(--line-strong);background:#fff;color:var(--ink);border-radius:999px;
+  padding:.4rem .85rem;font-size:.82rem;font-weight:600;cursor:pointer;transition:.15s;font-family:inherit}
+.irl .achip:hover{border-color:var(--wine)}
+.irl .achip.on{background:var(--wine);border-color:var(--wine);color:#fff}
+.irl .achip i{font-style:normal;opacity:.75;font-weight:500;margin-left:.35rem;font-size:.76rem}
+.irl .irl-body{padding:1.1rem 1.3rem 1.3rem}
+.irl .irl-progress{display:flex;align-items:center;gap:.8rem;margin-bottom:1rem;font-size:.85rem;color:var(--muted)}
+.irl .irl-progress .pb{flex:1;height:7px;background:var(--line);border-radius:99px;overflow:hidden}
+.irl .irl-progress .pb i{display:block;height:100%;width:0;background:var(--wine);transition:width .3s}
+.irlitem{display:grid;grid-template-columns:1fr auto;gap:.5rem 1rem;padding:.75rem .9rem;border:1px solid var(--line);
+  border-radius:var(--radius-sm);margin-bottom:.55rem;background:#fff;transition:.15s}
+.irlitem.st-rec{border-color:var(--wine);background:var(--wine-soft)}
+.irlitem.st-na{opacity:.5}
+.irlitem .it-t{font-weight:600;color:var(--ink);font-size:.94rem}
+.irlitem .it-d{font-size:.84rem;color:var(--muted);margin-top:.1rem}
+.irlitem .it-st{display:flex;gap:.3rem;align-items:flex-start}
+.irlitem .it-st button{border:1px solid var(--line-strong);background:#fff;border-radius:6px;padding:.25rem .5rem;
+  font-size:.74rem;font-weight:600;cursor:pointer;color:var(--muted);font-family:inherit;white-space:nowrap}
+.irlitem .it-st button.on{background:var(--ink);border-color:var(--ink);color:#fff}
+.irlitem .it-st button.on.rec{background:var(--wine);border-color:var(--wine)}
+.irlitem textarea{grid-column:1/-1;width:100%;border:1px solid var(--line);border-radius:6px;padding:.45rem .6rem;
+  font-family:inherit;font-size:.86rem;min-height:38px;resize:vertical;background:var(--paper-2)}
+.irlitem textarea:focus{outline:2px solid var(--wine);border-color:var(--wine)}
+.irl .irl-actions{display:flex;gap:.6rem;flex-wrap:wrap;padding:1rem 1.3rem;border-top:1px solid var(--line);background:var(--paper-2)}
+.irlout{border-top:1px solid var(--line);padding:1.3rem;display:none;background:#fff}
+.irlout.show{display:block}
+.irlout h3{margin:.1rem 0 .9rem}
+.irlout .oarea{margin-bottom:1.1rem}
+.irlout .oarea h5{margin:0 0 .35rem;font-size:.95rem;color:var(--wine-dark);text-transform:uppercase;letter-spacing:.04em}
+.irlout ul{margin:0;padding-left:1.1rem}
+.irlout li{font-size:.9rem;margin-bottom:.2rem}
+.irlout li em{color:var(--muted);font-style:normal}
+/* cronograma de una operación */
+.timeline{border-left:2px solid var(--line-strong);margin:1.6rem 0 1.6rem .5rem;padding-left:1.3rem}
+.tlstep{position:relative;padding-bottom:1.2rem}
+.tlstep:before{content:"";position:absolute;left:-1.68rem;top:.28rem;width:11px;height:11px;background:var(--wine);border-radius:50%;
+  box-shadow:0 0 0 3px #fff}
+.tlstep .tl-w{font-size:.76rem;text-transform:uppercase;letter-spacing:.08em;color:var(--wine);font-weight:700}
+.tlstep .tl-t{font-weight:600;color:var(--ink);margin:.1rem 0 .2rem}
+.tlstep .tl-d{font-size:.9rem;color:var(--muted)}
+@media (max-width:640px){
+  .irlitem{grid-template-columns:1fr}
+  .irlitem .it-st{justify-content:flex-start}
+}
+@media print{
+  .irl .irl-bar,.irl .irl-actions,.irl .irl-body,.irl .irl-head{display:none !important}
+  .irlout{display:block !important;border:0;padding:0}
+}

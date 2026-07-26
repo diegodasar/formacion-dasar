@@ -6,13 +6,13 @@
 <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
 <meta http-equiv="Pragma" content="no-cache">
 <meta http-equiv="Expires" content="0">
-<title>Módulo 4 · Estructuras y operaciones complejas · DASAR</title>
-<meta name="description" content="Módulo 4 de la formación DASAR: Cuando el patrimonio crece, aparecen estructuras. Este módulo aborda holdings, reestructuraciones, el protocolo familiar y la financiación al servicio">
+<title>Módulo 4 · Reestructuraciones y neutralidad fiscal · DASAR</title>
+<meta name="description" content="Módulo 4 DASAR (parte 1): modificaciones estructurales tras el RDL 5/2023, régimen de neutralidad fiscal (arts. 76-89 LIS), rama de actividad, motivo económico válido, creación de holding y consolidación fiscal, con test de encaje interactivo.">
 <link rel="icon" href="dasar-color.svg">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Jost:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="styles.css?v=12">
+<link rel="stylesheet" href="styles.css?v=16">
 </head>
 <body data-current="mod4">
 
@@ -29,6 +29,7 @@
   </div>
   <a class="home-link" href="index.html">Inicio</a>
 </header>
+<div class="readprogress" aria-hidden="true"><i></i></div>
 
 <div class="layout">
   <aside class="sidebar">
@@ -37,84 +38,514 @@
   </aside>
 
   <main class="content prose">
+
     <div class="mod-head">
       <div class="eyebrow">
-        <span class="mod-badge">Módulo 4</span>
-        <span class="mod-meta">Estructuras y operaciones complejas</span>
+        <span class="mod-badge">Módulo 4 · Parte 1</span>
+        <span class="mod-meta">Reestructuraciones y neutralidad fiscal</span>
       </div>
-      <h1>Estructuras y operaciones complejas</h1>
-      <p class="lead">Cuando el patrimonio crece, aparecen estructuras. Este módulo aborda holdings, reestructuraciones, el protocolo familiar y la financiación al servicio del plan patrimonial, siempre con seguridad jurídica.</p>
-      <p style="margin-top:1rem"><span class="wip"><span class="tri"></span> Contenido en desarrollo</span></p>
-      <p style="color:var(--muted)">Este módulo forma parte del programa y se desarrollará en profundidad próximamente. A continuación tienes sus <strong>objetivos de aprendizaje</strong> y el <strong>índice de contenidos previsto</strong>.</p>
+      <h1>Reestructuraciones y neutralidad fiscal</h1>
+      <p class="lead">Aquí se aprende a mover un patrimonio empresarial <strong>sin pagar por moverlo</strong>. Qué operaciones existen tras el <strong>RDL 5/2023</strong>, cómo se tramitan paso a paso, qué es exactamente el <strong>régimen de neutralidad</strong> (y qué no es), los requisitos de cada modalidad —fusión, escisión total y parcial, segregación, canje de valores y aportaciones no dinerarias—, el concepto de <strong>rama de actividad</strong>, el <strong>motivo económico válido</strong> del art. 89.2 con su redacción vigente, la construcción de un <strong>holding</strong> y la <strong>consolidación fiscal</strong>. Con un test de encaje que se rellena operación por operación.</p>
+      <p style="color:var(--muted-2);font-size:.9rem">Nivel: máster / especialización · Parte 1 de 3 del Módulo 4 · Lectura estimada: 110–130 min</p>
     </div>
 
-    <section class="reveal">
-      <span class="kicker">Objetivos de aprendizaje</span>
-      <h2>Qué sabrás hacer al terminar</h2>
-      <div class="grid grid-2" style="margin-top:1rem">
-        <div class="card"><div style="display:flex;gap:.9rem"><span class="badge-num">1</span><div><p class="mt0" style="margin:0;color:var(--muted)">Comprender cuándo y por qué una estructura de holding aporta valor.</p></div></div></div>
-        <div class="card"><div style="display:flex;gap:.9rem"><span class="badge-num">2</span><div><p class="mt0" style="margin:0;color:var(--muted)">Aplicar el régimen de neutralidad fiscal en reestructuraciones (fusiones, escisiones, aportaciones, canje).</p></div></div></div>
-        <div class="card"><div style="display:flex;gap:.9rem"><span class="badge-num">3</span><div><p class="mt0" style="margin:0;color:var(--muted)">Entender el papel del protocolo familiar en la continuidad del patrimonio.</p></div></div></div>
-        <div class="card"><div style="display:flex;gap:.9rem"><span class="badge-num">4</span><div><p class="mt0" style="margin:0;color:var(--muted)">Integrar la financiación como palanca patrimonial, no solo como deuda.</p></div></div></div>
+    <nav class="partnav" aria-label="Partes del Módulo 4">
+      <span class="p on">Parte 1 · Reestructuraciones y neutralidad</span>
+      <a class="p" href="modulo-4-mya.html">Parte 2 · M&amp;A, due diligence e IRL →</a>
+      <a class="p" href="modulo-4-gobernanza.html">Parte 3 · Gobernanza e internacional →</a>
+    </nav>
+
+    <div class="callout"><div class="ic">✓</div><div class="ct"><h4>Datos verificados en el BOE</h4><p>Extraído de los textos consolidados de la <strong>Ley 27/2014 del Impuesto sobre Sociedades</strong> (arts. 15, 16, 55 a 75 y 76 a 89), del <strong>Real Decreto-ley 5/2023</strong> (Libro Primero, modificaciones estructurales) y de la <strong>Ley 58/2003 General Tributaria</strong>. Se señalan expresamente los puntos que remiten a norma reglamentaria.</p></div></div>
+
+    <div class="warnbox"><div class="ic">!</div><p><strong>Corrección de un error muy extendido:</strong> la <strong>Ley 3/2009</strong> de modificaciones estructurales <strong>está derogada</strong> por el RDL 5/2023. Y en la norma vigente la escisión sólo tiene <strong>tres modalidades</strong>: total, parcial y <strong>segregación</strong> (art. 58.1). La llamada "escisión por separación" <strong>no existe</strong> con ese nombre en el texto; la figura próxima es la constitución de sociedad íntegramente participada mediante transmisión del patrimonio (art. 62).</p></div>
+
+    <div class="toc">
+      <h4>En esta parte</h4>
+      <a href="#s1"><span class="tri"></span>4.1 · Por qué se reestructura un patrimonio</a>
+      <a href="#s2"><span class="tri"></span>4.2 · El mapa mercantil tras el RDL 5/2023</a>
+      <a href="#s3"><span class="tri"></span>4.3 · El procedimiento paso a paso</a>
+      <a href="#s4"><span class="tri"></span>4.4 · Qué es (y qué no es) la neutralidad fiscal</a>
+      <a href="#s5"><span class="tri"></span>4.5 · Rama de actividad: el concepto clave</a>
+      <a href="#s6"><span class="tri"></span>4.6 · Valoración, subrogación y bases negativas</a>
+      <a href="#s7"><span class="tri"></span>4.7 · Los socios: qué les pasa a sus participaciones</a>
+      <a href="#s8"><span class="tri"></span>4.8 · Motivo económico válido y art. 89.2</a>
+      <a href="#test"><span class="tri"></span>Test de encaje en el régimen de neutralidad</a>
+      <a href="#s9"><span class="tri"></span>4.9 · Comunicación, renuncia y sanciones</a>
+      <a href="#s10"><span class="tri"></span>4.10 · Construir el holding: canje o aportación</a>
+      <a href="#s11"><span class="tri"></span>4.11 · Consolidación fiscal</a>
+      <a href="#s12"><span class="tri"></span>4.12 · Checklist de una reestructuración</a>
+      <a href="#casos"><span class="tri"></span>Casos prácticos</a>
+      <a href="#quiz"><span class="tri"></span>Autoevaluación</a>
+    </div>
+
+    <hr class="divider">
+
+    <!-- 4.1 -->
+    <section id="s1" class="reveal">
+      <span class="kicker">4.1 · El punto de partida</span>
+      <h2>Por qué se reestructura un patrimonio</h2>
+      <p>Una reestructuración nunca se hace "por fiscalidad". Se hace porque hay un problema patrimonial que la estructura actual no resuelve, y la fiscalidad determina <strong>cuánto cuesta resolverlo</strong>. Este orden importa: es literalmente lo que exige el art. 89.2 de la Ley del Impuesto sobre Sociedades.</p>
+      <div class="grid grid-3">
+        <div class="card hoverable"><div class="num">01</div><h3>Proteger</h3><p>Separar el patrimonio de riesgo del patrimonio de reserva. Que la actividad operativa no arrastre a los inmuebles ni a la tesorería acumulada de treinta años.</p></div>
+        <div class="card hoverable"><div class="num">02</div><h3>Suceder</h3><p>Permitir que la propiedad se reparta entre hermanos sin trocear la empresa, o que sólo quien gestiona tenga el control. La estructura es lo que hace posible un testamento razonable.</p></div>
+        <div class="card hoverable"><div class="num">03</div><h3>Optimizar</h3><p>Consolidar resultados, permitir que los dividendos suban sin coste (art. 21), preservar la exención de empresa familiar y evitar la calificación de entidad patrimonial.</p></div>
+        <div class="card hoverable"><div class="num">04</div><h3>Abrir</h3><p>Preparar la entrada de un socio, de un fondo o de un directivo en una parte del negocio sin darle acceso al resto del patrimonio familiar.</p></div>
+        <div class="card hoverable"><div class="num">05</div><h3>Ordenar</h3><p>Sacar del balance operativo activos no afectos, cuentas con socios y sociedades inactivas. Sin esto, ninguna venta futura se cierra a buen precio.</p></div>
+        <div class="card hoverable"><div class="num">06</div><h3>Vender</h3><p>Situar el activo en el vehículo correcto años antes de la operación. Lo que se decide a seis meses del cierre casi siempre es tarde y casi siempre es caro.</p></div>
+      </div>
+      <div class="flag">La pregunta con la que se abre toda conversación de reestructuración: <strong>¿qué problema deja de existir el día después?</strong> Si la única respuesta es "pagaremos menos impuestos", no hay operación: hay un riesgo del art. 89.2 esperando a una inspección.</div>
+    </section>
+
+    <hr class="divider">
+
+    <!-- 4.2 -->
+    <section id="s2" class="reveal">
+      <span class="kicker">4.2 · Derecho mercantil</span>
+      <h2>El mapa de operaciones tras el RDL 5/2023</h2>
+      <p>El Real Decreto-ley 5/2023 derogó la Ley 3/2009 y reordenó toda la materia trasponiendo la Directiva 2019/2121. Su Libro Primero regula las modificaciones estructurales «tanto internas como transfronterizas» y consisten en <strong>transformación, fusión, escisión y cesión global de activo y pasivo</strong> (art. 1). El antiguo "traslado internacional del domicilio" pasa a llamarse <strong>transformación transfronteriza</strong>.</p>
+      <table class="tbl">
+        <thead><tr><th>Operación</th><th>Qué es</th><th>Norma</th></tr></thead>
+        <tbody>
+          <tr><td><strong>Transformación</strong></td><td>Cambio de tipo social conservando la personalidad jurídica. Interna (de SL a SA, por ejemplo) o transfronteriza.</td><td>RDL 5/2023, Libro I</td></tr>
+          <tr><td><strong>Fusión por absorción</strong></td><td>Una o varias sociedades transmiten en bloque su patrimonio a otra <strong>ya existente</strong> y se disuelven sin liquidación; sus socios reciben participaciones de la absorbente.</td><td>art. 76.1 a) LIS</td></tr>
+          <tr><td><strong>Fusión por creación de nueva sociedad</strong></td><td>Dos o más sociedades se extinguen y traspasan su patrimonio a una <strong>sociedad nueva</strong>.</td><td>art. 76.1 b) LIS</td></tr>
+          <tr><td><strong>Fusión impropia</strong></td><td>«Una entidad transmite el conjunto de su patrimonio social a la entidad que es titular de la totalidad de los valores representativos de su capital social»: absorber a la filial al 100 %.</td><td>art. 76.1 c) LIS</td></tr>
+          <tr><td><strong>Escisión total</strong></td><td>Extinción de la sociedad dividiendo <strong>todo</strong> su patrimonio en dos o más partes que se transmiten en bloque por sucesión universal a dos o más sociedades.</td><td>art. 59 RDL 5/2023 · art. 76.2.1.º a) LIS</td></tr>
+          <tr><td><strong>Escisión parcial</strong></td><td>Traspaso en bloque de <strong>una o varias partes</strong> del patrimonio, cada una de las cuales forme una <strong>unidad económica</strong>; la escindida subsiste y sus socios reciben participaciones de la beneficiaria.</td><td>art. 60 RDL 5/2023 · art. 76.2.1.º b) LIS</td></tr>
+          <tr><td><strong>Segregación</strong></td><td>Como la escisión parcial, pero las participaciones de la beneficiaria se atribuyen a <strong>la propia sociedad segregante</strong>, no a sus socios. Es la vía natural para crear una filial con una unidad de negocio.</td><td>art. 61 RDL 5/2023</td></tr>
+          <tr><td><strong>Escisión financiera</strong></td><td>Figura fiscal: se segregan participaciones que confieren la <strong>mayoría del capital</strong> de otras entidades, manteniendo participaciones similares o una rama de actividad.</td><td>art. 76.2.1.º c) LIS</td></tr>
+          <tr><td><strong>Cesión global de activo y pasivo</strong></td><td>Transmisión en bloque de todo el patrimonio a uno o varios socios o terceros, por una contraprestación que no consista en participaciones.</td><td>RDL 5/2023, Libro I</td></tr>
+          <tr><td><strong>Aportación no dineraria de rama de actividad</strong></td><td>Operación fiscal: una entidad aporta, <strong>sin disolverse</strong>, una o más ramas de actividad y recibe participaciones de la adquirente.</td><td>arts. 76.3 y 87.2 LIS</td></tr>
+          <tr><td><strong>Canje de valores</strong></td><td>Adquisición de participaciones que permite obtener <strong>la mayoría de los derechos de voto</strong> de otra entidad (o incrementar la ya mayoritaria). Es la operación con la que se construye un holding.</td><td>arts. 76.5 y 80 LIS</td></tr>
+          <tr><td><strong>Aportación no dineraria especial</strong></td><td>Aportar participaciones o elementos afectos a una sociedad, a opción del contribuyente, con requisitos propios.</td><td>art. 87.1 LIS</td></tr>
+        </tbody>
+      </table>
+      <div class="flag">Dos avisos de vocabulario que separan al profesional del aficionado: <strong>1)</strong> la <em>segregación</em> es una figura mercantil (RDL 5/2023) que fiscalmente se canaliza como aportación no dineraria de rama de actividad (art. 76.3 LIS); <strong>2)</strong> en todas las fusiones y escisiones la compensación en dinero a los socios <strong>no puede exceder del 10 % del valor nominal</strong> de los valores entregados. Superarlo saca la operación del régimen.</div>
+    </section>
+
+    <hr class="divider">
+
+    <!-- 4.3 -->
+    <section id="s3" class="reveal">
+      <span class="kicker">4.3 · Procedimiento</span>
+      <h2>Cómo se tramita: el calendario real de una operación interna</h2>
+      <p>El RDL 5/2023 unificó el procedimiento para todas las modificaciones estructurales. Este es el recorrido, con los artículos y los plazos verificados. Sirve para dar al cliente una fecha realista: <strong>entre dos y cuatro meses</strong> desde el proyecto hasta la inscripción, si nadie se opone.</p>
+      <div class="timeline">
+        <div class="tlstep"><div class="tl-w">Paso 1</div><div class="tl-t">Proyecto de modificación estructural (art. 4)</div><div class="tl-d">Lo elaboran los administradores de todas las sociedades participantes. Es el documento del que cuelga todo lo demás: tipo de canje, balance de referencia, fecha de efectos, reparto de elementos y consecuencias para los trabajadores.</div></div>
+        <div class="tlstep"><div class="tl-w">Paso 2</div><div class="tl-t">Informe del órgano de administración (art. 5)</div><div class="tl-d">«El informe incluirá una sección destinada a los socios y otra a los trabajadores». La <strong>sección de socios no es exigible si lo acuerdan todos los socios con derecho de voto</strong>; la de trabajadores no se requiere cuando la sociedad y sus filiales no tienen más trabajadores que los propios administradores, o si es una transformación interna.</div></div>
+        <div class="tlstep"><div class="tl-w">Paso 3</div><div class="tl-t">Informe de experto independiente (art. 6)</div><div class="tl-d">Designado por el Registrador Mercantil a solicitud de los administradores, examina el proyecto «al menos un mes antes de la fecha de la junta general» y opina sobre la adecuación de la compensación en efectivo y del tipo de canje. <strong>No se exige si lo acuerdan todos los socios con derecho de voto</strong> o si el régimen particular de la operación lo dispensa.</div></div>
+        <div class="tlstep"><div class="tl-w">Paso 4</div><div class="tl-t">Publicidad preparatoria (art. 7)</div><div class="tl-d">«Al menos un mes antes de la fecha de la junta general» hay que insertar en la web de la sociedad la documentación de la operación. Este mes es el que marca el ritmo del calendario.</div></div>
+        <div class="tlstep"><div class="tl-w">Paso 5</div><div class="tl-t">Acuerdo de la junta general (arts. 8 a 11)</div><div class="tl-d">Con los requisitos y formalidades del tipo social. Si el acuerdo es unánime en junta universal se simplifican trámites (art. 9). Después, publicación del acuerdo (art. 10) y régimen de impugnación (art. 11).</div></div>
+        <div class="tlstep"><div class="tl-w">Paso 6</div><div class="tl-t">Derecho de enajenación de los socios (art. 12)</div><div class="tl-d">No se llama "separación": es <strong>derecho de enajenación</strong> con compensación en efectivo, para quienes votaron en contra o son titulares de participaciones sin voto, en los supuestos previstos. Plazo: <strong>deben comunicarlo a la sociedad en 20 días</strong> desde la junta.</div></div>
+        <div class="tlstep"><div class="tl-w">Paso 7</div><div class="tl-t">Protección de acreedores (arts. 13 a 15)</div><div class="tl-d">El antiguo <strong>derecho de oposición desapareció</strong>. Ahora, los acreedores con créditos anteriores a la publicación del proyecto que no estén conformes con las garantías ofrecidas y lo hayan notificado pueden acudir, en <strong>1 mes en operaciones internas</strong> (3 meses en transfronterizas), al Registrador Mercantil cuando exista informe de experto que considere inadecuadas las garantías; el Registrador da traslado a la sociedad en <strong>5 días</strong> y ésta dispone de <strong>15 días</strong>. Se completa con la adecuación de garantías (art. 14) y la declaración sobre la situación financiera (art. 15).</div></div>
+        <div class="tlstep"><div class="tl-w">Paso 8</div><div class="tl-t">Escritura, inscripción y eficacia</div><div class="tl-d">La operación despliega efectos con la inscripción en el Registro Mercantil. A efectos fiscales, la fecha de eficacia mercantil es la que importa para la renuncia del art. 77.2 y para la valoración (art. 78.2).</div></div>
+        <div class="tlstep"><div class="tl-w">Paso 9</div><div class="tl-t">Comunicación fiscal (art. 89.1 LIS)</div><div class="tl-d">La presenta la <strong>entidad adquirente</strong>, en la forma y plazos que determina el reglamento. No presentarla es infracción grave: <strong>10.000 € por operación</strong>.</div></div>
+      </div>
+      <div class="caso svc" data-act="simplifica">
+        <div class="caso-h"><div class="ci">+</div><div class="cti"><div class="cl">Ampliar · atajos legítimos del procedimiento</div><h4>Cómo se acorta una operación de cuatro meses a seis semanas</h4><p>Sociedades íntegramente participadas, acuerdo unánime y dispensas de informes.</p></div><div class="chev">▾</div></div>
+        <div class="caso-body"><div class="caso-inner">
+          <div class="plano"><h5>Absorción de sociedad íntegramente participada (art. 53)</h5><p>«Cuando la sociedad absorbente fuera titular de forma directa o indirecta de todas las acciones o participaciones sociales» de la absorbida, la operación puede realizarse sin varios de los requisitos generales, empezando por las menciones del proyecto relativas al <strong>tipo de canje</strong> y a las modalidades de entrega. Es el atajo más usado para limpiar sociedades del grupo.</p></div>
+          <div class="plano"><h5>Participación del 90 % o más (arts. 54 y 55)</h5><p>Existe un régimen específico para la absorción de participada al 90 % y para la junta de la absorbente cuando es titular directa de ese porcentaje. Ojo: en estos casos el <strong>derecho de enajenación del art. 12</strong> aparece precisamente cuando no se elaboran los informes de administradores y de experto.</p></div>
+          <div class="plano"><h5>Acuerdo unánime en junta universal (art. 9)</h5><p>En sociedades familiares con pocos socios es lo habitual y elimina buena parte de la fricción: si todos los socios con derecho de voto lo acuerdan, se dispensan la sección de socios del informe (art. 5) y el informe de experto (art. 6.7).</p></div>
+          <div class="plano"><h5>Lo que NO se puede acortar</h5><p>La <strong>publicidad</strong> del art. 7 y la <strong>protección de acreedores</strong> del art. 13 no dependen de la voluntad de los socios: protegen a terceros. Y la <strong>comunicación fiscal</strong> del art. 89.1 tampoco. Cuando un cliente pide "hacerlo todo antes de fin de año", esos son los cuellos de botella que hay que explicar.</p></div>
+          <div class="plano"><h5>Simplificación en escisión (art. 71)</h5><p>La norma prevé también simplificación de requisitos en escisiones, con referencias a la segregación y a la sociedad íntegramente participada. Antes de diseñar el calendario, revisa el régimen particular de la modalidad concreta: cada una tiene sus propias dispensas.</p></div>
+        </div></div>
+      </div>
+    </section>
+
+    <hr class="divider">
+
+    <!-- 4.4 -->
+    <section id="s4" class="reveal">
+      <span class="kicker">4.4 · El régimen fiscal</span>
+      <h2>Qué es la neutralidad fiscal (y qué no es)</h2>
+      <p class="lead" style="color:var(--muted)">La neutralidad <strong>no es una exención</strong>: es un <strong>diferimiento</strong>. La plusvalía no desaparece, se traslada. Confundir las dos cosas es el error conceptual más caro que se puede cometer en este módulo.</p>
+      <div class="grid grid-3">
+        <div class="card"><h4>Lo que hace</h4><p>Las rentas de la transmisión <strong>no se integran</strong> en la base imponible de la transmitente (art. 77.1) y los socios no tributan por recibir las nuevas participaciones (arts. 80.3 y 81).</p></div>
+        <div class="card"><h4>Cómo lo hace</h4><p>Los bienes se valoran fiscalmente «por los mismos valores fiscales que tenían en la entidad transmitente», <strong>manteniendo igualmente la fecha de adquisición</strong> (art. 78.1). El coste histórico viaja intacto.</p></div>
+        <div class="card"><h4>Lo que no hace</h4><p>No borra la plusvalía latente, no actualiza valores, no crea gastos deducibles nuevos y no exime de la imposición indirecta por sí mismo: eso lo hacen los arts. 19.2.1.º y 45.I.B).10 del ITPAJD.</p></div>
+      </div>
+      <table class="tbl">
+        <thead><tr><th>Cuestión</th><th>Regla verificada</th><th>Norma</th></tr></thead>
+        <tbody>
+          <tr><td>¿Hay que solicitarlo?</td><td>No. «Se entenderá que las operaciones reguladas en este capítulo aplican el régimen establecido en el mismo, <strong>salvo que expresamente se indique lo contrario</strong> a través de la comunicación». Es automático salvo renuncia.</td><td>art. 89.1</td></tr>
+          <tr><td>¿Se puede renunciar?</td><td>Sí, total o parcialmente: «mediante la integración en la base imponible de las rentas derivadas de la transmisión de la totalidad o parte de los elementos patrimoniales». Se usa cuando conviene aflorar plusvalías (por ejemplo para aprovechar bases negativas que van a caducar).</td><td>art. 77.2</td></tr>
+          <tr><td>Adquirente no residente</td><td>Sólo se excluyen de la base las rentas de los elementos que <strong>queden afectos a un establecimiento permanente en España</strong>. Y si después salen de España, se integra la diferencia con el valor de mercado (con aplazamiento en la UE/EEE con intercambio efectivo de información).</td><td>art. 77.1 a)</td></tr>
+          <tr><td>Adquirente exenta o en atribución de rentas</td><td><strong>No se excluyen</strong> las rentas: el régimen no protege una transmisión hacia un sujeto que no va a tributar nunca por ellas.</td><td>art. 77.1, párrafo final</td></tr>
+          <tr><td>Adquirente con otro tipo o régimen especial</td><td>Sí se excluyen, pero la renta se entiende generada <strong>de forma lineal</strong> salvo prueba en contrario, y la parte anterior a la operación se grava al tipo y régimen de la transmitente.</td><td>art. 77.1, párrafo final</td></tr>
+          <tr><td>Paraísos fiscales</td><td>Se integran en la base las rentas de operaciones en las que intervengan entidades domiciliadas o establecidas en paraísos fiscales, u obtenidas a través de ellos. En el canje, el régimen directamente no se aplica.</td><td>arts. 81.4 y 80.5</td></tr>
+          <tr><td>Buques y aeronaves</td><td>En todo caso se integran las rentas de buques o aeronaves en navegación internacional cuando la adquirente no sea residente.</td><td>art. 77.3</td></tr>
+          <tr><td>Doble imposición</td><td>Los beneficios distribuidos con cargo a rentas imputables a los bienes aportados dan derecho a la exención de dividendos «cualquiera que sea el porcentaje de participación del socio y su antigüedad».</td><td>art. 88.1</td></tr>
+          <tr><td>Obligaciones contables</td><td>Menciones obligatorias en la memoria de la adquirente y de los socios personas jurídicas. Su omisión es infracción grave: <strong>1.000 € por dato</strong> en cada uno de los cuatro primeros años y <strong>5.000 €</strong> en los siguientes, con el límite del 5 % del valor contabilizado.</td><td>art. 86</td></tr>
+        </tbody>
+      </table>
+      <div class="flag">Consecuencia práctica del art. 78.1 que hay que decir en voz alta delante del cliente: <strong>después de la reestructuración, la plusvalía latente sigue siendo la misma y con la misma antigüedad</strong>. Si el objetivo del cliente era "poner el inmueble a valor de mercado", el régimen de neutralidad no sirve: hay que renunciar a él (art. 77.2) y pagar.</div>
+    </section>
+
+    <hr class="divider">
+
+    <!-- 4.5 -->
+    <section id="s5" class="reveal">
+      <span class="kicker">4.5 · El concepto que lo decide todo</span>
+      <h2>Rama de actividad</h2>
+      <p>De este concepto dependen la escisión parcial, la escisión total no proporcional, la aportación de rama y buena parte de la escisión financiera. La definición legal es breve y engañosamente sencilla:</p>
+      <div class="callout"><div class="ic">§</div><div class="ct"><h4>Art. 76.4 LIS</h4><p>«Conjunto de elementos patrimoniales que sean susceptibles de constituir una unidad económica autónoma determinante de una explotación económica, es decir, <strong>un conjunto capaz de funcionar por sus propios medios</strong>». El precepto añade que podrán atribuirse a la adquirente <strong>las deudas contraídas para la organización o el funcionamiento</strong> de los elementos traspasados.</p></div></div>
+      <table class="tbl">
+        <thead><tr><th>Operación</th><th>¿Exige rama de actividad?</th><th>Consecuencia si falla</th></tr></thead>
+        <tbody>
+          <tr><td>Fusión</td><td>No</td><td>—</td></tr>
+          <tr><td>Escisión total <strong>proporcional</strong></td><td>No</td><td>—</td></tr>
+          <tr><td>Escisión total <strong>no proporcional</strong></td><td><strong>Sí, en todas las beneficiarias</strong>: la atribución en proporción distinta «requerirá que los patrimonios adquiridos por aquéllas constituyan ramas de actividad» (art. 76.2.2.º)</td><td>Fuera del régimen: plusvalía a valor de mercado en la escindida y tributación de los socios</td></tr>
+          <tr><td>Escisión parcial</td><td><strong>Sí</strong>, en lo segregado; y además la escindida debe conservar una rama o participaciones mayoritarias</td><td>Fuera del régimen</td></tr>
+          <tr><td>Segregación / aportación de rama</td><td><strong>Sí</strong></td><td>Pasa a ser una aportación no dineraria ordinaria: hay que ir al art. 87.1 y cumplir sus requisitos, o tributar</td></tr>
+          <tr><td>Canje de valores</td><td>No: lo que se exige es la mayoría de los derechos de voto</td><td>—</td></tr>
+          <tr><td>Aportación no dineraria especial (art. 87.1)</td><td>No, pero exige 5 % y, en participaciones aportadas por personas físicas, <strong>un año</strong> de tenencia y que la participada no sea de gestión de patrimonios</td><td>Tributa la ganancia del aportante</td></tr>
+        </tbody>
+      </table>
+      <div class="caso svc" data-act="rama">
+        <div class="caso-h"><div class="ci">+</div><div class="cti"><div class="cl">Ampliar · cómo se prueba una rama de actividad</div><h4>La diferencia entre una unidad de negocio y un montón de bienes</h4><p>Los siete indicios que se documentan antes de firmar.</p></div><div class="chev">▾</div></div>
+        <div class="caso-body"><div class="caso-inner">
+          <div class="plano"><h5>1 · Autonomía organizativa previa</h5><p>La rama debe existir <strong>en el transmitente antes</strong> de la operación, no crearse con ella. Se prueba con contabilidad analítica por centros, cuentas de explotación separadas, presupuestos propios y organigrama.</p></div>
+          <div class="plano"><h5>2 · Medios humanos</h5><p>Personal adscrito de forma identificable a esa actividad. Una "rama" sin nadie que la opere es una cartera de activos: la ley pide un conjunto <strong>capaz de funcionar por sus propios medios</strong>.</p></div>
+          <div class="plano"><h5>3 · Medios materiales y contratos</h5><p>Los activos, licencias, contratos de suministro y de arrendamiento necesarios. Si el negocio segregado necesita seguir usando la nave de la matriz, hay que documentar el contrato que se lo permite.</p></div>
+          <div class="plano"><h5>4 · Clientela y mercado propios</h5><p>Cartera de clientes o de proyectos identificable. Es lo que convierte activos en explotación económica.</p></div>
+          <div class="plano"><h5>5 · Las deudas asociadas</h5><p>El art. 76.4 permite atribuir las deudas contraídas para la organización o el funcionamiento de los elementos traspasados. Traspasar deuda que no tiene relación con la rama es una de las banderas rojas clásicas.</p></div>
+          <div class="plano"><h5>6 · El caso del patrimonio inmobiliario en arrendamiento</h5><p>Es la discusión más frecuente: una cartera de inmuebles arrendados puede llegar a ser rama de actividad si hay <strong>estructura de gestión real</strong> (personal, medios, gestión activa); sin ella, es mera tenencia. Y la respuesta que se dé aquí arrastra la exención de empresa familiar en Patrimonio, la reducción del 95 % en Sucesiones, la calificación de entidad patrimonial en Sociedades y la norma antielusiva del art. 338 de la Ley 6/2023. Un solo análisis, cinco consecuencias.</p></div>
+          <div class="plano"><h5>7 · Cómo se documenta</h5><p>Memoria descriptiva de la rama, inventario de elementos con su valor fiscal, relación de personal y contratos, cuenta de resultados separada de los últimos ejercicios y explicación del motivo económico. Ese paquete es el que se enseña en una inspección tres años después, cuando ya nadie recuerda los detalles.</p></div>
+        </div></div>
+      </div>
+    </section>
+
+    <hr class="divider">
+
+    <!-- 4.6 -->
+    <section id="s6" class="reveal">
+      <span class="kicker">4.6 · Efectos</span>
+      <h2>Valoración, subrogación y bases imponibles negativas</h2>
+      <table class="tbl">
+        <thead><tr><th>Efecto</th><th>Regla</th><th>Norma</th></tr></thead>
+        <tbody>
+          <tr><td>Valor de los bienes en la adquirente</td><td>Los mismos valores fiscales que tenían en la transmitente, <strong>manteniendo la fecha de adquisición</strong>. Si se renunció al régimen, valor del art. 17 y fecha de eficacia mercantil.</td><td>arts. 78.1 y 78.2</td></tr>
+          <tr><td>Valor de las participaciones recibidas por la aportante</td><td>El mismo valor fiscal que tenían la rama o los elementos aportados.</td><td>art. 79</td></tr>
+          <tr><td>Subrogación</td><td>En las operaciones de los arts. 76 u 87 con sucesión a título universal se transmiten <strong>los derechos y obligaciones tributarias</strong> de la transmitente; si no es universal, sólo los referidos a los bienes transmitidos. La adquirente «asumirá el cumplimiento de los requisitos necesarios para continuar aplicando los beneficios fiscales».</td><td>art. 84.1</td></tr>
+          <tr><td><strong>Bases imponibles negativas</strong></td><td>Sólo se transmiten si <strong>se extingue</strong> la transmitente, o si se transmite <strong>la rama de actividad</strong> cuyos resultados las generaron (y entonces sólo esas).</td><td>art. 84.2</td></tr>
+          <tr><td>Minoración de las BIN</td><td>Si la adquirente participaba en el capital de la transmitente, o ambas pertenecen a un grupo del art. 42 del Código de Comercio, la base negativa compensable «se reducirá en el importe de la diferencia positiva entre el valor de las aportaciones de los socios y su valor fiscal».</td><td>art. 84.2</td></tr>
+          <tr><td>Anulación de la participación</td><td>Si la adquirente participa en la transmitente <strong>en al menos el 5 %</strong>, la renta positiva o negativa de la anulación no se integra. Si es <strong>inferior al 5 %</strong>, sí se integra.</td><td>arts. 82.1 y 82.2</td></tr>
+          <tr><td>Límite territorial de la subrogación</td><td>Comprende exclusivamente los derechos y obligaciones nacidos al amparo de las leyes españolas.</td><td>art. 84.3</td></tr>
+        </tbody>
+      </table>
+      <div class="flag">La trampa del art. 84.2 en las fusiones familiares: cuando la matriz absorbe a una filial en pérdidas de la que ya era socia, la base negativa que "se hereda" viene <strong>minorada</strong> por la diferencia entre lo aportado por los socios y su valor fiscal. Muchas fusiones se venden internamente como "así aprovechamos las pérdidas" y el resultado real es cero. Se calcula antes, no después.</div>
+    </section>
+
+    <hr class="divider">
+
+    <!-- 4.7 -->
+    <section id="s7" class="reveal">
+      <span class="kicker">4.7 · Los socios</span>
+      <h2>Qué le pasa al socio: la regla de la continuidad</h2>
+      <table class="tbl">
+        <thead><tr><th>Situación</th><th>Tratamiento</th><th>Norma</th></tr></thead>
+        <tbody>
+          <tr><td>Socio que recibe valores en fusión o escisión</td><td>No integra renta si es residente en España o en la UE (o, en otro caso, si los valores recibidos representan capital de una entidad residente en España).</td><td>art. 81.1</td></tr>
+          <tr><td>Valor de las nuevas participaciones</td><td>El <strong>valor fiscal de las entregadas</strong>, más o menos la compensación en dinero, y <strong>conservan su fecha de adquisición</strong>.</td><td>arts. 81.2 y 80.3</td></tr>
+          <tr><td>Socio en un canje de valores</td><td>Igual: valor y fecha de los valores entregados. Y la entidad que realiza el canje incorpora los valores por el valor fiscal que tenían en el patrimonio de los socios.</td><td>arts. 80.2 y 80.3</td></tr>
+          <tr><td>Socio que pierde la residencia fiscal</td><td>Se integra la diferencia entre el valor de mercado y el valor fiscal en el último período impositivo, con aplazamiento si el traslado es a la UE/EEE y con posibilidad de rectificación y devolución si recupera la condición de contribuyente.</td><td>arts. 80.4 y 81.3</td></tr>
+          <tr><td>Persona física en IRPF</td><td>El art. 37.3 remite al régimen especial de reestructuraciones para el canje de valores. <em>Nota técnica:</em> el texto consolidado <strong>sigue remitiendo literalmente al «capítulo VIII del título VII del TRLIS»</strong>, norma derogada; la remisión debe entenderse hecha al Capítulo VII del Título VII de la Ley 27/2014.</td><td>art. 37.3 LIRPF</td></tr>
+        </tbody>
+      </table>
+      <div class="flag">La consecuencia patrimonial que hay que anticipar: al meter las participaciones en un holding, el socio <strong>no actualiza su coste</strong>. Si compró por 100 y la empresa vale 5.000, seguirá teniendo un coste fiscal de 100 en las nuevas participaciones del holding. La ventaja de vender desde el holding no está en el valor de adquisición, sino en la <strong>exención del art. 21</strong>: un 1,25 % efectivo frente a un 19 %–28 % en IRPF. Eso sí: el dinero se queda en la sociedad.</div>
+    </section>
+
+    <hr class="divider">
+
+    <!-- 4.8 -->
+    <section id="s8" class="reveal">
+      <span class="kicker">4.8 · El límite</span>
+      <h2>Motivo económico válido: el art. 89.2 palabra por palabra</h2>
+      <div class="callout"><div class="ic">§</div><div class="ct"><h4>Art. 89.2 LIS (texto vigente)</h4><p>«No se aplicará el régimen establecido en el presente capítulo cuando la operación realizada tenga como principal objetivo el fraude o la evasión fiscal. En particular, el régimen no se aplicará cuando la operación <strong>no se efectúe por motivos económicos válidos</strong>, tales como la reestructuración o la racionalización de las actividades de las entidades que participan en la operación, <strong>sino con la mera finalidad de conseguir una ventaja fiscal</strong>.<br><br>Las actuaciones de comprobación de la Administración tributaria que determinen la inaplicación total o parcial del régimen fiscal especial por aplicación de lo dispuesto en el párrafo anterior, <strong>eliminarán exclusivamente los efectos de la ventaja fiscal</strong>.»</p></div></div>
+      <p>Ese segundo párrafo es la clave del régimen actual y conviene entenderlo bien: la consecuencia de un motivo económico insuficiente <strong>ya no es la pérdida total del régimen</strong>, sino la eliminación de los efectos de la ventaja fiscal obtenida, y la inaplicación puede ser <strong>total o parcial</strong>. Es una regla más proporcionada… y también más difícil de anticipar, porque obliga a identificar y cuantificar cuál era exactamente la ventaja.</p>
+      <div class="caso svc" data-act="motivo">
+        <div class="caso-h"><div class="ci">+</div><div class="cti"><div class="cl">Ampliar · motivos que se sostienen y motivos que no</div><h4>Cómo se redacta un motivo económico válido</h4><p>Y los cinco patrones que llaman a una comprobación.</p></div><div class="chev">▾</div></div>
+        <div class="caso-body"><div class="caso-inner">
+          <div class="plano"><h5>Motivos que se sostienen</h5><p>Separar actividades con riesgos distintos; centralizar la gestión y la tesorería del grupo; preparar la entrada de un socio o de un directivo en una unidad de negocio; facilitar el relevo generacional ordenado y la financiación; simplificar una estructura con sociedades redundantes; cumplir exigencias de un tercero (banco, cliente, regulador). Todos tienen algo en común: <strong>se explican sin mencionar impuestos</strong>.</p></div>
+          <div class="plano"><h5>Motivos que no se sostienen solos</h5><p>"Aprovechar bases imponibles negativas"; "conseguir la exención de empresa familiar"; "poder aplicar el art. 21 en una venta ya negociada"; "reducir la base del Impuesto sobre el Patrimonio". No es que sean ilegítimos como efecto: es que <strong>no pueden ser la finalidad</strong>. La ventaja fiscal puede acompañar; no puede conducir.</p></div>
+          <div class="plano"><h5>Los cinco patrones de riesgo</h5><p><strong>1)</strong> Reestructurar y vender inmediatamente después. <strong>2)</strong> Crear un holding con una operación ya negociada sobre la mesa. <strong>3)</strong> Fusionar con una sociedad cuyo único activo relevante son bases negativas. <strong>4)</strong> Escindir para repartir entre socios enfrentados sin que los patrimonios sean ramas (una liquidación disfrazada). <strong>5)</strong> Operaciones en cadena sin explicación de conjunto.</p></div>
+          <div class="plano"><h5>Cómo se documenta, en la práctica</h5><p>Un informe fechado <strong>antes</strong> de la operación con: situación de partida y el problema concreto; alternativas consideradas y por qué se descartan; la operación elegida y sus efectos no fiscales; el plan posterior (qué se hará con cada sociedad en los próximos años); y una mención honesta de los efectos fiscales, sin esconderlos. Añade actas del órgano de administración coherentes y correspondencia con terceros que confirme el relato.</p></div>
+          <div class="plano"><h5>El test de los tres años</h5><p>Una regla interna útil: si el relato que sostiene la operación no se puede demostrar con hechos ocurridos en los tres años siguientes (contratos firmados, socio entrado, financiación obtenida, actividad separada de verdad), es que el motivo era débil. La coherencia posterior es la mejor prueba del motivo anterior.</p></div>
+        </div></div>
+      </div>
+    </section>
+
+    <hr class="divider">
+
+    <!-- TEST -->
+    <section id="test" class="reveal">
+      <span class="kicker">Herramienta interactiva</span>
+      <h2>Test de encaje en el régimen de neutralidad</h2>
+      <p>Elige la operación y marca sólo lo que <strong>se cumple de verdad y se puede probar</strong>. El test devuelve el veredicto, los requisitos esenciales que fallan y las comprobaciones pendientes, con el artículo de cada uno.</p>
+      <div class="calc rcalc neutra">
+        <div class="calc-head"><span class="tri"></span><h3>Comprobador de requisitos</h3></div>
+        <div class="calc-grid">
+          <div class="fld" style="grid-column:1/-1"><label for="n-op">Operación proyectada</label><select id="n-op" data-n-op></select></div>
+        </div>
+        <div style="padding:0 1.3rem 1rem" data-n-list></div>
+        <div class="calc-actions"><button class="btn btn-primary" data-n-run>Evaluar el encaje</button></div>
+        <div class="calc-result"></div>
+      </div>
+    </section>
+
+    <hr class="divider">
+
+    <!-- 4.9 -->
+    <section id="s9" class="reveal">
+      <span class="kicker">4.9 · Formalidades</span>
+      <h2>Comunicación, renuncia y sanciones</h2>
+      <table class="tbl">
+        <thead><tr><th>Cuestión</th><th>Regla</th></tr></thead>
+        <tbody>
+          <tr><td>Quién comunica</td><td>La <strong>entidad adquirente</strong> de las operaciones de los arts. 76 y 87. Si no es residente, la transmitente. Si ninguna es residente, <strong>los socios</strong>, indicando que la operación se acogió a un régimen similar (art. 89.1).</td></tr>
+          <tr><td>Qué se comunica</td><td>El tipo de operación realizada y si se opta por <strong>no</strong> aplicar el régimen especial.</td></tr>
+          <tr><td>Plazo</td><td>«En la forma y plazos que se determine reglamentariamente». La ley <strong>no fija el plazo</strong>: está en el Reglamento del Impuesto. Compruébalo en cada operación en lugar de fiarte de la memoria.</td></tr>
+          <tr><td>Sanción por no comunicar</td><td>Infracción tributaria <strong>grave</strong>: multa pecuniaria fija de <strong>10.000 € por cada operación</strong> respecto de la que hubiese de suministrarse información.</td></tr>
+          <tr><td>Sanción por omisión en memoria</td><td><strong>1.000 € por dato omitido</strong> en cada uno de los cuatro primeros años y <strong>5.000 €</strong> en los siguientes, con el límite del 5 % del valor contabilizado (art. 86).</td></tr>
+          <tr><td>Renuncia</td><td>Se ejercita integrando en la base las rentas de la transmisión de todos o parte de los elementos (art. 77.2). Decisión estratégica: puede convenir para aflorar plusvalía y consumir bases negativas próximas a su límite.</td></tr>
+        </tbody>
+      </table>
+      <div class="flag">Coste indirecto de la operación, ya trabajado en el Módulo 3 · Parte 5 y aquí sólo como recordatorio: las <strong>operaciones de reestructuración no están sujetas</strong> a Operaciones Societarias (art. 19.2.1.º TRLITPAJD) y además están <strong>exentas de TPO y de AJD</strong> (art. 45.I.B).10). Es la razón por la que reorganizar cuesta cero en imposición indirecta y disolver cuesta el 1 %.</div>
+    </section>
+
+    <hr class="divider">
+
+    <!-- 4.10 -->
+    <section id="s10" class="reveal">
+      <span class="kicker">4.10 · La estructura estrella</span>
+      <h2>Construir el holding: canje de valores o aportación</h2>
+      <p>Casi todas las estructuras patrimoniales que diseñamos acaban en una sociedad holding. Hay dos caminos fiscales para llegar y no son intercambiables.</p>
+      <table class="tbl">
+        <thead><tr><th></th><th>Canje de valores (arts. 76.5 y 80)</th><th>Aportación no dineraria especial (art. 87.1)</th></tr></thead>
+        <tbody>
+          <tr><td><strong>Quién actúa</strong></td><td>La sociedad holding <strong>adquiere</strong> las participaciones mediante ampliación de capital</td><td>El socio <strong>aporta</strong> sus participaciones o bienes a la sociedad</td></tr>
+          <tr><td><strong>Umbral</strong></td><td>Obtener la <strong>mayoría de los derechos de voto</strong> (o incrementar la ya mayoritaria)</td><td>Participar en al menos el <strong>5 %</strong> de los fondos propios de la receptora tras la aportación</td></tr>
+          <tr><td><strong>Requisitos si el aportante es persona física</strong></td><td>Residencia en España o UE (o valores de entidad residente en España)</td><td>Participación aportada de al menos el <strong>5 %</strong> y poseída <strong>de manera ininterrumpida durante el año anterior</strong> a la fecha del documento público</td></tr>
+          <tr><td><strong>Naturaleza de la participada</strong></td><td>Sin condición expresa</td><td>La participada <strong>no</strong> puede aplicar el régimen de AIE/UTE ni tener como actividad principal la <strong>gestión de un patrimonio mobiliario o inmobiliario</strong> (art. 4.Ocho.Dos de la Ley del IP)</td></tr>
+          <tr><td><strong>Aportar inmuebles u otros bienes</strong></td><td>No aplica</td><td>Sí, si son de una persona física residente en la UE, están <strong>afectos a actividades económicas</strong> y la contabilidad se lleva conforme al Código de Comercio (art. 87.1 d)</td></tr>
+          <tr><td><strong>Aplicación</strong></td><td>Automática salvo renuncia</td><td>«A opción del contribuyente»</td></tr>
+          <tr><td><strong>Uso típico</strong></td><td>Poner un holding sobre una operativa con varios socios familiares</td><td>Aportar paquetes minoritarios que suman, o bienes afectos, cuando no se alcanza la mayoría de votos</td></tr>
+        </tbody>
+      </table>
+      <div class="warnbox"><div class="ic">!</div><p>Las dos exclusiones que más operaciones tumban: en la aportación del art. 87.1 c), la participada <strong>no puede ser una sociedad de gestión de patrimonio</strong> (adiós a meter en un holding la sociedad que sólo tiene pisos alquilados sin estructura), y las participaciones deben llevar <strong>un año completo</strong> en manos del aportante. No son tres años, como se repite a veces: es <strong>uno</strong>, contado hasta la fecha del documento público.</p></div>
+      <p class="libnote">Y una vez construido, el holding sólo cumple su función si <strong>tiene medios</strong>: dirección efectiva, personal, gastos propios y decisiones documentadas. Un holding vacío no dirige nada, y eso afecta a la exención de empresa familiar, a la calificación de entidad patrimonial y al motivo económico de la propia operación que lo creó.</p>
+    </section>
+
+    <hr class="divider">
+
+    <!-- 4.11 -->
+    <section id="s11" class="reveal">
+      <span class="kicker">4.11 · Grupos</span>
+      <h2>Consolidación fiscal: cuándo interesa y qué cuesta salir</h2>
+      <p>Una vez existe holding, la siguiente pregunta es si conviene tributar como grupo. La consolidación no es automática: es una <strong>opción</strong> con requisitos estrictos y con efectos importantes cuando se rompe.</p>
+      <table class="tbl">
+        <thead><tr><th>Cuestión</th><th>Regla verificada</th><th>Norma</th></tr></thead>
+        <tbody>
+          <tr><td>Quién es el contribuyente</td><td><strong>El grupo fiscal</strong>. Las entidades siguen sujetas a sus obligaciones individuales «excepción hecha del pago de la deuda tributaria». El representante es la dominante residente, o la entidad designada si la dominante no reside en España.</td><td>arts. 56.1 a 56.3</td></tr>
+          <tr><td>Requisitos de la dominante</td><td>Participación directa o indirecta de <strong>al menos el 75 % del capital social y mayoría de los derechos de voto</strong> el primer día del período; <strong>70 %</strong> si las acciones están admitidas a negociación en un mercado regulado. Mantenimiento durante todo el período impositivo (salvo disolución de la participada).</td><td>art. 58.2 b) y c)</td></tr>
+          <tr><td>Participaciones indirectas</td><td>Se <strong>multiplican</strong> los porcentajes sucesivos y el producto debe alcanzar el 75 % (o el 70 %); si hay participación directa e indirecta, se suman.</td><td>art. 60</td></tr>
+          <tr><td>Quién no puede estar</td><td>No residentes; entidades exentas; las declaradas en <strong>concurso</strong> mientras surta efectos; las que estén en la situación patrimonial del art. 363.1.e) de la Ley de Sociedades de Capital (salvo que se supere al aprobar cuentas); las de tipo de gravamen distinto al del representante; y las que no puedan adaptar su ejercicio social.</td><td>art. 58.4</td></tr>
+          <tr><td>Entrada y salida</td><td>Las entidades adquiridas se integran <strong>obligatoriamente con efectos del período siguiente</strong>; las de nueva constitución, desde ese momento. Las que pierden la condición de dependientes quedan excluidas <strong>con efecto del propio período</strong>.</td><td>art. 59</td></tr>
+          <tr><td>Base imponible del grupo</td><td>Suma de bases individuales, más <strong>eliminaciones</strong>, más incorporaciones, reserva de capitalización referida al grupo, dotaciones con el límite del 70 %, y compensación de bases negativas del grupo.</td><td>art. 62</td></tr>
+          <tr><td><strong>Limitación temporal vigente</strong></td><td>Para los períodos iniciados en <strong>2023, 2024 y 2025</strong>, la suma incluye las bases positivas y sólo el <strong>50 % de las bases imponibles negativas individuales</strong>. El 50 % no integrado se recupera <strong>por partes iguales en los diez primeros períodos siguientes</strong>, incluso si la entidad sale del grupo. Si el grupo se extingue, el importe pendiente se integra en el último período de consolidación.</td><td>DA 19.ª LIS</td></tr>
+          <tr><td>BIN anteriores a la incorporación</td><td>Compensables «con el límite del <strong>70 % de la base imponible individual</strong> de la propia entidad», teniendo en cuenta eliminaciones e incorporaciones.</td><td>art. 67 e)</td></tr>
+          <tr><td>Deducciones anteriores</td><td>Deducibles en la cuota del grupo «con el límite que hubiere correspondido a dicha entidad en el régimen individual».</td><td>art. 71.2</td></tr>
+          <tr><td>Gastos financieros al entrar</td><td>Los pendientes se deducen con el límite del 30 % del <strong>beneficio operativo propio</strong>; y si la incorporación viene de una compra apalancada, hay límite adicional del 30 % del beneficio operativo de la adquirente <strong>sin incluir el de la adquirida</strong> durante los 4 años siguientes.</td><td>art. 67 a) y b)</td></tr>
+          <tr><td><strong>Salir del grupo</strong></td><td>Las eliminaciones pendientes se integran en la base individual de cada entidad; y las entidades asumen, «en la proporción que hubieren contribuido a su formación», los gastos financieros pendientes, la reserva de capitalización, las <strong>bases negativas del grupo</strong>, la reserva de nivelación, las <strong>deducciones pendientes</strong> y los pagos fraccionados.</td><td>art. 74.1</td></tr>
+          <tr><td>Formalidades</td><td>Acuerdos del consejo de administración, comunicación previa, vinculación indefinida y renuncia en el plazo de dos meses. No comunicar es infracción grave: multa fija de <strong>20.000 €</strong> y <strong>50.000 €</strong> según el caso.</td><td>art. 61</td></tr>
+        </tbody>
+      </table>
+      <div class="grid grid-3">
+        <div class="card"><h4>Cuándo interesa</h4><p>Cuando hay sociedades con beneficio y otras con pérdida <strong>de forma estructural</strong>, operaciones internas relevantes que se eliminan, y voluntad de permanencia. El ahorro es de tesorería y es inmediato.</p></div>
+        <div class="card"><h4>Cuándo no</h4><p>Cuando el grupo es inestable, se prevé vender una filial a corto plazo, o hay tipos de gravamen distintos. Y cuando la única motivación es aprovechar una pérdida puntual: la limitación temporal del 50 % le ha quitado buena parte del atractivo inmediato.</p></div>
+        <div class="card"><h4>El riesgo que se olvida</h4><p>La <strong>salida</strong>. Vender una filial del grupo activa el art. 74 y reparte magnitudes pendientes entre las entidades. Antes de consolidar hay que simular la ruptura, igual que antes de constituir una sociedad se calcula el coste de disolverla.</p></div>
+      </div>
+    </section>
+
+    <hr class="divider">
+
+    <!-- 4.12 -->
+    <section id="s12" class="reveal">
+      <span class="kicker">4.12 · Aplicación</span>
+      <h2>Checklist de una reestructuración: 12 pasos</h2>
+      <div class="caso svc" data-act="checkrees">
+        <div class="caso-h"><div class="ci">+</div><div class="cti"><div class="cl">Desplegar · los 12 pasos</div><h4>El orden en que se hace, que no es el orden en que se piensa</h4><p>Del problema patrimonial a la inscripción y al seguimiento posterior.</p></div><div class="chev">▾</div></div>
+        <div class="caso-body"><div class="caso-inner">
+          <div class="plano"><h5>1 · Definir el problema, no la solución</h5><p>Por escrito y en lenguaje de negocio. Si no cabe en cinco líneas sin mencionar impuestos, todavía no está claro.</p></div>
+          <div class="plano"><h5>2 · Diagnóstico de partida</h5><p>Estructura societaria real, valores fiscales de cada elemento, bases negativas, deducciones pendientes, situación de la exención de empresa familiar y contingencias abiertas.</p></div>
+          <div class="plano"><h5>3 · Elegir la operación</h5><p>Fusión, escisión, segregación, canje o aportación. Y comprobar si lo que se transmite es <strong>rama de actividad</strong> cuando la modalidad lo exige.</p></div>
+          <div class="plano"><h5>4 · Test de encaje</h5><p>Requisito por requisito, con el artículo. Lo que no se pueda probar, se considera incumplido.</p></div>
+          <div class="plano"><h5>5 · Escribir el motivo económico</h5><p>Antes de la operación y con fecha. Alternativas, decisión, efectos no fiscales y plan posterior.</p></div>
+          <div class="plano"><h5>6 · Cuantificar las dos rutas</h5><p>Con régimen especial y sin él. Sólo así se sabe cuál es «la ventaja fiscal» que una inspección podría querer eliminar (art. 89.2).</p></div>
+          <div class="plano"><h5>7 · Revisar el efecto en los socios</h5><p>Valor y fecha de adquisición que se conservan, IRPF, Patrimonio, ISD futuro y pactos de socios existentes.</p></div>
+          <div class="plano"><h5>8 · Comprobar el impacto en terceros</h5><p>Cláusulas de cambio de control en la financiación y en los contratos, avales, subvenciones con compromiso de mantenimiento, licencias intransferibles.</p></div>
+          <div class="plano"><h5>9 · Calendario mercantil</h5><p>Proyecto, informes, publicidad del mes, junta, 20 días del derecho de enajenación, 1 mes de acreedores, escritura e inscripción.</p></div>
+          <div class="plano"><h5>10 · Comunicación fiscal y contabilidad</h5><p>Art. 89.1 en plazo reglamentario y menciones en memoria del art. 86. Dos sanciones evitables por pura disciplina.</p></div>
+          <div class="plano"><h5>11 · Coherencia posterior</h5><p>Que la estructura haga lo que dijimos que iba a hacer: contabilidad separada, medios reales en el holding, decisiones documentadas.</p></div>
+          <div class="plano"><h5>12 · Expediente cerrado</h5><p>Un único archivo con proyecto, informes, valoraciones, motivo económico, comunicación, escrituras e inscripción. Es lo que se enseña tres años después.</p></div>
+        </div></div>
       </div>
     </section>
 
     <hr class="divider">
 
     <section class="reveal">
-      <span class="kicker">Contenido previsto</span>
-      <h2>Índice del módulo</h2>
-      <div class="toc">
-        <h4>Secciones</h4>
-      <a href="#sec0"><span class="tri"></span>4.1 · Estructuras societarias</a>
-      <a href="#sec1"><span class="tri"></span>4.2 · Reestructuraciones</a>
-      <a href="#sec2"><span class="tri"></span>4.3 · Protocolo familiar</a>
-      <a href="#sec3"><span class="tri"></span>4.4 · Financiación</a>
+      <span class="kicker">Descargables</span>
+      <h2>Normativa de esta parte</h2>
+      <div class="lib">
+        <a class="libitem" href="https://www.boe.es/buscar/act.php?id=BOE-A-2014-12328" target="_blank" rel="noopener"><span class="pdf">BOE</span><span class="lt"><b>Ley 27/2014 · Impuesto sobre Sociedades</b><span>Reestructuraciones (arts. 76 a 89), consolidación fiscal (55 a 75), gastos financieros (16 y 83), retribución de fondos propios (15)</span></span><span class="go">Texto consolidado ↗</span></a>
+        <a class="libitem" href="https://www.boe.es/buscar/act.php?id=BOE-A-2023-15135" target="_blank" rel="noopener"><span class="pdf">BOE</span><span class="lt"><b>RDL 5/2023 · Modificaciones estructurales</b><span>Libro Primero: proyecto (4), informes (5 y 6), publicidad (7), junta (8-11), derecho de enajenación (12), acreedores (13-15), escisión (58-62), simplificaciones (53-57 y 71)</span></span><span class="go">Texto consolidado ↗</span></a>
+        <a class="libitem" href="https://www.boe.es/buscar/act.php?id=BOE-A-2003-23186" target="_blank" rel="noopener"><span class="pdf">BOE</span><span class="lt"><b>Ley 58/2003 · General Tributaria</b><span>Conflicto (15) y simulación (16), sanción del conflicto (206 bis), prescripción (66) y comprobación de bases y deducciones (66 bis)</span></span><span class="go">Texto consolidado ↗</span></a>
+        <a class="libitem" href="https://www.boe.es/buscar/act.php?id=BOE-A-2010-10544" target="_blank" rel="noopener"><span class="pdf">BOE</span><span class="lt"><b>Ley de Sociedades de Capital</b><span>Órganos sociales, participaciones, prestaciones accesorias y la situación patrimonial del art. 363.1.e)</span></span><span class="go">Texto consolidado ↗</span></a>
       </div>
-
-      <section id="sec0" class="reveal card" style="margin:1rem 0">
-        <h3 class="mt0">4.1 · Estructuras societarias</h3>
-        <ul>
-            <li>Sociedad holding: funciones y ventajas.</li>
-            <li>Separación de patrimonio empresarial y personal.</li>
-            <li>Riesgos de las sociedades meramente patrimoniales.</li>
-        </ul>
-      </section>
-      <section id="sec1" class="reveal card" style="margin:1rem 0">
-        <h3 class="mt0">4.2 · Reestructuraciones</h3>
-        <ul>
-            <li>Régimen especial de neutralidad fiscal (Cap. VII, Tít. VII LIS).</li>
-            <li>Motivo económico válido: la clave para evitar contingencias.</li>
-            <li>Fusiones, escisiones, aportaciones no dinerarias y canje de valores.</li>
-        </ul>
-      </section>
-      <section id="sec2" class="reveal card" style="margin:1rem 0">
-        <h3 class="mt0">4.3 · Protocolo familiar</h3>
-        <ul>
-            <li>Gobernanza de la empresa y la familia.</li>
-            <li>Órganos, pactos y su encaje jurídico.</li>
-            <li>Relación con la exención de empresa familiar y la sucesión.</li>
-        </ul>
-      </section>
-      <section id="sec3" class="reveal card" style="margin:1rem 0">
-        <h3 class="mt0">4.4 · Financiación</h3>
-        <ul>
-            <li>Deuda como herramienta de planificación.</li>
-            <li>Apalancamiento, liquidez y coste fiscal.</li>
-            <li>Garantías y su impacto patrimonial.</li>
-        </ul>
-      </section>
     </section>
 
-    <div class="complete-bar">
-      <div class="cb-t"><strong>Seguimiento</strong><span>Podrás marcar este módulo como completado cuando esté publicado y superes su autoevaluación.</span></div>
-      <button class="btn btn-outline" data-complete-toggle="mod4">Marcar como completado</button>
+    <hr class="divider">
+
+    <section id="casos" class="reveal">
+      <span class="kicker">Casos prácticos</span>
+      <h2>Tres reestructuraciones reales</h2>
+      <p>Trabájalos con el test de encaje antes de abrir la solución.</p>
+
+      <div class="caso" data-act="caso1">
+        <div class="caso-h"><div class="ci">1</div><div class="cti"><div class="cl">Caso 1 · La nave que sostiene el negocio</div><h4>Separar el inmueble de la actividad sin pagar por ello</h4><p>Sociedad operativa con una nave en balance (valor fiscal 400.000 €, valor de mercado 1.800.000 €). Los socios quieren proteger el inmueble de los riesgos de la actividad. ¿Escisión parcial de la nave a una nueva sociedad?</p></div><div class="chev">▾</div></div>
+        <div class="caso-body"><div class="caso-inner">
+          <div class="plano"><h5>Primer problema: la nave sola no es rama de actividad</h5><p>La escisión parcial exige que lo segregado <strong>forme una rama de actividad</strong> (art. 76.2.1.º b): un conjunto capaz de funcionar por sus propios medios. Un inmueble aislado, aunque se arriende después a la propia operativa, difícilmente lo es sin estructura de gestión. Si falla, la operación sale del régimen: plusvalía de <strong>1.400.000 €</strong> al 25 % = <strong>350.000 €</strong> de cuota, más la plusvalía municipal.</p></div>
+          <div class="plano"><h5>Segundo problema: el motivo</h5><p>"Proteger el patrimonio del riesgo de la actividad" es un motivo económico válido perfectamente defendible. Pero hay que documentarlo y sostenerlo con hechos: contrato de arrendamiento a valor de mercado con la operativa, gestión real, y ninguna venta inmediata.</p></div>
+          <div class="plano"><h5>Alternativa correcta</h5><p>Reordenar al revés: <strong>escindir la actividad</strong> (que sí es rama de actividad, con personal, contratos y clientela) a una sociedad nueva, dejando el inmueble en la sociedad original que pasa a ser patrimonial y arrendadora. Se consigue el mismo resultado económico y el requisito de rama se cumple con naturalidad. A cambio, hay que revisar cómo afecta a la exención de empresa familiar de los socios en la sociedad que se queda con el inmueble.</p></div>
+          <div class="plano"><h5>Tercera vía: la segregación</h5><p>Segregar la unidad de negocio a una filial (art. 61 RDL 5/2023, canalizada como aportación de rama del art. 76.3 LIS) crea la estructura matriz-filial y deja la puerta abierta a un holding posterior. Ojo al efecto en la <strong>consolidación</strong> y en la exención del art. 21 sobre los dividendos que subirán.</p></div>
+          <div class="plano"><h5>Lección</h5><p>Cuando el requisito de rama de actividad estorba, casi siempre existe una operación equivalente en la que <strong>se cumple sin forzar nada</strong>. Diseñar es elegir el camino en el que los requisitos se cumplen solos.</p></div>
+        </div></div>
+      </div>
+
+      <div class="caso" data-act="caso2">
+        <div class="caso-h"><div class="ci">2</div><div class="cti"><div class="cl">Caso 2 · El holding y la venta que ya estaba negociada</div><h4>Cuándo el holding llega tarde</h4><p>Un socio persona física tiene el 100 % de una compañía que vale 6.000.000 € (valor de adquisición 300.000 €). Ha recibido una oferta y quiere aportar antes las participaciones a un holding para vender con la exención del art. 21.</p></div><div class="chev">▾</div></div>
+        <div class="caso-body"><div class="caso-inner">
+          <div class="plano"><h5>La diferencia económica</h5><p>Vendiendo como persona física, sobre una ganancia de 5.700.000 € en la base del ahorro el coste es de <strong>1.583.880 €</strong>. Vendiendo desde un holding con exención del art. 21 (se integra el 5 % al 25 %), el coste efectivo es del <strong>1,25 %</strong>: <strong>71.250 €</strong>. La diferencia, más de 1,5 millones, es exactamente lo que el art. 89.2 llama «ventaja fiscal».</p></div>
+          <div class="plano"><h5>Por qué el régimen no ampara la operación</h5><p>Técnicamente el canje o la aportación pueden cumplir los requisitos (mayoría de votos, 5 %, un año de tenencia). Pero si la operación se hace <strong>con la oferta sobre la mesa</strong> y sin más finalidad que vender con menor coste, se cumple el supuesto del art. 89.2: no hay motivo económico válido, hay una ventaja fiscal buscada. La consecuencia con la redacción vigente será <strong>eliminar exclusivamente los efectos de esa ventaja</strong>, y esa ventaja es todo el ahorro.</p></div>
+          <div class="plano"><h5>Qué sí funciona</h5><p>El holding se crea <strong>años antes</strong>, por razones de estructura: centralizar la gestión, preparar el relevo, ordenar la inversión del excedente. Cuando la venta llega, la estructura ya existe y ha demostrado su función con hechos. La misma operación, hecha con antelación y con motivo, es planificación; hecha con la oferta firmada, es riesgo.</p></div>
+          <div class="plano"><h5>El detalle que la gente olvida</h5><p>Aunque el holding venda con un coste del 1,25 %, <strong>el dinero se queda en la sociedad</strong>. Sacarlo al socio abre una segunda capa en IRPF. El holding es útil para <strong>reinvertir</strong>, no para consumir: si el cliente quiere el dinero en su cuenta el mes siguiente, el ahorro se reduce mucho.</p></div>
+          <div class="plano"><h5>Y una advertencia sobre plazos</h5><p>Si lo que se aporta a la sociedad son <strong>inmuebles</strong>, recuerda además la regla de los <strong>tres años</strong> del art. 338.2 c) de la Ley 6/2023: vender las participaciones recibidas antes de ese plazo, sin que los inmuebles estén afectos, hace que la venta tribute como transmisión de inmuebles.</p></div>
+        </div></div>
+      </div>
+
+      <div class="caso" data-act="caso3">
+        <div class="caso-h"><div class="ci">3</div><div class="cti"><div class="cl">Caso 3 · Dos hermanos que ya no quieren seguir juntos</div><h4>Escisión total no proporcional: el filo de la navaja</h4><p>Dos hermanos al 50 % en una sociedad con dos negocios (distribución y una cartera de inmuebles arrendados). Quieren quedarse cada uno con uno y romper la sociedad.</p></div><div class="chev">▾</div></div>
+        <div class="caso-body"><div class="caso-inner">
+          <div class="plano"><h5>Lo que quieren es una escisión total no proporcional</h5><p>Cada hermano acaba con el 100 % de una sociedad distinta: la atribución no es proporcional a su participación previa. El art. 76.2.2.º es tajante: eso «requerirá que los patrimonios adquiridos por aquéllas constituyan <strong>ramas de actividad</strong>».</p></div>
+          <div class="plano"><h5>El negocio de distribución</h5><p>Sin problema: personal, clientes, contratos, almacén. Es rama de actividad de libro.</p></div>
+          <div class="plano"><h5>La cartera de inmuebles</h5><p>Aquí está el filo. Si es mera tenencia (arrendamientos sin estructura, gestión llevada por un despacho externo, sin personal), no es rama de actividad y la escisión <strong>no encaja</strong>. Consecuencia: plusvalía a valor de mercado en la sociedad escindida y tributación de los socios. En un patrimonio de varios millones, la factura es devastadora.</p></div>
+          <div class="plano"><h5>Cómo se resuelve</h5><p>Tres caminos: <strong>1)</strong> dotar de estructura real y previa a la actividad de arrendamiento (medios, personal, gestión activa) y documentarla durante un tiempo suficiente antes de la operación; <strong>2)</strong> replantear el reparto para que la escisión sea proporcional y resolver la separación después, con instrumentos societarios (compraventa de participaciones entre hermanos, con su coste, pero acotado); <strong>3)</strong> usar el pacto de socios y un usufructo o una gestión separada como solución intermedia mientras se construye la estructura.</p></div>
+          <div class="plano"><h5>Lo que nunca se hace</h5><p>Firmar la escisión no proporcional confiando en que "nadie lo mirará". Es de las operaciones con más comprobaciones, porque su resultado —dos socios que se separan— es fácilmente identificable como una liquidación con reparto de bienes. Y el coste de equivocarse no lo paga el asesor: lo paga la familia.</p></div>
+        </div></div>
+      </div>
+    </section>
+
+    <hr class="divider">
+
+    <section id="quiz" class="reveal">
+      <div class="quiz" data-quiz-mod="mod4rees">
+        <div class="q-head"><span class="tri"></span><h3>Autoevaluación · Reestructuraciones y neutralidad</h3><span class="q-meta">Necesitas ≥ 70 %</span></div>
+        <div class="q-body">
+          <div class="q-item" data-correct="2">
+            <div class="q-txt"><span class="qn">1.</span>El régimen de neutralidad fiscal consiste en…</div>
+            <label class="q-opt"><input type="radio" name="q1" value="0">Una exención definitiva de la plusvalía.</label>
+            <label class="q-opt"><input type="radio" name="q1" value="1">Una actualización de los valores fiscales a valor de mercado.</label>
+            <label class="q-opt"><input type="radio" name="q1" value="2">Un diferimiento: los bienes conservan sus valores fiscales y su fecha de adquisición.</label>
+            <label class="q-opt"><input type="radio" name="q1" value="3">Una bonificación del 95 % de la cuota.</label>
+            <div class="q-feedback">Art. 78.1: los mismos valores fiscales «manteniéndose igualmente la fecha de adquisición». La plusvalía no desaparece, viaja.</div>
+          </div>
+          <div class="q-item" data-correct="1">
+            <div class="q-txt"><span class="qn">2.</span>En una escisión total en la que los socios reciben participaciones en proporción DISTINTA a la que tenían…</div>
+            <label class="q-opt"><input type="radio" name="q2" value="0">No hay requisito adicional: basta con dividir el patrimonio.</label>
+            <label class="q-opt"><input type="radio" name="q2" value="1">Los patrimonios adquiridos por cada beneficiaria deben constituir ramas de actividad.</label>
+            <label class="q-opt"><input type="radio" name="q2" value="2">Se exige informe de experto en todo caso y nada más.</label>
+            <label class="q-opt"><input type="radio" name="q2" value="3">La operación está prohibida.</label>
+            <div class="q-feedback">Art. 76.2.2.º. Es el requisito que hace fracasar la mayoría de separaciones entre socios.</div>
+          </div>
+          <div class="q-item" data-correct="3">
+            <div class="q-txt"><span class="qn">3.</span>¿Qué exige el canje de valores para acogerse al régimen?</div>
+            <label class="q-opt"><input type="radio" name="q3" value="0">Adquirir al menos el 5 % del capital.</label>
+            <label class="q-opt"><input type="radio" name="q3" value="1">Que lo aportado sea una rama de actividad.</label>
+            <label class="q-opt"><input type="radio" name="q3" value="2">Que el socio actualice el valor de sus participaciones.</label>
+            <label class="q-opt"><input type="radio" name="q3" value="3">Obtener la mayoría de los derechos de voto de la participada, o incrementar la ya mayoritaria.</label>
+            <div class="q-feedback">Art. 76.5. Y la compensación en dinero no puede exceder del 10 % del valor nominal.</div>
+          </div>
+          <div class="q-item" data-correct="0">
+            <div class="q-txt"><span class="qn">4.</span>En la aportación no dineraria especial de participaciones por una persona física, el plazo mínimo de tenencia previa es…</div>
+            <label class="q-opt"><input type="radio" name="q4" value="0">Un año ininterrumpido antes de la fecha del documento público.</label>
+            <label class="q-opt"><input type="radio" name="q4" value="1">Tres años.</label>
+            <label class="q-opt"><input type="radio" name="q4" value="2">Cinco años.</label>
+            <label class="q-opt"><input type="radio" name="q4" value="3">No hay plazo.</label>
+            <div class="q-feedback">Art. 87.1 c) 3.º: un año. Además se exige un 5 % de los fondos propios y que la participada no sea de gestión de patrimonio mobiliario o inmobiliario.</div>
+          </div>
+          <div class="q-item" data-correct="2">
+            <div class="q-txt"><span class="qn">5.</span>Si la Administración concluye que no hay motivo económico válido…</div>
+            <label class="q-opt"><input type="radio" name="q5" value="0">Se pierde íntegramente el régimen y se liquida toda la plusvalía.</label>
+            <label class="q-opt"><input type="radio" name="q5" value="1">No hay consecuencia si la operación era mercantilmente válida.</label>
+            <label class="q-opt"><input type="radio" name="q5" value="2">Las actuaciones «eliminarán exclusivamente los efectos de la ventaja fiscal», y la inaplicación puede ser total o parcial.</label>
+            <label class="q-opt"><input type="radio" name="q5" value="3">Se aplica automáticamente una sanción del 150 %.</label>
+            <div class="q-feedback">Art. 89.2, párrafo segundo. Regla más proporcionada, pero obliga a identificar y cuantificar la ventaja.</div>
+          </div>
+          <div class="q-item" data-correct="1">
+            <div class="q-txt"><span class="qn">6.</span>No presentar la comunicación de la operación del art. 89.1 supone…</div>
+            <label class="q-opt"><input type="radio" name="q6" value="0">La pérdida del régimen especial.</label>
+            <label class="q-opt"><input type="radio" name="q6" value="1">Infracción grave con multa fija de 10.000 € por operación.</label>
+            <label class="q-opt"><input type="radio" name="q6" value="2">Nada: es un trámite informativo sin sanción.</label>
+            <label class="q-opt"><input type="radio" name="q6" value="3">Una multa del 5 % del valor de la operación.</label>
+            <div class="q-feedback">El régimen se aplica salvo renuncia expresa, pero la falta de comunicación se sanciona con 10.000 € por operación.</div>
+          </div>
+          <div class="q-item" data-correct="3">
+            <div class="q-txt"><span class="qn">7.</span>Para formar grupo fiscal, la dominante necesita…</div>
+            <label class="q-opt"><input type="radio" name="q7" value="0">El 50 % del capital.</label>
+            <label class="q-opt"><input type="radio" name="q7" value="1">El 100 % del capital.</label>
+            <label class="q-opt"><input type="radio" name="q7" value="2">El 25 % y mayoría de votos.</label>
+            <label class="q-opt"><input type="radio" name="q7" value="3">Al menos el 75 % del capital y la mayoría de los derechos de voto (70 % si cotiza), el primer día del período y durante todo él.</label>
+            <div class="q-feedback">Art. 58.2 b) y c). En indirectas, los porcentajes se multiplican (art. 60).</div>
+          </div>
+          <div class="q-item" data-correct="0">
+            <div class="q-txt"><span class="qn">8.</span>¿Qué ocurre con las bases imponibles negativas cuando una sociedad absorbe a otra en la que ya participaba?</div>
+            <label class="q-opt"><input type="radio" name="q8" value="0">Se transmiten, pero minoradas en la diferencia positiva entre el valor de las aportaciones de los socios y su valor fiscal.</label>
+            <label class="q-opt"><input type="radio" name="q8" value="1">Se transmiten íntegramente siempre.</label>
+            <label class="q-opt"><input type="radio" name="q8" value="2">Nunca se transmiten.</label>
+            <label class="q-opt"><input type="radio" name="q8" value="3">Se transmiten sólo si se renuncia al régimen especial.</label>
+            <div class="q-feedback">Art. 84.2. Es la razón por la que muchas fusiones "para aprovechar pérdidas" no aprovechan nada.</div>
+          </div>
+        </div>
+        <div class="q-actions">
+          <button class="btn btn-primary" data-quiz-check>Corregir test</button>
+          <button class="btn btn-outline" data-quiz-reset>Reintentar</button>
+          <span class="q-score" data-quiz-score></span>
+        </div>
+      </div>
+    </section>
+
+    <div class="tracker" data-mod="mod4rees">
+      <div class="tk-head"><span class="tri"></span><h3>Actividades de esta parte</h3><span class="tk-count" data-tk-count>0/8</span></div>
+      <div class="tk-body">
+        <div class="act" data-act="leer"><span class="box"></span><span class="lbl">Leer la parte de reestructuraciones</span></div>
+        <div class="act" data-act="calc_neutra"><span class="box"></span><span class="lbl">Usar el test de encaje en el régimen de neutralidad</span></div>
+        <div class="act" data-act="simplifica"><span class="box"></span><span class="lbl">Desplegar los atajos del procedimiento</span></div>
+        <div class="act" data-act="rama"><span class="box"></span><span class="lbl">Desplegar cómo se prueba una rama de actividad</span></div>
+        <div class="act" data-act="motivo"><span class="box"></span><span class="lbl">Desplegar motivos económicos válidos</span></div>
+        <div class="act" data-act="checkrees"><span class="box"></span><span class="lbl">Desplegar el checklist de 12 pasos</span></div>
+        <div class="act" data-act="caso1"><span class="box"></span><span class="lbl">Abrir los casos prácticos</span></div>
+        <div class="act" data-act="quiz"><span class="box"></span><span class="lbl">Superar la autoevaluación</span></div>
+        <div data-tk-done style="display:none;align-items:center;gap:.6rem;margin-top:.9rem;padding:.8rem 1rem;background:var(--wine-soft);border-radius:9px;color:var(--wine-dark);font-weight:600"><span class="tri"></span> ¡Parte completada!</div>
+      </div>
     </div>
 
     <nav class="modnav">
-      <a href="modulo-3.html"><div class="d">← Anterior</div><div class="t">Módulo 3 · Los tributos y su interconexión</div></a>
-      <a class="next" href="modulo-5.html"><div class="d">Siguiente →</div><div class="t">Módulo 5 · Planificación patrimonial y sucesoria</div></a>
+      <a href="modulo-3-indirecta.html"><div class="d">← Anterior</div><div class="t">Módulo 3 · Parte 5</div></a>
+      <a class="next" href="modulo-4-mya.html"><div class="d">Siguiente →</div><div class="t">Parte 2 · M&amp;A, due diligence e IRL</div></a>
     </nav>
+
   </main>
 </div>
 
@@ -123,12 +554,15 @@
     <img src="dasar-blanco.svg" alt="DASAR Gestión Patrimonial">
     <nav class="fnav">
       <a href="index.html">Inicio</a>
-      <a href="modulo-0.html">Módulo 0</a>
+      <a href="#test">Test de encaje</a>
+      <a href="#s5">Rama de actividad</a>
+      <a href="#s8">Motivo económico</a>
     </nav>
-    <div class="fcopy">© <span data-year>2026</span> DASAR Gestión Patrimonial · Formación interna. Documento de uso formativo; no constituye asesoramiento fiscal ni legal.</div>
+    <div class="fcopy">© <span data-year>2026</span> DASAR Gestión Patrimonial · Formación interna. No constituye asesoramiento fiscal ni legal. Verifica siempre la normativa vigente.</div>
   </div>
 </footer>
 
-<script src="app.js?v=12"></script>
+<script src="deducciones.js?v=16"></script>
+<script src="app.js?v=16"></script>
 </body>
 </html>

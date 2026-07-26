@@ -23,7 +23,14 @@
         { t: "Parte 5 · Indirecta e interconexión", file: "modulo-3-indirecta.html", ready: true }
       ]
     },
-    { id: "mod4", num: "4", title: "Estructuras y operaciones complejas", file: "modulo-4.html", ready: false, core: false },
+    {
+      id: "mod4", num: "4", title: "Estructuras y operaciones complejas", file: "modulo-4.html", ready: true, core: false,
+      parts: [
+        { t: "Parte 1 · Reestructuraciones y neutralidad", file: "modulo-4.html", ready: true },
+        { t: "Parte 2 · M&A, due diligence e IRL", file: "modulo-4-mya.html", ready: true },
+        { t: "Parte 3 · Gobernanza e internacional", file: "modulo-4-gobernanza.html", ready: true }
+      ]
+    },
     { id: "mod5", num: "5", title: "Planificación patrimonial y sucesoria", file: "modulo-5.html", ready: false, core: false },
     { id: "mod6", num: "6", title: "Casos prácticos y metodología", file: "modulo-6.html", ready: false, core: false }
   ];
@@ -1512,6 +1519,510 @@
     if (btn) btn.addEventListener("click", run);
   }
 
+
+  /* ======================================================================
+     MÓDULO 4 · ESTRUCTURAS Y OPERACIONES COMPLEJAS
+     ====================================================================== */
+
+  /* ---------- 1. Test de encaje en el régimen de neutralidad fiscal ---------- */
+  var NEUT_OPS = {
+    fusion: {
+      n: "Fusión (por absorción, por nueva sociedad o impropia)",
+      art: "art. 76.1 LIS · arts. 33 y ss. RDL 5/2023",
+      req: [
+        { q: "Hay transmisión en bloque del patrimonio con disolución sin liquidación de la transmitente (o absorción de una participada al 100 %)", crit: true, art: "art. 76.1 a), b) y c)" },
+        { q: "La compensación en dinero a los socios no excede del 10 % del valor nominal de los valores entregados", crit: true, art: "art. 76.1" },
+        { q: "La entidad adquirente es residente en España, o los elementos quedan afectos a un establecimiento permanente en España", crit: true, art: "art. 77.1 a)" },
+        { q: "La adquirente no está exenta del Impuesto sobre Sociedades ni sometida al régimen de atribución de rentas", crit: true, art: "art. 77.1, párrafo final" },
+        { q: "No intervienen entidades domiciliadas o establecidas en paraísos fiscales", crit: true, art: "art. 81.4" },
+        { q: "Si la adquirente participa en la transmitente, la participación es de al menos el 5 % (si es inferior, la renta de la anulación SÍ se integra)", crit: false, art: "art. 82.1 y 82.2" },
+        { q: "Se ha comprobado el efecto sobre las bases imponibles negativas: sólo se transmiten si hay extinción de la transmitente o transmisión de la rama que las generó, y se minoran por la diferencia entre aportaciones y valor fiscal si hay participación previa o grupo", crit: false, art: "art. 84.2" }
+      ]
+    },
+    escision_total: {
+      n: "Escisión total proporcional",
+      art: "art. 76.2.1.º a) LIS · art. 59 RDL 5/2023",
+      req: [
+        { q: "Se divide la totalidad del patrimonio en dos o más partes que se transmiten en bloque, con extinción de la escindida", crit: true, art: "art. 76.2.1.º a)" },
+        { q: "Los socios reciben valores de las beneficiarias con arreglo a una norma proporcional a su participación previa", crit: true, art: "art. 76.2.1.º a)" },
+        { q: "La compensación en dinero no excede del 10 % del valor nominal", crit: true, art: "art. 76.2.1.º a)" },
+        { q: "Las beneficiarias son residentes en España o los elementos quedan afectos a un EP en España", crit: true, art: "art. 77.1 a)" },
+        { q: "No hay entidades en paraísos fiscales", crit: true, art: "art. 81.4" }
+      ]
+    },
+    escision_total_np: {
+      n: "Escisión total NO proporcional (los socios reciben en proporción distinta)",
+      art: "art. 76.2.2.º LIS",
+      req: [
+        { q: "Se cumple todo lo de la escisión total (división del patrimonio, extinción, compensación ≤ 10 %)", crit: true, art: "art. 76.2.1.º a)" },
+        { q: "LOS PATRIMONIOS ADQUIRIDOS POR CADA BENEFICIARIA CONSTITUYEN RAMAS DE ACTIVIDAD: conjuntos de elementos susceptibles de constituir una unidad económica autónoma capaz de funcionar por sus propios medios", crit: true, art: "arts. 76.2.2.º y 76.4" },
+        { q: "Cada rama tiene medios propios: personal, contratos, clientela, activos y gestión diferenciada (no una simple cartera de bienes)", crit: true, art: "art. 76.4" },
+        { q: "Las beneficiarias son residentes o hay afectación a EP en España, y no hay paraísos fiscales", crit: true, art: "arts. 77.1 a) y 81.4" }
+      ]
+    },
+    escision_parcial: {
+      n: "Escisión parcial",
+      art: "art. 76.2.1.º b) LIS · art. 60 RDL 5/2023",
+      req: [
+        { q: "Lo segregado forma una o varias RAMAS DE ACTIVIDAD", crit: true, art: "arts. 76.2.1.º b) y 76.4" },
+        { q: "La entidad que se escinde MANTIENE en su patrimonio al menos una rama de actividad, o participaciones que le den la mayoría del capital de otras entidades", crit: true, art: "art. 76.2.1.º b)" },
+        { q: "Los socios reciben valores en proporción a sus participaciones, y la escindida reduce capital y reservas en la cuantía necesaria", crit: true, art: "art. 76.2.1.º b)" },
+        { q: "Compensación en dinero ≤ 10 % del nominal", crit: true, art: "art. 76.2.1.º b)" },
+        { q: "Beneficiaria residente o afectación a EP; sin paraísos fiscales", crit: true, art: "arts. 77.1 a) y 81.4" }
+      ]
+    },
+    escision_financiera: {
+      n: "Escisión financiera de participaciones",
+      art: "art. 76.2.1.º c) LIS",
+      req: [
+        { q: "Lo segregado son participaciones que confieren la MAYORÍA del capital social de otras entidades", crit: true, art: "art. 76.2.1.º c)" },
+        { q: "La escindida mantiene participaciones de similares características, o bien una rama de actividad", crit: true, art: "art. 76.2.1.º c)" },
+        { q: "Atribución proporcional a los socios y compensación ≤ 10 %", crit: true, art: "art. 76.2.1.º c)" },
+        { q: "Beneficiaria residente o afectación a EP; sin paraísos fiscales", crit: true, art: "arts. 77.1 a) y 81.4" }
+      ]
+    },
+    aport_rama: {
+      n: "Aportación no dineraria de rama de actividad",
+      art: "arts. 76.3 y 87.2 LIS",
+      req: [
+        { q: "Lo aportado es la totalidad o una o más RAMAS DE ACTIVIDAD (unidad económica autónoma capaz de funcionar por sus propios medios)", crit: true, art: "arts. 76.3 y 76.4" },
+        { q: "La aportante no se disuelve y recibe valores del capital social de la adquirente", crit: true, art: "art. 76.3" },
+        { q: "Si el aportante es persona física o contribuyente del IRNR residente en la UE, lleva su contabilidad conforme al Código de Comercio o legislación equivalente", crit: true, art: "art. 87.2" },
+        { q: "La entidad que recibe la aportación es residente en España o actúa mediante EP al que se afectan los bienes", crit: true, art: "art. 87.1 a)" }
+      ]
+    },
+    canje: {
+      n: "Canje de valores (creación de holding)",
+      art: "arts. 76.5 y 80 LIS",
+      req: [
+        { q: "Con el canje se obtiene la MAYORÍA DE LOS DERECHOS DE VOTO de la participada, o ya se tenía y se incrementa la participación", crit: true, art: "art. 76.5" },
+        { q: "La compensación en dinero no excede del 10 % del valor nominal de los valores entregados", crit: true, art: "art. 76.5" },
+        { q: "La entidad adquirente es residente en España o está comprendida en el ámbito de la Directiva 2009/133/CE", crit: true, art: "art. 80.1 b)" },
+        { q: "Los socios son residentes en España o en la UE; si no, los valores recibidos representan capital de una entidad residente en España", crit: true, art: "art. 80.1 a)" },
+        { q: "No participan entidades domiciliadas o establecidas en paraísos fiscales", crit: true, art: "art. 80.5" },
+        { q: "Se asume que el socio conserva el VALOR Y LA FECHA DE ADQUISICIÓN antiguos en las nuevas participaciones (no hay actualización de valores)", crit: false, art: "art. 80.3" }
+      ]
+    },
+    aport_especial: {
+      n: "Aportación no dineraria especial (aportar participaciones o inmuebles a una sociedad)",
+      art: "art. 87.1 LIS",
+      req: [
+        { q: "La entidad que recibe la aportación es residente en España o actúa mediante EP al que se afectan los bienes", crit: true, art: "art. 87.1 a)" },
+        { q: "Tras la aportación, el aportante participa en al menos el 5 % de los fondos propios de la receptora", crit: true, art: "art. 87.1 b)" },
+        { q: "Si se aportan acciones o participaciones y el aportante es persona física: representan al menos el 5 % de los fondos propios de la participada", crit: true, art: "art. 87.1 c) 2.º" },
+        { q: "Si se aportan acciones o participaciones y el aportante es persona física: se han poseído de manera ininterrumpida durante EL AÑO anterior a la fecha del documento público", crit: true, art: "art. 87.1 c) 3.º" },
+        { q: "La entidad participada no aplica el régimen de AIE/UTE ni tiene como actividad principal la gestión de un patrimonio mobiliario o inmobiliario (art. 4.Ocho.Dos de la Ley del IP)", crit: true, art: "art. 87.1 c) 1.º" },
+        { q: "Si se aportan OTROS elementos (por ejemplo inmuebles) por una persona física residente en la UE: están AFECTOS a actividades económicas y la contabilidad se lleva conforme al Código de Comercio", crit: true, art: "art. 87.1 d)" }
+      ]
+    }
+  };
+
+  function wireNeutralidad() {
+    var box = document.querySelector(".rcalc.neutra");
+    if (!box) return;
+    var sel = box.querySelector("[data-n-op]"), list = box.querySelector("[data-n-list]"),
+        btn = box.querySelector("[data-n-run]"), res = box.querySelector(".calc-result");
+    if (sel && !sel.options.length) {
+      Object.keys(NEUT_OPS).forEach(function (k) {
+        var o = document.createElement("option"); o.value = k; o.textContent = NEUT_OPS[k].n; sel.appendChild(o);
+      });
+    }
+    function render() {
+      var O = NEUT_OPS[sel.value];
+      var h = '<p class="note" style="margin:.2rem 0 .8rem"><strong>' + O.n + '</strong> · ' + O.art + '. Marca lo que se cumple <em>de verdad</em>, no lo que se pretende cumplir.</p>';
+      O.req.forEach(function (r, i) {
+        h += '<label class="toggle" style="align-items:flex-start;margin-bottom:.5rem"><input type="checkbox" data-n-req="' + i + '"><span>' + (r.crit ? '<strong>' : '') + r.q + (r.crit ? '</strong>' : '') + ' <em style="color:var(--muted-2);font-style:normal;font-size:.82rem">(' + r.art + (r.crit ? '' : ' · comprobación') + ')</em></span></label>';
+      });
+      h += '<hr style="border:0;border-top:1px solid var(--line);margin:.9rem 0">';
+      h += '<label class="toggle" style="align-items:flex-start;margin-bottom:.5rem"><input type="checkbox" data-n-motivo><span><strong>Existe un MOTIVO ECONÓMICO VÁLIDO documentado por escrito</strong> (reestructuración o racionalización de actividades), más allá de la ventaja fiscal <em style="color:var(--muted-2);font-style:normal;font-size:.82rem">(art. 89.2)</em></span></label>';
+      h += '<label class="toggle" style="align-items:flex-start"><input type="checkbox" data-n-comu><span>Se presentará la <strong>comunicación</strong> de la operación a la Administración en forma y plazo reglamentarios <em style="color:var(--muted-2);font-style:normal;font-size:.82rem">(art. 89.1: la falta de presentación es infracción grave, 10.000 € por operación)</em></span></label>';
+      list.innerHTML = h;
+      res.classList.remove("show");
+    }
+    if (sel) sel.addEventListener("change", render);
+    render();
+    function run() {
+      var O = NEUT_OPS[sel.value];
+      var faltanCrit = [], faltanComp = [];
+      O.req.forEach(function (r, i) {
+        var c = list.querySelector('[data-n-req="' + i + '"]');
+        if (c && !c.checked) (r.crit ? faltanCrit : faltanComp).push(r);
+      });
+      var motivo = list.querySelector("[data-n-motivo]").checked;
+      var comu = list.querySelector("[data-n-comu]").checked;
+      var veredicto, clase;
+      if (faltanCrit.length === 0 && motivo) { veredicto = "La operación encaja en el régimen de neutralidad"; clase = "ok"; }
+      else if (faltanCrit.length === 0 && !motivo) { veredicto = "Requisitos técnicos cumplidos, pero SIN motivo económico válido documentado"; clase = "riesgo"; }
+      else { veredicto = "La operación NO encaja: faltan " + faltanCrit.length + " requisito(s) esencial(es)"; clase = "no"; }
+
+      var html = '<div class="seg"><span class="tag">Veredicto</span><span class="name ' + (clase === "ok" ? "" : "wine") + '">' + veredicto + '</span></div>';
+      html += '<div class="money">' +
+        '<div class="m"><div class="k">Requisitos esenciales</div><div class="v">' + (O.req.filter(function (r) { return r.crit; }).length - faltanCrit.length) + '/' + O.req.filter(function (r) { return r.crit; }).length + '</div></div>' +
+        '<div class="m"><div class="k">Motivo económico</div><div class="v ' + (motivo ? '' : 'wine') + '">' + (motivo ? "Documentado" : "PENDIENTE") + '</div></div>' +
+        '<div class="m"><div class="k">Comunicación</div><div class="v ' + (comu ? '' : 'wine') + '">' + (comu ? "Prevista" : "PENDIENTE") + '</div></div>' +
+        '</div>';
+      if (faltanCrit.length) {
+        html += '<div class="flag"><strong>Requisitos esenciales que fallan:</strong><ul style="margin:.4rem 0 0;padding-left:1.1rem">';
+        faltanCrit.forEach(function (r) { html += '<li>' + r.q + ' <em style="font-style:normal;color:var(--muted-2)">(' + r.art + ')</em></li>'; });
+        html += '</ul>Sin ellos la operación tributa por el régimen general: plusvalías a valor de mercado en la transmitente y en los socios.</div>';
+      }
+      if (faltanComp.length) {
+        html += '<div class="flag"><strong>Comprobaciones pendientes</strong> (no impiden aplicar el régimen, pero cambian el resultado):<ul style="margin:.4rem 0 0;padding-left:1.1rem">';
+        faltanComp.forEach(function (r) { html += '<li>' + r.q + ' <em style="font-style:normal;color:var(--muted-2)">(' + r.art + ')</em></li>'; });
+        html += '</ul></div>';
+      }
+      if (!motivo) html += '<div class="flag"><strong>Sin motivo económico válido no hay régimen.</strong> El art. 89.2 lo dice expresamente: el régimen no se aplica cuando la operación no se efectúa por motivos económicos válidos «sino con la mera finalidad de conseguir una ventaja fiscal». La buena noticia de la redacción vigente: la comprobación administrativa «eliminará exclusivamente los efectos de la ventaja fiscal», no todo el régimen. La mala: hay que identificar y cuantificar esa ventaja, y eso lo decide la Inspección.</div>';
+      if (!comu) html += '<div class="flag">La comunicación del art. 89.1 no es un trámite menor: el régimen se aplica <strong>salvo renuncia expresa</strong>, pero no presentar la comunicación en plazo es <strong>infracción grave con multa fija de 10.000 € por operación</strong> sobre la que debía informarse.</div>';
+      html += '<p class="note" style="margin-top:.7rem">Herramienta de trabajo, no dictamen. El encaje se documenta en un informe con el proyecto, el motivo económico, las valoraciones y la trazabilidad de los requisitos temporales.</p>';
+      res.innerHTML = html; res.classList.add("show"); actDone("calc_neutra");
+    }
+    if (btn) btn.addEventListener("click", run);
+  }
+
+  /* ---------- 2. Estructura del precio: cash-in, cash-out, leverage ---------- */
+  function wireDeal() {
+    var box = document.querySelector(".rcalc.deal");
+    if (!box) return;
+    var g = function (s) { return box.querySelector(s); };
+    function n(sel) { var e = g(sel); var v = parseFloat((e && e.value || "").replace(/[^0-9.\-]/g, "")); return isNaN(v) ? 0 : v; }
+    var btn = g("[data-d-run]"), res = box.querySelector(".calc-result");
+
+    function run() {
+      var ebitda = n("[data-d-ebitda]"), mult = n("[data-d-mult]"), deudaNeta = n("[data-d-deuda]");
+      var pct = Math.min(100, Math.max(0, n("[data-d-pct]")));
+      var cashIn = Math.min(100, Math.max(0, n("[data-d-cashin]")));
+      var lev = Math.min(100, Math.max(0, n("[data-d-lev]")));
+      var earn = Math.min(100, Math.max(0, n("[data-d-earn]")));
+      var esc = Math.min(100, Math.max(0, n("[data-d-escrow]")));
+      var vend = g("[data-d-vendedor]").value;   // pf | holding
+      var vAdq = n("[data-d-vadq]");             // valor de adquisición de las participaciones
+
+      var ev = ebitda * mult;                   // enterprise value
+      var eq = Math.max(0, ev - deudaNeta);     // equity value
+      var precio = eq * pct / 100;              // precio del paquete transmitido
+      var pCashOut = precio * (100 - cashIn) / 100;   // va al vendedor
+      var pCashIn = precio * cashIn / 100;            // entra en la compañía
+      var deudaAdq = pCashOut * lev / 100;
+      var equityComprador = pCashOut - deudaAdq + pCashIn;
+      var diferido = pCashOut * (earn + esc) / 100;
+      var alCierre = pCashOut - diferido;
+
+      // fiscalidad del vendedor sobre el cash-out
+      var ganancia = Math.max(0, pCashOut - vAdq * pct / 100);
+      var impuesto, notaFisc;
+      if (vend === "pf") {
+        impuesto = escalaAhorro(ganancia);
+        notaFisc = "Persona física: base del ahorro, 19 %–28 %. Tipo efectivo sobre la ganancia: " + pctE(ganancia > 0 ? impuesto / ganancia : 0) + ".";
+      } else {
+        impuesto = ganancia * 0.25 * 0.05;
+        notaFisc = "Holding con exención del art. 21 LIS: se integra el 5 % de la renta exenta al 25 % → tipo efectivo del <strong>1,25 %</strong>. El dinero queda en la sociedad: al sacarlo al socio habrá una segunda capa en IRPF.";
+      }
+      var neto = pCashOut - impuesto;
+      var ratio = ebitda > 0 ? (deudaNeta + deudaAdq) / ebitda : 0;
+
+      var html = '<div class="seg"><span class="tag">Estructura de la operación</span><span class="name wine">' + eurE(precio) + ' por el ' + pct + ' %</span></div>';
+      html += '<div class="money">' +
+        '<div class="m"><div class="k">Enterprise value</div><div class="v">' + eurE(ev) + '</div></div>' +
+        '<div class="m"><div class="k">Equity value</div><div class="v">' + eurE(eq) + '</div></div>' +
+        '<div class="m"><div class="k">Neto al vendedor tras impuestos</div><div class="v wine">' + eurE(neto) + '</div></div>' +
+        '</div>';
+      html += '<table class="tbl"><thead><tr><th>Concepto</th><th>Importe</th><th>Qué significa</th></tr></thead><tbody>';
+      html += '<tr><td><strong>Cash-out</strong> (compra de acciones al vendedor)</td><td>' + eurE(pCashOut) + '</td><td>Dinero que sale del comprador y entra en el <strong>bolsillo del vendedor</strong>. Es transmisión de participaciones: tributa en el vendedor.</td></tr>';
+      html += '<tr><td><strong>Cash-in</strong> (ampliación de capital)</td><td>' + eurE(pCashIn) + '</td><td>Dinero que entra en la <strong>caja de la compañía</strong> para crecer. No lo cobra el vendedor y por tanto no genera ganancia patrimonial: diluye.</td></tr>';
+      html += '<tr><td>Deuda de adquisición (<em>leverage</em>)</td><td>' + eurE(deudaAdq) + ' (' + lev + ' % del cash-out)</td><td>Financiación del comprador. Si supera el <strong>70 % del precio</strong> se activa el límite adicional del 30 % del beneficio operativo de la adquirente (arts. 16.5 y 83 LIS).</td></tr>';
+      html += '<tr><td>Equity que aporta el comprador</td><td>' + eurE(equityComprador) + '</td><td>Fondos propios del comprador (incluye el cash-in si lo suscribe él).</td></tr>';
+      html += '<tr><td>Cobro <strong>al cierre</strong></td><td>' + eurE(alCierre) + '</td><td>Lo que el vendedor cobra el día de la firma, ya descontados earn-out y escrow.</td></tr>';
+      html += '<tr><td>Cobro <strong>diferido</strong> (earn-out ' + earn + ' % + escrow ' + esc + ' %)</td><td>' + eurE(diferido) + '</td><td>Sujeto a cumplimiento de objetivos y a que no aparezcan contingencias. Puede no cobrarse nunca: hay que negociar el <em>gross-up</em> fiscal.</td></tr>';
+      html += '<tr><td>Ganancia patrimonial del vendedor</td><td>' + eurE(ganancia) + '</td><td>Precio del paquete menos su valor de adquisición proporcional.</td></tr>';
+      html += '<tr><td><strong>Impuesto del vendedor</strong></td><td class="wine"><strong>' + eurE(impuesto) + '</strong></td><td>' + notaFisc + '</td></tr>';
+      html += '</tbody></table>';
+      if (ebitda > 0) html += '<div class="flag"><strong>Apalancamiento resultante:</strong> deuda total (' + eurE(deudaNeta + deudaAdq) + ') / EBITDA = <strong>' + ratio.toFixed(2).replace(".", ",") + 'x</strong>. Por encima de 3,5x–4x la financiación bancaria se encarece y los <em>covenants</em> aprietan; y recuerda que los gastos financieros netos sólo son deducibles hasta el 30 % del beneficio operativo, con un mínimo de 1 M€ (art. 16.1).</div>';
+      if (lev > 70) html += '<div class="flag"><strong>Aviso de estructura:</strong> con un ' + lev + ' % de deuda superas el <em>puerto seguro</em> del 70 % del precio de adquisición. Si después hay fusión con la adquirida en los 4 años siguientes (o incorporación a grupo fiscal), los gastos financieros quedan limitados al 30 % del beneficio operativo de la <strong>adquirente sin incluir el de la adquirida</strong> (art. 83 si la fusión aplica el régimen especial; art. 16.5 si no; art. 67.b) si se consolida). Alternativa: reducir la deuda proporcionalmente en cada uno de los 8 años siguientes hasta el 30 % del precio.</div>';
+      if (vend === "pf" && ganancia > 0) {
+        var impH = ganancia * 0.25 * 0.05;
+        html += '<div class="flag"><strong>Comparativa vendedor:</strong> como persona física pagas ' + eurE(impuesto) + '; a través de un holding con exención del art. 21, ' + eurE(impH) + '. Diferencia: <strong>' + eurE(impuesto - impH) + '</strong>. Pero el dinero se queda en la sociedad, y el holding hay que constituirlo <strong>antes</strong> y con motivo económico válido: crear un holding para vender la semana siguiente es el caso de libro del art. 89.2.</div>';
+      }
+      if (cashIn > 0) html += '<div class="flag">El <strong>cash-in</strong> no es dinero para el vendedor: es capital para la compañía. Cuando un comprador financiero propone "500.000 € de los que 200.000 son cash-in", el vendedor cobra 300.000. Es el malentendido más frecuente en una negociación.</div>';
+      html += '<p class="note" style="margin-top:.7rem">Estimación orientativa. No incluye gastos de la operación (asesores, notaría, registro), ajustes de precio por <em>working capital</em>, ni el efecto de un <em>vendor loan</em> o de un <em>roll-over</em> de participaciones. La fiscalidad del vendedor se estima con la escala estatal del ahorro.</p>';
+      res.innerHTML = html; res.classList.add("show"); actDone("calc_deal");
+    }
+    if (btn) btn.addEventListener("click", run);
+  }
+
+
+  /* ---------- 3. IRL interactiva (Information Request List) ---------- */
+  var IRL_AREAS = [
+    { k: "soc", n: "Societario", items: [
+      { t: "Escrituras de constitución y estatutos vigentes", d: "Con todas las modificaciones y su inscripción en el Registro Mercantil." },
+      { t: "Libro registro de socios o de acciones nominativas", d: "Titularidad real actualizada y trazabilidad de las transmisiones anteriores." },
+      { t: "Libros de actas de junta y de órgano de administración (últimos 5 años)", d: "Acuerdos de reparto, ampliaciones, retribuciones y autocartera." },
+      { t: "Certificación registral actualizada y CIF", d: "Cargas, apoderamientos vigentes y situación de depósito de cuentas." },
+      { t: "Pactos de socios, protocolo familiar y acuerdos parasociales", d: "Cláusulas de arrastre, acompañamiento, preferencia y valoración pactada." },
+      { t: "Estructura del grupo y organigrama societario", d: "Participaciones directas e indirectas, porcentajes y sociedades inactivas." },
+      { t: "Operaciones de reestructuración anteriores", d: "Proyectos, informes, comunicaciones del art. 89.1 LIS y documentación del motivo económico." },
+      { t: "Autocartera, opciones sobre participaciones y planes de incentivos", d: "Phantom shares, stock options y compromisos con directivos." }
+    ]},
+    { k: "fin", n: "Financiero-contable", items: [
+      { t: "Cuentas anuales de los últimos 3–5 ejercicios", d: "Con informe de auditoría si existe, y cuentas consolidadas del grupo." },
+      { t: "Balances y cuentas de resultados mensuales del ejercicio en curso", d: "Comparativo con presupuesto y con el mismo período del año anterior." },
+      { t: "Detalle de deuda financiera y calendario de vencimientos", d: "Pólizas, préstamos, leasing, confirming, factoring, avales y covenants." },
+      { t: "Composición del working capital", d: "Aging de clientes y proveedores, rotación de existencias, estacionalidad." },
+      { t: "Cálculo del EBITDA normalizado y ajustes propuestos", d: "Gastos no recurrentes, retribuciones de socios, gastos personales, alquileres a partes vinculadas." },
+      { t: "Plan de negocio y proyecciones", d: "Hipótesis, sensibilidades y grado de cumplimiento de los presupuestos anteriores." },
+      { t: "Detalle de saldos y operaciones con partes vinculadas", d: "Préstamos a socios, cuentas corrientes, alquileres y servicios cruzados." },
+      { t: "Inventario de activos fijos y política de amortización", d: "Elementos totalmente amortizados aún en uso y activos no operativos." },
+      { t: "Contingencias y provisiones registradas y no registradas", d: "Con la valoración del asesor y la opinión del auditor." }
+    ]},
+    { k: "fis", n: "Fiscal", items: [
+      { t: "Declaraciones de Sociedades de los ejercicios no prescritos", d: "Con ajustes al resultado contable, BIN pendientes y deducciones acreditadas." },
+      { t: "Modelos de IVA y resúmenes anuales", d: "Prorrata aplicada, sectores diferenciados y regularización de bienes de inversión." },
+      { t: "Retenciones e ingresos a cuenta", d: "Modelos 111, 115, 123 y sus resúmenes anuales. Atención al art. 42.1.c) LGT." },
+      { t: "Certificado de estar al corriente y deudas con la AEAT y la Seguridad Social", d: "Y, si la operación es de activos o de rama, el certificado del art. 175.2 LGT." },
+      { t: "Actas de inspección, requerimientos y recursos en curso", d: "De los últimos cuatro ejercicios y de los diez si hay bases o deducciones pendientes (art. 66 bis LGT)." },
+      { t: "Documentación de precios de transferencia", d: "Master file, local file y análisis de comparabilidad de las operaciones vinculadas." },
+      { t: "Bases imponibles negativas y deducciones pendientes", d: "Con su origen, límites de compensación y efecto de un cambio de control." },
+      { t: "Incentivos aplicados: I+D+i, patent box, reserva de capitalización", d: "Informes motivados, memorias técnicas y compromisos de mantenimiento." },
+      { t: "Situación de la exención de empresa familiar en IP e ISD de los socios", d: "Funciones de dirección, retribución y porcentaje de activos afectos." },
+      { t: "Tributos locales e IBI, plusvalías pendientes y tasas", d: "Y valores de referencia de los inmuebles a efectos de una transmisión." }
+    ]},
+    { k: "lab", n: "Laboral y RRHH", items: [
+      { t: "Plantilla completa con antigüedad, categoría y coste", d: "Incluyendo becarios, autónomos recurrentes y personal cedido." },
+      { t: "Contratos de trabajo y convenio colectivo aplicable", d: "Especial atención a temporalidad, cláusulas de blindaje y no competencia." },
+      { t: "Contratos de alta dirección y pactos de indemnización", d: "Cláusulas de cambio de control y su coste si la operación se cierra." },
+      { t: "RLC y RNT de los últimos 12 meses", d: "Cotizaciones, bonificaciones aplicadas y posibles diferencias." },
+      { t: "Actas de la Inspección de Trabajo y expedientes sancionadores", d: "Últimos cuatro años, resueltos y en curso." },
+      { t: "Litigios laborales y despidos recientes", d: "Reclamaciones de cantidad, de categoría y de falsos autónomos." },
+      { t: "Plan de igualdad, registro salarial y protocolo de acoso", d: "Obligatorios según plantilla: su ausencia es sanción cuantificable." },
+      { t: "Prevención de riesgos y evaluación actualizada", d: "Con el plan de formación y el servicio de prevención contratado." }
+    ]},
+    { k: "com", n: "Comercial y contratos", items: [
+      { t: "Cinco a diez principales clientes: contrato, antigüedad y margen", d: "Concentración de facturación y cláusulas de cambio de control o terminación." },
+      { t: "Principales proveedores y contratos de suministro", d: "Exclusividades, dependencias críticas y condiciones de pago." },
+      { t: "Contratos de agencia, distribución y comisión", d: "Indemnizaciones por clientela al terminar: contingencia clásica y cara." },
+      { t: "Condiciones generales de venta, garantías y devoluciones", d: "Y su reflejo en las provisiones contables." },
+      { t: "Contratos con partes vinculadas a precio distinto de mercado", d: "Se normalizan en el EBITDA y se corrigen antes del cierre." },
+      { t: "Pedidos en cartera y presupuestos pendientes de aceptar", d: "Backlog: sostiene o desmiente las proyecciones." }
+    ]},
+    { k: "inm", n: "Inmuebles y activos", items: [
+      { t: "Títulos de propiedad y notas simples de los inmuebles", d: "Cargas, servidumbres, afecciones y coincidencia con el Catastro." },
+      { t: "Contratos de arrendamiento como arrendador y como arrendatario", d: "Duración, renta, actualización, garantías y cláusulas de cambio de control." },
+      { t: "Licencias de actividad y de primera ocupación", d: "Y su adecuación al uso real desarrollado en cada centro." },
+      { t: "Situación urbanística de los suelos", d: "Clasificación, cargas de urbanización pendientes y planeamiento en tramitación." },
+      { t: "Tasaciones recientes y valor contable frente a valor de mercado", d: "Clave si el activo inmobiliario supera el 50 % del balance (art. 338 Ley 6/2023)." },
+      { t: "Bienes afectos y no afectos a la actividad", d: "Determina exención de empresa familiar, entidad patrimonial y norma antielusiva." }
+    ]},
+    { k: "ip", n: "Propiedad intelectual, IT y datos", items: [
+      { t: "Marcas, nombres comerciales y dominios registrados", d: "Titularidad a nombre de la sociedad y no de los socios, y renovaciones al día." },
+      { t: "Patentes, modelos de utilidad y diseños", d: "Con su vigencia territorial y las licencias concedidas o recibidas." },
+      { t: "Software: licencias, desarrollos propios y código fuente", d: "Cesión de derechos por parte de empleados y de proveedores externos." },
+      { t: "Contratos con proveedores tecnológicos y SaaS", d: "Dependencias críticas, niveles de servicio y portabilidad de datos." },
+      { t: "Registro de actividades de tratamiento y RGPD", d: "Encargados del tratamiento, transferencias internacionales y brechas notificadas." },
+      { t: "Ciberseguridad: incidentes, copias de seguridad y plan de contingencia", d: "Un incidente no revelado es una contingencia oculta de primer nivel." }
+    ]},
+    { k: "lit", n: "Litigios y contingencias", items: [
+      { t: "Relación de procedimientos judiciales y arbitrales", d: "Cuantía, instancia, provisión registrada y opinión del abogado que los dirige." },
+      { t: "Reclamaciones extrajudiciales y burofaxes recibidos", d: "Lo que todavía no es demanda pero lo será." },
+      { t: "Expedientes administrativos sancionadores", d: "Consumo, competencia, medio ambiente, industria, protección de datos." },
+      { t: "Garantías prestadas a terceros, avales y cartas de patrocinio", d: "Fuera de balance y capaces de romper una operación." },
+      { t: "Responsabilidad de administradores y seguro D&O", d: "Acciones sociales o individuales en curso y cobertura vigente." }
+    ]},
+    { k: "cum", n: "Compliance, PBC y penal", items: [
+      { t: "Modelo de organización y prevención de delitos", d: "Existencia, implantación real y órgano de supervisión (art. 31 bis CP)." },
+      { t: "Manual de prevención de blanqueo y titular real", d: "Declaración de titularidad real y su coincidencia con el Registro Mercantil." },
+      { t: "Canal de denuncias y expedientes internos", d: "Obligatorio para muchas compañías: su ausencia es sanción." },
+      { t: "Subvenciones y ayudas públicas recibidas", d: "Compromisos de mantenimiento de empleo o inversión, y riesgo de reintegro por cambio de control." },
+      { t: "Operaciones con países de riesgo y sanciones internacionales", d: "Listas, embargos y contrapartes sensibles." }
+    ]},
+    { k: "amb", n: "Medioambiental y licencias", items: [
+      { t: "Autorizaciones ambientales y de vertidos", d: "Vigencia, condiciones y renovaciones pendientes." },
+      { t: "Gestión de residuos y contratos con gestores autorizados", d: "Trazabilidad documental de los últimos ejercicios." },
+      { t: "Informes de suelos contaminados si aplica", d: "La responsabilidad ambiental se transmite con el activo." },
+      { t: "Consumos energéticos y obligaciones de eficiencia", d: "Y su impacto en el coste futuro." }
+    ]},
+    { k: "seg", n: "Seguros y financiación", items: [
+      { t: "Pólizas de seguro vigentes y siniestralidad", d: "Coberturas, sumas aseguradas, franquicias e infraseguro." },
+      { t: "Garantías reales sobre activos y prendas de participaciones", d: "Hay que levantarlas o novarlas antes del cierre." },
+      { t: "Cláusulas de cambio de control en la financiación", d: "Pueden provocar el vencimiento anticipado el día de la firma." },
+      { t: "Seguros de vida y de socios clave", d: "Y su encaje en el protocolo familiar y en la planificación sucesoria." }
+    ]}
+  ];
+
+  function wireIrl() {
+    var box = document.querySelector(".irl");
+    if (!box) return;
+    var KEY = "dasar_irl_v1";
+    var st = {};
+    try { st = JSON.parse(localStorage.getItem(KEY) || "{}"); } catch (e) { st = {}; }
+    function save() { try { localStorage.setItem(KEY, JSON.stringify(st)); } catch (e) {} }
+
+    var bar = box.querySelector("[data-irl-bar]"), body = box.querySelector("[data-irl-body]"),
+        out = box.querySelector(".irlout"), pb = box.querySelector("[data-irl-pb]"), ptxt = box.querySelector("[data-irl-ptxt]");
+    var actual = IRL_AREAS[0].k;
+
+    function id(ak, i) { return ak + "_" + i; }
+    function counts(A) {
+      var rec = 0, na = 0;
+      A.items.forEach(function (it, i) { var s = st[id(A.k, i)]; if (s && s.st === "rec") rec++; if (s && s.st === "na") na++; });
+      return { rec: rec, na: na, tot: A.items.length };
+    }
+    function renderBar() {
+      var h = "";
+      IRL_AREAS.forEach(function (A) {
+        var c = counts(A);
+        h += '<button class="achip' + (A.k === actual ? ' on' : '') + '" data-area="' + A.k + '">' + A.n + '<i>' + (c.rec + c.na) + '/' + c.tot + '</i></button>';
+      });
+      bar.innerHTML = h;
+      bar.querySelectorAll("[data-area]").forEach(function (b) {
+        b.addEventListener("click", function () { actual = b.getAttribute("data-area"); renderBar(); renderBody(); });
+      });
+      var tot = 0, done = 0;
+      IRL_AREAS.forEach(function (A) { var c = counts(A); tot += c.tot; done += c.rec + c.na; });
+      if (pb) pb.style.width = (tot ? (done / tot * 100) : 0) + "%";
+      if (ptxt) ptxt.textContent = done + " de " + tot + " puntos resueltos";
+    }
+    function renderBody() {
+      var A = IRL_AREAS.filter(function (x) { return x.k === actual; })[0];
+      var h = "";
+      A.items.forEach(function (it, i) {
+        var k = id(A.k, i), s = st[k] || { st: "pend", nota: "" };
+        h += '<div class="irlitem ' + (s.st === "rec" ? "st-rec" : s.st === "na" ? "st-na" : "") + '" data-k="' + k + '">' +
+          '<div><div class="it-t">' + it.t + '</div><div class="it-d">' + it.d + '</div></div>' +
+          '<div class="it-st">' +
+            '<button data-set="pend" class="' + (s.st === "pend" ? "on" : "") + '">Pendiente</button>' +
+            '<button data-set="rec" class="rec ' + (s.st === "rec" ? "on" : "") + '">Recibido</button>' +
+            '<button data-set="na" class="' + (s.st === "na" ? "on" : "") + '">N/A</button>' +
+          '</div>' +
+          '<textarea placeholder="Nota, referencia del documento o hallazgo…">' + (s.nota || "") + '</textarea>' +
+        '</div>';
+      });
+      body.innerHTML = h;
+      body.querySelectorAll(".irlitem").forEach(function (el) {
+        var k = el.getAttribute("data-k");
+        el.querySelectorAll("[data-set]").forEach(function (b) {
+          b.addEventListener("click", function () {
+            st[k] = st[k] || { st: "pend", nota: "" };
+            st[k].st = b.getAttribute("data-set");
+            save(); renderBar(); renderBody(); actDone("irl");
+          });
+        });
+        var ta = el.querySelector("textarea");
+        ta.addEventListener("input", function () {
+          st[k] = st[k] || { st: "pend", nota: "" };
+          st[k].nota = ta.value; save();
+        });
+      });
+    }
+
+    function generar(soloPend) {
+      var h = '<h3>' + (soloPend ? "Information Request List · documentación pendiente" : "Estado completo de la IRL") + '</h3>';
+      var total = 0;
+      IRL_AREAS.forEach(function (A) {
+        var lines = [];
+        A.items.forEach(function (it, i) {
+          var s = st[id(A.k, i)] || { st: "pend", nota: "" };
+          if (soloPend && s.st !== "pend") return;
+          var etq = soloPend ? "" : (s.st === "rec" ? " — <em>recibido</em>" : s.st === "na" ? " — <em>no aplica</em>" : " — <em>pendiente</em>");
+          lines.push("<li>" + it.t + etq + (s.nota ? ' <em>· ' + s.nota + '</em>' : '') + "</li>");
+        });
+        if (lines.length) {
+          total += lines.length;
+          h += '<div class="oarea"><h5>' + A.n + '</h5><ul>' + lines.join("") + '</ul></div>';
+        }
+      });
+      if (!total) h += '<p>No queda nada pendiente. Es momento de cerrar el informe de <em>due diligence</em> y llevar los hallazgos al contrato.</p>';
+      else if (soloPend) h += '<p class="note">' + total + ' puntos pendientes. Envíalo con un plazo concreto de respuesta y con el formato de entrega esperado (índice del data room, nomenclatura de archivos y versión).</p>';
+      out.innerHTML = h; out.classList.add("show");
+      out.scrollIntoView({ behavior: "smooth", block: "start" });
+      actDone("irl");
+    }
+    var b1 = box.querySelector("[data-irl-gen]"), b2 = box.querySelector("[data-irl-all]"), b3 = box.querySelector("[data-irl-print]"), b4 = box.querySelector("[data-irl-reset]");
+    if (b1) b1.addEventListener("click", function () { generar(true); });
+    if (b2) b2.addEventListener("click", function () { generar(false); });
+    if (b3) b3.addEventListener("click", function () { generar(true); setTimeout(function () { window.print(); }, 350); });
+    if (b4) b4.addEventListener("click", function () {
+      if (!confirm("¿Vaciar la IRL y empezar de cero?")) return;
+      st = {}; save(); out.classList.remove("show"); renderBar(); renderBody();
+    });
+    renderBar(); renderBody();
+  }
+
+  /* ---------- 4. Registro de hallazgos de due diligence ---------- */
+  function wireHallazgos() {
+    var box = document.querySelector(".ddbox");
+    if (!box) return;
+    var KEY = "dasar_dd_v1";
+    var arr = [];
+    try { arr = JSON.parse(localStorage.getItem(KEY) || "[]"); } catch (e) { arr = []; }
+    function save() { try { localStorage.setItem(KEY, JSON.stringify(arr)); } catch (e) {} }
+    var g = function (s) { return box.querySelector(s); };
+    var lista = g("[data-dd-list]"), resumen = g("[data-dd-sum]");
+    var SEV = { alta: "Crítico", media: "Relevante", baja: "Menor" };
+    var IMP = {
+      precio: "Ajuste de precio",
+      indem: "Indemnidad específica",
+      garantia: "Manifestación y garantía",
+      previa: "Condición previa al cierre",
+      escrow: "Retención en escrow",
+      nomat: "No material"
+    };
+    function render() {
+      var h = "";
+      if (!arr.length) h = '<p class="note">Todavía no has registrado hallazgos. Cada hallazgo debe acabar en una de estas cinco salidas: precio, indemnidad, garantía, condición previa o escrow. Si no acaba en ninguna, no es un hallazgo: es una observación.</p>';
+      arr.forEach(function (f, i) {
+        h += '<div class="finding ' + f.sev + '"><div class="fi-c"><div class="fi-t">' + f.area + ' · ' + f.desc + '</div>' +
+          '<div class="fi-d">' + SEV[f.sev] + ' · ' + IMP[f.imp] + (f.imp_e ? ' · impacto estimado ' + eurE(f.imp_e) : '') + '</div></div>' +
+          '<div class="fi-badges"><button class="btn btn-outline" style="padding:.25rem .6rem;font-size:.75rem" data-del="' + i + '">Quitar</button></div></div>';
+      });
+      lista.innerHTML = h;
+      lista.querySelectorAll("[data-del]").forEach(function (b) {
+        b.addEventListener("click", function () { arr.splice(parseInt(b.getAttribute("data-del"), 10), 1); save(); render(); });
+      });
+      // resumen
+      var nA = 0, nM = 0, nB = 0, totalE = 0, porImp = {};
+      arr.forEach(function (f) {
+        if (f.sev === "alta") nA++; else if (f.sev === "media") nM++; else nB++;
+        totalE += (f.imp_e || 0);
+        porImp[f.imp] = (porImp[f.imp] || 0) + (f.imp_e || 0);
+      });
+      if (!arr.length) { resumen.innerHTML = ""; return; }
+      var h2 = '<div class="money">' +
+        '<div class="m"><div class="k">Críticos</div><div class="v wine">' + nA + '</div></div>' +
+        '<div class="m"><div class="k">Relevantes / menores</div><div class="v">' + nM + ' / ' + nB + '</div></div>' +
+        '<div class="m"><div class="k">Impacto económico estimado</div><div class="v wine">' + eurE(totalE) + '</div></div>' +
+        '</div>';
+      h2 += '<table class="tbl"><thead><tr><th>Tratamiento en el contrato</th><th>Importe acumulado</th><th>Qué implica negociar</th></tr></thead><tbody>';
+      var expl = {
+        precio: "Se descuenta del precio: es la vía más limpia porque no depende de nadie después del cierre.",
+        indem: "Indemnidad específica del vendedor por ese riesgo concreto, sin franquicia y con plazo propio.",
+        garantia: "Manifestación y garantía en el contrato, con límite cuantitativo, franquicia y plazo de reclamación.",
+        previa: "Condición previa: no se firma hasta que esté resuelto. Se usa para lo que no admite dinero como remedio.",
+        escrow: "Parte del precio queda retenida en cuenta hasta que el riesgo prescriba o se resuelva.",
+        nomat: "Se documenta y se archiva, sin efecto en el contrato."
+      };
+      Object.keys(IMP).forEach(function (k) {
+        if (porImp[k] === undefined) return;
+        h2 += '<tr><td><strong>' + IMP[k] + '</strong></td><td>' + eurE(porImp[k]) + '</td><td>' + expl[k] + '</td></tr>';
+      });
+      h2 += '</tbody></table>';
+      if (nA > 0) h2 += '<div class="flag">Hay <strong>' + nA + ' hallazgo(s) crítico(s)</strong>. Los críticos no se negocian con una garantía genérica: exigen condición previa, indemnidad específica o replantear el perímetro. Si el vendedor no acepta ninguna de las tres, la respuesta correcta puede ser no cerrar.</div>';
+      var pFisc = arr.filter(function (f) { return /fiscal|laboral/i.test(f.area); }).length;
+      if (pFisc) h2 += '<div class="flag">Hallazgos fiscales o laborales detectados: recuerda que los plazos de reclamación en el contrato deben ir <strong>ligados a la prescripción</strong> (cuatro años en general, diez para comprobar bases y deducciones pendientes, art. 66 bis LGT) y que en las compras de activos o rama de actividad hay <strong>responsabilidad solidaria por sucesión de empresa</strong> (art. 42.1.c LGT), limitable con el certificado del art. 175.2.</div>';
+      resumen.innerHTML = h2;
+    }
+    var btn = g("[data-dd-add]");
+    if (btn) btn.addEventListener("click", function () {
+      var area = g("[data-dd-area]").value, desc = (g("[data-dd-desc]").value || "").trim();
+      if (!desc) { alert("Describe el hallazgo."); return; }
+      var v = parseFloat((g("[data-dd-imp]").value || "").replace(/[^0-9.]/g, ""));
+      arr.push({ area: area, desc: desc, sev: g("[data-dd-sev]").value, imp: g("[data-dd-trat]").value, imp_e: isNaN(v) ? 0 : v });
+      save(); g("[data-dd-desc]").value = ""; g("[data-dd-imp]").value = "";
+      render(); actDone("dd");
+    });
+    var bR = g("[data-dd-reset]");
+    if (bR) bR.addEventListener("click", function () { if (confirm("¿Vaciar el registro de hallazgos?")) { arr = []; save(); render(); } });
+    render();
+  }
+
   document.addEventListener("DOMContentLoaded", function () {
     buildSidebar();
     wireMenu();
@@ -1531,6 +2042,10 @@
     wireIsdCalc();
     wireIndirecta();
     wireCadena();
+    wireNeutralidad();
+    wireDeal();
+    wireIrl();
+    wireHallazgos();
     refreshTracker();
     refreshProgressUI();
   });

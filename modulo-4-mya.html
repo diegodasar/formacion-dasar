@@ -1,0 +1,636 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+<meta http-equiv="Pragma" content="no-cache">
+<meta http-equiv="Expires" content="0">
+<title>Módulo 4 · M&amp;A, due diligence e IRL · DASAR</title>
+<meta name="description" content="Módulo 4 DASAR (parte 2): proceso de M&A, share deal frente a asset deal, data room e IRL interactiva, due diligence y registro de hallazgos, estructura del precio con cash-in, cash-out, earn-out, escrow y leverage, financiación y debt push-down.">
+<link rel="icon" href="dasar-color.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Jost:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css?v=16">
+</head>
+<body data-current="mod4">
+
+<header class="topbar">
+  <button class="menu-toggle" aria-label="Menú"><span></span><span></span><span></span></button>
+  <a class="brand" href="index.html">
+    <img src="dasar-blanco.svg" alt="DASAR Gestión Patrimonial">
+    <span class="tag">Formación</span>
+  </a>
+  <span class="spacer"></span>
+  <div class="tprogress" title="Progreso del programa">
+    <span data-progress-text>0/7</span>
+    <span class="bar"><i data-progress-bar></i></span>
+  </div>
+  <a class="home-link" href="index.html">Inicio</a>
+</header>
+<div class="readprogress" aria-hidden="true"><i></i></div>
+
+<div class="layout">
+  <aside class="sidebar">
+    <div class="side-h">Módulos del programa</div>
+    <nav id="sidebar-list"></nav>
+  </aside>
+
+  <main class="content prose">
+
+    <div class="mod-head">
+      <div class="eyebrow">
+        <span class="mod-badge">Módulo 4 · Parte 2</span>
+        <span class="mod-meta">M&amp;A, due diligence e IRL</span>
+      </div>
+      <h1>Operaciones de M&amp;A: proceso, due diligence e IRL</h1>
+      <p class="lead">Cómo se compra y se vende una empresa, con el nivel de detalle con el que lo hacemos nosotros. Las fases y el calendario real, la elección entre <strong>share deal y asset deal</strong>, los documentos de la operación, el <strong>data room</strong> y la <strong>IRL</strong> —que aquí es una herramienta rellenable y exportable—, la <strong>due diligence completa</strong> y el registro de hallazgos, cómo se traduce un hallazgo en precio, garantía, indemnidad, condición previa o escrow, y la mecánica del precio: <strong>cash-in y cash-out, earn-out, escrow, vendor loan, roll-over, leverage y pay-out</strong>, con calculadora. Y la parte que casi nadie explica bien: la <strong>financiación de la compra</strong> y sus límites fiscales.</p>
+      <p style="color:var(--muted-2);font-size:.9rem">Nivel: máster / especialización · Parte 2 de 3 del Módulo 4 · Lectura estimada: 120–140 min</p>
+    </div>
+
+    <nav class="partnav" aria-label="Partes del Módulo 4">
+      <a class="p" href="modulo-4.html">← Parte 1 · Reestructuraciones</a>
+      <span class="p on">Parte 2 · M&amp;A, due diligence e IRL</span>
+      <a class="p" href="modulo-4-gobernanza.html">Parte 3 · Gobernanza e internacional →</a>
+    </nav>
+
+    <div class="callout"><div class="ic">✓</div><div class="ct"><h4>Metodología DASAR</h4><p>Esta parte es doctrina de casa: el proceso que seguimos, la IRL que enviamos y el modo en que convertimos hallazgos en cláusulas. Los datos fiscales están verificados en los textos consolidados de la <strong>Ley 27/2014</strong> (arts. 15, 16, 21, 67 y 83), la <strong>Ley 58/2003</strong> (arts. 42.1.c, 66, 66 bis y 175.2) y el <strong>RDL 5/2004</strong> del IRNR.</p></div></div>
+
+    <div class="toc">
+      <h4>En esta parte</h4>
+      <a href="#s1"><span class="tri"></span>4.13 · Anatomía de una operación</a>
+      <a href="#s2"><span class="tri"></span>4.14 · Share deal o asset deal</a>
+      <a href="#s3"><span class="tri"></span>4.15 · Los documentos de la operación</a>
+      <a href="#irl"><span class="tri"></span>4.16 · Data room e IRL (herramienta)</a>
+      <a href="#s4"><span class="tri"></span>4.17 · La due diligence completa</a>
+      <a href="#dd"><span class="tri"></span>Registro de hallazgos (herramienta)</a>
+      <a href="#s5"><span class="tri"></span>4.18 · Del hallazgo al contrato</a>
+      <a href="#s6"><span class="tri"></span>4.19 · El precio: EV, equity y ajustes</a>
+      <a href="#s7"><span class="tri"></span>4.20 · Cash-in, cash-out, earn-out y pay-out</a>
+      <a href="#calc"><span class="tri"></span>Calculadora de estructura del precio</a>
+      <a href="#s8"><span class="tri"></span>4.21 · Financiación y debt push-down</a>
+      <a href="#s9"><span class="tri"></span>4.22 · Fiscalidad del vendedor</a>
+      <a href="#s10"><span class="tri"></span>4.23 · Cierre, interino y post-closing</a>
+      <a href="#casos"><span class="tri"></span>Casos prácticos</a>
+      <a href="#quiz"><span class="tri"></span>Autoevaluación</a>
+    </div>
+
+    <hr class="divider">
+
+    <!-- 4.13 -->
+    <section id="s1" class="reveal">
+      <span class="kicker">4.13 · El proceso</span>
+      <h2>Anatomía de una operación: de la idea a la integración</h2>
+      <p>Una operación de compraventa de empresa bien llevada dura entre <strong>cuatro y nueve meses</strong>. Las que se hacen en seis semanas no se hacen: se improvisan, y el precio del atajo se paga en los dos años siguientes.</p>
+      <div class="timeline">
+        <div class="tlstep"><div class="tl-w">Fase 0 · Preparación</div><div class="tl-t">Ordenar la casa antes de abrir la puerta</div><div class="tl-d">Sacar del balance lo que no forma parte del negocio, regularizar contratos con partes vinculadas, poner al día actas y libros, cerrar contingencias conocidas y normalizar el EBITDA. Si vendemos, aquí se gana la mayor parte del precio. Si compramos, aquí se detecta lo que el vendedor no ha ordenado.</div></div>
+        <div class="tlstep"><div class="tl-w">Fase 1 · Valoración y mandato</div><div class="tl-t">Rango de valor y estrategia</div><div class="tl-d">Múltiplos de EBITDA comparables, descuento de flujos como contraste, valor de los activos no operativos. Se define el perímetro (qué se vende y qué no) y el tipo de proceso: bilateral, restringido o competitivo.</div></div>
+        <div class="tlstep"><div class="tl-w">Fase 2 · Aproximación al mercado</div><div class="tl-t">Teaser, NDA e Info Memo</div><div class="tl-d">Teaser ciego para despertar interés; acuerdo de confidencialidad antes de dar cualquier dato; cuaderno de venta con la información que sostiene el precio. El orden nunca se invierte.</div></div>
+        <div class="tlstep"><div class="tl-w">Fase 3 · Ofertas indicativas</div><div class="tl-t">LOI o term sheet</div><div class="tl-d">Precio orientativo, estructura, condiciones, plazos, exclusividad y qué partes son vinculantes. Aquí se negocia el 80 % de lo que después será el contrato: quien firma una LOI floja negocia el resto cuesta arriba.</div></div>
+        <div class="tlstep"><div class="tl-w">Fase 4 · Due diligence</div><div class="tl-t">Data room, IRL y Q&amp;A</div><div class="tl-d">Cuatro a ocho semanas. Se abre el data room, se envía la IRL, se abren los frentes (financiero, fiscal, laboral, legal, comercial, técnico) y se lleva un registro de preguntas y respuestas con trazabilidad. Todo hallazgo se documenta con su fuente.</div></div>
+        <div class="tlstep"><div class="tl-w">Fase 5 · Negociación del contrato</div><div class="tl-t">SPA, manifestaciones y garantías</div><div class="tl-d">Los hallazgos se convierten en ajuste de precio, indemnidades, garantías con límites y plazos, condiciones previas y escrow. En paralelo se negocia el pacto de socios si el vendedor se queda dentro.</div></div>
+        <div class="tlstep"><div class="tl-w">Fase 6 · Cierre</div><div class="tl-t">Condiciones previas y firma</div><div class="tl-d">Autorizaciones, levantamiento de cargas, novación de financiación, consentimientos de terceros por cambio de control. Se firma, se paga y se entregan libros, poderes y accesos.</div></div>
+        <div class="tlstep"><div class="tl-w">Fase 7 · Post-closing</div><div class="tl-t">Ajustes, integración y earn-out</div><div class="tl-d">Cuentas de cierre o verificación del locked box, integración operativa, cumplimiento del plan que soporta el earn-out y seguimiento de las garantías hasta que prescriben.</div></div>
+      </div>
+      <div class="flag">Dónde aporta valor un consultor patrimonial y no sólo un banquero de inversión: en la <strong>Fase 0</strong> y en la <strong>Fase 7</strong>. En la primera, porque el precio se construye ordenando el patrimonio con años de antelación. En la última, porque después de cobrar hay que decidir dónde va el dinero, y esa decisión vale tanto como la venta.</div>
+    </section>
+
+    <hr class="divider">
+
+    <!-- 4.14 -->
+    <section id="s2" class="reveal">
+      <span class="kicker">4.14 · La decisión estructural</span>
+      <h2>Share deal o asset deal</h2>
+      <p>Comprar participaciones o comprar el negocio. La diferencia no es formal: cambia quién asume el pasado, cuánto se paga de impuestos indirectos y qué queda dentro.</p>
+      <table class="tbl">
+        <thead><tr><th>Cuestión</th><th>Share deal (compra de participaciones)</th><th>Asset deal (compra de activos o de rama)</th></tr></thead>
+        <tbody>
+          <tr><td><strong>Qué se adquiere</strong></td><td>La sociedad entera, con todo su pasado conocido y desconocido</td><td>Sólo lo que se enumera en el contrato. El perímetro se elige</td></tr>
+          <tr><td><strong>Contingencias fiscales y laborales</strong></td><td>Se heredan íntegras: viven en la sociedad</td><td>No se heredan como regla… pero cuidado con la sucesión de empresa</td></tr>
+          <tr><td><strong>Responsabilidad tributaria</strong></td><td>La de la propia sociedad</td><td><strong>Responsabilidad solidaria</strong> del adquirente que sucede «en la titularidad o ejercicio de explotaciones o actividades económicas», por las obligaciones del anterior titular derivadas de su ejercicio, incluidas las retenciones (art. 42.1.c LGT). Se limita con el <strong>certificado del art. 175.2</strong></td></tr>
+          <tr><td><strong>Sucesión laboral</strong></td><td>No hay cambio de empleador</td><td>Sucesión de empresa: la plantilla y sus derechos pasan al adquirente</td></tr>
+          <tr><td><strong>Imposición indirecta</strong></td><td>Transmisión de valores <strong>exenta</strong> de IVA e ITPAJD, salvo la norma antielusiva del art. 338 de la Ley 6/2023 cuando el activo es mayoritariamente inmobiliario y no afecto</td><td>Si es una <strong>unidad económica autónoma</strong>, no sujeta a IVA (art. 7.1.º LIVA), pero los inmuebles incluidos quedan sujetos a TPO (art. 7.5 TRLITPAJD). Si son activos aislados, cada uno con su régimen</td></tr>
+          <tr><td><strong>Plusvalía municipal</strong></td><td>No se devenga: el inmueble no cambia de titular</td><td>Se devenga si hay inmuebles</td></tr>
+          <tr><td><strong>Bases negativas y créditos fiscales</strong></td><td>Se quedan en la sociedad y pueden aprovecharse, con límites</td><td>No se transmiten, salvo el supuesto del art. 84.2 LIS en operaciones de reestructuración</td></tr>
+          <tr><td><strong>Precio y financiación</strong></td><td>Suele ser más barato en costes de transmisión y más fácil de apalancar</td><td>Permite <em>step-up</em> de valores en el comprador (amortiza sobre precio pagado), lo que a veces compensa el coste indirecto</td></tr>
+          <tr><td><strong>Quién lo prefiere</strong></td><td>El <strong>vendedor</strong>: se va limpio y tributa una sola vez</td><td>El <strong>comprador</strong>: elige qué compra y evita el pasado</td></tr>
+        </tbody>
+      </table>
+      <div class="warnbox"><div class="ic">!</div><p><strong>El certificado del art. 175.2 LGT</strong> es una de esas herramientas que cambian el resultado de una operación y casi nadie pide. El adquirente puede solicitar, <strong>previa conformidad del titular actual</strong>, «certificación detallada de las deudas, sanciones y responsabilidades tributarias derivadas de su ejercicio». La Administración debe expedirla en <strong>tres meses</strong>. Si la expide sin mencionar deudas, o <strong>no la expide en plazo</strong>, el solicitante <strong>queda exento</strong> de esa responsabilidad. Y si no se solicita, la responsabilidad alcanza también a las sanciones.</p></div>
+    </section>
+
+    <hr class="divider">
+
+    <!-- 4.15 -->
+    <section id="s3" class="reveal">
+      <span class="kicker">4.15 · Documentos</span>
+      <h2>Los documentos de la operación y para qué sirve cada uno</h2>
+      <table class="tbl">
+        <thead><tr><th>Documento</th><th>Función</th><th>Lo que se negocia de verdad</th></tr></thead>
+        <tbody>
+          <tr><td><strong>NDA</strong> (confidencialidad)</td><td>Proteger la información antes de entregarla</td><td>Duración, definición de información confidencial, prohibición de captación de empleados y clientes, devolución o destrucción, y foro. Firmarlo <strong>antes</strong> del Info Memo, sin excepciones</td></tr>
+          <tr><td><strong>Teaser</strong></td><td>Despertar interés sin identificar a la compañía</td><td>Sector, tamaño, magnitudes clave y razón de la venta. Una página</td></tr>
+          <tr><td><strong>Info Memo</strong> (cuaderno de venta)</td><td>Contar el negocio y sostener el precio</td><td>Historia, mercado, clientes, equipo, magnitudes normalizadas y plan de negocio. Todo lo que se afirme aquí se comprobará en la due diligence: <strong>no se exagera nunca</strong></td></tr>
+          <tr><td><strong>LOI / term sheet</strong></td><td>Fijar el marco antes de gastar en asesores</td><td>Precio o rango, estructura (cash-in/cash-out), tratamiento de la deuda y del working capital, exclusividad y plazo, calendario, condiciones, qué cláusulas son <strong>vinculantes</strong> (confidencialidad, exclusividad, gastos y ley aplicable) y qué no</td></tr>
+          <tr><td><strong>Exclusividad</strong></td><td>Dar seguridad al comprador que va a invertir en due diligence</td><td>Plazo (6–10 semanas), consecuencias del incumplimiento y si cubre conversaciones ya iniciadas</td></tr>
+          <tr><td><strong>SPA</strong> (contrato de compraventa)</td><td>Cerrar la operación y repartir riesgos</td><td>Precio y mecanismo de ajuste, manifestaciones y garantías, límites (<em>de minimis</em>, franquicia y cap), plazos de reclamación, indemnidades específicas, condiciones previas, obligaciones del período interino, no competencia y no captación, y régimen de la información revelada (<em>disclosure</em>)</td></tr>
+          <tr><td><strong>Pacto de socios</strong></td><td>Regular la convivencia si el vendedor se queda</td><td>Gobierno, mayorías reforzadas, salida, arrastre y acompañamiento, valoración futura. Se trabaja en la Parte 3</td></tr>
+          <tr><td><strong>Contratos accesorios</strong></td><td>Que el negocio siga funcionando</td><td>Contrato de arrendamiento si el inmueble se queda fuera, contratos de transición del vendedor, permanencia de directivos, novación de la financiación</td></tr>
+        </tbody>
+      </table>
+      <div class="flag">Regla de oro del <em>disclosure</em>: lo que el vendedor <strong>revela y queda documentado</strong> en el data room normalmente deja de ser reclamable como incumplimiento de garantía. Por eso el vendedor quiere revelar mucho y el comprador quiere pactar que la revelación general no exonera. Esa discusión, aparentemente técnica, mueve más dinero que medio punto de precio.</div>
+    </section>
+
+    <hr class="divider">
+
+    <!-- 4.16 IRL -->
+    <section id="irl" class="reveal">
+      <span class="kicker">4.16 · Herramienta</span>
+      <h2>Data room e IRL: la lista con la que se pide todo</h2>
+      <p>La <strong>IRL</strong> (<em>Information Request List</em>) es la petición estructurada de documentación con la que arranca la due diligence. Bien hecha, ahorra semanas: mal hecha, genera cien correos y ninguna conclusión. Cuatro reglas: <strong>1)</strong> se pide por áreas y con un responsable por área; <strong>2)</strong> cada punto se formula de manera que la respuesta sea un documento, no una opinión; <strong>3)</strong> se fija <strong>plazo</strong> y <strong>nomenclatura</strong> de archivos; <strong>4)</strong> todo lo recibido se registra con fecha y versión, y las preguntas van a un <strong>Q&amp;A log</strong> numerado.</p>
+      <p>Esta es nuestra IRL de trabajo. Marca cada punto como <strong>pendiente, recibido o no aplica</strong>, anota la referencia o el hallazgo, y genera la lista de lo que falta para enviarla o imprimirla. Se guarda en tu navegador, así que puedes volver a ella entre sesiones.</p>
+
+      <div class="irl">
+        <div class="irl-head"><span class="tri"></span><h3>IRL · Information Request List</h3><span class="irl-meta">Se guarda en este navegador</span></div>
+        <div class="irl-bar" data-irl-bar></div>
+        <div class="irl-body">
+          <div class="irl-progress"><span data-irl-ptxt>0 de 0 puntos resueltos</span><span class="pb"><i data-irl-pb></i></span></div>
+          <div data-irl-body></div>
+        </div>
+        <div class="irl-actions">
+          <button class="btn btn-primary" data-irl-gen>Generar lista de pendientes</button>
+          <button class="btn btn-outline" data-irl-all>Ver estado completo</button>
+          <button class="btn btn-outline" data-irl-print>Imprimir o guardar en PDF</button>
+          <button class="btn btn-ghost" data-irl-reset>Vaciar</button>
+        </div>
+        <div class="irlout"></div>
+      </div>
+
+      <div class="caso svc" data-act="dataroom">
+        <div class="caso-h"><div class="ci">+</div><div class="cti"><div class="cl">Ampliar · cómo se monta un data room que no da problemas</div><h4>Estructura, nomenclatura y control de versiones</h4><p>Y los cinco errores que retrasan una operación un mes.</p></div><div class="chev">▾</div></div>
+        <div class="caso-body"><div class="caso-inner">
+          <div class="plano"><h5>Estructura por carpetas numeradas</h5><p>Una carpeta por área de la IRL, con el mismo número y el mismo nombre. Dentro, subcarpetas por año o por contrato. El índice del data room debe poder leerse en paralelo a la IRL: si no coinciden, cada pregunta cuesta el doble.</p></div>
+          <div class="plano"><h5>Nomenclatura</h5><p><em>Área_Concepto_Fecha_Versión</em>. Por ejemplo: <em>03_Fiscal_IS_2024_v1.pdf</em>. Sin tildes, sin espacios y sin nombres como "definitivo_bueno_2".</p></div>
+          <div class="plano"><h5>Control de accesos y trazabilidad</h5><p>Permisos por usuario y por carpeta, marca de agua, registro de descargas y desactivación al cierre. En procesos competitivos, cada candidato ve su propia sala.</p></div>
+          <div class="plano"><h5>Q&amp;A log</h5><p>Preguntas numeradas, con área, fecha, responsable y respuesta con enlace al documento. Es la prueba de qué se preguntó y qué se contestó: en una discusión posterior sobre <em>disclosure</em>, ese registro decide.</p></div>
+          <div class="plano"><h5>Los cinco errores clásicos</h5><p><strong>1)</strong> Volcar 4.000 archivos sin índice. <strong>2)</strong> Subir documentos escaneados ilegibles o sin firmar. <strong>3)</strong> Cambiar archivos sin versionar, de modo que nadie sabe qué vio el comprador. <strong>4)</strong> Contestar por correo fuera del Q&amp;A. <strong>5)</strong> No incluir lo malo: cuando aparece en la semana seis, cuesta precio y, sobre todo, confianza.</p></div>
+        </div></div>
+      </div>
+    </section>
+
+    <hr class="divider">
+
+    <!-- 4.17 -->
+    <section id="s4" class="reveal">
+      <span class="kicker">4.17 · Due diligence</span>
+      <h2>La due diligence completa: alcance, materialidad y método</h2>
+      <table class="tbl">
+        <thead><tr><th>Tipo</th><th>Cuándo se usa</th><th>Qué entrega</th></tr></thead>
+        <tbody>
+          <tr><td><strong>Full DD</strong></td><td>Compras relevantes, sector regulado, operaciones apalancadas donde el banco la exige</td><td>Informe completo por áreas con hallazgos, cuantificación y recomendaciones contractuales</td></tr>
+          <tr><td><strong>Red flag DD</strong></td><td>Fases tempranas o presupuesto limitado: se buscan sólo los <em>deal breakers</em></td><td>Informe corto de riesgos críticos. Sirve para decidir si se sigue, no para negociar el contrato</td></tr>
+          <tr><td><strong>Vendor DD</strong></td><td>La encarga el vendedor antes de abrir el proceso</td><td>Control del relato, detección temprana de problemas y menos descuentos sorpresa. En procesos competitivos, acelera mucho</td></tr>
+          <tr><td><strong>DD confirmatoria</strong></td><td>Tras la oferta firme, para verificar lo esencial</td><td>Verificación de un número reducido de puntos críticos</td></tr>
+        </tbody>
+      </table>
+      <h3>Las áreas que revisamos y qué se busca en cada una</h3>
+      <table class="tbl">
+        <thead><tr><th>Área</th><th>La pregunta de fondo</th><th>Hallazgo típico</th></tr></thead>
+        <tbody>
+          <tr><td>Financiero-contable</td><td>¿El EBITDA es real y recurrente?</td><td>Gastos personales en la sociedad, ingresos no recurrentes, existencias sobrevaloradas, deuda oculta en confirming</td></tr>
+          <tr><td>Fiscal</td><td>¿Qué puede reclamar la Administración en los años no prescritos?</td><td>Retribuciones de socios sin soporte, operaciones vinculadas sin documentar, deducciones sin informe motivado, prorrata mal aplicada</td></tr>
+          <tr><td>Laboral</td><td>¿Cuánto cuesta la plantilla de verdad y qué pasa el día del cambio de control?</td><td>Falsos autónomos, indefinidos encubiertos, cláusulas de blindaje, falta de plan de igualdad o de registro salarial</td></tr>
+          <tr><td>Legal y societario</td><td>¿Quién es el dueño y qué le limita?</td><td>Titularidad mal documentada, pactos de socios olvidados, cuentas sin depositar, poderes vivos de personas que ya no están</td></tr>
+          <tr><td>Comercial</td><td>¿La facturación depende de una firma?</td><td>Concentración de clientes, cláusulas de cambio de control, indemnizaciones por clientela en contratos de agencia</td></tr>
+          <tr><td>Inmobiliaria y activos</td><td>¿Se puede usar lo que se compra?</td><td>Licencias inexistentes, obras sin legalizar, arrendamientos con vencimiento próximo, cargas no canceladas</td></tr>
+          <tr><td>IT, datos y propiedad intelectual</td><td>¿La compañía es dueña de lo que la hace valiosa?</td><td>Marcas a nombre del socio, software sin cesión de derechos, incumplimientos de RGPD, incidentes no notificados</td></tr>
+          <tr><td>Compliance y penal</td><td>¿Hay riesgo de responsabilidad de la persona jurídica?</td><td>Modelo de prevención inexistente o de plantilla, canal de denuncias sin implantar, pagos opacos</td></tr>
+          <tr><td>Medioambiental</td><td>¿Se transmite un pasivo ambiental?</td><td>Autorizaciones caducadas, gestión de residuos sin trazabilidad, suelos afectados</td></tr>
+        </tbody>
+      </table>
+      <div class="grid grid-3">
+        <div class="card"><h4>Materialidad</h4><p>Se fija <strong>antes</strong> de empezar, en función del precio y del EBITDA (por ejemplo, 1 % del valor). Por debajo se documenta pero no se eleva al informe: si todo es importante, nada lo es.</p></div>
+        <div class="card"><h4>Cómo se escribe un hallazgo</h4><p>Cuatro elementos y ninguno más: <strong>hecho</strong> comprobado y su fuente; <strong>norma o contrato</strong> aplicable; <strong>cuantificación</strong> o rango; <strong>recomendación</strong> contractual. Sin adjetivos.</p></div>
+        <div class="card"><h4>Los plazos importan</h4><p>La prescripción tributaria general es de <strong>cuatro años</strong> (art. 66 LGT), pero el derecho a comprobar <strong>bases o deducciones pendientes</strong> prescribe a los <strong>diez</strong> (art. 66 bis). Los plazos de garantía del contrato se ajustan a esa realidad, no a un número redondo.</p></div>
+      </div>
+    </section>
+
+    <hr class="divider">
+
+    <!-- REGISTRO DD -->
+    <section id="dd" class="reveal">
+      <span class="kicker">Herramienta</span>
+      <h2>Registro de hallazgos de due diligence</h2>
+      <p>Cada hallazgo debe terminar en una de estas cinco salidas: <strong>ajuste de precio, indemnidad específica, manifestación y garantía, condición previa o retención en escrow</strong>. Regístralos aquí con su severidad y su impacto estimado; la herramienta agrupa el efecto económico por tratamiento contractual y te dice qué toca negociar.</p>
+      <div class="dform ddbox">
+        <div class="df-head"><span class="tri"></span><h3>Hallazgos y su tratamiento en el contrato</h3><span class="df-meta">Se guarda en este navegador</span></div>
+        <div class="df-body">
+          <div class="calc-grid" style="padding:0">
+            <div class="fld"><label for="dd-area">Área</label>
+              <select id="dd-area" data-dd-area>
+                <option>Financiero-contable</option><option>Fiscal</option><option>Laboral</option>
+                <option>Legal y societario</option><option>Comercial</option><option>Inmobiliaria</option>
+                <option>IT, datos y PI</option><option>Compliance y penal</option><option>Medioambiental</option>
+              </select>
+            </div>
+            <div class="fld"><label for="dd-sev">Severidad</label>
+              <select id="dd-sev" data-dd-sev>
+                <option value="alta">Crítico (deal breaker potencial)</option>
+                <option value="media">Relevante</option>
+                <option value="baja">Menor</option>
+              </select>
+            </div>
+          </div>
+          <div class="calc-grid" style="padding:0">
+            <div class="fld" style="grid-column:1/-1"><label for="dd-desc">Hallazgo</label><small>Hecho comprobado, no impresión. Añade la fuente si la tienes.</small><input id="dd-desc" data-dd-desc type="text" placeholder="p. ej. Retribución del administrador sin acuerdo de junta desde 2022"></div>
+          </div>
+          <div class="calc-grid" style="padding:0">
+            <div class="fld"><label for="dd-trat">Tratamiento propuesto</label>
+              <select id="dd-trat" data-dd-trat>
+                <option value="precio">Ajuste de precio</option>
+                <option value="indem">Indemnidad específica</option>
+                <option value="garantia">Manifestación y garantía</option>
+                <option value="previa">Condición previa al cierre</option>
+                <option value="escrow">Retención en escrow</option>
+                <option value="nomat">No material</option>
+              </select>
+            </div>
+            <div class="fld"><label for="dd-imp">Impacto estimado (€)</label><input id="dd-imp" data-dd-imp type="number" min="0" step="1000" placeholder="p. ej. 45000"></div>
+          </div>
+          <div style="display:flex;gap:.6rem;flex-wrap:wrap;margin-top:.8rem">
+            <button class="btn btn-primary" data-dd-add>Añadir hallazgo</button>
+            <button class="btn btn-ghost" data-dd-reset>Vaciar registro</button>
+          </div>
+          <div style="margin-top:1.1rem" data-dd-list></div>
+          <div style="margin-top:.6rem" data-dd-sum></div>
+        </div>
+      </div>
+    </section>
+
+    <hr class="divider">
+
+    <!-- 4.18 -->
+    <section id="s5" class="reveal">
+      <span class="kicker">4.18 · Traducción</span>
+      <h2>Del hallazgo al contrato: las cinco salidas</h2>
+      <table class="tbl">
+        <thead><tr><th>Salida</th><th>Cuándo se usa</th><th>Cómo se negocia</th></tr></thead>
+        <tbody>
+          <tr><td><strong>Ajuste de precio</strong></td><td>Riesgo cierto y cuantificable: una deuda que existe, un activo que vale menos</td><td>La vía más limpia: se descuenta y se olvida. No depende de nadie después del cierre</td></tr>
+          <tr><td><strong>Indemnidad específica</strong></td><td>Riesgo identificado pero incierto en importe o en fecha: una inspección abierta, un litigio en curso</td><td>Sin franquicia, con plazo propio ligado a la prescripción del riesgo y, si es grande, respaldada con escrow</td></tr>
+          <tr><td><strong>Manifestación y garantía</strong></td><td>Riesgos no detectados: es la red de seguridad general</td><td>Aquí se juega el dinero: <em>de minimis</em> (importe mínimo por reclamación), <strong>franquicia</strong> (umbral agregado), <strong>cap</strong> (límite total, habitual entre el 10 % y el 30 % del precio; en fiscal y laboral suele ser mayor), plazos (12–24 meses en general; en fiscal, ligados a la prescripción) y régimen del <em>disclosure</em></td></tr>
+          <tr><td><strong>Condición previa</strong></td><td>Lo que no admite dinero como remedio: una licencia que falta, una carga que hay que levantar, un consentimiento por cambio de control</td><td>No se firma hasta que está resuelto. Conviene fijar plazo máximo y consecuencias si no se cumple</td></tr>
+          <tr><td><strong>Escrow</strong></td><td>Cuando el vendedor puede desaparecer o el riesgo tarda años en cerrarse</td><td>Parte del precio en cuenta bloqueada, con reglas claras de liberación por tramos y de resolución de discrepancias</td></tr>
+        </tbody>
+      </table>
+      <div class="flag">Cómo se negocia esto en la práctica: el comprador quiere <strong>cap alto, plazos largos y disclosure restringido</strong>; el vendedor quiere <strong>cap bajo, plazos cortos y disclosure amplio</strong>. Y hay una pieza que resuelve muchos bloqueos: el <strong>seguro de manifestaciones y garantías</strong> (W&amp;I), que traslada el riesgo a una aseguradora y permite al vendedor irse limpio. Encarece la operación pero desbloquea negociaciones que parecían muertas.</div>
+      <p class="libnote">Y no olvides las <strong>indemnidades cruzadas por sucesión de empresa</strong> en un asset deal: aunque el contrato reparta el riesgo entre las partes, frente a la Administración la responsabilidad del art. 42.1.c) LGT es <strong>solidaria</strong>. El contrato regula quién paga al final; no evita que te reclamen a ti primero. Por eso se pide el certificado del art. 175.2 <strong>antes</strong> de firmar, no después.</p>
+    </section>
+
+    <hr class="divider">
+
+    <!-- 4.19 -->
+    <section id="s6" class="reveal">
+      <span class="kicker">4.19 · Precio</span>
+      <h2>Del EBITDA al dinero: cómo se construye un precio</h2>
+      <table class="tbl">
+        <thead><tr><th>Concepto</th><th>Qué es</th><th>Dónde está la discusión</th></tr></thead>
+        <tbody>
+          <tr><td><strong>EBITDA normalizado</strong></td><td>Resultado operativo recurrente, ajustado de partidas no recurrentes y de gastos que no seguirán existiendo</td><td>Retribución de mercado del socio que gestiona, alquileres a partes vinculadas, gastos personales, ingresos extraordinarios. Cada ajuste multiplica por el múltiplo: un ajuste de 50.000 € a 6x son 300.000 € de precio</td></tr>
+          <tr><td><strong>Múltiplo</strong></td><td>Veces EBITDA que el mercado paga por ese tipo de negocio</td><td>Comparables, tamaño, concentración de clientes, dependencia del fundador y crecimiento. La dependencia del dueño es el mayor destructor de múltiplo en empresa familiar</td></tr>
+          <tr><td><strong>Enterprise value (EV)</strong></td><td>EBITDA × múltiplo: valor del negocio con independencia de cómo esté financiado</td><td>Es el número del que se habla en la LOI</td></tr>
+          <tr><td><strong>Deuda financiera neta</strong></td><td>Deuda con coste menos tesorería disponible</td><td><em>Qué es deuda</em>: leasing, confirming, deuda con socios, dividendos aprobados y no pagados, provisiones para litigios… El vendedor querrá que no lo sean</td></tr>
+          <tr><td><strong>Equity value</strong></td><td>EV − deuda neta: lo que se paga por las participaciones</td><td>Es el número que acaba en la cuenta del vendedor</td></tr>
+          <tr><td><strong>Working capital normativo</strong></td><td>Circulante que el negocio necesita para operar</td><td>Se pacta un nivel de referencia y se ajusta el precio por la diferencia al cierre. Si el vendedor deja la caja seca y los proveedores tensos, el ajuste lo devuelve</td></tr>
+          <tr><td><strong>Locked box</strong></td><td>Se fija el precio sobre un balance cerrado y auditado a una fecha pasada; el riesgo y el beneficio pasan al comprador desde esa fecha</td><td>Rápido y sin discusión posterior, pero exige balance fiable y cláusulas <em>anti-leakage</em> que impidan que el vendedor extraiga valor entre esa fecha y el cierre</td></tr>
+          <tr><td><strong>Completion accounts</strong></td><td>Se cierran cuentas a la fecha de cierre y se ajusta el precio después</td><td>Más justo en teoría, más conflictivo en la práctica: tres meses de discusión sobre criterios contables</td></tr>
+        </tbody>
+      </table>
+      <div class="flag">Traducción para el cliente: <strong>«te ofrecen 6 veces EBITDA» no es «vas a cobrar 6 veces EBITDA»</strong>. De ahí se resta la deuda neta, se ajusta el circulante, se retiene un escrow y una parte puede quedar en earn-out. Poner ese recorrido por escrito el primer día evita la conversación más incómoda del proceso.</div>
+    </section>
+
+    <hr class="divider">
+
+    <!-- 4.20 -->
+    <section id="s7" class="reveal">
+      <span class="kicker">4.20 · Estructura del pago</span>
+      <h2>Cash-in, cash-out, earn-out, escrow, vendor loan y leverage</h2>
+      <table class="tbl">
+        <thead><tr><th>Concepto</th><th>Qué significa</th><th>Consecuencia patrimonial y fiscal</th></tr></thead>
+        <tbody>
+          <tr><td><strong>Cash-out</strong></td><td>El comprador paga al <strong>vendedor</strong> por sus participaciones. El dinero sale de la operación hacia el patrimonio personal</td><td>Es transmisión: genera ganancia patrimonial en el vendedor. Es lo que de verdad "cobra"</td></tr>
+          <tr><td><strong>Cash-in</strong></td><td>El dinero entra en la <strong>caja de la compañía</strong> mediante ampliación de capital, para financiar el crecimiento</td><td>El vendedor <strong>no cobra</strong>: se diluye. No hay ganancia patrimonial por esa parte. Muy típico de fondos y de operaciones de crecimiento</td></tr>
+          <tr><td><strong>Pay-out</strong></td><td>Reparto de dividendos o de reservas antes del cierre, para que el vendedor extraiga caja excedentaria que no se quiere pagar vía precio</td><td>Tributa como <strong>dividendo</strong> (base del ahorro en IRPF; con exención del art. 21 si el socio es sociedad), no como ganancia. Cambia el resultado neto y hay que compararlo con cobrarlo como precio. Y baja la deuda neta… o la caja disponible</td></tr>
+          <tr><td><strong>Earn-out</strong></td><td>Parte del precio queda condicionada a resultados futuros (EBITDA, facturación, contratos firmados)</td><td>Reparte el riesgo de la valoración. Exige definir la métrica con precisión quirúrgica, la gobernanza del período y qué pasa si el comprador cambia la gestión. Es la cláusula que más litigios genera</td></tr>
+          <tr><td><strong>Escrow</strong></td><td>Retención de una parte del precio en cuenta bloqueada como garantía</td><td>Suele ser el 5 %–15 % del precio, liberado por tramos. Se cobra o no se cobra: hay que preverlo en la planificación de tesorería del vendedor</td></tr>
+          <tr><td><strong>Vendor loan</strong></td><td>El propio vendedor financia parte del precio: cobra a plazos con intereses</td><td>Permite cerrar cuando falta financiación bancaria, pero convierte al vendedor en acreedor subordinado del comprador. Exige garantías y prelación clara</td></tr>
+          <tr><td><strong>Roll-over</strong></td><td>El vendedor reinvierte parte de su precio en el capital del vehículo comprador y sigue como socio minoritario</td><td>Alinea intereses y permite una <strong>segunda venta</strong> futura, a veces más rentable que la primera. Puede articularse con neutralidad fiscal si encaja en un canje o aportación (Parte 1)</td></tr>
+          <tr><td><strong>Leverage</strong></td><td>Deuda con la que el comprador financia la adquisición</td><td>Multiplica su rentabilidad… y activa límites fiscales: <strong>si la deuda supera el 70 % del precio</strong>, entran en juego los arts. 16.5, 83 y 67.b) LIS</td></tr>
+          <tr><td><strong>MBO / MBI</strong></td><td>Compra por el equipo directivo (interno o externo), normalmente apalancada</td><td>Solución habitual de sucesión cuando no hay relevo familiar. Requiere paquete de incentivos y pacto de socios desde el primer día</td></tr>
+        </tbody>
+      </table>
+      <div class="warnbox"><div class="ic">!</div><p><strong>El malentendido más caro de una negociación:</strong> un comprador ofrece «5 millones» y el vendedor entiende 5 millones en su cuenta. En realidad puede ser: 1,5 M€ de cash-in (no lo cobra), 3,5 M€ de cash-out, de los cuales 500.000 € en escrow a dos años y 700.000 € en earn-out a tres. Cobro al cierre: <strong>2,3 M€</strong>. Y sobre esa cifra, impuestos. Esa tabla se hace el primer día.</p></div>
+    </section>
+
+    <hr class="divider">
+
+    <!-- CALCULADORA -->
+    <section id="calc" class="reveal">
+      <span class="kicker">Calculadora interactiva</span>
+      <h2>Estructura del precio y neto para el vendedor</h2>
+      <p>Introduce las magnitudes de la operación y la calculadora desglosa EV, equity value, reparto entre cash-in y cash-out, deuda de adquisición, cobro al cierre y diferido, impuesto del vendedor y neto real. Además avisa del apalancamiento y del <em>puerto seguro</em> del 70 %.</p>
+      <div class="calc rcalc deal">
+        <div class="calc-head"><span class="tri"></span><h3>Simulador de operación</h3></div>
+        <div class="calc-grid">
+          <div class="fld"><label for="d-ebitda">EBITDA normalizado (€)</label><input id="d-ebitda" data-d-ebitda type="number" min="0" step="10000" placeholder="p. ej. 1000000"></div>
+          <div class="fld"><label for="d-mult">Múltiplo (veces EBITDA)</label><input id="d-mult" data-d-mult type="number" min="0" step="0.5" placeholder="p. ej. 6"></div>
+        </div>
+        <div class="calc-grid" style="padding-top:0">
+          <div class="fld"><label for="d-deuda">Deuda financiera neta (€)</label><small>Deuda con coste menos tesorería.</small><input id="d-deuda" data-d-deuda type="number" step="10000" placeholder="p. ej. 1500000"></div>
+          <div class="fld"><label for="d-pct">Porcentaje que se transmite (%)</label><input id="d-pct" data-d-pct type="number" min="0" max="100" step="5" placeholder="p. ej. 100"></div>
+        </div>
+        <div class="calc-grid" style="padding-top:0">
+          <div class="fld"><label for="d-cashin">Del precio, cash-in (%)</label><small>Parte que entra en la compañía vía ampliación.</small><input id="d-cashin" data-d-cashin type="number" min="0" max="100" step="5" placeholder="p. ej. 0"></div>
+          <div class="fld"><label for="d-lev">Deuda de adquisición sobre el cash-out (%)</label><input id="d-lev" data-d-lev type="number" min="0" max="100" step="5" placeholder="p. ej. 60"></div>
+        </div>
+        <div class="calc-grid" style="padding-top:0">
+          <div class="fld"><label for="d-earn">Earn-out (% del cash-out)</label><input id="d-earn" data-d-earn type="number" min="0" max="100" step="5" placeholder="p. ej. 15"></div>
+          <div class="fld"><label for="d-escrow">Escrow (% del cash-out)</label><input id="d-escrow" data-d-escrow type="number" min="0" max="100" step="5" placeholder="p. ej. 10"></div>
+        </div>
+        <div class="calc-grid" style="padding-top:0">
+          <div class="fld"><label for="d-vadq">Valor de adquisición del 100 % de las participaciones (€)</label><small>Lo que costó en su día, para calcular la ganancia.</small><input id="d-vadq" data-d-vadq type="number" min="0" step="10000" placeholder="p. ej. 300000"></div>
+          <div class="fld"><label for="d-vendedor">Quién vende</label>
+            <select id="d-vendedor" data-d-vendedor>
+              <option value="pf">Persona física (IRPF)</option>
+              <option value="holding">Sociedad holding (art. 21 LIS)</option>
+            </select>
+          </div>
+        </div>
+        <div class="calc-actions"><button class="btn btn-primary" data-d-run>Calcular la operación</button></div>
+        <div class="calc-result"></div>
+      </div>
+    </section>
+
+    <hr class="divider">
+
+    <!-- 4.21 -->
+    <section id="s8" class="reveal">
+      <span class="kicker">4.21 · Financiación</span>
+      <h2>Apalancamiento y debt push-down: los límites reales</h2>
+      <p>Comprar con deuda y bajar esa deuda a la sociedad adquirida (<em>debt push-down</em>) es la estructura clásica de una compra apalancada. La ley no la prohíbe, pero le pone tres límites que hay que conocer con precisión porque cambian el modelo financiero.</p>
+      <table class="tbl">
+        <thead><tr><th>Regla</th><th>Contenido verificado</th><th>Norma</th></tr></thead>
+        <tbody>
+          <tr><td><strong>Límite general</strong></td><td>Los gastos financieros netos son deducibles hasta el <strong>30 % del beneficio operativo</strong> del ejercicio. «En todo caso, serán deducibles gastos financieros netos del período impositivo por importe de <strong>1 millón de euros</strong>». Lo no deducido se deduce en períodos siguientes <strong>sin límite temporal</strong>; el límite no consumido se aprovecha en los <strong>cinco años</strong> siguientes.</td><td>art. 16.1 y 16.2 LIS</td></tr>
+          <tr><td><strong>Cálculo del beneficio operativo</strong></td><td>Parte del resultado de explotación, elimina amortizaciones, subvenciones de inmovilizado, deterioros y resultados por enajenación de inmovilizado, y <strong>añade</strong> ingresos financieros de participaciones de al menos el 5 %. Regla clave introducida por la última reforma: «En ningún caso formarán parte del beneficio operativo los ingresos, gastos o rentas que <strong>no se hubieran integrado en la base imponible</strong>». Es decir: <strong>los dividendos exentos del art. 21 ya no elevan la capacidad de deducir intereses</strong>.</td><td>art. 16.1 LIS</td></tr>
+          <tr><td><strong>Límite adicional si hay fusión posterior SIN régimen especial</strong></td><td>Límite <strong>adicional</strong> del 30 % del beneficio operativo de la <strong>propia entidad adquirente</strong>, sin incluir el de cualquier entidad que se fusione con ella en los <strong>4 años</strong> posteriores.</td><td>art. 16.5 LIS</td></tr>
+          <tr><td><strong>Límite adicional si la fusión SÍ aplica el régimen especial</strong></td><td>La misma regla, con la misma mecánica de 4 años.</td><td>art. 83 LIS</td></tr>
+          <tr><td><strong>Límite adicional si la adquirida entra en grupo fiscal</strong></td><td>Límite adicional del 30 % del beneficio operativo de la entidad o grupo adquirente, sin incluir el de la adquirida ni el de cualquier otra que se incorpore en los <strong>4 años</strong> siguientes.</td><td>art. 67 b) LIS</td></tr>
+          <tr><td><strong>El puerto seguro del 70 %</strong></td><td>Los tres límites anteriores <strong>no se aplican</strong> si la adquisición se financia con deuda <strong>como máximo en el 70 % del precio</strong>. Y dejan de aplicarse en los períodos siguientes si la deuda se minora, en la parte proporcional de cada uno de los <strong>8 años</strong> siguientes, hasta alcanzar el <strong>30 % del precio</strong>.</td><td>arts. 16.5, 83 y 67 b) LIS</td></tr>
+          <tr><td><strong>Deuda intragrupo para comprar participaciones</strong></td><td><strong>No son deducibles</strong> los gastos financieros de deudas con entidades del grupo (art. 42 CCom) destinadas a adquirir participaciones a otras entidades del grupo o a realizar aportaciones en su capital, «salvo que el contribuyente acredite que existen <strong>motivos económicos válidos</strong>».</td><td>art. 15 h) LIS</td></tr>
+          <tr><td><strong>Préstamos participativos intragrupo</strong></td><td>Su retribución tiene la consideración de <strong>retribución de fondos propios</strong>: no es gasto deducible.</td><td>art. 15 a) LIS</td></tr>
+          <tr><td><strong>Exclusiones del límite</strong></td><td>Entidades de crédito y aseguradoras; y el período impositivo de extinción de la entidad, <strong>salvo</strong> que sea consecuencia de una operación de reestructuración.</td><td>art. 16.6 LIS</td></tr>
+        </tbody>
+      </table>
+      <div class="caso svc" data-act="pushdown">
+        <div class="caso-h"><div class="ci">+</div><div class="cti"><div class="cl">Ampliar · cómo se estructura una compra apalancada sin romper nada</div><h4>El orden de las piezas y los tres errores caros</h4><p>Con el cálculo del puerto seguro y sus alternativas.</p></div><div class="chev">▾</div></div>
+        <div class="caso-body"><div class="caso-inner">
+          <div class="plano"><h5>La estructura estándar</h5><p>Se crea una sociedad vehículo (<em>NewCo</em>) que toma la deuda y compra las participaciones. Después, o bien <strong>fusiona</strong> con la adquirida (la deuda queda junto al negocio que genera la caja), o bien forma <strong>grupo fiscal</strong> con ella (los intereses se compensan con el beneficio de la adquirida). Las dos vías buscan lo mismo: que el gasto financiero se enfrente al beneficio operativo real.</p></div>
+          <div class="plano"><h5>Por qué la ley pone límites</h5><p>Porque sin ellos se podría comprar una empresa rentable con deuda y borrar su beneficio con intereses, sin haber aportado capital. Los arts. 16.5, 83 y 67.b) responden todos a la misma idea: durante <strong>4 años</strong>, el gasto financiero de la compra no puede apoyarse en el beneficio operativo de la propia adquirida.</p></div>
+          <div class="plano"><h5>El cálculo del puerto seguro</h5><p>Si el precio es de 10.000.000 €, la deuda de adquisición no debe exceder de <strong>7.000.000 €</strong>. Si se supera, todavía queda la segunda vía: reducirla proporcionalmente cada uno de los <strong>8 años</strong> siguientes hasta que represente el <strong>30 %</strong> del precio (3.000.000 €). Ese calendario de amortización se pacta con el banco <em>antes</em>, no después.</p></div>
+          <div class="plano"><h5>Error 1 · financiar la compra con deuda del propio grupo</h5><p>Directamente no deducible salvo motivo económico válido acreditado (art. 15 h). Es el error más frecuente en reorganizaciones familiares en las que una sociedad del grupo compra a otra las participaciones de una tercera.</p></div>
+          <div class="plano"><h5>Error 2 · contar con los dividendos exentos</h5><p>Los dividendos del art. 21 ya <strong>no forman parte del beneficio operativo</strong>. Un holding que sólo cobra dividendos exentos tiene, a estos efectos, poca o ninguna capacidad de deducir intereses más allá del millón de euros del art. 16.1.</p></div>
+          <div class="plano"><h5>Error 3 · olvidar el mínimo del millón</h5><p>En operaciones medianas de empresa familiar, el <strong>1 M€</strong> deducible en todo caso resuelve el problema por completo. Antes de diseñar estructuras complejas, comprueba si los intereses caben ahí: muchas veces la solución elegante es que no hace falta ninguna estructura.</p></div>
+        </div></div>
+      </div>
+    </section>
+
+    <hr class="divider">
+
+    <!-- 4.22 -->
+    <section id="s9" class="reveal">
+      <span class="kicker">4.22 · El vendedor</span>
+      <h2>Fiscalidad del vendedor: dónde se decide el neto</h2>
+      <table class="tbl">
+        <thead><tr><th>Situación</th><th>Tributación</th><th>Palanca</th></tr></thead>
+        <tbody>
+          <tr><td><strong>Persona física vende participaciones</strong></td><td>Ganancia en la base del ahorro (19 %–28 %). Si no cotizan, el valor de transmisión no puede ser inferior al mayor de patrimonio neto o capitalización al 20 % del promedio de resultados de tres ejercicios, salvo prueba de valor de mercado (art. 37.1 b LIRPF)</td><td>Reparto de la propiedad entre miembros de la familia antes de vender; aprovechar el mínimo del tramo bajo; en mayores de 65 años, renta vitalicia con el máximo de 240.000 € (art. 38.3 LIRPF)</td></tr>
+          <tr><td><strong>Holding vende participaciones</strong></td><td>Exención del art. 21 LIS: se integra el 5 % de la renta exenta y tributa al 25 % → <strong>1,25 % efectivo</strong></td><td>Requiere participación de al menos el 5 % y un año de tenencia, y que el holding exista <strong>por motivos económicos válidos</strong> desde antes. Y el dinero queda en la sociedad</td></tr>
+          <tr><td><strong>Venta con pago aplazado</strong></td><td>En IRPF, las operaciones a plazos permiten imputar la renta según los cobros, si se opta</td><td>Encaja bien con vendor loan y earn-out: reparte la ganancia entre ejercicios y evita concentrar todo en el tramo más alto</td></tr>
+          <tr><td><strong>Asset deal desde la sociedad</strong></td><td>La sociedad tributa al 25 % por la plusvalía y después hay una segunda capa al repartir al socio</td><td>Es la razón por la que el vendedor casi siempre prefiere share deal. Si el comprador exige asset deal, el diferencial se negocia en precio</td></tr>
+          <tr><td><strong>Vendedor no residente</strong></td><td>Sujeto por las rentas obtenidas en España; en particular, ganancias de participaciones «cuyo activo esté constituido principalmente, de forma directa o indirecta, por bienes inmuebles situados en territorio español» (art. 13.1 i) 3.º TRLIRNR). Tipo general del 24 %; <strong>19 %</strong> para residentes en la UE/EEE con intercambio efectivo de información</td><td>Convenio de doble imposición aplicable y certificado de residencia. En venta de <strong>inmuebles</strong> por no residente sin EP, el adquirente debe retener e ingresar el <strong>3 %</strong> de la contraprestación a cuenta del impuesto (art. 25.2)</td></tr>
+          <tr><td><strong>Sociedad con inmuebles no afectos</strong></td><td>La venta de participaciones puede tributar <strong>como transmisión de inmuebles</strong> por la norma antielusiva (art. 338.2 Ley 6/2023)</td><td>Afectación real de los inmuebles con estructura de gestión, acreditada con antelación. Y recordar el plazo de <strong>tres años</strong> desde una aportación previa</td></tr>
+        </tbody>
+      </table>
+      <div class="flag">La conversación que hay que tener con el vendedor <strong>antes</strong> de negociar el precio: qué va a hacer con el dinero. Si va a reinvertir en empresas o en inmuebles, el holding tiene sentido y el 1,25 % es real. Si quiere el dinero en su cuenta para vivir de él, la segunda capa de IRPF se come buena parte de la ventaja y a lo mejor la respuesta correcta es vender como persona física. La estructura se elige después de conocer el destino del dinero, no antes.</div>
+    </section>
+
+    <hr class="divider">
+
+    <!-- 4.23 -->
+    <section id="s10" class="reveal">
+      <span class="kicker">4.23 · Cierre</span>
+      <h2>Cierre, período interino y post-closing</h2>
+      <div class="grid grid-3">
+        <div class="card"><h4>Condiciones previas</h4><p>Autorizaciones administrativas o de competencia, consentimientos por cambio de control, levantamiento de cargas, novación o cancelación de financiación, salida de avales personales del vendedor, y contratación de los seguros exigidos.</p></div>
+        <div class="card"><h4>Período interino</h4><p>Entre firma y cierre la compañía sigue operando: el contrato obliga a gestionar «en el curso ordinario», prohíbe operaciones relevantes sin consentimiento y regula qué ocurre si algo grave sucede (cláusula MAC). Cuanto más largo el interino, más importa esta parte.</p></div>
+        <div class="card"><h4>Closing checklist</h4><p>Documento único con todo lo que debe ocurrir el día del cierre y en qué orden: firmas, pagos, transferencias, entrega de libros y poderes, ceses y nombramientos, comunicaciones a bancos y a clientes clave.</p></div>
+        <div class="card"><h4>Ajustes posteriores</h4><p>Cuentas de cierre o verificación del locked box, con plazo, experto dirimente y regla de reparto de costes. Se cierra en semanas si los criterios contables están definidos en el propio contrato; en meses si no.</p></div>
+        <div class="card"><h4>Integración</h4><p>Los primeros cien días deciden si la operación crea valor: retención del equipo clave, comunicación a clientes y proveedores, sistemas, y cumplimiento del plan que sostiene el earn-out.</p></div>
+        <div class="card"><h4>Seguimiento de garantías</h4><p>Calendario de vencimientos de garantías, tramos del escrow, hitos del earn-out y fechas de prescripción fiscal. Se anota en la agenda del expediente: nadie reclama lo que nadie recuerda.</p></div>
+      </div>
+      <div class="caso svc" data-act="checkma">
+        <div class="caso-h"><div class="ci">+</div><div class="cti"><div class="cl">Desplegar · checklist DASAR de una operación</div><h4>Las 14 comprobaciones que hacemos en toda compraventa</h4><p>Lado comprador y lado vendedor.</p></div><div class="chev">▾</div></div>
+        <div class="caso-body"><div class="caso-inner">
+          <div class="plano"><h5>1 · ¿Cuál es el perímetro exacto?</h5><p>Qué sociedades, qué activos y qué se queda fuera. Por escrito y con un organigrama antes y después.</p></div>
+          <div class="plano"><h5>2 · ¿Share o asset deal, y por qué?</h5><p>Con el cálculo de las dos rutas: contingencias, indirecta, plusvalía municipal y step-up.</p></div>
+          <div class="plano"><h5>3 · ¿Está el EBITDA normalizado y justificado?</h5><p>Cada ajuste con su soporte. El comprador va a discutirlos uno por uno.</p></div>
+          <div class="plano"><h5>4 · ¿Qué es deuda y qué es caja?</h5><p>Definición cerrada en la LOI, no en el SPA. Ahí se pierden operaciones enteras.</p></div>
+          <div class="plano"><h5>5 · ¿Cuánto cobra el vendedor al cierre?</h5><p>Tabla de cash-in, cash-out, escrow y earn-out, con impuestos. Antes de negociar el precio.</p></div>
+          <div class="plano"><h5>6 · ¿Cómo se financia el comprador?</h5><p>Y si la deuda supera el 70 % del precio, qué hacemos con los arts. 16.5, 83 y 67.b).</p></div>
+          <div class="plano"><h5>7 · ¿Se ha pedido el certificado del art. 175.2 LGT?</h5><p>En toda compra de activos o de rama. Tres meses de plazo: hay que pedirlo pronto.</p></div>
+          <div class="plano"><h5>8 · ¿Hay cláusulas de cambio de control?</h5><p>En financiación, en contratos con clientes clave, en arrendamientos y en subvenciones con compromiso de mantenimiento.</p></div>
+          <div class="plano"><h5>9 · ¿Están las contingencias cuantificadas?</h5><p>Con su tratamiento contractual asignado y su plazo ligado a la prescripción real.</p></div>
+          <div class="plano"><h5>10 · ¿Quién se queda y con qué incentivo?</h5><p>Directivos clave, permanencia del vendedor, no competencia y su precio.</p></div>
+          <div class="plano"><h5>11 · ¿Qué pasa con los inmuebles?</h5><p>Dentro o fuera del perímetro; y si quedan fuera, contrato de arrendamiento a valor de mercado firmado el mismo día.</p></div>
+          <div class="plano"><h5>12 · ¿Y con el patrimonio del vendedor después?</h5><p>Destino del dinero, estructura para recibirlo, impacto en Patrimonio y en la planificación sucesoria. Esta pregunta es la nuestra.</p></div>
+          <div class="plano"><h5>13 · ¿Está el expediente completo?</h5><p>IRL cerrada, Q&amp;A archivado, informe de due diligence, versiones del SPA y closing checklist firmado.</p></div>
+          <div class="plano"><h5>14 · ¿Quién hace el seguimiento?</h5><p>Con fechas concretas de escrow, earn-out, garantías y prescripciones. Un responsable con nombre.</p></div>
+        </div></div>
+      </div>
+    </section>
+
+    <hr class="divider">
+
+    <section class="reveal">
+      <span class="kicker">Descargables</span>
+      <h2>Normativa de esta parte</h2>
+      <div class="lib">
+        <a class="libitem" href="https://www.boe.es/buscar/act.php?id=BOE-A-2003-23186" target="_blank" rel="noopener"><span class="pdf">BOE</span><span class="lt"><b>Ley 58/2003 · General Tributaria</b><span>Responsabilidad por sucesión de empresa (42.1.c), certificado del adquirente (175.2), prescripción (66) y comprobación de bases y deducciones (66 bis)</span></span><span class="go">Texto consolidado ↗</span></a>
+        <a class="libitem" href="https://www.boe.es/buscar/act.php?id=BOE-A-2014-12328" target="_blank" rel="noopener"><span class="pdf">BOE</span><span class="lt"><b>Ley 27/2014 · Impuesto sobre Sociedades</b><span>Gastos financieros (16), no deducibles (15), exención de participaciones (21), grupo fiscal (67) y fusión apalancada (83)</span></span><span class="go">Texto consolidado ↗</span></a>
+        <a class="libitem" href="https://www.boe.es/buscar/act.php?id=BOE-A-2004-4527" target="_blank" rel="noopener"><span class="pdf">BOE</span><span class="lt"><b>RDL 5/2004 · IRNR</b><span>Rentas obtenidas en España (13.1.i), tipos (25.1) y retención del 3 % en transmisiones de inmuebles por no residentes (25.2)</span></span><span class="go">Texto consolidado ↗</span></a>
+        <a class="libitem" href="https://www.boe.es/buscar/act.php?id=BOE-A-2023-7053" target="_blank" rel="noopener"><span class="pdf">BOE</span><span class="lt"><b>Ley 6/2023 · Mercados de Valores</b><span>Art. 338: exención de la transmisión de valores y norma antielusiva en sociedades con activo inmobiliario</span></span><span class="go">Texto consolidado ↗</span></a>
+      </div>
+    </section>
+
+    <hr class="divider">
+
+    <section id="casos" class="reveal">
+      <span class="kicker">Casos prácticos</span>
+      <h2>Tres operaciones con números</h2>
+
+      <div class="caso" data-act="caso1">
+        <div class="caso-h"><div class="ci">1</div><div class="cti"><div class="cl">Caso 1 · "Me ofrecen seis millones"</div><h4>De la oferta al dinero en la cuenta</h4><p>EBITDA normalizado 1.000.000 €, múltiplo 6x, deuda neta 1.500.000 €. Se vende el 100 %. El comprador plantea 20 % de cash-in, 15 % de earn-out y 10 % de escrow. Valor de adquisición de las participaciones: 300.000 €. ¿Cuánto cobra el vendedor al cierre?</p></div><div class="chev">▾</div></div>
+        <div class="caso-body"><div class="caso-inner">
+          <div class="plano"><h5>Del EV al equity</h5><p>EV = 1.000.000 × 6 = <strong>6.000.000 €</strong>. Menos deuda neta de 1.500.000 € → equity value = <strong>4.500.000 €</strong>. La "oferta de seis millones" ya se ha convertido en cuatro y medio.</p></div>
+          <div class="plano"><h5>Cash-in y cash-out</h5><p>Con un 20 % de cash-in: 900.000 € entran en la compañía y <strong>el vendedor no los cobra</strong>. Cash-out = <strong>3.600.000 €</strong>.</p></div>
+          <div class="plano"><h5>Diferido</h5><p>Earn-out 15 % (540.000 €) + escrow 10 % (360.000 €) = <strong>900.000 € diferidos</strong>. Cobro al cierre: <strong>2.700.000 €</strong>. De seis millones anunciados a 2,7 al cierre: el 45 %.</p></div>
+          <div class="plano"><h5>Impuestos</h5><p>Ganancia = 3.600.000 − 300.000 = 3.300.000 €. Como persona física, en la base del ahorro el coste es de <strong>911.880 €</strong> (tipo efectivo del 27,6 %). Neto sobre el cash-out: <strong>2.688.120 €</strong>, de los que 900.000 € podrían no llegar nunca si el earn-out no se cumple.</p></div>
+          <div class="plano"><h5>La negociación real</h5><p>Con esta tabla delante, las peticiones del vendedor cambian: reducir el cash-in (o que el cash-in lo aporte el comprador y no diluya al vendedor), acortar el escrow, hacer el earn-out medible y con gobernanza, y valorar un vendor loan con garantías en lugar de earn-out. Nada de eso se consigue si la tabla se hace después de firmar la LOI.</p></div>
+        </div></div>
+      </div>
+
+      <div class="caso" data-act="caso2">
+        <div class="caso-h"><div class="ci">2</div><div class="cti"><div class="cl">Caso 2 · La compra apalancada al 85 %</div><h4>Cuando el modelo financiero choca con el art. 16.5</h4><p>Un grupo compra una compañía por 10.000.000 € financiando 8.500.000 € con deuda bancaria, con la intención de fusionar NewCo con la adquirida el año siguiente. Intereses anuales: 400.000 €. Beneficio operativo de NewCo: 0. De la adquirida: 1.400.000 €.</p></div><div class="chev">▾</div></div>
+        <div class="caso-body"><div class="caso-inner">
+          <div class="plano"><h5>Lo que el modelo asumía</h5><p>Que tras la fusión los 400.000 € de intereses se deducirían contra el beneficio operativo de 1.400.000 € (el 30 % son 420.000 €). Deducción completa. Ahorro de 100.000 € anuales al 25 %.</p></div>
+          <div class="plano"><h5>Lo que dice la norma</h5><p>La deuda es el <strong>85 % del precio</strong>, por encima del puerto seguro del 70 %. Al fusionar con la adquirida en los 4 años siguientes, se aplica el límite adicional del 30 % del beneficio operativo de la <strong>adquirente sin incluir el de la adquirida</strong>: 30 % de 0 = <strong>0 €</strong>. Sólo salvan la deducción los <strong>1.000.000 €</strong> del mínimo del art. 16.1, que aquí cubren los 400.000 € de intereses.</p></div>
+          <div class="plano"><h5>Cambio de escala</h5><p>Si los intereses fueran 1.400.000 € en lugar de 400.000 €, el mínimo del millón cubriría sólo una parte y habría <strong>400.000 € de gasto no deducible</strong> cada año durante cuatro años, deducibles después sin límite temporal pero con el coste financiero del diferimiento.</p></div>
+          <div class="plano"><h5>Las tres salidas</h5><p><strong>1)</strong> Bajar la deuda al 70 % (7.000.000 €) aportando más capital. <strong>2)</strong> Mantener el 85 % pero comprometer un calendario de amortización que reduzca la deuda proporcionalmente en cada uno de los <strong>8 años</strong> siguientes hasta el 30 % del precio. <strong>3)</strong> Retrasar la fusión más allá de los 4 años, asumiendo que hasta entonces los intereses no se enfrentan al beneficio de la adquirida (salvo por la vía del grupo fiscal, donde el art. 67.b) impone el mismo límite).</p></div>
+          <div class="plano"><h5>Lección</h5><p>El límite fiscal <strong>no es un detalle a revisar al final</strong>: define el porcentaje máximo de deuda de la operación y, con ello, el precio que el comprador puede pagar. Se calcula al construir el modelo, no cuando el banco ya ha aprobado la financiación.</p></div>
+        </div></div>
+      </div>
+
+      <div class="caso" data-act="caso3">
+        <div class="caso-h"><div class="ci">3</div><div class="cti"><div class="cl">Caso 3 · El hallazgo de la semana cinco</div><h4>Un solo hallazgo y cinco maneras de resolverlo</h4><p>En la due diligence de una compañía que se compra por 5.000.000 € aparece una inspección de IVA abierta por prorrata mal aplicada. Cuota estimada en riesgo: 300.000 €, más intereses y posible sanción.</p></div><div class="chev">▾</div></div>
+        <div class="caso-body"><div class="caso-inner">
+          <div class="plano"><h5>Opción A · Ajuste de precio</h5><p>Descontar 300.000 € (o el importe con intereses y sanción probable). El comprador queda cubierto y el asunto se cierra. El vendedor lo rechazará si cree que ganará la inspección.</p></div>
+          <div class="plano"><h5>Opción B · Indemnidad específica</h5><p>El vendedor asume ese riesgo concreto, <strong>sin franquicia</strong> y con plazo ligado a la prescripción del expediente, con derecho del comprador a dirigir o supervisar la defensa. Es la solución técnicamente más correcta cuando el resultado es incierto.</p></div>
+          <div class="plano"><h5>Opción C · Escrow</h5><p>Retener 350.000 € en cuenta bloqueada hasta que el procedimiento termine. Combina bien con la opción B: la indemnidad da el derecho, el escrow da el cobro.</p></div>
+          <div class="plano"><h5>Opción D · Condición previa</h5><p>Sólo si el asunto puede resolverse antes del cierre (por ejemplo, con una regularización voluntaria). Poco realista en un procedimiento abierto, pero es la salida para hallazgos como una licencia que falta.</p></div>
+          <div class="plano"><h5>Opción E · Garantía general</h5><p>Dejarlo dentro de las manifestaciones y garantías generales es la <strong>peor</strong> solución para el comprador: quedará sujeto a franquicia, cap y plazos, y el vendedor podrá alegar que el riesgo estaba <strong>revelado</strong> en el data room y por tanto no es reclamable.</p></div>
+          <div class="plano"><h5>La regla</h5><p>Un hallazgo cuantificado y conocido <strong>nunca</strong> se deja a la garantía general: se lleva a precio, indemnidad, escrow o condición previa. La garantía general es para lo que <em>no</em> se sabe.</p></div>
+        </div></div>
+      </div>
+    </section>
+
+    <hr class="divider">
+
+    <section id="quiz" class="reveal">
+      <div class="quiz" data-quiz-mod="mod4mya">
+        <div class="q-head"><span class="tri"></span><h3>Autoevaluación · M&amp;A, due diligence e IRL</h3><span class="q-meta">Necesitas ≥ 70 %</span></div>
+        <div class="q-body">
+          <div class="q-item" data-correct="1">
+            <div class="q-txt"><span class="qn">1.</span>En un asset deal, la responsabilidad del adquirente por las deudas tributarias del anterior titular…</div>
+            <label class="q-opt"><input type="radio" name="q1" value="0">No existe: sólo responde quien las generó.</label>
+            <label class="q-opt"><input type="radio" name="q1" value="1">Es solidaria por sucesión de empresa (art. 42.1.c LGT) y se limita con el certificado del art. 175.2.</label>
+            <label class="q-opt"><input type="radio" name="q1" value="2">Es subsidiaria y sólo por el IVA.</label>
+            <label class="q-opt"><input type="radio" name="q1" value="3">Sólo alcanza a las sanciones.</label>
+            <div class="q-feedback">Y si no se solicita el certificado, la responsabilidad alcanza también a las sanciones. La Administración debe expedirlo en tres meses.</div>
+          </div>
+          <div class="q-item" data-correct="2">
+            <div class="q-txt"><span class="qn">2.</span>El cash-in de una operación…</div>
+            <label class="q-opt"><input type="radio" name="q2" value="0">Lo cobra el vendedor al cierre.</label>
+            <label class="q-opt"><input type="radio" name="q2" value="1">Es la parte retenida en escrow.</label>
+            <label class="q-opt"><input type="radio" name="q2" value="2">Entra en la caja de la compañía vía ampliación de capital: el vendedor no lo cobra y se diluye.</label>
+            <label class="q-opt"><input type="radio" name="q2" value="3">Es el earn-out cobrado por adelantado.</label>
+            <div class="q-feedback">Confundir cash-in con cash-out es el malentendido más caro de una negociación.</div>
+          </div>
+          <div class="q-item" data-correct="0">
+            <div class="q-txt"><span class="qn">3.</span>El límite general de deducibilidad de gastos financieros netos es…</div>
+            <label class="q-opt"><input type="radio" name="q3" value="0">El 30 % del beneficio operativo, con un mínimo deducible en todo caso de 1 millón de euros.</label>
+            <label class="q-opt"><input type="radio" name="q3" value="1">El 50 % del beneficio operativo.</label>
+            <label class="q-opt"><input type="radio" name="q3" value="2">El 30 % de la cifra de negocios.</label>
+            <label class="q-opt"><input type="radio" name="q3" value="3">No hay límite si la deuda es bancaria.</label>
+            <div class="q-feedback">Art. 16.1 LIS. Y los dividendos exentos del art. 21 no forman parte del beneficio operativo.</div>
+          </div>
+          <div class="q-item" data-correct="3">
+            <div class="q-txt"><span class="qn">4.</span>¿Cuándo NO se aplica el límite adicional del 30 % en una compra apalancada con fusión posterior?</div>
+            <label class="q-opt"><input type="radio" name="q4" value="0">Cuando la fusión se hace en el mismo año.</label>
+            <label class="q-opt"><input type="radio" name="q4" value="1">Cuando la deuda es bancaria y no intragrupo.</label>
+            <label class="q-opt"><input type="radio" name="q4" value="2">Nunca: siempre se aplica.</label>
+            <label class="q-opt"><input type="radio" name="q4" value="3">Cuando la adquisición se financia con deuda como máximo en el 70 % del precio, o si la deuda se reduce proporcionalmente en 8 años hasta el 30 %.</label>
+            <div class="q-feedback">Es el puerto seguro de los arts. 16.5, 83 y 67.b). Define el apalancamiento máximo viable de la operación.</div>
+          </div>
+          <div class="q-item" data-correct="1">
+            <div class="q-txt"><span class="qn">5.</span>Un hallazgo de due diligence cuantificado y conocido debe llevarse…</div>
+            <label class="q-opt"><input type="radio" name="q5" value="0">A la garantía general del SPA.</label>
+            <label class="q-opt"><input type="radio" name="q5" value="1">A precio, indemnidad específica, escrow o condición previa.</label>
+            <label class="q-opt"><input type="radio" name="q5" value="2">Al anexo de información revelada y nada más.</label>
+            <label class="q-opt"><input type="radio" name="q5" value="3">A una carta de intenciones posterior.</label>
+            <div class="q-feedback">La garantía general está pensada para lo que no se sabe; y además queda sujeta a franquicia, cap y plazos.</div>
+          </div>
+          <div class="q-item" data-correct="2">
+            <div class="q-txt"><span class="qn">6.</span>Una sociedad holding que vende participaciones con exención del art. 21 tributa a un tipo efectivo aproximado del…</div>
+            <label class="q-opt"><input type="radio" name="q6" value="0">0 %.</label>
+            <label class="q-opt"><input type="radio" name="q6" value="1">5 %.</label>
+            <label class="q-opt"><input type="radio" name="q6" value="2">1,25 % (se integra el 5 % de la renta al 25 %).</label>
+            <label class="q-opt"><input type="radio" name="q6" value="3">25 %.</label>
+            <div class="q-feedback">Pero el dinero queda en la sociedad: sacarlo al socio abre una segunda capa en IRPF.</div>
+          </div>
+          <div class="q-item" data-correct="0">
+            <div class="q-txt"><span class="qn">7.</span>En la transmisión de un inmueble situado en España por un vendedor no residente sin establecimiento permanente…</div>
+            <label class="q-opt"><input type="radio" name="q7" value="0">El adquirente debe retener e ingresar el 3 % de la contraprestación a cuenta del impuesto del vendedor.</label>
+            <label class="q-opt"><input type="radio" name="q7" value="1">No hay retención.</label>
+            <label class="q-opt"><input type="radio" name="q7" value="2">Se retiene el 19 % de la ganancia.</label>
+            <label class="q-opt"><input type="radio" name="q7" value="3">Retiene el notario el 24 %.</label>
+            <div class="q-feedback">Art. 25.2 TRLIRNR. Si el comprador no retiene, el bien queda afecto al pago del impuesto.</div>
+          </div>
+          <div class="q-item" data-correct="3">
+            <div class="q-txt"><span class="qn">8.</span>El derecho de la Administración a comprobar bases o deducciones pendientes de aplicar prescribe a los…</div>
+            <label class="q-opt"><input type="radio" name="q8" value="0">Cuatro años, como todo.</label>
+            <label class="q-opt"><input type="radio" name="q8" value="1">Cinco años.</label>
+            <label class="q-opt"><input type="radio" name="q8" value="2">Quince años.</label>
+            <label class="q-opt"><input type="radio" name="q8" value="3">Diez años (art. 66 bis LGT), frente a los cuatro de la prescripción general.</label>
+            <div class="q-feedback">Por eso los plazos de garantía fiscal de un SPA no se fijan en cuatro años por defecto.</div>
+          </div>
+        </div>
+        <div class="q-actions">
+          <button class="btn btn-primary" data-quiz-check>Corregir test</button>
+          <button class="btn btn-outline" data-quiz-reset>Reintentar</button>
+          <span class="q-score" data-quiz-score></span>
+        </div>
+      </div>
+    </section>
+
+    <div class="tracker" data-mod="mod4mya">
+      <div class="tk-head"><span class="tri"></span><h3>Actividades de esta parte</h3><span class="tk-count" data-tk-count>0/8</span></div>
+      <div class="tk-body">
+        <div class="act" data-act="leer"><span class="box"></span><span class="lbl">Leer la parte de M&amp;A</span></div>
+        <div class="act" data-act="irl"><span class="box"></span><span class="lbl">Trabajar con la IRL interactiva</span></div>
+        <div class="act" data-act="dd"><span class="box"></span><span class="lbl">Registrar hallazgos de due diligence</span></div>
+        <div class="act" data-act="calc_deal"><span class="box"></span><span class="lbl">Usar la calculadora de estructura del precio</span></div>
+        <div class="act" data-act="dataroom"><span class="box"></span><span class="lbl">Desplegar cómo se monta un data room</span></div>
+        <div class="act" data-act="pushdown"><span class="box"></span><span class="lbl">Desplegar la compra apalancada</span></div>
+        <div class="act" data-act="checkma"><span class="box"></span><span class="lbl">Desplegar el checklist de la operación</span></div>
+        <div class="act" data-act="quiz"><span class="box"></span><span class="lbl">Superar la autoevaluación</span></div>
+        <div data-tk-done style="display:none;align-items:center;gap:.6rem;margin-top:.9rem;padding:.8rem 1rem;background:var(--wine-soft);border-radius:9px;color:var(--wine-dark);font-weight:600"><span class="tri"></span> ¡Parte completada!</div>
+      </div>
+    </div>
+
+    <nav class="modnav">
+      <a href="modulo-4.html"><div class="d">← Anterior</div><div class="t">Parte 1 · Reestructuraciones y neutralidad</div></a>
+      <a class="next" href="modulo-4-gobernanza.html"><div class="d">Siguiente →</div><div class="t">Parte 3 · Gobernanza e internacional</div></a>
+    </nav>
+
+  </main>
+</div>
+
+<footer class="footer">
+  <div class="fwrap">
+    <img src="dasar-blanco.svg" alt="DASAR Gestión Patrimonial">
+    <nav class="fnav">
+      <a href="index.html">Inicio</a>
+      <a href="#irl">IRL</a>
+      <a href="#dd">Hallazgos</a>
+      <a href="#calc">Estructura del precio</a>
+    </nav>
+    <div class="fcopy">© <span data-year>2026</span> DASAR Gestión Patrimonial · Formación interna. No constituye asesoramiento fiscal ni legal. Verifica siempre la normativa vigente.</div>
+  </div>
+</footer>
+
+<script src="deducciones.js?v=16"></script>
+<script src="app.js?v=16"></script>
+</body>
+</html>
